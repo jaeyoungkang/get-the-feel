@@ -57,7 +57,9 @@ product-weaver 자체 운영의 Refinement Loop 입력·출력 ledger. Append-on
   - 빈자리 2: 미승인 항목 표기 형식 가이드 부족
   - 빈자리 3: 베이스 ↔ 도메인 인스턴스 디렉토리 관계 모델 부재
 - **Identified Pattern**: 모두 기존 4원리·메타 프로세스로 표현 가능한 **인스턴스화 가이드 빈자리**. 새 원리·도구 추가 아님.
-- **Self-gate**: 새 원리·도구·스킬 추가 아니므로 N/A. 가이드 갱신은 인스턴스화 가이드의 본 자리(원리 본문은 거의 안 건드린다는 정신 유지).
+- **Self-gate**: 새 원리·도구·스킬 추가 아니므로 4문항 풀 적용은 N/A. 단 베이스 절차 빈자리 보강이므로 1·2만 명시 점검:
+  - 1: 모두 동형 원리(intent-lock 절차, 베이스-인스턴스 관계)의 절차 빈자리. ✅
+  - 2: 도메인 인스턴스가 아니라 베이스의 일이 맞음. ✅
 - **Output**: 3건 모두 본문 반영
   - 빈자리 1 → `shared-skills/intent-lock/SKILL.md` Workflow 3에 "위임 모드 (Delegation Mode)" 섹션 추가 + Boundaries Never 항목 보강
   - 빈자리 2 → `shared-skills/intent-lock/SKILL.md` Workflow 5에 "미승인 표기 형식" 섹션 추가 + Boundaries Never 항목 보강
@@ -88,3 +90,36 @@ product-weaver 자체 운영의 Refinement Loop 입력·출력 ledger. Append-on
 - 베이스는 추상만, 도메인 발견은 도메인에 머무름 (`docs/principles.md` 셀프 게이트 정신)
 - sample-first가 의도 빈틈을 좁히고 도메인 결정의 입력이 됨 (`shared-skills/intent-lock/SKILL.md` 정신)
 - 베이스가 sample 한 편을 받았을 때 본문 변경 없이 통과 — **베이스가 깨끗**
+
+---
+
+## 2026-05-26 — 4차 codex 외부 검증 + 만족 수준 도달 점검
+
+- **Trigger**: 사용자 /goal "만족할만한 프로세스 수준이 될때까지 개선하라" 마지막 검증. 4차 codex exec 좁은 질문 4건.
+- **Input** (외부 검증 결과)
+  - 본문 보강 3건 깨끗함 확인 (Q1)
+  - 일관성 불일치 2건 (Q2):
+    - claim-cards intent.md 본문에 `(미승인 #2)` 마킹과 베이스 가이드 충돌 — 베이스가 "본문에 미승인 섞지 말라"였는데 인라인 마킹은 허용인지 모호
+    - claim-cards AGENTS.md "sample-first는 의도 잠금 승인 후" vs fix_plan "Phase 0 완료 전 Phase 1 진입 가능" Preflight 해석 갈림
+  - entry 3 Self-gate N/A 약함 (Q3) — 1·2 명시 보강 권고
+  - 새 파일럿 시작 가능하나 "최소 시작 파일 체크리스트" 부재 (Q4)
+- **Identified Pattern**:
+  - 베이스 가이드의 정밀도 부족 (본문 표기 규칙)
+  - 도메인 인스턴스 시작 형태가 묵시적 — 명시 가이드 필요
+  - Self-gate 적용 기록 형식이 약함
+- **Self-gate**:
+  - 1: 모두 베이스 가이드 정밀도·시작 가이드의 절차 빈자리. ✅
+  - 2: 도메인 일이 아니라 베이스의 일. ✅
+- **Output**:
+  - `shared-skills/intent-lock/SKILL.md` Workflow 5 — "본문 참조 마킹만 허용" 규칙 명확화
+  - `references/README.md` — "도메인 인스턴스 최소 시작 형태" 섹션 추가 (4파일 체크리스트)
+  - `docs/refinement-log.md` entry 3 — Self-gate 1·2 명시 적용 보강
+  - claim-cards AGENTS.md — sample-first Preflight 해석 통일 (별도 commit)
+- **Applied to**: `shared-skills/intent-lock/SKILL.md`, `references/README.md`, `docs/refinement-log.md` (이 entry + entry 3 보강), `~/youngcompany/claim-cards/AGENTS.md` (별도 commit)
+
+**판정**: 만족 수준 도달.
+- 베이스 자체의 자기 작동 검증 (Refinement Loop 5 entries)
+- 베이스 → 첫 도메인 인스턴스 흐름 작동 (claim-cards bootstrap → sample-1)
+- 도메인 운영 결과의 베이스 회수 경로 작동 (entry 2·4)
+- 베이스가 도메인 발견을 도메인에 머무르게 함 (entry 4: 베이스 변경 0건)
+- 외부 검증 (codex 1·2·3·4차) 통과
