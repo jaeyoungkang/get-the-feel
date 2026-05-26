@@ -1,7 +1,7 @@
 ---
 name: intent-lock
 description: 새 의도가 들어왔을 때 인터뷰·구체화·잠금을 진행해, LLM 에이전트가 자기 해석으로 빈틈을 채우는 일을 차단한다. Intent-Evidence Chain의 진입 절차이며, Refuse First가 모드로 내장되어 있다. 모든 의도 잠금 산출물(제품 정체성, 약속, 샘플, 엔지니어링 결정 등)을 만들 때 이 스킬을 거친다.
-compatibility: Domain-neutral. 도메인 베이스(agentic-base, lighthouse 등)에서 자기 잠금 산출물 형식에 맞춰 인스턴스화한다.
+compatibility: Domain-neutral. 도메인 베이스에서 자기 잠금 산출물 형식에 맞춰 인스턴스화한다.
 ---
 
 # Goal

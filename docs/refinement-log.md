@@ -31,7 +31,7 @@ product-weaver 자체 운영의 Refinement Loop 입력·출력 ledger. Append-on
 - **Trigger**: 사용자 명시 위임("주요 의사결정은 니가 알아서 선택하라")으로 product-weaver의 실제 적용 검증. 새 마이크로 파일럿 잉태.
 - **Input** (운영 결과 — `intent-lock` 첫 정식 호출)
   - 위치: `~/youngcompany/claim-cards/` (첫 commit `512681b`)
-  - intent-lock Workflow 1 Refuse First 진입: lighthouse 모드로 흡수 가능성 검토 → 도메인 무게 차이로 분리 결정
+  - intent-lock Workflow 1 Refuse First 진입: 기존 도메인 베이스의 한 모드로 흡수 가능성 검토 → 도메인 무게 차이로 분리 결정
   - Workflow 2 단계 선언: `draft`
   - Workflow 3 인터뷰: 사용자 명시 위임으로 인터뷰 압축. 일방 의사결정 + 미승인 표기 + 사후 승인 라운드 큐 등록
   - Workflow 4 draft: `docs/intent.md` 작성 (제품 정체성·거부 신호·검증 방법·4원리 매핑·미승인 빈틈 5건)
