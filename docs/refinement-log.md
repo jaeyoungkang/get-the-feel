@@ -46,3 +46,22 @@ product-weaver 자체 운영의 Refinement Loop 입력·출력 ledger. Append-on
   - 새 도메인 파일럿 `claim-cards` bootstrap (베이스 → 첫 인스턴스 흐름 검증 완료)
   - 베이스 빈자리 3건은 즉시 본문 변경하지 않음 (Ask first 영역, 사용자 합의 후). refinement-log entry로만 누적.
 - **Applied to**: `~/youngcompany/claim-cards/` 신설, `docs/refinement-log.md` 이 entry 추가
+
+---
+
+## 2026-05-26 — 두 번째 정식 회고: claim-cards 운영 발견 본문 반영
+
+- **Trigger**: 사용자 /goal "만족할만한 프로세스 수준이 될때까지 개선하라". 직전 entry에서 누적된 베이스 빈자리 3건을 본문에 반영하는 정식 회고.
+- **Input** (entry 2 누적분)
+  - 빈자리 1: intent-lock "사용자 명시 위임" 모드 명세 부족
+  - 빈자리 2: 미승인 항목 표기 형식 가이드 부족
+  - 빈자리 3: 베이스 ↔ 도메인 인스턴스 디렉토리 관계 모델 부재
+- **Identified Pattern**: 모두 기존 4원리·메타 프로세스로 표현 가능한 **인스턴스화 가이드 빈자리**. 새 원리·도구 추가 아님.
+- **Self-gate**: 새 원리·도구·스킬 추가 아니므로 N/A. 가이드 갱신은 인스턴스화 가이드의 본 자리(원리 본문은 거의 안 건드린다는 정신 유지).
+- **Output**: 3건 모두 본문 반영
+  - 빈자리 1 → `shared-skills/intent-lock/SKILL.md` Workflow 3에 "위임 모드 (Delegation Mode)" 섹션 추가 + Boundaries Never 항목 보강
+  - 빈자리 2 → `shared-skills/intent-lock/SKILL.md` Workflow 5에 "미승인 표기 형식" 섹션 추가 + Boundaries Never 항목 보강
+  - 빈자리 3 → `references/README.md` 에 "베이스 ↔ 도메인 인스턴스 관계 모델" 섹션 추가 (단방향 참조, submodule·symbolic link·코드 import 금지)
+- **Applied to**: `shared-skills/intent-lock/SKILL.md`, `references/README.md`, `docs/refinement-log.md` (이 entry)
+
+**자기 적용 확인**: 이 회고는 Preflight(ledger 입력 2개 누적) → 입력 수집 → 패턴 식별 → 셀프 게이트(N/A) → 출력 → Atomic Step(한 commit) 흐름을 정확히 따랐다. Refinement Loop가 자기 작동 검증.
