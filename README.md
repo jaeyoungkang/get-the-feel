@@ -13,6 +13,10 @@
 - `shared-skills/` — 핵심 행동의 스킬 정본 (`intent-lock`, `refinement-loop`)
 - `fix_plan.md` — 작업 큐
 
+## 관련
+
+- [agentic-base](https://github.com/jaeyoungkang/agentic-base) — 같은 정신을 공유하는 더 무거운 베이스. Story Chain·정합성 CLI·여러 스킬 등 도구를 더 들고 있다. product-weaver의 가벼움이 부족할 때 옵션.
+
 ## 상태
 
 2026-05-26: 초안 작성 — codex exec 1·2·3·4차 리뷰 반영 + 자기 점검 비대 회수.
