@@ -65,3 +65,26 @@ product-weaver 자체 운영의 Refinement Loop 입력·출력 ledger. Append-on
 - **Applied to**: `shared-skills/intent-lock/SKILL.md`, `references/README.md`, `docs/refinement-log.md` (이 entry)
 
 **자기 적용 확인**: 이 회고는 Preflight(ledger 입력 2개 누적) → 입력 수집 → 패턴 식별 → 셀프 게이트(N/A) → 출력 → Atomic Step(한 commit) 흐름을 정확히 따랐다. Refinement Loop가 자기 작동 검증.
+
+---
+
+## 2026-05-26 — claim-cards sample-first 운영 결과 회수
+
+- **Trigger**: claim-cards sample-1 (representative sample) 작성 완료 (`0d5b2c1`). 베이스 빈자리가 또 식별되는지 점검.
+- **Input** (claim-cards sample-1 findings 5건)
+  1. claim-cards에 jaeyoung-think 같은 판단 스킬이 필요할 가능성
+  2. Evidence "결손" 카테고리가 단순 근거 나열보다 본질적
+  3. Uncertainty 내부 충돌은 글 전체 context 필요
+  4. 카드 ID + cross-reference 구조가 자연 발생
+  5. 원문의 출처·시점·저자 결손도 entry로 표기 필요
+- **Identified Pattern**: 5건 모두 **claim-cards 도메인 빈자리**. product-weaver 베이스 빈자리 식별 없음.
+  - 1번은 도메인 specific 스킬 후보 (베이스 스킬 아님)
+  - 2~5번은 claim-cards의 출력 구조·UX 결정 사항
+- **Self-gate**: 베이스 추가 항목 없음 → 셀프 게이트 적용 대상 없음.
+- **Output**: 본문 변경 0건. 베이스가 도메인 발견을 도메인에 머무르게 함.
+- **Applied to**: `docs/refinement-log.md` (이 entry만)
+
+**검증 결과** — product-weaver 정신의 직접 작동 증거:
+- 베이스는 추상만, 도메인 발견은 도메인에 머무름 (`docs/principles.md` 셀프 게이트 정신)
+- sample-first가 의도 빈틈을 좁히고 도메인 결정의 입력이 됨 (`shared-skills/intent-lock/SKILL.md` 정신)
+- 베이스가 sample 한 편을 받았을 때 본문 변경 없이 통과 — **베이스가 깨끗**
