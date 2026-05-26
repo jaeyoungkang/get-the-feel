@@ -142,3 +142,31 @@ product-weaver 자체 운영의 Refinement Loop 입력·출력 ledger. Append-on
 - **Applied to**: 위 2개 파일
 
 **교훈**: 외부 검증(codex)이 권고하는 정밀화도 셀프 게이트 1을 통과해야 한다. "베이스의 일인가, 도메인의 일인가" — 셀프 게이트는 외부 권고에도 적용된다. 본질 환기 없이 권고 그대로 반영하면 비대.
+
+---
+
+## 2026-05-26 — frontier-watch 도메인 사이클에서 메타 의도 차원 발견 (Spiral Loop 신설)
+
+- **Trigger**: 도메인 인스턴스(`mirror-mind/projects/frontier-watch/`) v0.1~v0.3 반복 사이클 운영 중 사용자 진단 — "제품이 만들어지는 게 아니라 문서가 만들어진다". 베이스 빈자리 식별.
+- **Input** (운영 결과)
+  - frontier-watch에 "진짜 서비스 수준"이라는 의도가 들어와 product-weaver intent-lock으로 잠금 → 실제 진행은 단일 HTML 디자인 사이클로 빠짐 (v0.1, v0.2, v0.3 + learnings 누적)
+  - v0.3 외부 검증("외부 공개 가능") 통과했으나 사용자 진단: *제품 골격*(데이터 모델·콘텐츠 입력 파이프라인·사용자 복귀 이유)은 한 번도 다루지 않음
+  - 반복 사이클 자체는 작동했음 — 매 사이클 zero 시작 + learnings 누적 + 외부 검증(서브에이전트 페르소나). 그러나 *베이스에 이 사이클 패턴의 명시 자리가 없음*
+- **Identified Pattern**: 두 차원의 의도 구분이 베이스에 명시 안 됨
+  - **사이클 의도** — 한 사이클에서 잠글 것 (intent-lock의 자리)
+  - **메타 의도** — 사이클들을 통해 명확화·수렴될 큰 의도 (베이스에 자리 없음)
+  - 메타 의도를 사이클 의도처럼 한 번에 잠그면 결과물에 집착하다 의도 이탈
+- **Self-gate** (4문항 명시 적용):
+  1. 모든 도메인에 적용 가능한 동형 원리? — 메타 의도와 사이클 의도의 구분은 *어느 도메인*에서도 발생 가능. ✅
+  2. 4원리 인스턴스로 표현되는가? — Refinement Loop의 *도메인 차원 닮은꼴 적용*. 새 원리 아님. ✅
+  3. 새 이탈 패턴? — "메타 의도를 사이클 의도로 잠금" 패턴. frontier-watch v0.x 사이클로 검증된 운영 증거. ✅
+  4. 무게 vs 막히는 패턴? — intent-lock SKILL.md 두 줄 + refinement-loop SKILL.md 한 섹션. 가벼움. 막히는 패턴: 메타 의도 이탈로 인한 결과물 집착·골격 누락. ✅
+- **Output**: 인스턴스화 가이드 보강 3건. principles.md 본문 변경 0건 (entry 6 비대 회수 정신).
+  - `shared-skills/intent-lock/SKILL.md` Workflow 3 — 의도의 *운영 형태* + *차원* 질문 두 줄 추가
+  - `shared-skills/refinement-loop/SKILL.md` — "Spiral Loop — 도메인 차원 적용" 섹션 신설
+  - `docs/refinement-log.md` — 이 entry
+- **Applied to**: 위 3개 파일
+
+**도메인 사례 처리**: frontier-watch v0.1, v0.2, v0.3 산출물과 learnings/ 사용자 결정으로 폐기 (mirror-mind 측 commit 별도). 결과물은 폐기, 패턴은 베이스에 회수 — Spiral Loop 정신 그대로.
+
+**교훈**: 베이스가 *한 번 잠그고 진행*을 가정하는 의도와 *사이클을 통해 자라야 하는* 의도는 다른 종류다. 후자(메타 의도)를 전자처럼 다루면 결과물에 집착하다 의도 이탈. Spiral Loop가 그 자리 — 베이스 차원 Refinement Loop의 닮은꼴 도메인 적용.
