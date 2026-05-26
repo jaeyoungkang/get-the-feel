@@ -15,18 +15,11 @@ product-weaver는 4원리의 도메인 구현체를 **베이스에 복제하지 
 
 참조 규칙(복제 금지, 셀프 게이트)은 `docs/principles.md` 와 `AGENTS.md` 가 정본.
 
-## 도메인 인스턴스 최소 시작 형태
+## 도메인 인스턴스 시작 형태
 
-새 도메인 파일럿이 product-weaver 위에서 출발할 때 만드는 최소 파일 4종. 더는 사전에 만들지 않는다.
+새 도메인 파일럿은 자기 베이스 참조(`AGENTS.md`), 의도 잠금 산출물, 작업 큐, sample artifact를 자기 형식으로 만든다. 파일명·구조는 도메인이 결정한다. 사전에 빈 파일을 두지 않는다 (Preflight Gate 정신).
 
-- `AGENTS.md` — 도메인 정체성 + product-weaver 참조 + Refuse First Boundaries
-- `docs/intent.md` — `intent-lock` 스킬로 잠근 의도 (미승인은 별도 섹션)
-- `fix_plan.md` — Phase 0 (미승인 사후 승인 큐) 시작
-- `samples/<sample-id>.md` — sample-first 첫 결과 (representative). bootstrap 전 필수.
-
-`docs/refinement-log.md`, `docs/evidence-log.md`, `engineering-profile.md` 등은 **첫 입력이 발생할 때** 생성한다. 사전에 빈 파일을 두지 않는다 (Preflight Gate 정신).
-
-`claim-cards` (`~/youngcompany/claim-cards/`)가 첫 인스턴스 사례.
+`claim-cards` (`~/youngcompany/claim-cards/`)가 첫 인스턴스 사례 — 자기 형식을 참고할 수 있다.
 
 ## 베이스 ↔ 도메인 인스턴스 관계 모델
 
