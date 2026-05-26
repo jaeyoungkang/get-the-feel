@@ -41,8 +41,7 @@ Refuse First는 별도 스킬이 아니라 두 스킬의 절차 안에 모드로
 - **Always**
   - 변경 검토는 `docs/principles.md` 의 비대화 방지 셀프 게이트를 따른다
   - 핵심 행동은 `shared-skills/<skill>/SKILL.md` 를 통해 수행한다
-  - 변경은 change log에 기록된다
-  - 운영 발견 사항은 `docs/refinement-log.md` (append-only)에 입력으로 누적된다. 파일은 첫 입력 발생 시 생성한다.
+  - 운영 발견 사항은 *SKILL/원리 변경 자체*로 회수한다(commit log가 변경 사유를 잡는다). 별도 누적 텍스트 ledger를 베이스에 두지 않는다 — clone 받는 사용자에게 운영 흔적은 *역사*일 뿐이다.
 
 ## Inheritance
 
