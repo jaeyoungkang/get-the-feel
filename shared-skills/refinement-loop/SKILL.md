@@ -17,6 +17,8 @@ product-weaver의 4원리는 정적 명세다. 도메인 학습이 누적되고 
 - 새 원리·도구·문서·스킬 추가 요청이 들어왔을 때 (셀프 게이트 적용 자리)
 - `intent-lock` 등 다른 스킬의 출력으로 의도 빈틈이 누적되어 검토 시점이 된 때
 
+**첫 회고 trigger**: 첫 commit 직후가 아니다. 입력 ledger에 항목이 누적되었을 때 비로소 시작. 운영 누적 없이 호출하면 Workflow 1 Preflight가 자기 차단한다.
+
 ## Workflow
 
 1. **Preflight 자기 적용** — 회고에 들어가기 전 선행 산출물 확인.
@@ -24,11 +26,14 @@ product-weaver의 4원리는 정적 명세다. 도메인 학습이 누적되고 
    - 이전 회고의 출력이 인스턴스화 가이드에 실제 반영되었는가
    - 비어 있다면 회고를 시작하지 않는다 (의도 없는 회고 금지)
 
-2. **입력 수집** — 다음 4종을 모은다.
+   **product-weaver 자체 운영 ledger 위치**: `docs/refinement-log.md` (append-only, 첫 입력 발생 시 생성). 도메인 베이스는 자기 ledger 위치를 별도로 결정.
+
+2. **입력 수집** — 다음 5종을 모은다.
    - Intent-Evidence Chain의 운영 결과 (증거 누적, 검증 실패 패턴)
    - Preflight Gate 통과 후 발생한 의도 이탈
    - Atomic Step에서 무너진 단위 기록
    - Refuse First로 거부된 변경의 사후 평가
+   - **외부 검증 결과** (codex exec 리뷰, 사람 리뷰, CI gate 등 Mechanical Verdict가 짚은 사후 발견)
 
 3. **패턴 식별** — 입력에서 반복되는 LLM 이탈 패턴을 명시.
    - 기존 4원리로 표현 가능한가? → 인스턴스화 가이드 갱신 후보
