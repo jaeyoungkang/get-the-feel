@@ -26,6 +26,18 @@ Refuse First는 별도 스킬이 아니라 두 스킬의 절차 안에 모드로
 
 베이스(product-weaver)는 도메인 인스턴스에 의해 **참조**된다. 상속이 아니다. 참조는 **단방향** — 인스턴스 → 베이스. 베이스는 인스턴스 본문을 참조하지 않는다 (Refuse First). git submodule, symbolic link, 코드 import는 쓰지 않는다 — 추상이 인스턴스에 묶이면 비대해진다.
 
+## 세션 진입 절차 (baseline-only로 진입한 에이전트)
+
+전 세션 history 없이 product-weaver만 들고 진입한 에이전트는 다음 순서로 시작한다:
+
+1. **베이스 정독** — 본 AGENTS.md → `docs/principles.md` → `shared-skills/intent-lock/SKILL.md` → `shared-skills/refinement-loop/SKILL.md`. 베이스 자체가 *모든 절차의 SSOT*.
+2. **모드 식별** — 사용자 발화가 있나? 위임 발화인가 자율 trigger인가? `intent-lock` SKILL Workflow 3 "위임 모드 / 자율 모드" 참조.
+3. **도메인 컨셉 입력** — 사용자가 도메인 이름·컨셉을 한 줄이라도 줬는가? 안 줬으면 *그 한 줄부터 합의*. 자율 모드면 메인이 1차 draft + 서브 비판.
+4. **제품 계약 1차 잠금** — `intent-lock` SKILL Workflow 3 "제품 계약 발전"이 *모든 자산보다 먼저*. 약속 한 줄 + 검증 trigger 박을 때까지 cycle 1 진입 금지.
+5. **자산 체계 발견** — Workflow 3 "자산 기여" 질문 4개에 답. 다른 도메인 카테고리 모방 금지. *제품 계약 자산*만 필수, 나머지는 빈자리 발견 시 추가.
+6. **Spiral Loop 운영 파라미터** — 사다리·상한·검증 신호·learning 회수처. 도메인 결정, 자율 모드면 메인-서브 합의.
+7. **cycle 1 진입** — 의도 잠금 → 결과물 → 자가 점검 3종(거부 신호·Forward Momentum·자산 기여·계약 발전) → 서브에이전트 검증 → commit.
+
 ## Boundaries (Refuse First)
 
 - **Never**
