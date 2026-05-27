@@ -22,21 +22,22 @@ Refuse First는 별도 스킬이 아니라 두 스킬의 절차 안에 모드로
 
 ## 도메인 인스턴스 시작 형태
 
-새 도메인 파일럿이 product-weaver 위에서 출발할 때는 자기 베이스 참조(`AGENTS.md`), 의도 잠금 산출물, 작업 큐, sample artifact를 자기 형식으로 만든다. 파일명·구조는 도메인이 결정한다. 사전에 빈 파일을 두지 않는다 (Preflight Gate 정신).
+**기본 권고: fork-style `git clone`.** product-weaver를 통째로 새 도메인 폴더로 clone하고, 그 위에서 도메인 측 파일(`AGENTS.md`, `README.md`, `fix_plan.md`, 제품 계약 자산 등)을 *갈아엎거나 추가*한다. 베이스 파일(`docs/principles.md`, `shared-skills/`, `CLAUDE.md`)은 *수정 금지* — 베이스 갱신이 필요하면 product-weaver 저장소에서 별 사이클로 처리하고 도메인 측은 fetch + merge (Ask first).
 
-베이스(product-weaver)는 도메인 인스턴스에 의해 **참조**된다. 상속이 아니다. 참조는 **단방향** — 인스턴스 → 베이스. 베이스는 인스턴스 본문을 참조하지 않는다 (Refuse First). git submodule, symbolic link, 코드 import는 쓰지 않는다 — 추상이 인스턴스에 묶이면 비대해진다.
+```bash
+git clone <product-weaver-url> ~/youngcompany/<도메인>
+cd ~/youngcompany/<도메인>
+# 이후 도메인 측 파일 갈아엎기 + 새 자산 폴더 신설
+```
 
-## 세션 진입 절차 (baseline-only로 진입한 에이전트)
+**대안 (가벼운 도메인): 참조 방식.** 새 폴더에 자체 `AGENTS.md` 두고 product-weaver를 *상대 경로*로 단방향 참조 (예: `../product-weaver/docs/principles.md`). 베이스 사본 없음. 무게가 더 가볍지만 *베이스 절차가 다른 폴더에 살아있다*는 가정 필요.
 
-전 세션 history 없이 product-weaver만 들고 진입한 에이전트는 다음 순서로 시작한다:
+두 방식 모두에서:
+- 참조는 **단방향** — 인스턴스 → 베이스. 베이스는 인스턴스 본문을 참조하지 않는다 (Refuse First).
+- git submodule, symbolic link, 코드 import는 쓰지 않는다 — 추상이 인스턴스에 *살아있는 연결*로 묶이면 비대해진다. fork-style clone은 *시작점 복제*라 살아있는 연결 아님 — 허용.
+- 도메인 폴더는 자기 git history로 진화. baseline 갱신과 도메인 작업의 lineage 분리.
+- 사전에 빈 파일을 두지 않는다 (Preflight Gate 정신).
 
-1. **베이스 정독** — 본 AGENTS.md → `docs/principles.md` → `shared-skills/intent-lock/SKILL.md` → `shared-skills/refinement-loop/SKILL.md`. 베이스 자체가 *모든 절차의 SSOT*.
-2. **모드 식별** — 사용자 발화가 있나? 위임 발화인가 자율 trigger인가? `intent-lock` SKILL Workflow 3 "위임 모드 / 자율 모드" 참조.
-3. **도메인 컨셉 입력** — 사용자가 도메인 이름·컨셉을 한 줄이라도 줬는가? 안 줬으면 *그 한 줄부터 합의*. 자율 모드면 메인이 1차 draft + 서브 비판.
-4. **제품 계약 1차 잠금** — `intent-lock` SKILL Workflow 3 "제품 계약 발전"이 *모든 자산보다 먼저*. 약속 한 줄 + 검증 trigger 박을 때까지 cycle 1 진입 금지.
-5. **자산 체계 발견** — Workflow 3 "자산 기여" 질문 4개에 답. 다른 도메인 카테고리 모방 금지. *제품 계약 자산*만 필수, 나머지는 빈자리 발견 시 추가.
-6. **Spiral Loop 운영 파라미터** — 사다리·상한·검증 신호·learning 회수처. 도메인 결정, 자율 모드면 메인-서브 합의.
-7. **cycle 1 진입** — 의도 잠금 → 결과물 → 자가 점검 3종(거부 신호·Forward Momentum·자산 기여·계약 발전) → 서브에이전트 검증 → commit.
 
 ## Boundaries (Refuse First)
 
