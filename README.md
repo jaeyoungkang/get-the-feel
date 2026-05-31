@@ -10,6 +10,7 @@
 
 - `AGENTS.md` — 에이전트 navigation
 - `docs/principles.md` — 4원리 + Refinement Loop 정본 (이게 product-weaver의 전부)
+- `docs/domain-layer-activation-guide.md` — 도메인 베이스가 필요한 레이어를 발견하는 판단 가이드
 - `shared-skills/` — 핵심 행동의 스킬 정본 (`intent-lock`, `refinement-loop`)
 - `fix_plan.md` — 작업 큐
 

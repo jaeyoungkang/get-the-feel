@@ -10,6 +10,7 @@
 
 1. `docs/principles.md` — **4원리 + Refinement Loop 정본** (이게 product-weaver의 전부)
 2. `shared-skills/` — 핵심 행동의 스킬 정본 (`intent-lock`, `refinement-loop`)
+3. `docs/domain-layer-activation-guide.md` — 도메인 베이스가 자기 레이어를 켤 때의 판단 가이드
 
 ## 핵심 행동은 스킬을 통해
 
