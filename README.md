@@ -10,13 +10,13 @@
 
 - `AGENTS.md` — 에이전트 navigation
 - `docs/principles.md` — 4원리 + Refinement Loop 정본 (이게 product-weaver의 전부)
-- `docs/domain-layer-activation-guide.md` — 도메인 베이스가 필요한 레이어를 발견하는 판단 가이드
 - `shared-skills/` — 핵심 행동의 스킬 정본 (`intent-lock`, `refinement-loop`)
 - `fix_plan.md` — 작업 큐
 
 ## 관련
 
 - [agentic-base](https://github.com/jaeyoungkang/agentic-base) — 같은 정신을 공유하는 더 무거운 베이스. Story Chain·정합성 CLI·여러 스킬 등 도구를 더 들고 있다. product-weaver의 가벼움이 부족할 때 옵션.
+- `docs/domain-layer-activation-guide.md` — 도메인 베이스가 자기 Harness Case를 남길 때 참고하는 짧은 선택 가이드.
 
 ## 상태
 

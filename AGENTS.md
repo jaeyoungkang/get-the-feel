@@ -10,7 +10,6 @@
 
 1. `docs/principles.md` — **4원리 + Refinement Loop 정본** (이게 product-weaver의 전부)
 2. `shared-skills/` — 핵심 행동의 스킬 정본 (`intent-lock`, `refinement-loop`)
-3. `docs/domain-layer-activation-guide.md` — 도메인 베이스가 자기 레이어를 켤 때의 판단 가이드
 
 ## 핵심 행동은 스킬을 통해
 
@@ -38,6 +37,7 @@ cd ~/youngcompany/<도메인>
 - git submodule, symbolic link, 코드 import는 쓰지 않는다 — 추상이 인스턴스에 *살아있는 연결*로 묶이면 비대해진다. fork-style clone은 *시작점 복제*라 살아있는 연결 아님 — 허용.
 - 도메인 폴더는 자기 git history로 진화. baseline 갱신과 도메인 작업의 lineage 분리.
 - 사전에 빈 파일을 두지 않는다 (Preflight Gate 정신).
+- 도메인은 필요하면 자기 **Harness Case**를 남긴다. 어떤 산출물·ledger·gate를 켰고 무엇을 의도적으로 거부했는지 적는 도메인별 선택 기록이다. 상세 판단은 `docs/domain-layer-activation-guide.md`를 참고한다.
 
 
 ## Boundaries (Refuse First)
