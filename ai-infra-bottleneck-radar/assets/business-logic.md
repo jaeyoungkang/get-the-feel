@@ -164,3 +164,14 @@ R10 becomes paid-proof ready as a local product candidate:
 - proof boundaries refuse completed payment, legal approval, and staffed SLA claims.
 
 This still does not grant stop permission. Product-level sellability remains blocked until external evidence exists outside local storage and the payment/legal/SLA blockers are resolved or explicitly narrowed.
+
+## R11 Sellability Verdict
+
+R11 becomes an external-proof path candidate:
+
+- the macro bottleneck map remains primary,
+- customer interview, waitlist, and payment-intent capture paths are visible,
+- each path is still external-required and not-captured,
+- promotion requires evidence outside localStorage.
+
+This still does not grant stop permission. R12 must decide the sellable boundary using actual external evidence status or explicitly keep sellability blocked.

@@ -29,3 +29,15 @@ Required fields:
 ## Next Promotion Boundary
 
 R10 may become a paid-proof local candidate. It cannot become a sellable paid service until at least one external evidence path produces real customer/payment-intent evidence and legal/payment/SLA blockers are resolved or explicitly scoped out.
+
+## R11 External-Proof Path Rule
+
+An external-proof candidate must show where the packet goes next:
+
+- customer interview
+- waitlist form
+- payment-intent screen
+
+Each path remains `external_required` and `not_captured` until evidence exists outside localStorage.
+
+Sellability cannot pass from a local packet alone. The next promotion boundary requires external evidence outside localStorage plus payment/legal/SLA resolution or explicit product-level narrowing.

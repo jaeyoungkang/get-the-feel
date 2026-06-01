@@ -97,3 +97,16 @@ Paid-proof controls can appear only after the map answers:
 - source/trust boundary.
 
 The paid-proof band must use customer-evidence language: interview, waitlist, payment intent, proof packet, and boundary. It must not become a checkout page, generic pricing page, or investment-advice funnel.
+
+## R11 External-Proof Surface Rule
+
+External-proof controls can show interview, waitlist, and payment-intent paths, but only below the macro map.
+
+The first viewport still must answer:
+
+- highest-pressure bottleneck,
+- propagation path,
+- current vs future change,
+- source/trust boundary.
+
+External-proof controls must be labeled as paths, not completed proof.

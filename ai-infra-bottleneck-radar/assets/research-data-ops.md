@@ -119,3 +119,11 @@ Allowed `snapshot_type`:
 - `paid_proof_surface` must define packet name, external evidence path, required fields, payment status, legal status, and SLA status.
 - Exported JSON must carry proof boundary and external evidence path.
 - `check-data-contracts.mjs` must fail if paid-proof readiness is treated as completed payment or validated demand.
+
+## R11 External-Proof Data Rule
+
+- `customer_proof.proof_status` must be `external_proof_path_candidate`.
+- `external_proof_surface.capture_paths` must include customer interview, waitlist, and payment-intent paths.
+- Each external path remains `external_required` and `not_captured` until real evidence exists.
+- Promotion requires evidence outside localStorage.
+- `check-data-contracts.mjs` must fail if external-proof readiness is treated as completed customer proof.

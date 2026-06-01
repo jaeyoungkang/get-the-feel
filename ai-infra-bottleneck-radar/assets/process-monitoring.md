@@ -138,3 +138,15 @@ R10 cannot close until:
 - `assets/customer-evidence.md` exists and is listed in `ASSET_MAP.md`,
 - required monitor outputs are received before verdict,
 - `final_permission_next_action` names the exact next fresh candidate unless `sellable_status: pass`.
+
+## R11 Rule
+
+R11 must create `candidates/r11-external-proof-radar/` and all quality scripts must target that candidate before verdict.
+
+R11 cannot close until:
+
+- external-proof controls remain subordinate to the macro bottleneck map,
+- customer interview, waitlist, and payment-intent paths are visible in data and checked mechanically,
+- external paths remain `external_required` and `not_captured`,
+- promotion requires evidence outside localStorage,
+- exact next-candidate fields bind non-sellable status to `candidates/r12-sellable-boundary-radar/`.

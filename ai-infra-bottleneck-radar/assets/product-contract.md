@@ -65,6 +65,13 @@ Within 30 seconds, the user can identify the highest-pressure AI infrastructure 
 - The paid-proof surface remains subordinate to the macro map and cannot replace bottleneck severity, propagation path, or future snapshot.
 - Paid-proof readiness can support an external interview, waitlist, or payment-intent screen, but it still does not prove paid demand by itself.
 
+## External-Proof Path Acceptance
+
+- The product shows explicit external capture paths: customer interview, waitlist, and payment-intent screen.
+- Each path remains external-required and not-captured until evidence exists outside localStorage.
+- The macro bottleneck map remains the first product surface before any external-proof controls.
+- Sellability cannot pass from a local export alone.
+
 ## External Blocker Acceptance
 
 - Local product readiness and paid-release readiness are separate statuses.
