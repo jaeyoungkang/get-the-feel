@@ -10,7 +10,7 @@
 
 - `AGENTS.md` — 에이전트 navigation
 - `docs/principles.md` — 4원리 + Refinement Loop 정본 (이게 product-weaver의 전부)
-- `shared-skills/` — 핵심 행동의 스킬 정본 (`intent-lock`, `refinement-loop`)
+- `shared-skills/` — 핵심 행동의 스킬 정본 (`intent-lock`, `refinement-loop`)과 선택 행동 스킬(`engineering-decision`)
 - `fix_plan.md` — 작업 큐
 
 ## 관련
