@@ -17,7 +17,9 @@ Build one complete candidate per loop for AI infrastructure bottleneck visualiza
 5. **Mechanical Check** — run `npm run quality:check`.
 6. **Current Candidate Check** — before verdict, `package.json`, asset check, data check, and syntax check must target the current candidate id.
 7. **Representative Demo Surface** — representative-demo data must be visible in the UI as user language, not only present in `data.json`.
-8. **Asset Recovery** — move lessons into assets, skill, data contract, design grammar, business logic, or checks.
+8. **Customer Proof Surface** — if a candidate claims customer proof, pricing/watchlist/capture proof must support the macro map and must remain marked as unvalidated until real customer capture exists.
+9. **Cycle Record Binding** — cycle record must bind `current_candidate_id`, `current_candidate_path`, monitor outputs, and stop permission by exact fields before verdict.
+10. **Asset Recovery** — move lessons into assets, skill, data contract, design grammar, business logic, or checks.
 
 ## Never
 
@@ -25,4 +27,5 @@ Build one complete candidate per loop for AI infrastructure bottleneck visualiza
 - Never render future scenarios as facts.
 - Never let company/stock cards replace the map.
 - Never let launch-review vocabulary replace the investor-facing bottleneck promise.
+- Never let conversion or pricing surfaces replace the macro bottleneck map.
 - Never close a cycle with only chat feedback.

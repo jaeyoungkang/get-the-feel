@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Infra Bottleneck Radar</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">AI Infra Bottleneck Radar R5</p>
+        <h1>AI 인프라 병목과 전파 경로를 먼저 보고 뉴스 맥락을 잡는다</h1>
+      </div>
+      <div id="snapshotControls" class="snapshot-controls" aria-label="스냅샷 선택"></div>
+    </header>
+
+    <main class="workspace">
+      <section class="map-panel" aria-labelledby="mapTitle">
+        <div class="panel-head">
+          <div>
+            <h2 id="mapTitle">Macro Bottleneck Map</h2>
+            <p id="snapshotNote">가장 큰 병목, 전파 경로, 현재와 미래 스냅샷을 먼저 보여준다.</p>
+          </div>
+          <div id="customerPromise" class="promise"></div>
+        </div>
+        <svg id="map" viewBox="0 0 1180 620" role="img" aria-label="AI infrastructure bottleneck map"></svg>
+      </section>
+
+      <aside class="detail" aria-labelledby="detailTitle">
+        <div class="score-box">
+          <span id="statusLabel">context</span>
+          <strong id="detailScore">0</strong>
+        </div>
+        <h2 id="detailTitle">선택 노드</h2>
+        <p id="detailSummary"></p>
+
+        <section>
+          <h3>왜 중요한가</h3>
+          <div id="investorImpact" class="stack"></div>
+        </section>
+
+        <section>
+          <h3>믿을 수 있는 근거</h3>
+          <div id="trustList" class="stack"></div>
+        </section>
+
+        <section>
+          <h3>내 리서치 루틴</h3>
+          <div id="routineList" class="stack"></div>
+        </section>
+      </aside>
+    </main>
+
+    <section class="conversion" aria-labelledby="conversionTitle">
+      <div>
+        <p class="eyebrow">Customer Proof Surface</p>
+        <h2 id="conversionTitle">병목 지도를 다시 볼 이유를 검증한다</h2>
+      </div>
+      <div id="proofBoard" class="proof-board"></div>
+    </section>
+
+    <section class="sources" aria-labelledby="sourceTitle">
+      <h2 id="sourceTitle">공식 출처</h2>
+      <div id="sourceLinks"></div>
+    </section>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

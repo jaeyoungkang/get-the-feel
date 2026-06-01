@@ -29,3 +29,10 @@ Within 30 seconds, the user can identify the highest-pressure AI infrastructure 
 - Representative-demo evidence is visible as "why this score can or cannot be trusted."
 - Source review, freshness, scenario binding, and non-advice checks pass locally.
 - Paid service remains blocked until customer willingness-to-pay, legal review, payment/pricing approval, and operating SLA are approved.
+
+## Customer Proof Acceptance
+
+- Customer proof supports the macro map; it does not replace it.
+- The surface shows why an ordinary investor would return monthly.
+- Pricing tests are shown as unsold hypotheses, not validated demand.
+- External blockers are explicit: real customer capture, legal review, payment approval, and paid SLA approval.

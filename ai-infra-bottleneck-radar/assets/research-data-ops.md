@@ -79,3 +79,11 @@ Allowed `snapshot_type`:
 - SK hynix FY2025 results: HBM and AI memory demand context.
 - NVIDIA FY2026 Form 10-K and FY2026 results: data center AI demand context.
 - Microsoft 2025 Annual Report: cloud and AI infrastructure investment context.
+
+## R5 Customer Proof Data Rule
+
+- `customer_proof.proof_status` must state that real customer capture is still missing.
+- Each displayed stage needs a watchlist or research routine.
+- Pricing tests must be present, but each remains `hypothesis_not_sold`.
+- External blockers must include real customer capture, payment approval, legal review, and paid SLA approval.
+- `check-data-contracts.mjs` must fail if customer proof is implied as validated demand.

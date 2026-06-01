@@ -2,19 +2,29 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const root = new URL("..", import.meta.url).pathname;
+const currentCandidate = "r5-customer-proof-radar";
 const record = readFileSync(join(root, "assets/CYCLE_RECORD.md"), "utf8");
 
+function field(name) {
+  const match = record.match(new RegExp(`^- ${name}:\\s*(.+)$`, "m"));
+  return match ? match[1].trim().replace(/^`|`$/g, "") : "";
+}
+
 const required = [
+  `# Cycle Record — ${currentCandidate}`,
   "Intent Guardian:",
   "Process Improvement:",
   "Asset Steward:",
   "Data/Sellability:",
-  "r4-representative-radar",
+  `- current_candidate_id: \`${currentCandidate}\``,
+  "- monitors_before_verdict: yes",
+  "asset_recovery_targets:",
   "local_candidate_status:",
   "representative_status:",
   "sellable_status:",
   "next_action:",
-  "allowed_to_stop:"
+  "allowed_to_stop:",
+  "stop_permission_after_r5:"
 ];
 
 const missing = required.filter((term) => !record.includes(term));
@@ -30,14 +40,26 @@ if (record.includes("pending")) {
 
 const status = Object.fromEntries(
   ["local_candidate_status", "representative_status", "sellable_status", "next_action", "allowed_to_stop"]
-    .map((key) => {
-      const match = record.match(new RegExp(`- ${key}:\\s*(.+)`));
-      return [key, match ? match[1].trim() : ""];
-    })
+    .map((key) => [key, field(key)])
 );
 
 if (!status.local_candidate_status || !status.representative_status || !status.sellable_status || !status.next_action || !status.allowed_to_stop) {
   console.error("Cycle record stop-permission fields are incomplete.");
+  process.exit(1);
+}
+
+if (field("current_candidate_id") !== currentCandidate) {
+  console.error("Cycle record current_candidate_id does not match current candidate.");
+  process.exit(1);
+}
+
+if (field("current_candidate_path") !== `candidates/${currentCandidate}/`) {
+  console.error("Cycle record current_candidate_path does not match current candidate.");
+  process.exit(1);
+}
+
+if (field("monitors_before_verdict") !== "yes") {
+  console.error("Cycle record must show monitors_before_verdict: yes.");
   process.exit(1);
 }
 

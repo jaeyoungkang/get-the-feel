@@ -7,6 +7,8 @@ if (!dataPath) {
 }
 
 const data = JSON.parse(readFileSync(dataPath, "utf8"));
+const htmlPath = dataPath.replace(/data\.json$/, "index.html");
+const html = readFileSync(htmlPath, "utf8");
 const requiredContract = [
   "source_id",
   "source_reference",
@@ -101,8 +103,8 @@ for (const path of data.thin_paths) {
   }
 }
 
-if (data.meta.candidate_id !== "r4-representative-radar") {
-  throw new Error("quality gate must target r4-representative-radar");
+if (data.meta.candidate_id !== "r5-customer-proof-radar") {
+  throw new Error("quality gate must target r5-customer-proof-radar");
 }
 
 const stageIds = new Set(data.stages.map((stage) => stage.id));
@@ -128,6 +130,32 @@ if (data.pricing_hypothesis?.paid_service_status !== "blocked") {
 }
 if (data.update_sla?.paid_sla_status !== "not_approved") {
   throw new Error("paid SLA must remain not approved");
+}
+
+if (!data.customer_proof || data.customer_proof.proof_status !== "local_surface_only_real_customer_capture_missing") {
+  throw new Error("R5 must include customer proof status and keep real customer capture missing");
+}
+if (!Array.isArray(data.customer_proof.watchlist_routines) || data.customer_proof.watchlist_routines.length < stageIds.size) {
+  throw new Error("R5 must include watchlist routines for displayed stages");
+}
+if (!Array.isArray(data.customer_proof.pricing_tests) || data.customer_proof.pricing_tests.length < 2) {
+  throw new Error("R5 must include pricing tests");
+}
+for (const test of data.customer_proof.pricing_tests) {
+  if (test.evidence_status !== "hypothesis_not_sold") {
+    throw new Error(`pricing test ${test.id} must remain unsold hypothesis`);
+  }
+}
+for (const blocker of ["real customer capture", "payment approval", "legal review", "paid SLA approval"]) {
+  if (!data.customer_proof.external_blockers?.includes(blocker)) {
+    throw new Error(`R5 missing external blocker: ${blocker}`);
+  }
+}
+if (!html.includes("Macro Bottleneck Map") || !html.includes("가장 큰 병목") || !html.includes("전파 경로")) {
+  throw new Error("R5 first viewport must preserve the macro bottleneck promise");
+}
+if (!html.includes("Customer Proof Surface")) {
+  throw new Error("R5 customer proof surface must be explicit and subordinate");
 }
 
 console.log("data contract gate: pass");

@@ -51,3 +51,9 @@ R4 cannot close until:
 - asset recovery targets are listed.
 - representative-demo data is visible in UI, not only in `data.json`.
 - stop permission is explicitly denied when `sellable_status` is not `pass`.
+
+## R5 Rule
+
+R5 must create `candidates/r5-customer-proof-radar/` and all quality scripts must target that candidate before verdict.
+
+R5 cannot close as sellable unless real customer capture, payment approval, legal review, and paid SLA approval are no longer missing. If those cannot be performed in-session, they must be recorded as external blockers; otherwise the loop continues with `allowed_to_stop: no`.

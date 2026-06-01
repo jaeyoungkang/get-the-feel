@@ -47,3 +47,11 @@ Launch-review vocabulary cannot become the product's primary language. The first
 - what changes under the current and future snapshots.
 
 Representative-demo proof belongs in the micro layer as "why this score can or cannot be trusted."
+
+## R5 Customer Proof Surface Rule
+
+Customer proof belongs below or beside the map. It can explain why the user returns or pays, but it cannot become the primary surface. The first viewport must still expose:
+
+- macro bottleneck severity,
+- pressure propagation,
+- current vs scenario snapshot.

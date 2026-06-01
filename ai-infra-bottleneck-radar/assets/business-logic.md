@@ -73,3 +73,19 @@ The next sellability step is not another evidence panel. It is customer-facing p
 - saved watchlist or recurring update reason,
 - customer interview or willingness-to-pay capture,
 - legal/payment/SLA external blocker classification if those cannot be completed in-session.
+
+## R5 Sellability Verdict
+
+R5 improves customer proof locally but is still not sellable:
+
+- recurring use reason is visible through watchlist routines,
+- pricing tests are visible as hypotheses,
+- customer capture is explicitly missing,
+- payment, legal review, and paid SLA are external blockers,
+- the page can support an interview or smoke test but does not prove willingness to pay.
+
+The next sellability step is external validation, not more local UI:
+
+- run a customer interview or smoke-test capture,
+- collect a willingness-to-pay signal,
+- or classify the work as blocked by external customer/payment/legal/SLA dependencies.
