@@ -68,16 +68,18 @@ compatibility: Product domains that build user-facing artifacts with repeated cy
    - HTTP/smoke check where applicable
    `unknown`은 대표 후보 승격 차단이다.
 
-7. **Stop Permission Gate** — 판매 가능 전에는 멈출 수 없다.
+7. **Stop Permission Gate** — 제품 레벨 판매 가능 전에는 멈출 수 없다.
    - cycle record에 아래 상태를 명시한다:
      - `local_candidate_status`
      - `representative_status`
      - `sellable_status`
      - `next_action`
      - `allowed_to_stop`
-   - `allowed_to_stop: yes`는 `sellable_status: pass` 또는 명시적 외부 blocker가 있을 때만 허용한다.
+   - `sellable_status`는 법무·결제·조직 승인 상태가 아니라 **제품 레벨 판단**이다. 고객에게 보여 피드백을 받을 수 있는가, 반복 사용 이유가 있는가, 가격 제안이 표면에 도달했는가, 원래 제품 약속이 첫 화면에서 작동하는가를 본다.
+   - `allowed_to_stop: yes`는 `sellable_status: pass`일 때만 허용한다.
    - `local_candidate_status: pass`는 멈춤 사유가 아니다. `sellable_status`가 pass가 아니면 다음 후보 생성 또는 외부 blocker 분류가 필요하다.
-   - 외부 blocker는 데이터 접근권, 법률 검토, 결제/사업 승인, 장기 시간척도 운영처럼 현재 세션에서 에이전트가 진행할 수 없는 것을 말한다. 단순히 품질이 부족한 것은 blocker가 아니라 다음 루프 입력이다.
+   - 외부 blocker는 법무·결제·운영 승인 같은 **출시/사업 blocker**로 기록할 수 있지만, 제품 루프 정지 사유가 아니다. 제품 표면이 고객 피드백을 받을 수준이 아니면 blocker가 아니라 다음 루프 입력이다.
+   - 제품 레벨에서 아직 약하면 `external_blocker`를 적어도 `allowed_to_stop: yes`로 둘 수 없다. 다음 후보의 제품 가설로 전환한다.
 
 8. **Asset Recovery** — 후보 종료 시 배움을 작동 위치로 이동한다.
    - 스킬
@@ -111,4 +113,4 @@ compatibility: Product domains that build user-facing artifacts with repeated cy
   - 이전 후보의 배움은 자산으로 회수
   - 각 후보는 로컬에서 독립적으로 열리는 완성품 후보
   - 대표 후보 승격과 로컬 후보 통과를 구분
-  - 판매 가능 전에는 `next_action` 또는 외부 blocker 없이 final completion 금지
+  - 제품 레벨 판매 가능 전에는 `next_action` 없이 final completion 금지

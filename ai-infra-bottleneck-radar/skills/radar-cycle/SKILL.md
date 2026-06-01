@@ -19,7 +19,8 @@ Build one complete candidate per loop for AI infrastructure bottleneck visualiza
 7. **Representative Demo Surface** — representative-demo data must be visible in the UI as user language, not only present in `data.json`.
 8. **Customer Proof Surface** — if a candidate claims customer proof, pricing/watchlist/capture proof must support the macro map and must remain marked as unvalidated until real customer capture exists.
 9. **Cycle Record Binding** — cycle record must bind `current_candidate_id`, `current_candidate_path`, monitor outputs, and stop permission by exact fields before verdict.
-10. **Asset Recovery** — move lessons into assets, skill, data contract, design grammar, business logic, or checks.
+10. **Product-Level Stop** — launch/legal/payment blockers cannot stop the product loop. Stop only when the product surface itself is ready for customer feedback, repeat use, and pricing evaluation.
+11. **Asset Recovery** — move lessons into assets, skill, data contract, design grammar, business logic, or checks.
 
 ## Never
 
@@ -28,4 +29,5 @@ Build one complete candidate per loop for AI infrastructure bottleneck visualiza
 - Never let company/stock cards replace the map.
 - Never let launch-review vocabulary replace the investor-facing bottleneck promise.
 - Never let conversion or pricing surfaces replace the macro bottleneck map.
+- Never stop because business/legal/payment approval is outside the session when the product surface still needs iteration.
 - Never close a cycle with only chat feedback.

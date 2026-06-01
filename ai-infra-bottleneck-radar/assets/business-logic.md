@@ -99,4 +99,4 @@ R6 classifies the remaining paid-release gap as external blockers:
 - legal review requires investment-advice boundary review,
 - paid SLA requires staffed monthly update operation.
 
-Local product candidate work can stop here because further paid release progress depends on external human/business/legal inputs.
+This was not enough to stop the product loop. Product-level sellability still requires a stronger customer feedback surface, repeat-use workflow, and pricing evaluation path inside the product candidate. External business blockers are launch blockers, not product-loop stop permission.

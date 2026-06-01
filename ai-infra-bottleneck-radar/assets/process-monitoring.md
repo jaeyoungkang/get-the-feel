@@ -60,4 +60,8 @@ R5 cannot close as sellable unless real customer capture, payment approval, lega
 
 ## R6 Rule
 
-R6 may set `allowed_to_stop: yes` only if `assets/CYCLE_RECORD.md` records concrete `external_blocker:` entries for real customer capture, payment approval, legal review, and paid SLA approval.
+R6 cannot set `allowed_to_stop: yes` only because external business blockers are recorded. Product-level sellability is judged by the product surface: customer feedback readiness, repeat-use reason, pricing evaluation path, and preservation of the macro bottleneck promise.
+
+## Stop Permission Repair
+
+External business blockers can be recorded, but they do not stop the product loop. If `sellable_status` is not `pass`, the record must keep `allowed_to_stop: no` and name the next fresh candidate.

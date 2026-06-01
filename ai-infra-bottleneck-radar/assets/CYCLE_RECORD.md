@@ -43,10 +43,10 @@
 - local_candidate_status: pass
 - representative_status: pass-as-external-validation-candidate
 - sellable_status: blocked
-- next_action: external validation required; no further local candidate can prove customer capture, payment approval, legal review, or paid SLA approval
-- allowed_to_stop: yes
-- stop_permission_after_r6: external_blocker
-- stop_permission_reason: local product candidate is ready for external validation; paid release depends on concrete external blockers
+- next_action: create `candidates/r7-feedback-ready-radar/` as a fresh candidate; do not patch R6
+- allowed_to_stop: no
+- stop_permission_after_r6: denied
+- stop_permission_reason: external business blockers do not prove product-level sellability; R6 can be shown for feedback but is not yet a strong customer-feedback product
 - external_blocker: real customer capture requires interview, waitlist, or payment-intent evidence
 - external_blocker: payment approval requires approved payment flow and terms
 - external_blocker: legal review requires investment-advice boundary review
@@ -59,6 +59,7 @@
 - data contract check now targets R6 and verifies external blockers
 - cycle record check permits `allowed_to_stop: yes` only when `external_blocker:` entries exist
 - local product readiness and paid-release readiness are now separate product states
+- stop permission repair: external business blockers are launch blockers, not product-loop stop permission
 
 ## Sellability Gate
 
@@ -66,13 +67,13 @@
 - paid_job: use a recurring AI infrastructure bottleneck lens before interpreting earnings and supply-chain news
 - local_product_readiness: pass
 - paid_release_readiness: blocked by external dependencies
-- sales_risk_verdict: blocked for paid release, but allowed to stop local loop due to external blockers
+- sales_risk_verdict: blocked at product level; R7 must improve customer feedback readiness, repeat-use workflow, and pricing evaluation path
 
 ## Mechanical Verdict
 
 - asset gate: pass candidate targeted by `scripts/check-assets.mjs`
 - data contract gate: pass candidate targeted by `scripts/check-data-contracts.mjs`
-- cycle gate: pass only when exact current candidate fields and external blockers are recorded
+- cycle gate: pass only when exact current candidate fields are recorded and non-sellable cycles keep `allowed_to_stop: no`
 - syntax gate: pass candidate app and scripts parse
 - HTTP check: required for local smoke at `http://localhost:4173/ai-infra-bottleneck-radar/candidates/r6-external-proof-radar/`
 
@@ -81,7 +82,7 @@
 - Intent Guardian: preserve
 - Process Improvement: keep
 - Asset Steward: keep
-- Data/Sellability: external-blocker-stop
+- Data/Sellability: continue-to-r7
 
 ### Intent Guardian
 
@@ -95,12 +96,12 @@
 
 ### Process Improvement
 
-- process_learning: stop permission needs explicit external blockers when sellable_status is not pass.
-- missing_gate: repaired by exact current-candidate field checks and external_blocker stop branch.
-- template_change: cycle record includes stop_permission_after_r6 and four external_blocker entries.
+- process_learning: stop permission must be product-level; external blockers cannot stop the product loop.
+- missing_gate: repaired by exact current-candidate field checks and product-level stop rule.
+- template_change: cycle record keeps stop_permission_after_r6 denied and names R7 fresh candidate.
 - skill_change_candidate: no base change needed.
 - mechanical_verdict_gap: repaired before verdict.
-- next_cycle_process_rule: if external blockers are cleared, restart with a new candidate using the same current-candidate binding.
+- next_cycle_process_rule: R7 must be feedback-ready as a product surface, not merely blocker-aware.
 - verdict: keep
 
 ### Asset Steward
@@ -111,7 +112,7 @@
 - skill_receipts_required: yes
 - cycle_contributions: external blocker classification recovered into product contract, business logic, process monitoring, data checks, and cycle record
 - missing_or_stale_assets: none blocking local stop
-- next_cycle_asset_rule: resume only after external blocker evidence exists
+- next_cycle_asset_rule: R7 must add customer feedback capture and repeat-use workflow assets.
 - verdict: keep
 
 ### Data/Sellability
@@ -119,6 +120,10 @@
 - data_contract_risk: medium; official source and representative samples exist, but paid launch needs external validation
 - update_cadence_gap: external blocker; paid SLA requires staffed operation
 - scenario_labeling_gap: low-medium; scenario deltas are bound to rules and labeled as scenarios
-- sellability_gap: external blockers remain
-- required_gate_change: external customer/payment/legal/SLA evidence
-- stop_or_continue: stop-local-loop-due-to-external-blocker
+- sellability_gap: R6 can be shown for feedback but does not yet close the product-level feedback loop
+- required_gate_change: customer feedback capture, repeat-use workflow, and pricing evaluation path inside the product
+- stop_or_continue: continue-to-r7
+
+## R7 Required Rule
+
+R7 must create a new candidate folder. It must not patch `candidates/r6-external-proof-radar/`. Its main advancement must be product-level customer feedback readiness: a clear feedback capture surface, repeat-use workflow, pricing evaluation path, and macro bottleneck map preservation. External business blockers may be displayed, but cannot be the reason to stop.
