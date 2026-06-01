@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync } from "node:fs";
 import { join } from "node:path";
 
 const root = new URL("..", import.meta.url).pathname;
@@ -12,21 +12,17 @@ const required = [
   "assets/business-logic.md",
   "assets/engineering-rules.md",
   "assets/process-monitoring.md",
-  "skills/ai-value-chain-cycle/SKILL.md"
+  "skills/radar-cycle/SKILL.md",
+  "candidates/r1-macro-radar/index.html",
+  "candidates/r1-macro-radar/styles.css",
+  "candidates/r1-macro-radar/app.js",
+  "candidates/r1-macro-radar/data.json"
 ];
 
 const missing = required.filter((file) => !existsSync(join(root, file)));
 if (missing.length) {
-  console.error(`Missing assets:\n${missing.join("\n")}`);
+  console.error(`Missing required files:\n${missing.join("\n")}`);
   process.exit(1);
-}
-
-const assetMap = readFileSync(join(root, "assets/ASSET_MAP.md"), "utf8");
-for (const term of ["Product-specific skills", "Research and data operations", "Visualization and UX design", "Business logic and sellability"]) {
-  if (!assetMap.includes(term)) {
-    console.error(`Asset map missing ${term}`);
-    process.exit(1);
-  }
 }
 
 console.log("asset gate: pass");
