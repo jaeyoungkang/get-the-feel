@@ -29,6 +29,21 @@
 - required_gates: product feedback readiness, repeat-use readiness, pricing evaluation readiness, macro promise preservation
 - blocked_until: product-level sellability verdict is recorded before stop permission
 
+- skill: `ai-infra-bottleneck-radar/skills/macro-bottleneck-visualization/SKILL.md`
+- loaded_at_step: skill-asset-recovery
+- required_gates: macro map primary, propagation path visible, current/scenario visible, support layers subordinate
+- blocked_until: next UI candidate receipts this skill
+
+- skill: `ai-infra-bottleneck-radar/skills/source-backed-bottleneck-data/SKILL.md`
+- loaded_at_step: skill-asset-recovery
+- required_gates: display contract, formula contract, freshness contract, scenario binding, validation samples
+- blocked_until: next data candidate receipts this skill
+
+- skill: `ai-infra-bottleneck-radar/skills/feedback-ready-product-surface/SKILL.md`
+- loaded_at_step: skill-asset-recovery
+- required_gates: feedback capture, repeat-use workflow, pricing evaluation, next evidence path
+- blocked_until: R7 receipts this skill before customer feedback/pricing work
+
 ## Current Candidate
 
 - current_candidate_id: `r6-external-proof-radar`
@@ -71,6 +86,7 @@
 - local product readiness and paid-release readiness are now separate product states
 - stop permission repair: external business blockers are launch blockers, not product-loop stop permission
 - skill registry added so generated skills are managed as first-class assets
+- product-making skills added for visualization, source-backed data, and feedback-ready product surfaces
 
 ## Sellability Gate
 

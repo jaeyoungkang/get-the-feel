@@ -10,7 +10,11 @@ Every product cycle must load and receipt:
 2. `../shared-skills/intent-lock/SKILL.md`
 3. `../shared-skills/refinement-loop/SKILL.md`
 4. `skills/radar-cycle/SKILL.md`
-5. `skills/product-level-sellability/SKILL.md`
+5. Product-making skills as applicable:
+   - `skills/macro-bottleneck-visualization/SKILL.md` before UI work
+   - `skills/source-backed-bottleneck-data/SKILL.md` before data work
+   - `skills/feedback-ready-product-surface/SKILL.md` before customer feedback/pricing/onboarding work
+6. `skills/product-level-sellability/SKILL.md` before verdict/stop decisions
 
 Use `../shared-skills/engineering-decision/SKILL.md` only when an engineering trigger fires.
 
