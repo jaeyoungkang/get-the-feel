@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const root = new URL("..", import.meta.url).pathname;
-const currentCandidate = "r9-subscription-ready-radar";
+const currentCandidate = "r10-paid-proof-radar";
 const record = readFileSync(join(root, "assets/CYCLE_RECORD.md"), "utf8");
 
 function field(name) {
@@ -32,8 +32,11 @@ const required = [
   "representative_status:",
   "sellable_status:",
   "next_action:",
+  "next_candidate_id:",
+  "next_candidate_path:",
+  "next_candidate_primary_advancement:",
   "allowed_to_stop:",
-  "stop_permission_after_r9:",
+  "stop_permission_after_r10:",
   "final_permission_status:",
   "final_permission_next_action:",
   "asset_map_present:",
@@ -57,11 +60,11 @@ if (record.includes("pending")) {
 }
 
 const status = Object.fromEntries(
-  ["local_candidate_status", "representative_status", "sellable_status", "next_action", "allowed_to_stop", "final_permission_status", "final_permission_next_action"]
+  ["local_candidate_status", "representative_status", "sellable_status", "next_action", "next_candidate_id", "next_candidate_path", "next_candidate_primary_advancement", "allowed_to_stop", "final_permission_status", "final_permission_next_action"]
     .map((key) => [key, field(key)])
 );
 
-if (!status.local_candidate_status || !status.representative_status || !status.sellable_status || !status.next_action || !status.allowed_to_stop || !status.final_permission_status || !status.final_permission_next_action) {
+if (!status.local_candidate_status || !status.representative_status || !status.sellable_status || !status.next_action || !status.next_candidate_id || !status.next_candidate_path || !status.next_candidate_primary_advancement || !status.allowed_to_stop || !status.final_permission_status || !status.final_permission_next_action) {
   console.error("Cycle record stop-permission fields are incomplete.");
   process.exit(1);
 }
@@ -106,6 +109,26 @@ if (status.sellable_status !== "pass" && !status.next_action.includes("candidate
   process.exit(1);
 }
 
+if (status.sellable_status !== "pass" && status.next_candidate_id !== "r11-external-proof-radar") {
+  console.error("R10 non-sellable cycle must bind next_candidate_id to r11-external-proof-radar.");
+  process.exit(1);
+}
+
+if (status.sellable_status !== "pass" && status.next_candidate_path !== "candidates/r11-external-proof-radar/") {
+  console.error("R10 non-sellable cycle must bind next_candidate_path to candidates/r11-external-proof-radar/.");
+  process.exit(1);
+}
+
+if (status.sellable_status !== "pass" && !status.next_candidate_primary_advancement.includes("external-proof readiness")) {
+  console.error("R10 non-sellable cycle must define next_candidate_primary_advancement as external-proof readiness.");
+  process.exit(1);
+}
+
+if (status.sellable_status !== "pass" && !status.next_action.includes(status.next_candidate_path)) {
+  console.error("next_action must include exact next_candidate_path.");
+  process.exit(1);
+}
+
 if (status.sellable_status !== "pass" && !record.includes("allowed_to_stop: no")) {
   console.error("Non-sellable cycle must explicitly deny stop permission.");
   process.exit(1);
@@ -128,6 +151,11 @@ if (status.sellable_status !== "pass" && status.final_permission_status !== "den
 
 if (status.sellable_status !== "pass" && !status.final_permission_next_action.includes("candidates/r")) {
   console.error("Non-sellable cycle must bind final_permission_next_action to a fresh candidate.");
+  process.exit(1);
+}
+
+if (status.sellable_status !== "pass" && !status.final_permission_next_action.includes(status.next_candidate_path)) {
+  console.error("final_permission_next_action must include exact next_candidate_path.");
   process.exit(1);
 }
 

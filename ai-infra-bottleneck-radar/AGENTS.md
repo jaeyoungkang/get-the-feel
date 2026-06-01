@@ -36,7 +36,7 @@ External business blockers can be recorded, but they do not grant stop permissio
 
 ## Current Candidate
 
-`candidates/r9-subscription-ready-radar/`
+`candidates/r10-paid-proof-radar/`
 
 ## Mechanical Enforcement
 

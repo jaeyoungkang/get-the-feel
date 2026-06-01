@@ -111,3 +111,11 @@ Allowed `snapshot_type`:
 - `subscription_surface.sample_paid_report` must describe a recurring bottleneck report, not a trade idea.
 - `customer_proof.proof_status` may be `product_level_sellable_local_candidate`, but external paid-release blockers remain required until real customer/payment/legal/SLA proof exists.
 - `check-data-contracts.mjs` must fail if subscription readiness is treated as paid demand validation.
+
+## R10 Paid-Proof Data Rule
+
+- `customer_proof.proof_status` must be `paid_proof_ready_local_candidate`.
+- `customer_proof.proof_boundary` must refuse payment, legal, and staffed SLA claims.
+- `paid_proof_surface` must define packet name, external evidence path, required fields, payment status, legal status, and SLA status.
+- Exported JSON must carry proof boundary and external evidence path.
+- `check-data-contracts.mjs` must fail if paid-proof readiness is treated as completed payment or validated demand.

@@ -103,8 +103,8 @@ for (const path of data.thin_paths) {
   }
 }
 
-if (data.meta.candidate_id !== "r9-subscription-ready-radar") {
-  throw new Error("quality gate must target r9-subscription-ready-radar");
+if (data.meta.candidate_id !== "r10-paid-proof-radar") {
+  throw new Error("quality gate must target r10-paid-proof-radar");
 }
 
 const stageIds = new Set(data.stages.map((stage) => stage.id));
@@ -126,23 +126,26 @@ if (compliance.get("paid-legal") !== "external_required") {
   throw new Error("paid legal review must remain external_required before paid release");
 }
 if (data.pricing_hypothesis?.paid_service_status !== "not_launched") {
-  throw new Error("pricing hypothesis must remain not_launched for R9");
+  throw new Error("pricing hypothesis must remain not_launched for R10");
 }
 if (data.update_sla?.paid_sla_status !== "candidate_not_launched") {
-  throw new Error("paid SLA must remain candidate_not_launched for R9");
+  throw new Error("paid SLA must remain candidate_not_launched for R10");
 }
 
-if (!data.customer_proof || data.customer_proof.proof_status !== "product_level_sellable_local_candidate") {
-  throw new Error("R9 must classify customer proof as product_level_sellable_local_candidate");
+if (!data.customer_proof || data.customer_proof.proof_status !== "paid_proof_ready_local_candidate") {
+  throw new Error("R10 must classify customer proof as paid_proof_ready_local_candidate");
 }
-if (!data.feedback_surface || data.feedback_surface.capture_storage !== "localStorage.ai-bottleneck-r9-subscription-context") {
-  throw new Error("R9 must include subscription context storage path");
+if (!data.customer_proof.proof_boundary || !data.customer_proof.proof_boundary.includes("not a completed payment")) {
+  throw new Error("R10 must include customer proof boundary refusing completed payment claims");
+}
+if (!data.feedback_surface || data.feedback_surface.capture_storage !== "localStorage.ai-bottleneck-r10-paid-proof-context") {
+  throw new Error("R10 must include paid-proof context storage path");
 }
 if (!Array.isArray(data.feedback_surface.repeat_use_workflows) || data.feedback_surface.repeat_use_workflows.length < stageIds.size) {
-  throw new Error("R9 must include repeat-use workflows for displayed stages");
+  throw new Error("R10 must include repeat-use workflows for displayed stages");
 }
 if (!Array.isArray(data.feedback_surface.pricing_choices) || data.feedback_surface.pricing_choices.length < 2) {
-  throw new Error("R9 must include pricing choices");
+  throw new Error("R10 must include pricing choices");
 }
 for (const test of data.feedback_surface.pricing_choices) {
   if (test.evidence_status !== "local_choice_only") {
@@ -151,20 +154,31 @@ for (const test of data.feedback_surface.pricing_choices) {
 }
 for (const blocker of ["real customer capture", "payment approval", "legal review", "paid SLA approval"]) {
   if (!data.customer_proof.external_blockers?.includes(blocker)) {
-    throw new Error(`R9 missing external blocker: ${blocker}`);
+    throw new Error(`R10 missing external blocker: ${blocker}`);
   }
 }
 if (!html.includes("Macro Bottleneck Map") || !html.includes("가장 큰 병목") || !html.includes("전파 경로")) {
-  throw new Error("R9 first viewport must preserve the macro bottleneck promise");
+  throw new Error("R10 first viewport must preserve the macro bottleneck promise");
 }
-for (const term of ["Subscription Surface", "내 월간 레이더 저장", "구독 의사", "내 월간 레이더", "샘플 유료 리포트 복사", "구독 의사 JSON 다운로드"]) {
-  if (!html.includes(term)) throw new Error(`R9 subscription UI missing ${term}`);
+for (const term of ["Paid Proof Surface", "외부 증거 패킷 저장", "결제 의향", "내 월간 레이더", "고객 검증 패킷 복사", "결제 의향 JSON 다운로드"]) {
+  if (!html.includes(term)) throw new Error(`R10 paid-proof UI missing ${term}`);
 }
 if (!html.includes("병목과 전파 경로") || !data.feedback_surface.summary.includes("병목과 전파 경로")) {
-  throw new Error("R9 subscription copy must support the macro bottleneck promise");
+  throw new Error("R10 paid-proof copy must support the macro bottleneck promise");
 }
 if (!data.subscription_surface || !data.subscription_surface.sample_paid_report || !data.subscription_surface.upgrade_decision) {
-  throw new Error("R9 must include subscription surface sample report and upgrade decision");
+  throw new Error("R10 must include subscription surface sample report and upgrade decision");
+}
+if (!data.paid_proof_surface || !data.paid_proof_surface.packet_name || !data.paid_proof_surface.external_evidence_path) {
+  throw new Error("R10 must include paid_proof_surface packet and external evidence path");
+}
+for (const key of ["selected_stage", "selected_snapshot", "routine", "price", "use_case", "contact_hint", "proof_boundary"]) {
+  if (!data.paid_proof_surface.required_packet_fields?.includes(key)) {
+    throw new Error(`R10 paid proof packet missing required field ${key}`);
+  }
+}
+if (data.paid_proof_surface.payment_status !== "not_collected" || data.paid_proof_surface.legal_status !== "external_required" || data.paid_proof_surface.sla_status !== "candidate_not_launched") {
+  throw new Error("R10 paid proof surface must refuse payment/legal/SLA completion claims");
 }
 
 console.log("data contract gate: pass");

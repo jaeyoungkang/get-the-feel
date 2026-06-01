@@ -2,10 +2,10 @@
   "private": true,
   "scripts": {
     "quality:assets": "node scripts/check-assets.mjs",
-    "quality:data": "node scripts/check-data-contracts.mjs candidates/r9-subscription-ready-radar/data.json",
+    "quality:data": "node scripts/check-data-contracts.mjs candidates/r10-paid-proof-radar/data.json",
     "quality:cycle": "node scripts/check-cycle-record.mjs",
     "quality:final": "node scripts/check-final-permission.mjs",
-    "quality:syntax": "node --check scripts/check-assets.mjs && node --check scripts/check-data-contracts.mjs && node --check scripts/check-cycle-record.mjs && node --check scripts/check-final-permission.mjs && node --check candidates/r9-subscription-ready-radar/app.js",
+    "quality:syntax": "node --check scripts/check-assets.mjs && node --check scripts/check-data-contracts.mjs && node --check scripts/check-cycle-record.mjs && node --check scripts/check-final-permission.mjs && node --check candidates/r10-paid-proof-radar/app.js",
     "quality:check": "npm run quality:assets && npm run quality:data && npm run quality:cycle && npm run quality:syntax"
   }
 }

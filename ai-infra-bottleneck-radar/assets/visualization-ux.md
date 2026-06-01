@@ -86,3 +86,14 @@ Subscription controls can appear only as a continuation of the selected bottlene
 - then choose price intent or copy a sample report.
 
 The page must not become a pricing landing page. If the subscription band is visible, its labels must stay tied to bottleneck tracking, monthly radar, sample paid report, and evidence export.
+
+## R10 Paid-Proof Surface Rule
+
+Paid-proof controls can appear only after the map answers:
+
+- highest-pressure bottleneck,
+- propagation path,
+- current vs future change,
+- source/trust boundary.
+
+The paid-proof band must use customer-evidence language: interview, waitlist, payment intent, proof packet, and boundary. It must not become a checkout page, generic pricing page, or investment-advice funnel.

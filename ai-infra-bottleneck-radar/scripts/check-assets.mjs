@@ -2,7 +2,7 @@ import { existsSync } from "node:fs";
 import { join } from "node:path";
 
 const root = new URL("..", import.meta.url).pathname;
-const currentCandidate = "r9-subscription-ready-radar";
+const currentCandidate = "r10-paid-proof-radar";
 const required = [
   "AGENTS.md",
   "assets/ASSET_MAP.md",
@@ -14,6 +14,7 @@ const required = [
   "assets/engineering-rules.md",
   "assets/process-monitoring.md",
   "assets/skill-registry.md",
+  "assets/customer-evidence.md",
   "scripts/check-final-permission.mjs",
   "skills/radar-cycle/SKILL.md",
   "skills/macro-bottleneck-visualization/SKILL.md",

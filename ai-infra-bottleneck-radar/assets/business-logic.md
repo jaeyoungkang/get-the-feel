@@ -153,3 +153,14 @@ This still does not grant stop permission. Product-level sellability remains blo
 - payment-intent or preorder evidence,
 - legal boundary review for the non-advice product,
 - approved operating SLA for monthly source review.
+
+## R10 Sellability Verdict
+
+R10 becomes paid-proof ready as a local product candidate:
+
+- the macro bottleneck map remains primary,
+- the user can export a customer evidence packet,
+- the packet can be used in an external interview, waitlist, or payment-intent screen,
+- proof boundaries refuse completed payment, legal approval, and staffed SLA claims.
+
+This still does not grant stop permission. Product-level sellability remains blocked until external evidence exists outside local storage and the payment/legal/SLA blockers are resolved or explicitly narrowed.

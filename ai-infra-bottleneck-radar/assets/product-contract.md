@@ -58,6 +58,13 @@ Within 30 seconds, the user can identify the highest-pressure AI infrastructure 
 - Price intent is attached to a selected routine and remains `local_choice_only`.
 - Subscription readiness can make the candidate customer-testable, but it does not prove paid demand or grant stop permission.
 
+## Paid-Proof Local Acceptance
+
+- The user can export a customer evidence packet after selecting a bottleneck, snapshot, routine, use case, contact hint, and price intent.
+- The exported packet names its proof boundary: local packet only, not completed payment, not legal approval, and not staffed paid SLA.
+- The paid-proof surface remains subordinate to the macro map and cannot replace bottleneck severity, propagation path, or future snapshot.
+- Paid-proof readiness can support an external interview, waitlist, or payment-intent screen, but it still does not prove paid demand by itself.
+
 ## External Blocker Acceptance
 
 - Local product readiness and paid-release readiness are separate statuses.

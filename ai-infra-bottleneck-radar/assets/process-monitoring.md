@@ -126,3 +126,15 @@ R9 cannot close until:
 - `final_permission_next_action` names the exact next fresh candidate.
 
 If `quality:final` fails, the agent must proceed to the named next fresh candidate rather than stop at R9.
+
+## R10 Rule
+
+R10 must create `candidates/r10-paid-proof-radar/` and all quality scripts must target that candidate before verdict.
+
+R10 cannot close until:
+
+- paid-proof controls remain subordinate to the macro bottleneck map,
+- customer evidence packet, proof boundary, external evidence path, payment status, legal status, and SLA status are visible in data and checked mechanically,
+- `assets/customer-evidence.md` exists and is listed in `ASSET_MAP.md`,
+- required monitor outputs are received before verdict,
+- `final_permission_next_action` names the exact next fresh candidate unless `sellable_status: pass`.
