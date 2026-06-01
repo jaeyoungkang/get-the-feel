@@ -21,6 +21,13 @@ product-weaver의 4원리는 정적 명세다. 도메인 학습이 누적되고 
 
 ## Workflow
 
+0. **Skill Load Receipt** — 이 파일을 실제로 읽었음을 산출물 또는 진행 메시지에 남긴다.
+   - `skill: shared-skills/refinement-loop/SKILL.md`
+   - `loaded_at_step`
+   - 이번 회고/Spiral에 적용할 required gates
+   - 진행 전 차단 조건(`blocked_until`)
+   Receipt 없이 회고·Spiral Loop·프로세스 변경·사이클 산출물로 넘어가면 Preflight 실패.
+
 1. **Preflight 자기 적용** — 회고에 들어가기 전 선행 산출물 확인.
    - 입력 ledger가 비어 있지 않은가
    - 이전 회고의 출력이 인스턴스화 가이드에 실제 반영되었는가
@@ -83,6 +90,7 @@ product-weaver의 4원리는 정적 명세다. 도메인 학습이 누적되고 
   - 새 원리 신설 (셀프 게이트 통과해도 사람 최종 승인 필요)
   - 도메인 인스턴스의 폐기 결정
 - **Always**
+  - **Skill Load Receipt 먼저 남김** — receipt 없이는 다음 단계 진행 금지
   - 회고 시작 전 Preflight 자기 적용
   - 셀프 게이트 4문항 명시 적용
   - 회고 결과 lineage 또는 change log에 기록
@@ -125,12 +133,164 @@ Refinement Loop는 본래 *베이스 자체*를 다듬는 메타 프로세스다
 
 - **매 사이클 종료 시점에 *다음 사이클의 결과물 형식*을 명시한다** — 안 명시되면 사이클 종료 못 함. 이게 *긍정형 정지 신호*다(거부 신호 안 걸림 같은 부정형이 아니다).
 - **다음 사이클 결과물 형식은 사다리에서 *지금보다 위 단계*여야 한다.** 같은 단계로 다시 가려면 명시 사유 + 횟수 카운트 (같은 단계 2회 연속 시 자동 상승 강제).
+- **사이클 상한 N과 조기 종료 조건은 Cycle 1 시작 전에 기록한다.** "일단 돌려보고 판단" 금지. 매 사이클 기록에는 `n of N used`와 stop/continue verdict가 있어야 한다. 상한 도달 후에도 미달이면 더 많은 반복이 아니라 *외부 검증·운영 계약·데이터/사람 손 부족* 중 무엇인지 분류한다.
+- **일괄 라운드 지시가 있어도 verdict 생략 금지.** 사용자가 "R10까지", "N번 반복"처럼 수를 지정해도 각 cycle은 독립 intent-lock → 산출물 → verdict → 다음 cycle 승인 순서를 거친다. 여러 cycle record를 한 번에 채워 넣는 것은 Spiral Loop가 아니라 문서 생성이므로 금지. 단, 사용자가 명시적으로 *시뮬레이션/브레인스토밍*을 요청한 경우에는 실제 Spiral이 아니라 "simulation"으로 표시하고 제품 대표 산출물로 승격하지 않는다.
 - **자가 점검에 긍정형 통과 기준 3개 박는다**:
   1. *Forward Momentum* — 다음 단계로 갈 *코드 단위·사용자 표면·데이터 항목* 중 1개 이상이 결과물에서 식별되었는가
   2. *자산 기여* — 도메인 자산 체계의 카테고리 1개에 *WHO·WHY 한 줄 갱신*을 포함한 기여 1조각이 더해졌는가. 사이클 시작 시 intent-lock에서 박은 자산 카테고리·기여 형태가 실제로 일어났는지 양방향 점검.
   3. *제품 계약 발전* — 사용자 약속이 추가·수정·검증·반증 중 하나로 1조각 발전했는가. 자산 기여(공급 측)와 짝인 *수요 측* 통과 기준 — *세 번 폐기 공통 함정(약속 휘발) 차단*.
 - 부정형 거부 신호만으로 통과 판단 금지.
 - **사이클 결과물이 사다리 단계와 어긋나거나(예: 종이 단계인데 문장 다듬기만 했다), 자산 기여 없이 코드만 누적되거나, 제품 계약 발전 0이면 사이클 부분 폐기.**
+
+### Spiral Loop — 모니터링 피드백 회수
+
+서브에이전트·외부 리뷰어·자가 리뷰를 루프 감시에 썼다면, 피드백은 *제품 개선*과 *프로세스 개선*으로 분류해 둘 다 회수한다. 제품만 고치고 프로세스를 그대로 두면 같은 이탈이 다음 도메인에서 반복된다.
+
+**필수 분류**
+- *제품 산출물 피드백* — 이번 도메인의 화면·코드·데이터·콘텐츠에 반영.
+- *프로세스 피드백* — 도메인 AGENTS.md, SKILL, acceptance gate, cycle record template 중 하나에 반영.
+- *베이스 후보 피드백* — 여러 도메인에 반복될 LLM 이탈 패턴이면 이 `refinement-loop` 또는 관련 skill 갱신 후보로 회수. 원리 본문 변경은 Ask first.
+
+**모니터 관점 최소 세트** (도메인에 맞춰 이름은 바꿔도 됨)
+- *사용자/수요 관점* — target user가 약속을 실제로 이해·사용하는가.
+- *표면/형식 관점* — 새 사이클이 이전 산출물의 껍데기 변경이 아니라 다른 사용자 표면·구조·시각 문법·상호작용 가설을 검증하는가.
+- *데이터/운영 관점* — 정기 갱신, 시간 변화, 미래 상태, 자동화 같은 운영 약속이 있다면 출처·시점·갱신·상태 구분 계약이 있는가.
+- *루프 품질 관점* — 상한 N, stop/continue 기준, 폐기 항목, 다음 결과물 형식이 기록되었는가.
+
+**회수 규칙**
+- 모니터 피드백이 "프로세스가 느슨하다"는 종류라면 그 사이클은 제품 산출물이 좋아도 완료 아님. process asset 또는 skill/gate에 1조각 반영해야 종료 가능.
+- 모니터 피드백은 별도 누적 문서에만 남기지 않는다. 다음 사이클 record template, acceptance check, 데이터 계약, 도메인 AGENTS.md, SKILL 중 실제 작동 위치로 이동한다.
+- 같은 문제를 두 모니터 이상이 지적하면 다음 사이클 의도에 직접 반영한다. 반영하지 않으려면 Refuse First 사유를 기록한다.
+
+### Spiral Loop — 실시간 서브에이전트 모니터링 모드
+
+사용자가 명시적으로 요청하거나, 메타 의도가 크고 사이클이 2회 이상 예정된 경우에는 서브에이전트 모니터링을 *사후 리뷰*가 아니라 *진행 중 감시 루프*로 운영할 수 있다. 목적은 산출물 품질만 올리는 것이 아니라 **프로세스가 이탈하는 순간 즉시 절차를 고치는 것**이다.
+
+**진입 조건**
+- 사용자 명시 요청: "서브에이전트로 모니터링", "프로세스를 개선하며 반복" 등.
+- 또는 자율 Spiral에서 같은 종류의 실패가 2회 반복됨.
+- 또는 정기 업데이트·미래 예측·투자·의료·법률처럼 운영/신뢰 리스크가 큰 도메인.
+
+**모니터 배치**
+- 기본 3~4개. 더 늘리려면 병렬 trunk 또는 독립 검증 질문이 있어야 한다.
+- 각 모니터는 서로 다른 관점 1개만 맡는다. 예: 사용자 적합성, 표면/시각 문법, 데이터/운영 계약, 루프 품질.
+- **Intent Guardian은 필수 모니터.** Spiral Loop에서 서브에이전트 모니터를 쓰는 경우 첫 모니터는 항상 원 의도 보존 담당이다. 다른 모니터가 유용한 좁힘을 제안해도 Intent Guardian이 original ask 대체라고 판정하면 해당 좁힘은 primary promise로 승격 금지.
+- **Process Improvement Monitor도 필수 모니터.** Spiral Loop가 2회 이상 지속될 제품이라면, 제품 산출물과 별도로 *프로세스가 이번 cycle에서 무엇을 배웠고 다음 cycle gate/template/SKILL에 무엇을 고칠지* 감시하는 모니터를 둔다. 이 모니터는 제품 UI를 평가하는 대신 루프 품질, gate 누락, 검증 부재, 모니터 역할 충돌, 자산 회수 실패를 본다.
+- **Asset Steward Monitor도 필수 모니터.** 새 제품을 계속 반복해 만들거나 판매 가능한 수준까지 끌어올리는 Spiral에서는, 별도 모니터가 *자산 체계가 실제로 자라고 있는지*만 본다. 이 모니터는 화면 완성도나 코드 품질을 직접 평가하지 않고, 제품 계약·제품별 스킬/플레이북·엔지니어링 규약·리서치/데이터·화면 디자인/시각화·비즈니스 로직·프로세스 개선 자산이 이번 사이클에서 어떤 파일/규약/템플릿으로 갱신됐는지 확인한다. 자산이 markdown ledger에만 쌓이고 다음 사이클 입력으로 작동하지 않으면 `repair-before-next`.
+- 모니터에게 코드 수정을 시키지 않는다. 코드 작업자는 별도 worker로 분리한다. 모니터는 `process_risk`, `product_risk`, `required_gate_change`, `stop_or_continue`를 낸다.
+- 모니터 prompt에는 베이스 어휘만 쓰지 말고 도메인 외부 표면 어휘를 최소 1개 넣는다. 같은 베이스 어휘 안에서 메인과 모니터가 공진하는 것을 막는다.
+
+**체크포인트**
+1. *Cycle Start* — 사이클 의도, 상한 N, acceptance check, 표면 가설을 모니터가 비판한다.
+2. *Mid-cycle* — 구현/산출물이 이전 사이클의 껍데기 변경으로 퇴행하는지 확인한다.
+3. *Pre-verdict* — stop/continue 판정 전에 제품 리스크와 프로세스 리스크를 분리해 받는다.
+4. *Recovery* — 모니터가 지적한 프로세스 리스크 중 채택한 항목을 실제 작동 위치(SKILL, AGENTS, gate, cycle template, data contract)에 반영한다.
+
+**Intent Guardian 출력 필수 필드**
+- original_ask:
+- current_cycle_promise:
+- preserved:
+- narrowed:
+- drift_risk: low / medium / high
+- verdict: preserve / restore / reject-cycle
+
+**Process Improvement Monitor 출력 필수 필드**
+- process_learning:
+- missing_gate:
+- template_change:
+- skill_change_candidate:
+- mechanical_verdict_gap:
+- next_cycle_process_rule:
+- verdict: keep / repair-before-next / escalate-to-base
+
+**Asset Steward Monitor 출력 필수 필드**
+- asset_map_present:
+- asset_categories_checked:
+- skill_assets_checked:
+- skill_receipts_required:
+- cycle_contributions:
+- missing_or_stale_assets:
+- next_cycle_asset_rule:
+- verdict: keep / repair-before-next / reject-cycle
+
+필수 모니터의 placeholder만 만드는 것은 compliance가 아니다. required monitor는 verdict 전 실제 출력이 있어야 하며, `pending`이면 cycle 미종료다.
+
+**실시간 차단 규칙**
+- 두 모니터 이상이 같은 프로세스 리스크를 지적하면 다음 사이클로 진행하기 전에 gate 또는 record template을 먼저 고친다.
+- Intent Guardian이 `restore` 또는 `reject-cycle`을 내면 다른 모니터 verdict와 무관하게 restoration cycle로 전환한다.
+- Process Improvement Monitor가 `repair-before-next`를 내면 다음 제품 cycle 전에 도메인 template/gate를 먼저 고친다. `escalate-to-base`를 내면 `refinement-loop` 또는 관련 skill 변경 후보로 회수하되, 원리 본문 변경은 Ask first.
+- Asset Steward Monitor가 `repair-before-next`를 내면 다음 제품 cycle 전에 자산 파일/규약/템플릿을 먼저 고친다. `reject-cycle`이면 제품 산출물은 대표 산출물로 승격 금지.
+- Asset Steward Monitor가 필요한 제품별 스킬/플레이북이 없거나 receipt 없이 쓰였다고 판정하면 다음 cycle은 제품 기능이 아니라 스킬 자산화/기계 gate repair로 전환한다.
+- 모니터가 "중심 표면이 약속을 구현하지 않는다"를 지적하면 산출물은 partial discard 후보이며, 설명 문구 추가만으로 통과 금지.
+- 모니터가 "운영 계약 없음"을 지적하면 다음 사이클은 디자인이 아니라 thin path 운영 계약으로 전환한다.
+- 모니터 피드백을 반영하지 않기로 하면 Refuse First 사유를 cycle record에 적는다.
+
+**종료 규칙**
+- 모니터는 사이클 종료 후 닫는다. 열린 모니터를 다음 사이클에 관성으로 끌고 가지 않는다.
+- 모니터링 결과 요약은 제품 자산과 프로세스 자산에 나뉘어 회수한다.
+- Asset Steward Monitor 결과는 Asset Map의 `last_cycle_contribution`으로 회수한다. 회수 위치가 없으면 Asset Map 자체를 먼저 만든다.
+- 제품별 스킬/플레이북은 Asset Map에 등록하고, cycle record에는 실제 호출 receipt를 남긴다. receipt 없이 "스킬을 따랐다"고 쓰는 것은 미통과다.
+- 모니터링이 새 산출물 생성을 지연시키기만 하고 gate 변화가 0이면 다음 사이클에서 모니터 수를 줄인다.
+
+### Spiral Loop — 표면 가설 다양화 게이트
+
+반복이 "더 예쁘게", "더 깔끔하게", "카피를 정리"로 수렴하면 루프가 아니라 국소 최적화다. 특히 시각화·UX·콘텐츠 제품은 각 사이클 시작 시 **표면 가설**을 한 줄로 잠근다.
+
+**필수 질문**
+- 이번 사이클이 검증하는 사용자 표면 가설은 무엇인가?
+- 이전 사이클과 다른 구조·동선·시각 문법·데이터 단위는 무엇인가?
+- 이번 산출물이 좋아졌다는 판단을 사용자가 어떤 행동/답변으로 증명하는가?
+
+**거부 신호**
+- 새 사이클이 이전 산출물의 색·간격·문구만 바꾼다.
+- 코드 이름은 바뀌었지만 사용자가 보는 정보 구조는 같다.
+- 중심 약속이 side panel이나 설명 문구에만 있고 primary surface에는 없다.
+- 정량 표현(크기·색·위치·두께)이 실제 metric, 산식, 또는 명시된 예시 데이터와 연결되지 않는다.
+
+### Spiral Loop — 원 의도 앵커 게이트
+
+루프가 진행될수록 모니터 피드백, 데이터 계약, 안전 장치가 원래 사용자의 제품 요구를 과도하게 좁히거나 다른 제품으로 바꿀 수 있다. 따라서 매 사이클 시작과 verdict 전에 **원 의도 앵커**를 대조한다.
+
+**필수 기록**
+- original user ask 한 줄
+- 이번 cycle promise 한 줄
+- primary surface가 original ask를 직접 구현하는지 여부
+- 좁힘(narrowing)이 필요한 경우, 원 의도에서 무엇을 보존하고 무엇만 임시로 줄였는지
+- original ask의 핵심 명사 2~5개와 이번 산출물의 핵심 명사 2~5개. 핵심 명사가 대부분 교체되면 drift 후보.
+
+**차단 규칙**
+- 원래 요구가 "거시 맵"인데 사이클 결과가 종목 카드/리스트/리서치 툴로 바뀌면 intent drift. 제품 산출물은 partial discard.
+- 모니터가 특정 관점을 강하게 밀어도, 그 관점이 original ask를 대체하면 수용 금지. 보조 gate로만 회수한다.
+- thin path는 운영 계약 검증용 보조 산출물이지, 사용자가 요구한 primary surface를 대체할 수 없다.
+- verdict 전에 "original ask를 30초 안에 사용자가 알아볼 수 있는가"를 통과하지 못하면 stop이 아니라 restoration cycle로 전환한다.
+
+### Spiral Loop — 최소 기계 판정
+
+product-weaver 베이스는 무거운 CLI를 두지 않지만, 도메인 Spiral은 최소 기계 판정을 가져야 한다. 없으면 `Mechanical Verdict 방식 후보`가 아니라 `Mechanical Verdict 부재`로 기록하고 release/대표 산출물 승격을 막는다.
+
+최소 판정 예:
+- 필수 cycle record 필드 존재 확인
+- Skill Load Receipt 존재 확인
+- original ask 키워드가 대표 산출물 또는 cycle record에 남아 있는지 확인
+- observed/scenario 등 운영 계약 필드 존재 확인
+- 정적 파일이면 HTTP 200 또는 문법 검사
+- required monitor verdict가 `pending`이 아닌지 확인
+
+판정 결과는 `pass / fail / unknown` 중 하나다. `unknown`은 대표 산출물 승격 차단이다.
+
+### Spiral Loop — 운영 계약 게이트
+
+제품 약속에 정기 업데이트, 시간 변화, 미래 스냅샷, 자동 판단, 예측, 추천, 감사 가능성이 포함되면 **운영 계약**이 없이는 수렴 판정 금지. 이는 UI 문제가 아니라 Intent-Evidence Chain의 데이터/운영 종착 문제다.
+
+최소 운영 계약:
+- `as_of` — 값이 말하는 기준 시점
+- `collected_at` / `applied_at` — 수집·반영 시점
+- observed / inferred / scenario / forecast 구분
+- provenance 또는 source id
+- correction / late arrival 처리 방식
+- future scenario라면 base snapshot, horizon, assumptions, status
+
+운영 계약이 비어 있으면 다음 사이클은 새 디자인이 아니라 *thin path 데이터/운영 계약*으로 올라간다. 전체를 계약화하지 말고 가장 중요한 경로 1개를 잡아 entity, relationship, metric, update event, future scenario를 1건씩 잠근다.
 
 **자기 종료 회피 감지 (자율 모드 자가 점검 자리)**
 

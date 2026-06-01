@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Supply Chain Map</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">AI 공급망 거시 병목 맵</p>
+        <h1>어디가 막히고, 그 압력이 어디로 전파되는지 본다</h1>
+      </div>
+      <div class="snapshot-control" id="snapshotButtons" aria-label="스냅샷 선택"></div>
+    </header>
+
+    <main class="workspace">
+      <section class="map-panel" aria-labelledby="map-title">
+        <div class="panel-head">
+          <div>
+            <h2 id="map-title">Macro Supply Chain</h2>
+            <p id="snapshotNote">현재 관측과 미래 시나리오는 같은 지도에서 구분 표시된다.</p>
+          </div>
+          <div class="legend">
+            <span><i class="edge high"></i>전파 압력</span>
+            <span><i class="dot hot"></i>병목 높음</span>
+            <span><i class="dot warm"></i>주의</span>
+            <span><i class="dot cool"></i>완화</span>
+          </div>
+        </div>
+        <div class="map-shell">
+          <svg id="macroMap" viewBox="0 0 1200 700" role="img" aria-label="AI 공급망 거시 병목 지도"></svg>
+        </div>
+      </section>
+
+      <aside class="detail-panel" aria-labelledby="detail-title">
+        <div class="score-box">
+          <span id="detailState">observed</span>
+          <strong id="detailScore">0</strong>
+        </div>
+        <h2 id="detail-title">선택 구간</h2>
+        <p id="detailSummary"></p>
+
+        <section class="block">
+          <h3>미시 노드</h3>
+          <div id="microNodes" class="micro-list"></div>
+        </section>
+
+        <section class="block">
+          <h3>투자자 관찰 포인트</h3>
+          <ul id="watchList"></ul>
+        </section>
+
+        <section class="block">
+          <h3>시간 변화</h3>
+          <div id="trendList" class="trend-list"></div>
+        </section>
+
+        <section class="block">
+          <h3>데이터 상태</h3>
+          <p id="dataStatus" class="note"></p>
+        </section>
+
+        <section class="block">
+          <h3>표시 계약</h3>
+          <div id="contractList" class="contract-list"></div>
+        </section>
+      </aside>
+    </main>
+
+    <section class="sources" aria-labelledby="sources-title">
+      <h2 id="sources-title">초기 공식 출처</h2>
+      <a href="https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm" target="_blank" rel="noreferrer">NVIDIA FY2026 Form 10-K</a>
+      <a href="https://investor.tsmc.com/static/annualReports/2025/english/index.html" target="_blank" rel="noreferrer">TSMC 2025 Annual Report</a>
+      <a href="https://news.skhynix.com/sk-hynix-announces-fy25-financial-results/" target="_blank" rel="noreferrer">SK hynix FY2025 results</a>
+    </section>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
