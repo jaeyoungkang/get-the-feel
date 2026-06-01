@@ -68,7 +68,18 @@ compatibility: Product domains that build user-facing artifacts with repeated cy
    - HTTP/smoke check where applicable
    `unknown`은 대표 후보 승격 차단이다.
 
-7. **Asset Recovery** — 후보 종료 시 배움을 작동 위치로 이동한다.
+7. **Stop Permission Gate** — 판매 가능 전에는 멈출 수 없다.
+   - cycle record에 아래 상태를 명시한다:
+     - `local_candidate_status`
+     - `representative_status`
+     - `sellable_status`
+     - `next_action`
+     - `allowed_to_stop`
+   - `allowed_to_stop: yes`는 `sellable_status: pass` 또는 명시적 외부 blocker가 있을 때만 허용한다.
+   - `local_candidate_status: pass`는 멈춤 사유가 아니다. `sellable_status`가 pass가 아니면 다음 후보 생성 또는 외부 blocker 분류가 필요하다.
+   - 외부 blocker는 데이터 접근권, 법률 검토, 결제/사업 승인, 장기 시간척도 운영처럼 현재 세션에서 에이전트가 진행할 수 없는 것을 말한다. 단순히 품질이 부족한 것은 blocker가 아니라 다음 루프 입력이다.
+
+8. **Asset Recovery** — 후보 종료 시 배움을 작동 위치로 이동한다.
    - 스킬
    - 자산 문서
    - 데이터 계약
@@ -85,6 +96,7 @@ compatibility: Product domains that build user-facing artifacts with repeated cy
 - asset contribution
 - monitor verdicts
 - mechanical verdict
+- stop permission verdict
 - promote/archive/discard decision
 
 ## Boundaries
@@ -99,3 +111,4 @@ compatibility: Product domains that build user-facing artifacts with repeated cy
   - 이전 후보의 배움은 자산으로 회수
   - 각 후보는 로컬에서 독립적으로 열리는 완성품 후보
   - 대표 후보 승격과 로컬 후보 통과를 구분
+  - 판매 가능 전에는 `next_action` 또는 외부 blocker 없이 final completion 금지

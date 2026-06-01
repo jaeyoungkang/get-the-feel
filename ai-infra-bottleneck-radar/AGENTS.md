@@ -19,6 +19,12 @@ Each loop creates a new complete candidate under `candidates/<candidate-id>/`.
 
 Do not patch a previous candidate and call it a new loop. Previous candidates are archive/reference only unless explicitly promoted.
 
+## Stop Permission Rule
+
+Do not stop after `local_candidate_status: pass`. Continue until `sellable_status: pass` or a concrete `external_blocker` is recorded.
+
+If `sellable_status` is not `pass`, `assets/CYCLE_RECORD.md` must contain `allowed_to_stop: no` and a `next_action` that starts the next fresh candidate.
+
 ## Current Candidate
 
 `candidates/r1-macro-radar/`
@@ -28,4 +34,3 @@ Do not patch a previous candidate and call it a new loop. Previous candidates ar
 Run from this project root:
 
 `npm run quality:check`
-

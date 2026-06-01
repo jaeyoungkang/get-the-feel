@@ -33,9 +33,12 @@
 
 ## Candidate Disposition
 
-- local candidate: pass
-- representative promotion: blocked
-- paid release: blocked
+- local_candidate_status: pass
+- representative_status: blocked
+- sellable_status: blocked
+- next_action: create `candidates/r2-operations-radar/` as a fresh candidate; do not patch R1
+- allowed_to_stop: no
+- stop_permission_reason: local candidate pass is not sellable release pass; continue Spiral Loop
 
 ## Asset Contribution
 
