@@ -1,0 +1,293 @@
+{
+  "sources": {
+    "tsmc-2025-ar": {
+      "label": "TSMC 2025 Annual Report",
+      "url": "https://investor.tsmc.com/static/annualReports/2025/english/index.html"
+    },
+    "skhynix-fy25": {
+      "label": "SK hynix FY2025 results",
+      "url": "https://news.skhynix.com/sk-hynix-announces-fy25-financial-results/"
+    },
+    "nvidia-fy26": {
+      "label": "NVIDIA FY2026 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm"
+    },
+    "microsoft-ar25": {
+      "label": "Microsoft 2025 Annual Report",
+      "url": "https://www.microsoft.com/investor/reports/ar25/index.html"
+    },
+    "operator-r2": {
+      "label": "R2 operator review file",
+      "url": "./data.json"
+    }
+  },
+  "meta": {
+    "candidate_id": "r2-operations-radar",
+    "status": "representative_demo_blocked",
+    "service_boundary": "educational_supply_chain_context_not_investment_advice",
+    "update_owner": "operator_research_desk",
+    "freshness_today": "2026-06-02"
+  },
+  "stages": [
+    {
+      "id": "hbm",
+      "label": "HBM 메모리",
+      "x": 160,
+      "y": 250,
+      "pressure": 92,
+      "summary": "HBM 공급과 고객 인증은 AI 가속기 출하의 선행 병목이다.",
+      "micro": [["HBM3E/HBM4", 94], ["고객 인증", 88], ["TSV/스택", 86]],
+      "watch": ["HBM 장기계약", "HBM4 전환", "메모리 allocation"],
+      "contract": {
+        "source_id": "skhynix-fy25",
+        "source_reference": "FY2025 results release: HBM and AI memory business commentary",
+        "source_status": "official_context_curated_index",
+        "as_of": "2025-12-31",
+        "collected_at": "2026-06-01",
+        "applied_at": "2026-06-02",
+        "cadence": "monthly_operator_review",
+        "freshness_status": "computed",
+        "stale_after_days": 45,
+        "late_source_handling": "mark_review_required_and_hold_representative_promotion",
+        "snapshot_type": "source_backed_index",
+        "calculation_status": "curated_pressure_index",
+        "formula_status": "r2_formula_declared_unvalidated"
+      }
+    },
+    {
+      "id": "packaging",
+      "label": "고급 패키징",
+      "x": 420,
+      "y": 250,
+      "pressure": 95,
+      "summary": "CoWoS와 고급 패키징 capacity는 HBM과 로직 다이를 실제 AI 가속기로 묶는다.",
+      "micro": [["CoWoS", 97], ["인터포저", 91], ["테스트 capacity", 84]],
+      "watch": ["CoWoS 증설", "advanced packaging mix", "테스트·번인 병목"],
+      "contract": {
+        "source_id": "tsmc-2025-ar",
+        "source_reference": "Annual report: advanced packaging and AI/HPC capacity context",
+        "source_status": "official_context_curated_index",
+        "as_of": "2025-12-31",
+        "collected_at": "2026-06-01",
+        "applied_at": "2026-06-02",
+        "cadence": "monthly_operator_review",
+        "freshness_status": "computed",
+        "stale_after_days": 45,
+        "late_source_handling": "mark_review_required_and_hold_representative_promotion",
+        "snapshot_type": "source_backed_index",
+        "calculation_status": "curated_pressure_index",
+        "formula_status": "r2_formula_declared_unvalidated"
+      }
+    },
+    {
+      "id": "systems",
+      "label": "서버·네트워크",
+      "x": 680,
+      "y": 250,
+      "pressure": 82,
+      "summary": "가속기는 서버, 랙, 네트워크 전개를 거쳐 데이터센터 용량으로 바뀐다.",
+      "micro": [["AI 서버", 81], ["네트워크 attach", 86], ["랙 통합", 74]],
+      "watch": ["Data Center revenue", "network attach", "Blackwell transition"],
+      "contract": {
+        "source_id": "nvidia-fy26",
+        "source_reference": "FY2026 Form 10-K: Data Center business and demand risk context",
+        "source_status": "official_context_curated_index",
+        "as_of": "2026-01-25",
+        "collected_at": "2026-06-01",
+        "applied_at": "2026-06-02",
+        "cadence": "monthly_operator_review",
+        "freshness_status": "computed",
+        "stale_after_days": 45,
+        "late_source_handling": "mark_review_required_and_hold_representative_promotion",
+        "snapshot_type": "source_backed_index",
+        "calculation_status": "curated_pressure_index",
+        "formula_status": "r2_formula_declared_unvalidated"
+      }
+    },
+    {
+      "id": "cloud",
+      "label": "클라우드 용량",
+      "x": 940,
+      "y": 250,
+      "pressure": 84,
+      "summary": "클라우드 사업자는 AI capex, 데이터센터, 전력 제약 속에서 capacity를 서비스로 전환한다.",
+      "micro": [["AI 인프라 투자", 88], ["GPU 클러스터", 85], ["마진·감가상각", 76]],
+      "watch": ["cloud growth", "AI infrastructure capex", "datacenter lease commitments"],
+      "contract": {
+        "source_id": "microsoft-ar25",
+        "source_reference": "Annual report: cloud and AI infrastructure investment context",
+        "source_status": "official_context_curated_index",
+        "as_of": "2025-06-30",
+        "collected_at": "2026-06-01",
+        "applied_at": "2026-06-02",
+        "cadence": "monthly_operator_review",
+        "freshness_status": "computed",
+        "stale_after_days": 45,
+        "late_source_handling": "mark_review_required_and_hold_representative_promotion",
+        "snapshot_type": "source_backed_index",
+        "calculation_status": "curated_pressure_index",
+        "formula_status": "r2_formula_declared_unvalidated"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "hbm-packaging",
+      "from": "hbm",
+      "to": "packaging",
+      "pressure": 96,
+      "label": "HBM attach",
+      "contract": {
+        "source_id": "operator-r2",
+        "source_reference": "Thin-path manual rule links SK hynix HBM context to TSMC packaging constraint",
+        "source_status": "operator_rule_from_official_context",
+        "as_of": "2026-06-01",
+        "collected_at": "2026-06-01",
+        "applied_at": "2026-06-02",
+        "cadence": "monthly_operator_review",
+        "freshness_status": "computed",
+        "stale_after_days": 45,
+        "late_source_handling": "mark_review_required_and_hold_representative_promotion",
+        "snapshot_type": "source_backed_index",
+        "calculation_status": "curated_pressure_index",
+        "formula_status": "r2_formula_declared_unvalidated"
+      }
+    },
+    {
+      "id": "packaging-systems",
+      "from": "packaging",
+      "to": "systems",
+      "pressure": 90,
+      "label": "가속기 출하",
+      "contract": {
+        "source_id": "operator-r2",
+        "source_reference": "Thin-path manual rule links packaging output to system deployment",
+        "source_status": "operator_rule_from_official_context",
+        "as_of": "2026-06-01",
+        "collected_at": "2026-06-01",
+        "applied_at": "2026-06-02",
+        "cadence": "monthly_operator_review",
+        "freshness_status": "computed",
+        "stale_after_days": 45,
+        "late_source_handling": "mark_review_required_and_hold_representative_promotion",
+        "snapshot_type": "source_backed_index",
+        "calculation_status": "curated_pressure_index",
+        "formula_status": "r2_formula_declared_unvalidated"
+      }
+    },
+    {
+      "id": "systems-cloud",
+      "from": "systems",
+      "to": "cloud",
+      "pressure": 83,
+      "label": "랙 전개",
+      "contract": {
+        "source_id": "operator-r2",
+        "source_reference": "Thin-path manual rule links NVIDIA data center demand to cloud capacity conversion",
+        "source_status": "operator_rule_from_official_context",
+        "as_of": "2026-06-01",
+        "collected_at": "2026-06-01",
+        "applied_at": "2026-06-02",
+        "cadence": "monthly_operator_review",
+        "freshness_status": "computed",
+        "stale_after_days": 45,
+        "late_source_handling": "mark_review_required_and_hold_representative_promotion",
+        "snapshot_type": "source_backed_index",
+        "calculation_status": "curated_pressure_index",
+        "formula_status": "r2_formula_declared_unvalidated"
+      }
+    }
+  ],
+  "thin_paths": [
+    {
+      "path_id": "hbm-packaging-cloud",
+      "label": "HBM -> 고급 패키징 -> 클라우드 용량",
+      "node_ids": ["hbm", "packaging", "systems", "cloud"],
+      "edge_ids": ["hbm-packaging", "packaging-systems", "systems-cloud"],
+      "metric_name": "AI accelerator deliverability pressure",
+      "formula_or_manual_rule": "declared formula: 30% HBM + 30% advanced packaging + 20% systems deployment + 20% cloud capacity. R2 declares structure but blocks paid release until backtested.",
+      "update_owner": "operator_research_desk",
+      "update_workflow": ["collect official reports and releases", "update source_reference and applied_at", "compute freshness from applied_at plus stale_after_days", "review formula_status before promotion"],
+      "scenario_horizon": "6-12 months",
+      "scenario_assumptions": ["HBM demand remains elevated", "advanced packaging capacity improves gradually", "cloud capex continues but power and data-center conversion can lag"],
+      "scenario_rule_bindings": [
+        {"target_id": "packaging", "rule": "packaging_relief lowers pressure by 8 only if source_reference mentions capacity expansion"},
+        {"target_id": "systems-cloud", "rule": "cloud_conversion_lag raises edge pressure by 6 if capex growth outpaces capacity conversion"},
+        {"target_id": "cloud", "rule": "power_squeeze raises cloud pressure by 7 when infrastructure investment is constrained by data-center capacity"}
+      ],
+      "paid_job": "Investor can read AI infrastructure news faster by knowing whether the bottleneck sits in memory, packaging, system deployment, or cloud conversion.",
+      "non_advice_boundary": "This is supply-chain context and does not predict stock returns or provide buy/sell recommendations.",
+      "release_blocker": "Paid service blocked until formula is validated, update workflow has an accountable owner, and compliance boundary is reviewed.",
+      "service_boundary": {
+        "local_candidate": "interactive prototype with source/freshness visibility",
+        "representative_demo": "blocked until freshness computation and source references are reviewed",
+        "paid_service": "blocked until formula validation, update SLA, pricing approval, and compliance review"
+      }
+    }
+  ],
+  "snapshots": [
+    {
+      "id": "current-index",
+      "label": "현재 source-backed index",
+      "note": "공식 출처 맥락을 수동 큐레이션한 R2 pressure index다. freshness는 applied_at과 stale_after_days로 계산된다.",
+      "delta": {},
+      "contract": {
+        "source_id": "operator-r2",
+        "source_reference": "R2 aggregate from official source contexts",
+        "source_status": "operator_rule_from_official_context",
+        "as_of": "2026-06-01",
+        "collected_at": "2026-06-01",
+        "applied_at": "2026-06-02",
+        "cadence": "monthly_operator_review",
+        "freshness_status": "computed",
+        "stale_after_days": 45,
+        "late_source_handling": "mark_review_required_and_hold_representative_promotion",
+        "snapshot_type": "source_backed_index",
+        "calculation_status": "curated_pressure_index",
+        "formula_status": "r2_formula_declared_unvalidated"
+      }
+    },
+    {
+      "id": "packaging-relief",
+      "label": "시나리오: 패키징 완화",
+      "note": "패키징 증설이 일부 반영되지만 HBM 수요와 클라우드 전환 압력은 유지된다는 시나리오다.",
+      "delta": {"packaging": -8, "systems": 3, "cloud": 2},
+      "contract": {
+        "source_id": "operator-r2",
+        "source_reference": "Scenario binding: packaging_relief",
+        "source_status": "operator_scenario_rule",
+        "as_of": "2026-06-01",
+        "collected_at": "2026-06-01",
+        "applied_at": "2026-06-02",
+        "cadence": "monthly_operator_review",
+        "freshness_status": "computed",
+        "stale_after_days": 45,
+        "late_source_handling": "mark_review_required_and_hold_representative_promotion",
+        "snapshot_type": "scenario",
+        "calculation_status": "scenario_rule_binding",
+        "formula_status": "r2_scenario_rule_declared_unvalidated"
+      }
+    },
+    {
+      "id": "cloud-conversion-lag",
+      "label": "시나리오: 클라우드 전환 지연",
+      "note": "AI capex는 유지되지만 전력·데이터센터 전환이 늦어져 클라우드 capacity 압력이 커지는 시나리오다.",
+      "delta": {"systems": 4, "cloud": 7},
+      "contract": {
+        "source_id": "operator-r2",
+        "source_reference": "Scenario binding: cloud_conversion_lag",
+        "source_status": "operator_scenario_rule",
+        "as_of": "2026-06-01",
+        "collected_at": "2026-06-01",
+        "applied_at": "2026-06-02",
+        "cadence": "monthly_operator_review",
+        "freshness_status": "computed",
+        "stale_after_days": 45,
+        "late_source_handling": "mark_review_required_and_hold_representative_promotion",
+        "snapshot_type": "scenario",
+        "calculation_status": "scenario_rule_binding",
+        "formula_status": "r2_scenario_rule_declared_unvalidated"
+      }
+    }
+  ]
+}

@@ -19,3 +19,31 @@ A radial pressure radar makes bottleneck severity and propagation more immediate
 - Source/legal text that hides the map.
 - Scenario labels that look like price forecasts.
 
+## R2 Surface Hypothesis
+
+A straight operating path makes source ownership and freshness easier to inspect than the R1 radial view, while still preserving the macro bottleneck path.
+## Primary Surface Rule
+
+The first viewport must be the macro AI bottleneck map. Cards, company lists, and KPI panels can support the map but cannot replace it.
+
+## R3 Validation Surface Rule
+
+When a score is not paid-grade, the surface must show why:
+
+- displayed pressure,
+- formula components,
+- validation sample status,
+- source/freshness contract,
+- promotion boundary.
+
+Do not hide formula uncertainty in small print. The uncertainty is part of the product value for ordinary investors because it prevents false confidence.
+
+## R4 Representative Demo Surface Rule
+
+Launch-review vocabulary cannot become the product's primary language. The first viewport must answer the ordinary investor's question first:
+
+- where is the highest-pressure AI infrastructure bottleneck,
+- how does pressure propagate through the chain,
+- what changes under the current and future snapshots.
+
+Representative-demo proof belongs in the micro layer as "why this score can or cannot be trusted."

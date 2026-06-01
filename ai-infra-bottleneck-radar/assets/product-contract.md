@@ -23,3 +23,9 @@ Within 30 seconds, the user can identify the highest-pressure AI infrastructure 
 - Current index and scenarios are visibly distinct.
 - Paid release blockers are explicit.
 
+## Representative Demo Acceptance
+
+- The first message remains the investor-facing bottleneck promise, not launch review language.
+- Representative-demo evidence is visible as "why this score can or cannot be trusted."
+- Source review, freshness, scenario binding, and non-advice checks pass locally.
+- Paid service remains blocked until customer willingness-to-pay, legal review, payment/pricing approval, and operating SLA are approved.

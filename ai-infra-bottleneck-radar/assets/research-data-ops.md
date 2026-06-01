@@ -37,6 +37,42 @@ Allowed `snapshot_type`:
 - Scenario deltas must bind to explicit node/edge rules.
 - Paid promotion must fail if formula status remains unvalidated.
 
+## R2 Recovery
+
+- R2 assigns `operator_research_desk` as update owner.
+- R2 adds `source_reference` to displayed values.
+- R2 computes `fresh | review_required | stale` in the UI from `applied_at` and `stale_after_days`.
+- R2 adds `scenario_rule_bindings`.
+- R2 keeps paid service blocked until formula validation and compliance review.
+
+## R3 Required Validation Repair
+
+- Every displayed pressure score needs `formula_components`.
+- Formula component weights must sum to 1.
+- Formula component scores must stay in 0-100 range.
+- Displayed pressure must stay within 3 points of the weighted formula unless the candidate explicitly marks it as `manual_override_blocked`.
+- Every displayed node needs at least one validation sample.
+- Validation sample is not a backtest. It only proves the formula can be inspected.
+- Paid release remains blocked until historical calibration or backtest exists.
+
+## R3 Recovery
+
+- R3 adds formula component visibility to the user surface.
+- R3 adds validation samples to the user surface.
+- `check-data-contracts.mjs` now mechanically checks formula components and validation samples.
+- R3 still blocks paid service because it has no historical backtest.
+
+## R4 Representative Demo Repair
+
+- `source_reference` must identify section, table, page, or exact reference location where possible.
+- Scenario snapshot `delta` must be mechanically tied to `scenario_rule_bindings`.
+- Freshness status must be mechanically checked against `applied_at` and `stale_after_days`.
+- Representative promotion must fail if any displayed value is stale or review-required.
+- Each displayed stage must have a representative calibration sample inside its expected range.
+- Each displayed stage must have a source review queue pass.
+- Compliance checklist must pass non-advice, no-buy-sell, and source-boundary checks.
+- Paid promotion must remain blocked while customer validation, legal review, payment/pricing approval, and paid SLA are missing.
+
 ## R1 Official Source Set
 
 - TSMC 2025 Annual Report: advanced packaging, CoWoS, AI/HPC context.

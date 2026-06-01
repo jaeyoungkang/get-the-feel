@@ -5,10 +5,11 @@ const root = new URL("..", import.meta.url).pathname;
 const record = readFileSync(join(root, "assets/CYCLE_RECORD.md"), "utf8");
 
 const required = [
-  "Intent Guardian: pass-as-local-candidate",
-  "Asset Steward: repair-before-next",
-  "Data/Sellability: continue-only-as-r2-repair",
-  "R2 must create a new candidate folder",
+  "Intent Guardian:",
+  "Process Improvement:",
+  "Asset Steward:",
+  "Data/Sellability:",
+  "r4-representative-radar",
   "local_candidate_status:",
   "representative_status:",
   "sellable_status:",
@@ -50,8 +51,13 @@ if (status.sellable_status !== "pass" && status.allowed_to_stop !== "no" && !rec
   process.exit(1);
 }
 
-if (status.sellable_status !== "pass" && !status.next_action.includes("candidates/r2-")) {
+if (status.sellable_status !== "pass" && !status.next_action.includes("candidates/r")) {
   console.error("Non-sellable cycle must specify the next fresh candidate action.");
+  process.exit(1);
+}
+
+if (status.sellable_status !== "pass" && !record.includes("allowed_to_stop: no")) {
+  console.error("Non-sellable cycle must explicitly deny stop permission.");
   process.exit(1);
 }
 

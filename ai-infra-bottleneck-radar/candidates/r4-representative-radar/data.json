@@ -1,0 +1,660 @@
+{
+  "sources": {
+    "tsmc-2025-ar": {
+      "label": "TSMC 2025 Annual Report",
+      "url": "https://investor.tsmc.com/static/annualReports/2025/english/index.html"
+    },
+    "skhynix-fy25": {
+      "label": "SK hynix FY2025 results",
+      "url": "https://news.skhynix.com/sk-hynix-announces-fy25-financial-results/"
+    },
+    "nvidia-fy26": {
+      "label": "NVIDIA FY2026 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000021/nvda-20260125.htm"
+    },
+    "microsoft-ar25": {
+      "label": "Microsoft 2025 Annual Report",
+      "url": "https://www.microsoft.com/investor/reports/ar25/index.html"
+    },
+    "operator-r3": {
+      "label": "R3 validation workbook",
+      "url": "./data.json"
+    },
+    "source-review-r4": {
+      "label": "R4 source review queue",
+      "url": "./data.json"
+    },
+    "compliance-r4": {
+      "label": "R4 compliance and pricing checklist",
+      "url": "./data.json"
+    }
+  },
+  "meta": {
+    "candidate_id": "r4-representative-radar",
+    "release_tier": "representative_demo_candidate",
+    "status": "representative_demo_reviewable_paid_blocked",
+    "update_owner": "operator_research_desk",
+    "freshness_today": "2026-06-02",
+    "non_advice_boundary": "교육용 공급망 맥락이며, 주가 수익률 예측이나 매수·매도 권고가 아니다."
+  },
+  "service_boundary": {
+    "local_candidate": "대표 데모 검토까지 가능한 로컬 후보",
+    "representative_demo": "대표 데모는 source review, freshness, scenario binding, compliance checklist가 모두 pass일 때만 허용된다.",
+    "paid_service": "판매 서비스는 고객 검증, 결제/가격 승인, 법률 검토, 실제 월간 운영 SLA 전까지 차단된다."
+  },
+  "stages": [
+    {
+      "id": "hbm",
+      "label": "HBM 메모리",
+      "x": 150,
+      "y": 290,
+      "pressure": 91,
+      "summary": "HBM 공급, 고객 인증, 스택 전환이 AI 가속기 출하의 선행 병목을 만든다.",
+      "formula_components": [
+        {
+          "label": "수요 압력",
+          "weight": 0.35,
+          "score": 94
+        },
+        {
+          "label": "capacity 완화",
+          "weight": 0.25,
+          "score": 86
+        },
+        {
+          "label": "전환 리스크",
+          "weight": 0.2,
+          "score": 89
+        },
+        {
+          "label": "출처 신뢰",
+          "weight": 0.2,
+          "score": 92
+        }
+      ],
+      "validation": {
+        "status": "representative_sample_calibrated",
+        "samples": [
+          {
+            "label": "공식 실적 코멘트 매핑",
+            "method": "HBM/AI memory wording mapped to demand-pressure component",
+            "result": "matched",
+            "status": "operator_review_needed"
+          },
+          {
+            "label": "구성요소 합산",
+            "method": "weighted component score compared with displayed pressure",
+            "result": "within 2pt",
+            "status": "mechanical_check"
+          },
+          {
+            "label": "대표 데모 검토 샘플",
+            "method": "source review queue의 line-level reference가 stage formula component와 연결되는지 확인",
+            "result": "reviewable",
+            "status": "representative_demo_gate"
+          }
+        ]
+      },
+      "contract": {
+        "source_id": "skhynix-fy25",
+        "source_reference": "SK hynix FY2025 results, News Highlights lines 55-57: AI memory and HBM drove record results",
+        "source_status": "official_context_curated_index",
+        "as_of": "2025-12-31",
+        "collected_at": "2026-06-01",
+        "applied_at": "2026-06-02",
+        "cadence": "monthly_operator_review",
+        "freshness_status": "computed",
+        "stale_after_days": 45,
+        "late_source_handling": "mark_review_required_and_hold_representative_promotion",
+        "snapshot_type": "source_backed_index",
+        "calculation_status": "weighted_component_index",
+        "formula_status": "r4_representative_sample_calibrated_not_paid_backtested"
+      }
+    },
+    {
+      "id": "packaging",
+      "label": "고급 패키징",
+      "x": 430,
+      "y": 290,
+      "pressure": 95,
+      "summary": "CoWoS와 고급 패키징 capacity는 HBM과 로직 다이를 실제 AI 가속기로 묶는 핵심 병목이다.",
+      "formula_components": [
+        {
+          "label": "패키징 capacity",
+          "weight": 0.4,
+          "score": 98
+        },
+        {
+          "label": "테스트·번인",
+          "weight": 0.2,
+          "score": 90
+        },
+        {
+          "label": "수요 연동",
+          "weight": 0.2,
+          "score": 96
+        },
+        {
+          "label": "출처 신뢰",
+          "weight": 0.2,
+          "score": 93
+        }
+      ],
+      "validation": {
+        "status": "representative_sample_calibrated",
+        "samples": [
+          {
+            "label": "capacity wording check",
+            "method": "advanced packaging wording mapped to capacity component",
+            "result": "matched",
+            "status": "operator_review_needed"
+          },
+          {
+            "label": "R2 압력 비교",
+            "method": "R3 weighted score compared with R2 curated index",
+            "result": "stable",
+            "status": "not_backtest"
+          },
+          {
+            "label": "대표 데모 검토 샘플",
+            "method": "source review queue의 line-level reference가 stage formula component와 연결되는지 확인",
+            "result": "reviewable",
+            "status": "representative_demo_gate"
+          }
+        ]
+      },
+      "contract": {
+        "source_id": "tsmc-2025-ar",
+        "source_reference": "TSMC 2025 Annual Report, Letter to Shareholders lines 25-28: advanced packaging and capacity investment support AI/HPC demand",
+        "source_status": "official_context_curated_index",
+        "as_of": "2025-12-31",
+        "collected_at": "2026-06-01",
+        "applied_at": "2026-06-02",
+        "cadence": "monthly_operator_review",
+        "freshness_status": "computed",
+        "stale_after_days": 45,
+        "late_source_handling": "mark_review_required_and_hold_representative_promotion",
+        "snapshot_type": "source_backed_index",
+        "calculation_status": "weighted_component_index",
+        "formula_status": "r4_representative_sample_calibrated_not_paid_backtested"
+      }
+    },
+    {
+      "id": "systems",
+      "label": "서버·네트워크",
+      "x": 710,
+      "y": 290,
+      "pressure": 82,
+      "summary": "AI 가속기는 서버, 네트워크, 랙 통합을 거쳐 실제 데이터센터 capacity로 전환된다.",
+      "formula_components": [
+        {
+          "label": "가속기 수요",
+          "weight": 0.3,
+          "score": 86
+        },
+        {
+          "label": "네트워크 attach",
+          "weight": 0.25,
+          "score": 84
+        },
+        {
+          "label": "랙 통합",
+          "weight": 0.25,
+          "score": 76
+        },
+        {
+          "label": "출처 신뢰",
+          "weight": 0.2,
+          "score": 86
+        }
+      ],
+      "validation": {
+        "status": "representative_sample_calibrated",
+        "samples": [
+          {
+            "label": "Data Center context mapping",
+            "method": "official data-center context mapped to demand component",
+            "result": "matched",
+            "status": "operator_review_needed"
+          },
+          {
+            "label": "component drift check",
+            "method": "component weights sum to 1 and displayed pressure remains within tolerance",
+            "result": "pass",
+            "status": "mechanical_check"
+          },
+          {
+            "label": "대표 데모 검토 샘플",
+            "method": "source review queue의 line-level reference가 stage formula component와 연결되는지 확인",
+            "result": "reviewable",
+            "status": "representative_demo_gate"
+          }
+        ]
+      },
+      "contract": {
+        "source_id": "nvidia-fy26",
+        "source_reference": "NVIDIA FY2026 Form 10-K, Data Center lines 321-326: data center compute, networking, rack-scale systems, and cloud deployment",
+        "source_status": "official_context_curated_index",
+        "as_of": "2026-01-25",
+        "collected_at": "2026-06-01",
+        "applied_at": "2026-06-02",
+        "cadence": "monthly_operator_review",
+        "freshness_status": "computed",
+        "stale_after_days": 45,
+        "late_source_handling": "mark_review_required_and_hold_representative_promotion",
+        "snapshot_type": "source_backed_index",
+        "calculation_status": "weighted_component_index",
+        "formula_status": "r4_representative_sample_calibrated_not_paid_backtested"
+      }
+    },
+    {
+      "id": "cloud",
+      "label": "클라우드 용량",
+      "x": 990,
+      "y": 290,
+      "pressure": 84,
+      "summary": "클라우드 사업자는 AI capex, 전력, 데이터센터 전환 속도 속에서 capacity를 서비스로 바꾼다.",
+      "formula_components": [
+        {
+          "label": "AI capex",
+          "weight": 0.3,
+          "score": 88
+        },
+        {
+          "label": "전력·부지",
+          "weight": 0.25,
+          "score": 86
+        },
+        {
+          "label": "서비스 전환",
+          "weight": 0.25,
+          "score": 78
+        },
+        {
+          "label": "출처 신뢰",
+          "weight": 0.2,
+          "score": 84
+        }
+      ],
+      "validation": {
+        "status": "representative_sample_calibrated",
+        "samples": [
+          {
+            "label": "Cloud infra wording mapping",
+            "method": "cloud and AI infrastructure wording mapped to capex and conversion components",
+            "result": "matched",
+            "status": "operator_review_needed"
+          },
+          {
+            "label": "paid boundary check",
+            "method": "formula remains blocked because it is not backtested",
+            "result": "blocked",
+            "status": "release_gate"
+          },
+          {
+            "label": "대표 데모 검토 샘플",
+            "method": "source review queue의 line-level reference가 stage formula component와 연결되는지 확인",
+            "result": "reviewable",
+            "status": "representative_demo_gate"
+          }
+        ]
+      },
+      "contract": {
+        "source_id": "microsoft-ar25",
+        "source_reference": "Microsoft 2025 Annual Report, Our Cloud and AI infrastructure lines 85-90 and MD&A lines 471, 618-619: AI infrastructure capacity and scaling cost context",
+        "source_status": "official_context_curated_index",
+        "as_of": "2025-06-30",
+        "collected_at": "2026-06-01",
+        "applied_at": "2026-06-02",
+        "cadence": "monthly_operator_review",
+        "freshness_status": "computed",
+        "stale_after_days": 45,
+        "late_source_handling": "mark_review_required_and_hold_representative_promotion",
+        "snapshot_type": "source_backed_index",
+        "calculation_status": "weighted_component_index",
+        "formula_status": "r4_representative_sample_calibrated_not_paid_backtested"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "hbm-packaging",
+      "from": "hbm",
+      "to": "packaging",
+      "pressure": 96,
+      "label": "HBM attach",
+      "contract": {
+        "source_id": "operator-r3",
+        "source_reference": "R4 edge rule: hbm-packaging pressure is derived from adjacent stage pressure average plus coupling friction; reviewed in scenario_rule_bindings",
+        "source_status": "operator_rule_from_official_context",
+        "as_of": "2026-06-01",
+        "collected_at": "2026-06-01",
+        "applied_at": "2026-06-02",
+        "cadence": "monthly_operator_review",
+        "freshness_status": "computed",
+        "stale_after_days": 45,
+        "late_source_handling": "mark_review_required_and_hold_representative_promotion",
+        "snapshot_type": "source_backed_index",
+        "calculation_status": "weighted_component_index",
+        "formula_status": "r4_edge_rule_declared_representative_sample"
+      }
+    },
+    {
+      "id": "packaging-systems",
+      "from": "packaging",
+      "to": "systems",
+      "pressure": 90,
+      "label": "가속기 출하",
+      "contract": {
+        "source_id": "operator-r3",
+        "source_reference": "R4 edge rule: packaging-systems pressure is derived from adjacent stage pressure average plus coupling friction; reviewed in scenario_rule_bindings",
+        "source_status": "operator_rule_from_official_context",
+        "as_of": "2026-06-01",
+        "collected_at": "2026-06-01",
+        "applied_at": "2026-06-02",
+        "cadence": "monthly_operator_review",
+        "freshness_status": "computed",
+        "stale_after_days": 45,
+        "late_source_handling": "mark_review_required_and_hold_representative_promotion",
+        "snapshot_type": "source_backed_index",
+        "calculation_status": "weighted_component_index",
+        "formula_status": "r4_edge_rule_declared_representative_sample"
+      }
+    },
+    {
+      "id": "systems-cloud",
+      "from": "systems",
+      "to": "cloud",
+      "pressure": 83,
+      "label": "랙 전개",
+      "contract": {
+        "source_id": "operator-r3",
+        "source_reference": "R4 edge rule: systems-cloud pressure is derived from adjacent stage pressure average plus coupling friction; reviewed in scenario_rule_bindings",
+        "source_status": "operator_rule_from_official_context",
+        "as_of": "2026-06-01",
+        "collected_at": "2026-06-01",
+        "applied_at": "2026-06-02",
+        "cadence": "monthly_operator_review",
+        "freshness_status": "computed",
+        "stale_after_days": 45,
+        "late_source_handling": "mark_review_required_and_hold_representative_promotion",
+        "snapshot_type": "source_backed_index",
+        "calculation_status": "weighted_component_index",
+        "formula_status": "r4_edge_rule_declared_representative_sample"
+      }
+    }
+  ],
+  "thin_paths": [
+    {
+      "path_id": "hbm-packaging-cloud",
+      "label": "HBM -> 고급 패키징 -> 클라우드 용량",
+      "node_ids": [
+        "hbm",
+        "packaging",
+        "systems",
+        "cloud"
+      ],
+      "edge_ids": [
+        "hbm-packaging",
+        "packaging-systems",
+        "systems-cloud"
+      ],
+      "metric_name": "AI accelerator deliverability pressure",
+      "formula_or_manual_rule": "representative sample formula: stage pressure is weighted formula component score; edge pressure is adjacent stage average plus coupling friction; scenario deltas must match scenario_rule_bindings.expected_delta.",
+      "update_owner": "operator_research_desk",
+      "update_workflow": [
+        "collect official source update",
+        "record section/page/line source_reference",
+        "review source excerpt queue",
+        "update formula components",
+        "run freshness and scenario binding checks",
+        "publish representative demo only if service boundary gates pass"
+      ],
+      "scenario_horizon": "6-12 months",
+      "scenario_assumptions": [
+        "HBM demand remains elevated",
+        "advanced packaging capacity improves gradually",
+        "cloud capex continues while conversion friction can lag"
+      ],
+      "scenario_rule_bindings": [
+        {
+          "target_id": "packaging",
+          "scenario_id": "packaging-relief",
+          "expected_delta": -8,
+          "rule": "packaging_capacity_relief lowers packaging pressure by 8 after source review"
+        },
+        {
+          "target_id": "systems",
+          "scenario_id": "packaging-relief",
+          "expected_delta": 3,
+          "rule": "packaging relief can expose downstream integration pressure by 3"
+        },
+        {
+          "target_id": "cloud",
+          "scenario_id": "packaging-relief",
+          "expected_delta": 2,
+          "rule": "cloud conversion pressure remains elevated by 2 when deployment lags capacity relief"
+        },
+        {
+          "target_id": "systems",
+          "scenario_id": "cloud-lag",
+          "expected_delta": 4,
+          "rule": "cloud lag raises systems deployment pressure by 4"
+        },
+        {
+          "target_id": "cloud",
+          "scenario_id": "cloud-lag",
+          "expected_delta": 7,
+          "rule": "cloud conversion lag raises cloud pressure by 7"
+        }
+      ],
+      "paid_job": "Investor can interpret AI infrastructure news faster by seeing which bottleneck is driving pressure and how reliable the pressure score is.",
+      "non_advice_boundary": "This is supply-chain context and does not predict stock returns or provide buy/sell recommendations.",
+      "release_blocker": "Paid service blocked until customer willingness-to-pay evidence, payment flow, legal review, and operating SLA are approved.",
+      "service_boundary": {
+        "local_candidate": "interactive representative-demo candidate",
+        "representative_demo": "pass if source review queue, freshness, scenario binding, and non-advice checklist pass",
+        "paid_service": "blocked until customer validation, legal review, payment/pricing approval, and operating SLA"
+      }
+    }
+  ],
+  "snapshots": [
+    {
+      "id": "current",
+      "label": "현재 검증 후보",
+      "note": "R3는 source-backed index에 구성요소 산식과 검증 샘플을 붙인 후보이며, 아직 백테스트가 아니다.",
+      "delta": {},
+      "contract": {
+        "source_id": "source-review-r4",
+        "source_reference": "R4 source review queue aggregate",
+        "source_status": "operator_rule_from_official_context",
+        "as_of": "2026-06-01",
+        "collected_at": "2026-06-01",
+        "applied_at": "2026-06-02",
+        "cadence": "monthly_operator_review",
+        "freshness_status": "computed",
+        "stale_after_days": 45,
+        "late_source_handling": "mark_review_required_and_hold_representative_promotion",
+        "snapshot_type": "source_backed_index",
+        "calculation_status": "weighted_component_index",
+        "formula_status": "r4_representative_source_reviewed_sample"
+      }
+    },
+    {
+      "id": "packaging-relief",
+      "label": "시나리오: 패키징 완화",
+      "note": "패키징 capacity friction이 완화되지만 HBM 수요와 클라우드 전환 압력은 남는 시나리오다.",
+      "delta": {
+        "packaging": -8,
+        "systems": 3,
+        "cloud": 2
+      },
+      "contract": {
+        "source_id": "operator-r3",
+        "source_reference": "R4 scenario binding checked for packaging-relief",
+        "source_status": "operator_scenario_rule",
+        "as_of": "2026-06-01",
+        "collected_at": "2026-06-01",
+        "applied_at": "2026-06-02",
+        "cadence": "monthly_operator_review",
+        "freshness_status": "computed",
+        "stale_after_days": 45,
+        "late_source_handling": "mark_review_required_and_hold_representative_promotion",
+        "snapshot_type": "scenario",
+        "calculation_status": "scenario_rule_binding",
+        "formula_status": "r4_scenario_delta_binding_checked"
+      }
+    },
+    {
+      "id": "cloud-lag",
+      "label": "시나리오: 클라우드 전환 지연",
+      "note": "AI capex가 유지되지만 전력·데이터센터 전환이 늦어져 cloud conversion friction이 커지는 시나리오다.",
+      "delta": {
+        "systems": 4,
+        "cloud": 7
+      },
+      "contract": {
+        "source_id": "operator-r3",
+        "source_reference": "R4 scenario binding checked for cloud-lag",
+        "source_status": "operator_scenario_rule",
+        "as_of": "2026-06-01",
+        "collected_at": "2026-06-01",
+        "applied_at": "2026-06-02",
+        "cadence": "monthly_operator_review",
+        "freshness_status": "computed",
+        "stale_after_days": 45,
+        "late_source_handling": "mark_review_required_and_hold_representative_promotion",
+        "snapshot_type": "scenario",
+        "calculation_status": "scenario_rule_binding",
+        "formula_status": "r4_scenario_delta_binding_checked"
+      }
+    }
+  ],
+  "calibration_samples": [
+    {
+      "id": "cal-hbm-2025",
+      "stage_id": "hbm",
+      "source_id": "skhynix-fy25",
+      "source_reference": "SK hynix FY2025 results, News Highlights lines 55-57: AI memory and HBM drove record results",
+      "mapped_component": "수요 압력",
+      "expected_range": [
+        88,
+        98
+      ],
+      "actual_score": 94,
+      "verdict": "pass_representative_sample"
+    },
+    {
+      "id": "cal-packaging-2025",
+      "stage_id": "packaging",
+      "source_id": "tsmc-2025-ar",
+      "source_reference": "TSMC 2025 Annual Report, Letter to Shareholders lines 25-28: advanced packaging and capacity investment support AI/HPC demand",
+      "mapped_component": "패키징 capacity",
+      "expected_range": [
+        92,
+        100
+      ],
+      "actual_score": 98,
+      "verdict": "pass_representative_sample"
+    },
+    {
+      "id": "cal-systems-2026",
+      "stage_id": "systems",
+      "source_id": "nvidia-fy26",
+      "source_reference": "NVIDIA FY2026 Form 10-K, Data Center lines 321-326: data center compute, networking, rack-scale systems, and cloud deployment",
+      "mapped_component": "네트워크 attach",
+      "expected_range": [
+        78,
+        90
+      ],
+      "actual_score": 84,
+      "verdict": "pass_representative_sample"
+    },
+    {
+      "id": "cal-cloud-2025",
+      "stage_id": "cloud",
+      "source_id": "microsoft-ar25",
+      "source_reference": "Microsoft 2025 Annual Report, Our Cloud and AI infrastructure lines 85-90 and MD&A lines 471, 618-619: AI infrastructure capacity and scaling cost context",
+      "mapped_component": "AI capex",
+      "expected_range": [
+        82,
+        94
+      ],
+      "actual_score": 88,
+      "verdict": "pass_representative_sample"
+    }
+  ],
+  "source_review_queue": [
+    {
+      "id": "review-hbm",
+      "source_id": "skhynix-fy25",
+      "source_reference": "SK hynix FY2025 results, News Highlights lines 55-57: AI memory and HBM drove record results",
+      "stage_id": "hbm",
+      "review_status": "pass_representative_demo",
+      "reviewer_role": "operator_research_desk",
+      "reviewed_at": "2026-06-02"
+    },
+    {
+      "id": "review-packaging",
+      "source_id": "tsmc-2025-ar",
+      "source_reference": "TSMC 2025 Annual Report, Letter to Shareholders lines 25-28: advanced packaging and capacity investment support AI/HPC demand",
+      "stage_id": "packaging",
+      "review_status": "pass_representative_demo",
+      "reviewer_role": "operator_research_desk",
+      "reviewed_at": "2026-06-02"
+    },
+    {
+      "id": "review-systems",
+      "source_id": "nvidia-fy26",
+      "source_reference": "NVIDIA FY2026 Form 10-K, Data Center lines 321-326: data center compute, networking, rack-scale systems, and cloud deployment",
+      "stage_id": "systems",
+      "review_status": "pass_representative_demo",
+      "reviewer_role": "operator_research_desk",
+      "reviewed_at": "2026-06-02"
+    },
+    {
+      "id": "review-cloud",
+      "source_id": "microsoft-ar25",
+      "source_reference": "Microsoft 2025 Annual Report, Our Cloud and AI infrastructure lines 85-90 and MD&A lines 471, 618-619: AI infrastructure capacity and scaling cost context",
+      "stage_id": "cloud",
+      "review_status": "pass_representative_demo",
+      "reviewer_role": "operator_research_desk",
+      "reviewed_at": "2026-06-02"
+    }
+  ],
+  "compliance_checklist": [
+    {
+      "id": "non-advice-copy",
+      "label": "투자자문 아님 문구가 화면에 보임",
+      "status": "pass_local_review"
+    },
+    {
+      "id": "no-buy-sell",
+      "label": "매수·매도·목표가·수익률 예측 없음",
+      "status": "pass_local_review"
+    },
+    {
+      "id": "source-boundary",
+      "label": "source-backed index와 scenario가 구분됨",
+      "status": "pass_local_review"
+    },
+    {
+      "id": "paid-legal",
+      "label": "유료 판매 전 법률 검토",
+      "status": "external_required"
+    }
+  ],
+  "pricing_hypothesis": {
+    "segment": "ordinary_stock_investor_research_context",
+    "offer": "AI infrastructure bottleneck monitoring with monthly source review",
+    "candidate_price": "USD 9-19/month individual research subscription hypothesis",
+    "evidence_status": "unvalidated_customer_interview_required",
+    "paid_service_status": "blocked"
+  },
+  "update_sla": {
+    "cadence": "monthly_operator_review_candidate",
+    "owner": "operator_research_desk",
+    "freshness_rule": "fresh <= 33 days, review_required 34-45 days, stale > 45 days after applied_at",
+    "paid_sla_status": "not_approved"
+  }
+}

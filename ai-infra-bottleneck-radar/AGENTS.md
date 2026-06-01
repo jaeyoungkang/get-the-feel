@@ -27,7 +27,7 @@ If `sellable_status` is not `pass`, `assets/CYCLE_RECORD.md` must contain `allow
 
 ## Current Candidate
 
-`candidates/r1-macro-radar/`
+`candidates/r4-representative-radar/`
 
 ## Mechanical Enforcement
 

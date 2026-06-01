@@ -2,6 +2,7 @@ import { existsSync } from "node:fs";
 import { join } from "node:path";
 
 const root = new URL("..", import.meta.url).pathname;
+const currentCandidate = "r4-representative-radar";
 const required = [
   "AGENTS.md",
   "assets/ASSET_MAP.md",
@@ -13,10 +14,10 @@ const required = [
   "assets/engineering-rules.md",
   "assets/process-monitoring.md",
   "skills/radar-cycle/SKILL.md",
-  "candidates/r1-macro-radar/index.html",
-  "candidates/r1-macro-radar/styles.css",
-  "candidates/r1-macro-radar/app.js",
-  "candidates/r1-macro-radar/data.json"
+  `candidates/${currentCandidate}/index.html`,
+  `candidates/${currentCandidate}/styles.css`,
+  `candidates/${currentCandidate}/app.js`,
+  `candidates/${currentCandidate}/data.json`
 ];
 
 const missing = required.filter((file) => !existsSync(join(root, file)));
@@ -26,4 +27,3 @@ if (missing.length) {
 }
 
 console.log("asset gate: pass");
-

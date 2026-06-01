@@ -15,12 +15,14 @@ Build one complete candidate per loop for AI infrastructure bottleneck visualiza
 3. **Thin Path** — each candidate has one highlighted operating path with source, freshness, scenario, and paid-job contracts.
 4. **Complete Candidate** — local page must be usable end to end even if representative or paid promotion is blocked.
 5. **Mechanical Check** — run `npm run quality:check`.
-6. **Asset Recovery** — move lessons into assets, skill, data contract, design grammar, business logic, or checks.
+6. **Current Candidate Check** — before verdict, `package.json`, asset check, data check, and syntax check must target the current candidate id.
+7. **Representative Demo Surface** — representative-demo data must be visible in the UI as user language, not only present in `data.json`.
+8. **Asset Recovery** — move lessons into assets, skill, data contract, design grammar, business logic, or checks.
 
 ## Never
 
 - Never patch an older candidate as the next loop.
 - Never render future scenarios as facts.
 - Never let company/stock cards replace the map.
+- Never let launch-review vocabulary replace the investor-facing bottleneck promise.
 - Never close a cycle with only chat feedback.
-
