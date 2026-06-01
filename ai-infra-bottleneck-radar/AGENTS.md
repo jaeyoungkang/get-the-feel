@@ -43,3 +43,9 @@ External business blockers can be recorded, but they do not grant stop permissio
 Run from this project root:
 
 `npm run quality:check`
+
+Before any completion-style final response, run:
+
+`npm run quality:final`
+
+If `quality:final` fails, do not stop. Continue the `next_action` fresh candidate.

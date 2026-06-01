@@ -4,7 +4,8 @@
     "quality:assets": "node scripts/check-assets.mjs",
     "quality:data": "node scripts/check-data-contracts.mjs candidates/r7-feedback-ready-radar/data.json",
     "quality:cycle": "node scripts/check-cycle-record.mjs",
-    "quality:syntax": "node --check scripts/check-assets.mjs && node --check scripts/check-data-contracts.mjs && node --check scripts/check-cycle-record.mjs && node --check candidates/r7-feedback-ready-radar/app.js",
+    "quality:final": "node scripts/check-final-permission.mjs",
+    "quality:syntax": "node --check scripts/check-assets.mjs && node --check scripts/check-data-contracts.mjs && node --check scripts/check-cycle-record.mjs && node --check scripts/check-final-permission.mjs && node --check candidates/r7-feedback-ready-radar/app.js",
     "quality:check": "npm run quality:assets && npm run quality:data && npm run quality:cycle && npm run quality:syntax"
   }
 }

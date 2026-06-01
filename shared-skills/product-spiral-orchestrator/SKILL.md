@@ -80,6 +80,7 @@ compatibility: Product domains that build user-facing artifacts with repeated cy
    - `local_candidate_status: pass`는 멈춤 사유가 아니다. `sellable_status`가 pass가 아니면 다음 후보 생성 또는 외부 blocker 분류가 필요하다.
    - 외부 blocker는 법무·결제·운영 승인 같은 **출시/사업 blocker**로 기록할 수 있지만, 제품 루프 정지 사유가 아니다. 제품 표면이 고객 피드백을 받을 수준이 아니면 blocker가 아니라 다음 루프 입력이다.
    - 제품 레벨에서 아직 약하면 `external_blocker`를 적어도 `allowed_to_stop: yes`로 둘 수 없다. 다음 후보의 제품 가설로 전환한다.
+   - completion-style final response 전에는 도메인의 final permission gate를 실행한다. 실패하면 멈추지 말고 `next_action` 후보를 계속 만든다.
 
 8. **Asset Recovery** — 후보 종료 시 배움을 작동 위치로 이동한다.
    - 스킬

@@ -14,6 +14,7 @@ const required = [
   "assets/engineering-rules.md",
   "assets/process-monitoring.md",
   "assets/skill-registry.md",
+  "scripts/check-final-permission.mjs",
   "skills/radar-cycle/SKILL.md",
   "skills/macro-bottleneck-visualization/SKILL.md",
   "skills/source-backed-bottleneck-data/SKILL.md",

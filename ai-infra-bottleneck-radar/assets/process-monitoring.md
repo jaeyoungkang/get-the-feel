@@ -93,3 +93,9 @@ R7 cannot close until:
 - Process Improvement Monitor explicitly checks skill registration, exact current-candidate targeting, and stop-permission recurrence,
 - feedback capture, repeat-use workflow, pricing choices, and next evidence path are visible in the UI and checked in data,
 - stop permission remains denied unless `sellable_status: pass`.
+
+## Final Response Gate
+
+Before a completion-style final response, run `npm run quality:final`.
+
+If it fails, the agent must continue the `next_action` fresh candidate. `npm run quality:check` only proves the current candidate is internally valid; it does not grant permission to stop.
