@@ -24,12 +24,17 @@
 - required_gates: macro surface, thin path, source/freshness contract, external proof gate, cycle record binding, stop permission
 - blocked_until: `npm run quality:check` passes
 
+- skill: `ai-infra-bottleneck-radar/skills/product-level-sellability/SKILL.md`
+- loaded_at_step: r6-stop-repair
+- required_gates: product feedback readiness, repeat-use readiness, pricing evaluation readiness, macro promise preservation
+- blocked_until: product-level sellability verdict is recorded before stop permission
+
 ## Current Candidate
 
 - current_candidate_id: `r6-external-proof-radar`
 - current_candidate_path: `candidates/r6-external-proof-radar/`
 - monitors_before_verdict: yes
-- asset_recovery_targets: `assets/ASSET_MAP.md`, `assets/product-contract.md`, `assets/business-logic.md`, `assets/process-monitoring.md`, `scripts/check-data-contracts.mjs`, `scripts/check-cycle-record.mjs`, `package.json`
+- asset_recovery_targets: `assets/ASSET_MAP.md`, `assets/skill-registry.md`, `assets/product-contract.md`, `assets/business-logic.md`, `assets/process-monitoring.md`, `scripts/check-data-contracts.mjs`, `scripts/check-cycle-record.mjs`, `package.json`
 
 ## Original Intent Anchor
 
@@ -47,6 +52,11 @@
 - allowed_to_stop: no
 - stop_permission_after_r6: denied
 - stop_permission_reason: external business blockers do not prove product-level sellability; R6 can be shown for feedback but is not yet a strong customer-feedback product
+- product_feedback_readiness: blocked
+- repeat_use_readiness: blocked
+- pricing_evaluation_readiness: blocked
+- macro_promise_preserved: pass
+- product_level_sellable_status: blocked
 - external_blocker: real customer capture requires interview, waitlist, or payment-intent evidence
 - external_blocker: payment approval requires approved payment flow and terms
 - external_blocker: legal review requires investment-advice boundary review
@@ -60,6 +70,7 @@
 - cycle record check permits `allowed_to_stop: yes` only when `external_blocker:` entries exist
 - local product readiness and paid-release readiness are now separate product states
 - stop permission repair: external business blockers are launch blockers, not product-loop stop permission
+- skill registry added so generated skills are managed as first-class assets
 
 ## Sellability Gate
 

@@ -10,8 +10,11 @@ Every product cycle must load and receipt:
 2. `../shared-skills/intent-lock/SKILL.md`
 3. `../shared-skills/refinement-loop/SKILL.md`
 4. `skills/radar-cycle/SKILL.md`
+5. `skills/product-level-sellability/SKILL.md`
 
 Use `../shared-skills/engineering-decision/SKILL.md` only when an engineering trigger fires.
+
+Registered skill assets live in `assets/skill-registry.md`. A skill is not considered recovered as an asset unless it is listed there and receipted in `assets/CYCLE_RECORD.md`.
 
 ## Candidate Rule
 
@@ -21,9 +24,11 @@ Do not patch a previous candidate and call it a new loop. Previous candidates ar
 
 ## Stop Permission Rule
 
-Do not stop after `local_candidate_status: pass`. Continue until `sellable_status: pass` or a concrete `external_blocker` is recorded.
+Do not stop after `local_candidate_status: pass`. Continue until product-level `sellable_status: pass`.
 
 If `sellable_status` is not `pass`, `assets/CYCLE_RECORD.md` must contain `allowed_to_stop: no` and a `next_action` that starts the next fresh candidate.
+
+External business blockers can be recorded, but they do not grant stop permission. Use `skills/product-level-sellability/SKILL.md` before writing `sellable_status` or `allowed_to_stop`.
 
 ## Current Candidate
 

@@ -65,3 +65,14 @@ R6 cannot set `allowed_to_stop: yes` only because external business blockers are
 ## Stop Permission Repair
 
 External business blockers can be recorded, but they do not stop the product loop. If `sellable_status` is not `pass`, the record must keep `allowed_to_stop: no` and name the next fresh candidate.
+
+## Product-Level Sellability Skill Rule
+
+Every cycle verdict must load `skills/product-level-sellability/SKILL.md` before writing `sellable_status` or `allowed_to_stop`.
+
+Required product-level checks:
+
+- feedback readiness,
+- repeat-use readiness,
+- pricing evaluation readiness,
+- macro promise preservation.
