@@ -120,6 +120,8 @@ R9 cannot close until:
 - subscription controls remain subordinate to the macro bottleneck map,
 - saved monthly radar, sample paid report copy, subscription price intent, and JSON export are visible in the UI and checked in data,
 - Asset Steward verifies product-making skills and records R9 asset contributions,
+- `CYCLE_RECORD.md` records `monitor_outputs_received: yes`,
+- `CYCLE_RECORD.md` records a `monitor_timeout_policy` where missing monitor output means `cycle_not_closed`,
 - `CYCLE_RECORD.md` records `final_permission_status: denied_continue` unless `sellable_status: pass`,
 - `final_permission_next_action` names the exact next fresh candidate.
 

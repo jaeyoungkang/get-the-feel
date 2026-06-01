@@ -25,6 +25,8 @@ const required = [
   "product_level_sellable_status:",
   `- current_candidate_id: \`${currentCandidate}\``,
   "- monitors_before_verdict: yes",
+  "monitor_outputs_received:",
+  "monitor_timeout_policy:",
   "asset_recovery_targets:",
   "local_candidate_status:",
   "representative_status:",
@@ -76,6 +78,16 @@ if (field("current_candidate_path") !== `candidates/${currentCandidate}/`) {
 
 if (field("monitors_before_verdict") !== "yes") {
   console.error("Cycle record must show monitors_before_verdict: yes.");
+  process.exit(1);
+}
+
+if (field("monitor_outputs_received") !== "yes") {
+  console.error("Cycle record must show monitor_outputs_received: yes.");
+  process.exit(1);
+}
+
+if (!field("monitor_timeout_policy").includes("cycle_not_closed")) {
+  console.error("Cycle record must define monitor_timeout_policy with cycle_not_closed.");
   process.exit(1);
 }
 
