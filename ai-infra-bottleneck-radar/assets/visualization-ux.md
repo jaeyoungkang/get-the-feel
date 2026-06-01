@@ -66,3 +66,13 @@ Feedback and pricing can appear in the product, but only as a lower support band
 - next evidence path.
 
 If the user can only read blockers or hypotheses, the product is not feedback-ready.
+
+## R8 Public-Test Surface Rule
+
+Public-test and conversion controls are allowed only after the macro bottleneck map has already answered:
+
+- the highest-pressure bottleneck,
+- the propagation path,
+- current vs future scenario state.
+
+The conversion band must use bottleneck-tracking language such as routine, selected bottleneck, report copy, and evidence export. It must not become a generic landing page, signup page, pricing page, or legal review dashboard.

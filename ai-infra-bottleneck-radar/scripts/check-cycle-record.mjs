@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const root = new URL("..", import.meta.url).pathname;
-const currentCandidate = "r7-feedback-ready-radar";
+const currentCandidate = "r8-conversion-ready-radar";
 const record = readFileSync(join(root, "assets/CYCLE_RECORD.md"), "utf8");
 
 function field(name) {
@@ -31,7 +31,16 @@ const required = [
   "sellable_status:",
   "next_action:",
   "allowed_to_stop:",
-  "stop_permission_after_r7:"
+  "stop_permission_after_r8:",
+  "final_permission_status:",
+  "final_permission_next_action:",
+  "asset_map_present:",
+  "asset_categories_checked:",
+  "skill_assets_checked:",
+  "skill_receipts_required:",
+  "cycle_contributions:",
+  "missing_or_stale_assets:",
+  "next_cycle_asset_rule:"
 ];
 
 const missing = required.filter((term) => !record.includes(term));
@@ -46,11 +55,11 @@ if (record.includes("pending")) {
 }
 
 const status = Object.fromEntries(
-  ["local_candidate_status", "representative_status", "sellable_status", "next_action", "allowed_to_stop"]
+  ["local_candidate_status", "representative_status", "sellable_status", "next_action", "allowed_to_stop", "final_permission_status", "final_permission_next_action"]
     .map((key) => [key, field(key)])
 );
 
-if (!status.local_candidate_status || !status.representative_status || !status.sellable_status || !status.next_action || !status.allowed_to_stop) {
+if (!status.local_candidate_status || !status.representative_status || !status.sellable_status || !status.next_action || !status.allowed_to_stop || !status.final_permission_status || !status.final_permission_next_action) {
   console.error("Cycle record stop-permission fields are incomplete.");
   process.exit(1);
 }
@@ -80,8 +89,6 @@ if (status.sellable_status !== "pass" && status.allowed_to_stop !== "no") {
   process.exit(1);
 }
 
-const hasExternalBlocker = record.includes("external_blocker:");
-
 if (status.sellable_status !== "pass" && !status.next_action.includes("candidates/r")) {
   console.error("Non-sellable cycle must specify the next fresh candidate action.");
   process.exit(1);
@@ -89,6 +96,26 @@ if (status.sellable_status !== "pass" && !status.next_action.includes("candidate
 
 if (status.sellable_status !== "pass" && !record.includes("allowed_to_stop: no")) {
   console.error("Non-sellable cycle must explicitly deny stop permission.");
+  process.exit(1);
+}
+
+if (status.sellable_status !== "pass" && !record.includes("final_permission_gate: must_fail_until_sellable_pass")) {
+  console.error("Non-sellable cycle must mark final_permission_gate: must_fail_until_sellable_pass.");
+  process.exit(1);
+}
+
+if (status.sellable_status !== "pass" && !record.includes("if_quality_final_fails: continue_next_fresh_candidate")) {
+  console.error("Non-sellable cycle must define the quality:final failure action.");
+  process.exit(1);
+}
+
+if (status.sellable_status !== "pass" && status.final_permission_status !== "denied_continue") {
+  console.error("Non-sellable cycle must record final_permission_status: denied_continue.");
+  process.exit(1);
+}
+
+if (status.sellable_status !== "pass" && !status.final_permission_next_action.includes("candidates/r")) {
+  console.error("Non-sellable cycle must bind final_permission_next_action to a fresh candidate.");
   process.exit(1);
 }
 

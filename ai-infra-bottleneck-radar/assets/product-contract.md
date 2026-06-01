@@ -44,6 +44,13 @@ Within 30 seconds, the user can identify the highest-pressure AI infrastructure 
 - Pricing evaluation is selectable without claiming validated demand.
 - Feedback and pricing remain subordinate to the macro bottleneck map.
 
+## Public-Test Acceptance
+
+- The first viewport still answers the macro bottleneck question before asking for conversion.
+- The user can leave a structured public-test signal tied to the selected bottleneck, scenario, routine, and price choice.
+- The user can copy or export the current bottleneck readout for customer interview or waitlist evidence.
+- Exported signals remain local evidence candidates, not validated demand or paid launch proof.
+
 ## External Blocker Acceptance
 
 - Local product readiness and paid-release readiness are separate statuses.

@@ -95,3 +95,11 @@ Allowed `snapshot_type`:
 - `feedback_surface.pricing_choices` must be selectable and marked `local_choice_only`.
 - `feedback_surface.next_evidence_path` must say how local feedback becomes the next cycle's evidence.
 - `check-data-contracts.mjs` must fail if feedback readiness is only static text.
+
+## R8 Public-Test Data Rule
+
+- `feedback_surface.capture_storage` must use a candidate-specific public-test signal key.
+- The UI must expose report copy and JSON export actions for the selected bottleneck readout.
+- Exported public-test signals must include selected stage, snapshot, routine, price choice, use case, contact hint, and local evidence status.
+- Pricing choices remain `local_choice_only` until real customer conversion evidence exists.
+- `check-data-contracts.mjs` must fail if the public-test surface replaces the macro bottleneck promise.

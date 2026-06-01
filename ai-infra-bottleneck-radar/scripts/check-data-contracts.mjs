@@ -103,8 +103,8 @@ for (const path of data.thin_paths) {
   }
 }
 
-if (data.meta.candidate_id !== "r7-feedback-ready-radar") {
-  throw new Error("quality gate must target r7-feedback-ready-radar");
+if (data.meta.candidate_id !== "r8-conversion-ready-radar") {
+  throw new Error("quality gate must target r8-conversion-ready-radar");
 }
 
 const stageIds = new Set(data.stages.map((stage) => stage.id));
@@ -126,23 +126,23 @@ if (compliance.get("paid-legal") !== "external_required") {
   throw new Error("paid legal review must remain external_required before paid release");
 }
 if (data.pricing_hypothesis?.paid_service_status !== "not_launched") {
-  throw new Error("pricing hypothesis must remain not_launched for R7");
+  throw new Error("pricing hypothesis must remain not_launched for R8");
 }
 if (data.update_sla?.paid_sla_status !== "candidate_not_launched") {
-  throw new Error("paid SLA must remain candidate_not_launched for R7");
+  throw new Error("paid SLA must remain candidate_not_launched for R8");
 }
 
 if (!data.customer_proof || data.customer_proof.proof_status !== "local_feedback_capture_ready") {
-  throw new Error("R7 must classify customer proof as local_feedback_capture_ready");
+  throw new Error("R8 must classify customer proof as local_feedback_capture_ready until real conversion evidence exists");
 }
-if (!data.feedback_surface || data.feedback_surface.capture_storage !== "localStorage.ai-bottleneck-r7-feedback") {
-  throw new Error("R7 must include a feedback capture storage path");
+if (!data.feedback_surface || data.feedback_surface.capture_storage !== "localStorage.ai-bottleneck-r8-public-test-signal") {
+  throw new Error("R8 must include public-test signal storage path");
 }
 if (!Array.isArray(data.feedback_surface.repeat_use_workflows) || data.feedback_surface.repeat_use_workflows.length < stageIds.size) {
-  throw new Error("R7 must include repeat-use workflows for displayed stages");
+  throw new Error("R8 must include repeat-use workflows for displayed stages");
 }
 if (!Array.isArray(data.feedback_surface.pricing_choices) || data.feedback_surface.pricing_choices.length < 2) {
-  throw new Error("R7 must include pricing choices");
+  throw new Error("R8 must include pricing choices");
 }
 for (const test of data.feedback_surface.pricing_choices) {
   if (test.evidence_status !== "local_choice_only") {
@@ -155,13 +155,13 @@ for (const blocker of ["real customer capture", "payment approval", "legal revie
   }
 }
 if (!html.includes("Macro Bottleneck Map") || !html.includes("가장 큰 병목") || !html.includes("전파 경로")) {
-  throw new Error("R7 first viewport must preserve the macro bottleneck promise");
+  throw new Error("R8 first viewport must preserve the macro bottleneck promise");
 }
-for (const term of ["Feedback Ready Surface", "로컬 피드백 저장", "가격 실험", "관심 루틴"]) {
-  if (!html.includes(term)) throw new Error(`R7 feedback UI missing ${term}`);
+for (const term of ["Public Test Surface", "테스트 의사 저장", "가격 의사", "관심 루틴", "현재 병목 리포트 복사", "테스트 신호 JSON 다운로드"]) {
+  if (!html.includes(term)) throw new Error(`R8 public-test UI missing ${term}`);
 }
 if (!html.includes("병목과 전파 경로") || !data.feedback_surface.summary.includes("병목과 전파 경로")) {
-  throw new Error("R7 feedback copy must support the macro bottleneck promise");
+  throw new Error("R8 public-test copy must support the macro bottleneck promise");
 }
 
 console.log("data contract gate: pass");

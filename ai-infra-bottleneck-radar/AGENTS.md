@@ -36,7 +36,7 @@ External business blockers can be recorded, but they do not grant stop permissio
 
 ## Current Candidate
 
-`candidates/r7-feedback-ready-radar/`
+`candidates/r8-conversion-ready-radar/`
 
 ## Mechanical Enforcement
 
@@ -49,3 +49,10 @@ Before any completion-style final response, run:
 `npm run quality:final`
 
 If `quality:final` fails, do not stop. Continue the `next_action` fresh candidate.
+
+The cycle record must also show the same decision with:
+
+- `final_permission_status: denied_continue` when `sellable_status` is not `pass`
+- `final_permission_next_action: create candidates/<next>/ as a fresh candidate`
+
+If these fields say continue, a completion-style final response is a process failure even when `quality:check` passes.

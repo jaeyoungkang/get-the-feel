@@ -20,7 +20,8 @@ Build one complete candidate per loop for AI infrastructure bottleneck visualiza
 8. **Customer Proof Surface** — if a candidate claims customer proof, pricing/watchlist/capture proof must support the macro map and must remain marked as unvalidated until real customer capture exists.
 9. **Cycle Record Binding** — cycle record must bind `current_candidate_id`, `current_candidate_path`, monitor outputs, and stop permission by exact fields before verdict.
 10. **Product-Level Stop** — launch/legal/payment blockers cannot stop the product loop. Stop only when the product surface itself is ready for customer feedback, repeat use, and pricing evaluation.
-11. **Asset Recovery** — move lessons into assets, skill, data contract, design grammar, business logic, or checks.
+11. **Final Permission Gate** — if `sellable_status` is not `pass`, `npm run quality:final` must fail and the cycle record must name the next fresh candidate plus `if_quality_final_fails: continue_next_fresh_candidate`.
+12. **Asset Recovery** — move lessons into assets, skill, data contract, design grammar, business logic, or checks.
 
 ## Never
 
@@ -31,3 +32,4 @@ Build one complete candidate per loop for AI infrastructure bottleneck visualiza
 - Never let conversion or pricing surfaces replace the macro bottleneck map.
 - Never stop because business/legal/payment approval is outside the session when the product surface still needs iteration.
 - Never close a cycle with only chat feedback.
+- Never send a completion-style final response after a non-sellable cycle; continue the next fresh candidate instead.

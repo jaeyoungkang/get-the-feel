@@ -119,3 +119,20 @@ The next sellability step is a public-test surface:
 - a shareable or exportable feedback signal,
 - a clearer waitlist/payment-intent substitute that still refuses to claim validated demand,
 - a tighter recurring value proposition.
+
+## R8 Sellability Verdict
+
+R8 becomes public-test ready at the local product level:
+
+- the macro bottleneck map remains the primary first-screen product,
+- the user can select a routine and price intent,
+- the user can save a public-test signal locally,
+- the user can copy the current bottleneck report,
+- the user can download a structured signal for customer interview or waitlist evidence.
+
+This still is not product-level sellable enough to stop. The next product step is an onboarded recurring loop:
+
+- a sharper first-run path from "pick my bottleneck" to "save my monthly radar",
+- a persistent portfolio/watch context without becoming a stock picker,
+- clearer evidence that the user would return after the first public-test signal,
+- a stronger paid offer frame that remains non-advice.

@@ -79,10 +79,6 @@ Required product-level checks:
 
 ## R7 Rule
 
-R7 must create `candidates/r7-feedback-ready-radar/`, load the three product-making skills, and keep feedback/pricing copy subordinate to the macro bottleneck map. R7 cannot close until `CYCLE_RECORD.md` binds R7 as current candidate and records feedback capture, repeat-use workflow, pricing evaluation, and macro promise verdict fields.
-
-## R7 Rule
-
 R7 must create `candidates/r7-feedback-ready-radar/` and all quality scripts must target that candidate before verdict.
 
 R7 cannot close as sellable merely because local feedback capture exists. Local-only feedback is a product learning surface, not a paid product surface.
@@ -99,3 +95,17 @@ R7 cannot close until:
 Before a completion-style final response, run `npm run quality:final`.
 
 If it fails, the agent must continue the `next_action` fresh candidate. `npm run quality:check` only proves the current candidate is internally valid; it does not grant permission to stop.
+
+## R8 Rule
+
+R8 must create `candidates/r8-conversion-ready-radar/` and all quality scripts must target that candidate before verdict.
+
+R8 cannot close until:
+
+- product-making skill receipts are recorded for macro visualization, source-backed data, feedback/public-test surface, and product-level sellability,
+- the Asset Steward Monitor checks skill assets and asset recovery before verdict,
+- public-test signal capture, report copy, JSON export, routine choice, and price intent are visible in the UI and checked in data,
+- `CYCLE_RECORD.md` records `final_permission_gate: must_fail_until_sellable_pass`,
+- non-sellable cycles record `if_quality_final_fails: continue_next_fresh_candidate` and a fresh next action.
+
+If `sellable_status` is not `pass`, `quality:final` must fail and the next candidate must start instead of sending a completion-style final response.
