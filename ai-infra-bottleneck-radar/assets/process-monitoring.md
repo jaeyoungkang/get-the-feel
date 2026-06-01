@@ -57,3 +57,7 @@ R4 cannot close until:
 R5 must create `candidates/r5-customer-proof-radar/` and all quality scripts must target that candidate before verdict.
 
 R5 cannot close as sellable unless real customer capture, payment approval, legal review, and paid SLA approval are no longer missing. If those cannot be performed in-session, they must be recorded as external blockers; otherwise the loop continues with `allowed_to_stop: no`.
+
+## R6 Rule
+
+R6 may set `allowed_to_stop: yes` only if `assets/CYCLE_RECORD.md` records concrete `external_blocker:` entries for real customer capture, payment approval, legal review, and paid SLA approval.

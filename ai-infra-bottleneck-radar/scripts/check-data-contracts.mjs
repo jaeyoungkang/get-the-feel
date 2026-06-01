@@ -103,8 +103,8 @@ for (const path of data.thin_paths) {
   }
 }
 
-if (data.meta.candidate_id !== "r5-customer-proof-radar") {
-  throw new Error("quality gate must target r5-customer-proof-radar");
+if (data.meta.candidate_id !== "r6-external-proof-radar") {
+  throw new Error("quality gate must target r6-external-proof-radar");
 }
 
 const stageIds = new Set(data.stages.map((stage) => stage.id));
@@ -128,34 +128,42 @@ if (compliance.get("paid-legal") !== "external_required") {
 if (data.pricing_hypothesis?.paid_service_status !== "blocked") {
   throw new Error("pricing hypothesis must block paid service until validated");
 }
-if (data.update_sla?.paid_sla_status !== "not_approved") {
-  throw new Error("paid SLA must remain not approved");
+if (data.update_sla?.paid_sla_status !== "external_required") {
+  throw new Error("paid SLA must remain external_required");
 }
 
-if (!data.customer_proof || data.customer_proof.proof_status !== "local_surface_only_real_customer_capture_missing") {
-  throw new Error("R5 must include customer proof status and keep real customer capture missing");
+if (!data.customer_proof || data.customer_proof.proof_status !== "blocked_by_external_customer_capture") {
+  throw new Error("R6 must classify customer proof as blocked by external customer capture");
 }
 if (!Array.isArray(data.customer_proof.watchlist_routines) || data.customer_proof.watchlist_routines.length < stageIds.size) {
-  throw new Error("R5 must include watchlist routines for displayed stages");
+  throw new Error("R6 must include watchlist routines for displayed stages");
 }
 if (!Array.isArray(data.customer_proof.pricing_tests) || data.customer_proof.pricing_tests.length < 2) {
-  throw new Error("R5 must include pricing tests");
+  throw new Error("R6 must include pricing tests");
 }
 for (const test of data.customer_proof.pricing_tests) {
-  if (test.evidence_status !== "hypothesis_not_sold") {
-    throw new Error(`pricing test ${test.id} must remain unsold hypothesis`);
+  if (test.evidence_status !== "blocked_until_customer_capture") {
+    throw new Error(`pricing test ${test.id} must remain blocked until customer capture`);
   }
 }
 for (const blocker of ["real customer capture", "payment approval", "legal review", "paid SLA approval"]) {
   if (!data.customer_proof.external_blockers?.includes(blocker)) {
-    throw new Error(`R5 missing external blocker: ${blocker}`);
+    throw new Error(`R6 missing external blocker: ${blocker}`);
   }
 }
 if (!html.includes("Macro Bottleneck Map") || !html.includes("가장 큰 병목") || !html.includes("전파 경로")) {
-  throw new Error("R5 first viewport must preserve the macro bottleneck promise");
+  throw new Error("R6 first viewport must preserve the macro bottleneck promise");
 }
-if (!html.includes("Customer Proof Surface")) {
-  throw new Error("R5 customer proof surface must be explicit and subordinate");
+if (!html.includes("External Proof Gate")) {
+  throw new Error("R6 external proof gate must be explicit");
+}
+if (!data.external_proof || data.external_proof.blockers?.length < 4) {
+  throw new Error("R6 must include external proof blockers");
+}
+for (const blocker of data.external_proof.blockers) {
+  if (blocker.status !== "external_blocker") {
+    throw new Error(`external proof blocker ${blocker.id} must be external_blocker`);
+  }
 }
 
 console.log("data contract gate: pass");

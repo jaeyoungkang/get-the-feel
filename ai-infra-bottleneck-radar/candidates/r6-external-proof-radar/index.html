@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI Infra Bottleneck Radar</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">AI Infra Bottleneck Radar R6</p>
+        <h1>AI 인프라 병목 지도는 준비됐고, 판매 전 외부 검증만 남았다</h1>
+      </div>
+      <div id="snapshotControls" class="snapshot-controls" aria-label="스냅샷 선택"></div>
+    </header>
+
+    <main class="workspace">
+      <section class="map-panel" aria-labelledby="mapTitle">
+        <div class="panel-head">
+          <div>
+            <h2 id="mapTitle">Macro Bottleneck Map</h2>
+            <p id="snapshotNote">가장 큰 병목, 전파 경로, 현재와 미래 스냅샷을 먼저 보여준다.</p>
+          </div>
+          <div id="saleBoundary" class="boundary"></div>
+        </div>
+        <svg id="map" viewBox="0 0 1180 620" role="img" aria-label="AI infrastructure bottleneck map"></svg>
+      </section>
+
+      <aside class="detail" aria-labelledby="detailTitle">
+        <div class="score-box">
+          <span id="statusLabel">context</span>
+          <strong id="detailScore">0</strong>
+        </div>
+        <h2 id="detailTitle">선택 노드</h2>
+        <p id="detailSummary"></p>
+
+        <section>
+          <h3>투자자 해석</h3>
+          <div id="impactList" class="stack"></div>
+        </section>
+
+        <section>
+          <h3>검증 근거</h3>
+          <div id="trustList" class="stack"></div>
+        </section>
+
+        <section>
+          <h3>판매 차단 조건</h3>
+          <div id="blockerList" class="stack"></div>
+        </section>
+      </aside>
+    </main>
+
+    <section class="launch" aria-labelledby="launchTitle">
+      <div>
+        <p class="eyebrow">External Proof Gate</p>
+        <h2 id="launchTitle">세션 안에서 해결할 수 없는 판매 승인 항목</h2>
+      </div>
+      <div id="externalGate" class="gate-grid"></div>
+    </section>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

@@ -89,3 +89,14 @@ The next sellability step is external validation, not more local UI:
 - run a customer interview or smoke-test capture,
 - collect a willingness-to-pay signal,
 - or classify the work as blocked by external customer/payment/legal/SLA dependencies.
+
+## R6 Sellability Verdict
+
+R6 classifies the remaining paid-release gap as external blockers:
+
+- real customer capture requires interview, waitlist, or payment-intent evidence,
+- payment approval requires an approved flow and terms,
+- legal review requires investment-advice boundary review,
+- paid SLA requires staffed monthly update operation.
+
+Local product candidate work can stop here because further paid release progress depends on external human/business/legal inputs.

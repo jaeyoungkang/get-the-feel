@@ -36,3 +36,9 @@ Within 30 seconds, the user can identify the highest-pressure AI infrastructure 
 - The surface shows why an ordinary investor would return monthly.
 - Pricing tests are shown as unsold hypotheses, not validated demand.
 - External blockers are explicit: real customer capture, legal review, payment approval, and paid SLA approval.
+
+## External Blocker Acceptance
+
+- Local product readiness and paid-release readiness are separate statuses.
+- Stop permission is allowed only when concrete external blockers are recorded.
+- External blockers must name the missing owner/evidence, not vague "quality not enough."

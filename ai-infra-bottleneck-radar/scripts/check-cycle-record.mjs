@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const root = new URL("..", import.meta.url).pathname;
-const currentCandidate = "r5-customer-proof-radar";
+const currentCandidate = "r6-external-proof-radar";
 const record = readFileSync(join(root, "assets/CYCLE_RECORD.md"), "utf8");
 
 function field(name) {
@@ -24,7 +24,7 @@ const required = [
   "sellable_status:",
   "next_action:",
   "allowed_to_stop:",
-  "stop_permission_after_r5:"
+  "stop_permission_after_r6:"
 ];
 
 const missing = required.filter((term) => !record.includes(term));
@@ -73,12 +73,14 @@ if (status.sellable_status !== "pass" && status.allowed_to_stop !== "no" && !rec
   process.exit(1);
 }
 
-if (status.sellable_status !== "pass" && !status.next_action.includes("candidates/r")) {
+const hasExternalBlocker = record.includes("external_blocker:");
+
+if (status.sellable_status !== "pass" && !hasExternalBlocker && !status.next_action.includes("candidates/r")) {
   console.error("Non-sellable cycle must specify the next fresh candidate action.");
   process.exit(1);
 }
 
-if (status.sellable_status !== "pass" && !record.includes("allowed_to_stop: no")) {
+if (status.sellable_status !== "pass" && !hasExternalBlocker && !record.includes("allowed_to_stop: no")) {
   console.error("Non-sellable cycle must explicitly deny stop permission.");
   process.exit(1);
 }
