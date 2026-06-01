@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const root = new URL("..", import.meta.url).pathname;
-const currentCandidate = "r12-sellable-boundary-radar";
+const currentCandidate = "r13-operator-sla-radar";
 const record = readFileSync(join(root, "assets/CYCLE_RECORD.md"), "utf8");
 
 function field(name) {
@@ -35,8 +35,9 @@ const required = [
   "next_candidate_id:",
   "next_candidate_path:",
   "next_candidate_primary_advancement:",
+  "next_candidate_binding_checked:",
   "allowed_to_stop:",
-  "stop_permission_after_r12:",
+  "stop_permission_after_r13:",
   "final_permission_status:",
   "final_permission_next_action:",
   "asset_map_present:",
@@ -60,11 +61,11 @@ if (record.includes("pending")) {
 }
 
 const status = Object.fromEntries(
-  ["local_candidate_status", "representative_status", "sellable_status", "next_action", "next_candidate_id", "next_candidate_path", "next_candidate_primary_advancement", "allowed_to_stop", "final_permission_status", "final_permission_next_action"]
+  ["local_candidate_status", "representative_status", "sellable_status", "next_action", "next_candidate_id", "next_candidate_path", "next_candidate_primary_advancement", "next_candidate_binding_checked", "allowed_to_stop", "final_permission_status", "final_permission_next_action"]
     .map((key) => [key, field(key)])
 );
 
-if (!status.local_candidate_status || !status.representative_status || !status.sellable_status || !status.next_action || !status.next_candidate_id || !status.next_candidate_path || !status.next_candidate_primary_advancement || !status.allowed_to_stop || !status.final_permission_status || !status.final_permission_next_action) {
+if (!status.local_candidate_status || !status.representative_status || !status.sellable_status || !status.next_action || !status.next_candidate_id || !status.next_candidate_path || !status.next_candidate_primary_advancement || !status.next_candidate_binding_checked || !status.allowed_to_stop || !status.final_permission_status || !status.final_permission_next_action) {
   console.error("Cycle record stop-permission fields are incomplete.");
   process.exit(1);
 }
@@ -109,23 +110,33 @@ if (status.sellable_status !== "pass" && !status.next_action.includes("candidate
   process.exit(1);
 }
 
-if (status.sellable_status !== "pass" && status.next_candidate_id !== "r13-operator-sla-radar") {
-  console.error("R12 non-sellable cycle must bind next_candidate_id to r13-operator-sla-radar.");
+if (status.sellable_status !== "pass" && status.next_candidate_id !== "r14-paid-onboarding-radar") {
+  console.error("R13 non-sellable cycle must bind next_candidate_id to r14-paid-onboarding-radar.");
   process.exit(1);
 }
 
-if (status.sellable_status !== "pass" && status.next_candidate_path !== "candidates/r13-operator-sla-radar/") {
-  console.error("R12 non-sellable cycle must bind next_candidate_path to candidates/r13-operator-sla-radar/.");
+if (status.sellable_status !== "pass" && status.next_candidate_path !== "candidates/r14-paid-onboarding-radar/") {
+  console.error("R13 non-sellable cycle must bind next_candidate_path to candidates/r14-paid-onboarding-radar/.");
   process.exit(1);
 }
 
-if (status.sellable_status !== "pass" && !status.next_candidate_primary_advancement.includes("operator SLA")) {
-  console.error("R12 non-sellable cycle must define next_candidate_primary_advancement as operator SLA.");
+if (status.sellable_status !== "pass" && !status.next_candidate_primary_advancement.includes("paid onboarding")) {
+  console.error("R13 non-sellable cycle must define next_candidate_primary_advancement as paid onboarding.");
   process.exit(1);
 }
 
 if (status.sellable_status !== "pass" && !status.next_action.includes(status.next_candidate_path)) {
   console.error("next_action must include exact next_candidate_path.");
+  process.exit(1);
+}
+
+if (status.sellable_status !== "pass" && !status.next_candidate_binding_checked.includes(status.next_candidate_id)) {
+  console.error("next_candidate_binding_checked must include exact next_candidate_id.");
+  process.exit(1);
+}
+
+if (status.sellable_status !== "pass" && !status.next_candidate_binding_checked.includes(status.next_candidate_path)) {
+  console.error("next_candidate_binding_checked must include exact next_candidate_path.");
   process.exit(1);
 }
 

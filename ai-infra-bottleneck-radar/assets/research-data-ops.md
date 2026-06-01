@@ -135,3 +135,10 @@ Allowed `snapshot_type`:
 - `sellable_boundary.pass_conditions` must require evidence outside localStorage.
 - `sellable_boundary.blocked_conditions` must include local export only.
 - `check-data-contracts.mjs` must fail if the candidate implies sellability from local evidence alone.
+
+## R13 Operator-SLA Data Rule
+
+- `update_sla.paid_sla_status` must be `operator_boundary_candidate`.
+- `operator_sla` must define owner, staffing status, cadence, source review window, escalation status, decision, blocked reason, and pass conditions.
+- `operator_sla.paid_sla_decision` must remain `blocked` while staffing is `not_staffed`.
+- `check-data-contracts.mjs` must fail if the candidate implies staffed paid operation without staffing.

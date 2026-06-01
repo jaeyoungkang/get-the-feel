@@ -36,7 +36,7 @@ External business blockers can be recorded, but they do not grant stop permissio
 
 ## Current Candidate
 
-`candidates/r12-sellable-boundary-radar/`
+`candidates/r13-operator-sla-radar/`
 
 ## Mechanical Enforcement
 

@@ -186,3 +186,14 @@ R12 explicitly keeps sellability blocked:
 - paid monthly update SLA is not staffed.
 
 The next sellability blocker is the operator SLA: even if evidence exists, the service cannot be sold without a credible update operation.
+
+## R13 Sellability Verdict
+
+R13 keeps sellability blocked because the monthly update operation is not staffed:
+
+- owner and cadence are candidate-level,
+- source review window is defined,
+- escalation is manual-review-required,
+- paid SLA decision is blocked.
+
+The next candidate must not create paid onboarding unless the SLA boundary remains visible and non-sellable status continues to block final permission.

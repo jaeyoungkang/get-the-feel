@@ -123,3 +123,9 @@ It must show:
 - blocked conditions.
 
 It must not look like a checkout page or launch approval.
+
+## R13 Operator-SLA Surface Rule
+
+Operator-SLA controls can show owner, cadence, staffing status, source review window, and escalation status.
+
+They must stay below the macro map and must not imply paid operation is staffed when staffing is `not_staffed`.

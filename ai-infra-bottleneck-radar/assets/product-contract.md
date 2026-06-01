@@ -79,6 +79,12 @@ Within 30 seconds, the user can identify the highest-pressure AI infrastructure 
 - Pass conditions and blocked conditions must be visible and tied to customer evidence, payment, legal boundary, and update SLA.
 - The decision supports the macro map; it cannot replace the macro bottleneck promise.
 
+## Operator-SLA Acceptance
+
+- Monthly update promises require owner, cadence, source review window, escalation status, and staffing status.
+- If staffing is `not_staffed`, sellability remains blocked.
+- Operator SLA belongs below the macro map and cannot replace bottleneck analysis.
+
 ## External Blocker Acceptance
 
 - Local product readiness and paid-release readiness are separate statuses.

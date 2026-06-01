@@ -161,3 +161,14 @@ R12 cannot close until:
 - current decision remains `blocked` when external evidence is absent,
 - pass and blocked conditions are checked mechanically,
 - exact next-candidate fields bind non-sellable status to `candidates/r13-operator-sla-radar/`.
+
+## R13 Rule
+
+R13 must create `candidates/r13-operator-sla-radar/` and all quality scripts must target that candidate before verdict.
+
+R13 cannot close until:
+
+- operator SLA owner, cadence, staffing status, review window, escalation status, and blocked decision are visible in data and UI,
+- staffing remains `not_staffed` unless a real staffed operation exists,
+- monitor `next_candidate_binding_checked` matches top-level next candidate fields,
+- exact next-candidate fields bind non-sellable status to `candidates/r14-paid-onboarding-radar/`.
