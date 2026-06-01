@@ -87,3 +87,11 @@ Allowed `snapshot_type`:
 - Pricing tests must be present, but each remains `hypothesis_not_sold`.
 - External blockers must include real customer capture, payment approval, legal review, and paid SLA approval.
 - `check-data-contracts.mjs` must fail if customer proof is implied as validated demand.
+
+## R7 Feedback-Ready Data Rule
+
+- `feedback_surface.capture_storage` must state where local feedback is stored.
+- `feedback_surface.repeat_use_workflows` must cover displayed stages.
+- `feedback_surface.pricing_choices` must be selectable and marked `local_choice_only`.
+- `feedback_surface.next_evidence_path` must say how local feedback becomes the next cycle's evidence.
+- `check-data-contracts.mjs` must fail if feedback readiness is only static text.

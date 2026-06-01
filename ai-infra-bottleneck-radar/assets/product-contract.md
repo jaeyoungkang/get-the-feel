@@ -37,8 +37,16 @@ Within 30 seconds, the user can identify the highest-pressure AI infrastructure 
 - Pricing tests are shown as unsold hypotheses, not validated demand.
 - External blockers are explicit: real customer capture, legal review, payment approval, and paid SLA approval.
 
+## Feedback-Ready Acceptance
+
+- Feedback capture is a visible user action, not static copy.
+- Repeat-use workflow is visible for the selected bottleneck.
+- Pricing evaluation is selectable without claiming validated demand.
+- Feedback and pricing remain subordinate to the macro bottleneck map.
+
 ## External Blocker Acceptance
 
 - Local product readiness and paid-release readiness are separate statuses.
-- Stop permission is allowed only when concrete external blockers are recorded.
+- Stop permission is not granted by external blockers.
 - External blockers must name the missing owner/evidence, not vague "quality not enough."
+- Product-level stop permission requires the product surface itself to be sellable: macro promise works in the first viewport, feedback/repeat-use/pricing behavior is usable, and the next customer evidence path is stronger than local-only storage.

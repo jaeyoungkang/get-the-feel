@@ -76,3 +76,16 @@ Required product-level checks:
 - repeat-use readiness,
 - pricing evaluation readiness,
 - macro promise preservation.
+
+## R7 Rule
+
+R7 must create `candidates/r7-feedback-ready-radar/` and all quality scripts must target that candidate before verdict.
+
+R7 cannot close as sellable merely because local feedback capture exists. Local-only feedback is a product learning surface, not a paid product surface.
+
+R7 cannot close until:
+
+- product-making skill receipts are recorded for macro visualization, source-backed data, and feedback-ready surface work,
+- Process Improvement Monitor explicitly checks skill registration, exact current-candidate targeting, and stop-permission recurrence,
+- feedback capture, repeat-use workflow, pricing choices, and next evidence path are visible in the UI and checked in data,
+- stop permission remains denied unless `sellable_status: pass`.

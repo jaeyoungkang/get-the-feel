@@ -100,3 +100,22 @@ R6 classifies the remaining paid-release gap as external blockers:
 - paid SLA requires staffed monthly update operation.
 
 This was not enough to stop the product loop. Product-level sellability still requires a stronger customer feedback surface, repeat-use workflow, and pricing evaluation path inside the product candidate. External business blockers are launch blockers, not product-loop stop permission.
+
+## R7 Sellability Verdict
+
+R7 becomes feedback-ready at the local product level:
+
+- the macro map remains the primary surface,
+- the user can choose a repeat-use routine,
+- the user can choose a pricing offer,
+- the user can submit local feedback,
+- the next evidence path is explicit.
+
+This is not paid launch approval and not enough to stop the loop. It is a product candidate ready to be shown to customers for feedback.
+
+The next sellability step is a public-test surface:
+
+- a stronger first-screen promise that answers the bottleneck question before asking for feedback,
+- a shareable or exportable feedback signal,
+- a clearer waitlist/payment-intent substitute that still refuses to claim validated demand,
+- a tighter recurring value proposition.

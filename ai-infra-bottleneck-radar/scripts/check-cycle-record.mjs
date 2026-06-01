@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const root = new URL("..", import.meta.url).pathname;
-const currentCandidate = "r6-external-proof-radar";
+const currentCandidate = "r7-feedback-ready-radar";
 const record = readFileSync(join(root, "assets/CYCLE_RECORD.md"), "utf8");
 
 function field(name) {
@@ -31,7 +31,7 @@ const required = [
   "sellable_status:",
   "next_action:",
   "allowed_to_stop:",
-  "stop_permission_after_r6:"
+  "stop_permission_after_r7:"
 ];
 
 const missing = required.filter((term) => !record.includes(term));

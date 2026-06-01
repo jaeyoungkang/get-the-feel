@@ -55,3 +55,14 @@ Customer proof belongs below or beside the map. It can explain why the user retu
 - macro bottleneck severity,
 - pressure propagation,
 - current vs scenario snapshot.
+
+## R7 Feedback Surface Rule
+
+Feedback and pricing can appear in the product, but only as a lower support band below the macro map. A feedback-ready surface needs action controls:
+
+- routine choice,
+- pricing choice,
+- feedback capture form,
+- next evidence path.
+
+If the user can only read blockers or hypotheses, the product is not feedback-ready.
