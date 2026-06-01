@@ -245,7 +245,7 @@
     "external_blockers": ["real customer capture", "payment approval", "legal review", "paid SLA approval"]
   },
   "feedback_surface": {
-    "summary": "병목 지도는 그대로 두고, 사용자는 루틴·가격·사용 상황을 선택해 다음 루프의 고객 증거를 남긴다.",
+    "summary": "AI 인프라 병목과 전파 경로를 먼저 보고, 계속 추적할 루틴·가격·사용 상황을 선택한다.",
     "capture_storage": "localStorage.ai-bottleneck-r7-feedback",
     "next_evidence_path": "export local feedback signal into R8 evidence ledger or replace with real waitlist/payment-intent capture",
     "use_cases": [

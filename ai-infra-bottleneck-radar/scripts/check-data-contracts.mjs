@@ -160,5 +160,8 @@ if (!html.includes("Macro Bottleneck Map") || !html.includes("가장 큰 병목"
 for (const term of ["Feedback Ready Surface", "로컬 피드백 저장", "가격 실험", "관심 루틴"]) {
   if (!html.includes(term)) throw new Error(`R7 feedback UI missing ${term}`);
 }
+if (!html.includes("병목과 전파 경로") || !data.feedback_surface.summary.includes("병목과 전파 경로")) {
+  throw new Error("R7 feedback copy must support the macro bottleneck promise");
+}
 
 console.log("data contract gate: pass");

@@ -79,6 +79,10 @@ Required product-level checks:
 
 ## R7 Rule
 
+R7 must create `candidates/r7-feedback-ready-radar/`, load the three product-making skills, and keep feedback/pricing copy subordinate to the macro bottleneck map. R7 cannot close until `CYCLE_RECORD.md` binds R7 as current candidate and records feedback capture, repeat-use workflow, pricing evaluation, and macro promise verdict fields.
+
+## R7 Rule
+
 R7 must create `candidates/r7-feedback-ready-radar/` and all quality scripts must target that candidate before verdict.
 
 R7 cannot close as sellable merely because local feedback capture exists. Local-only feedback is a product learning surface, not a paid product surface.
