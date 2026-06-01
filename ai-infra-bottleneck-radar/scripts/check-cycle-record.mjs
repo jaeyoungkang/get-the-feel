@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const root = new URL("..", import.meta.url).pathname;
-const currentCandidate = "r8-conversion-ready-radar";
+const currentCandidate = "r9-subscription-ready-radar";
 const record = readFileSync(join(root, "assets/CYCLE_RECORD.md"), "utf8");
 
 function field(name) {
@@ -31,7 +31,7 @@ const required = [
   "sellable_status:",
   "next_action:",
   "allowed_to_stop:",
-  "stop_permission_after_r8:",
+  "stop_permission_after_r9:",
   "final_permission_status:",
   "final_permission_next_action:",
   "asset_map_present:",

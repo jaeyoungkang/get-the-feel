@@ -76,3 +76,13 @@ Public-test and conversion controls are allowed only after the macro bottleneck 
 - current vs future scenario state.
 
 The conversion band must use bottleneck-tracking language such as routine, selected bottleneck, report copy, and evidence export. It must not become a generic landing page, signup page, pricing page, or legal review dashboard.
+
+## R9 Subscription Surface Rule
+
+Subscription controls can appear only as a continuation of the selected bottleneck:
+
+- first choose or inspect the bottleneck on the macro map,
+- then save a monthly radar,
+- then choose price intent or copy a sample report.
+
+The page must not become a pricing landing page. If the subscription band is visible, its labels must stay tied to bottleneck tracking, monthly radar, sample paid report, and evidence export.

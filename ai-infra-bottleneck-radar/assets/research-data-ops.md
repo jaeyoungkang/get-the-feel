@@ -103,3 +103,11 @@ Allowed `snapshot_type`:
 - Exported public-test signals must include selected stage, snapshot, routine, price choice, use case, contact hint, and local evidence status.
 - Pricing choices remain `local_choice_only` until real customer conversion evidence exists.
 - `check-data-contracts.mjs` must fail if the public-test surface replaces the macro bottleneck promise.
+
+## R9 Subscription Data Rule
+
+- `feedback_surface.capture_storage` must use a candidate-specific subscription context key.
+- Subscription intent must include selected stage, snapshot, routine, use case, contact hint, and price intent.
+- `subscription_surface.sample_paid_report` must describe a recurring bottleneck report, not a trade idea.
+- `customer_proof.proof_status` may be `product_level_sellable_local_candidate`, but external paid-release blockers remain required until real customer/payment/legal/SLA proof exists.
+- `check-data-contracts.mjs` must fail if subscription readiness is treated as paid demand validation.

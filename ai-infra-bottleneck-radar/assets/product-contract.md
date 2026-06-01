@@ -51,6 +51,13 @@ Within 30 seconds, the user can identify the highest-pressure AI infrastructure 
 - The user can copy or export the current bottleneck readout for customer interview or waitlist evidence.
 - Exported signals remain local evidence candidates, not validated demand or paid launch proof.
 
+## Subscription-Ready Local Acceptance
+
+- The user can save a selected bottleneck as a monthly radar after seeing the macro map.
+- The sample paid report is a bottleneck readout, not a stock recommendation or generic newsletter.
+- Price intent is attached to a selected routine and remains `local_choice_only`.
+- Subscription readiness can make the candidate customer-testable, but it does not prove paid demand or grant stop permission.
+
 ## External Blocker Acceptance
 
 - Local product readiness and paid-release readiness are separate statuses.

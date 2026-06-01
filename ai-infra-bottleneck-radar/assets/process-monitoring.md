@@ -106,6 +106,21 @@ R8 cannot close until:
 - the Asset Steward Monitor checks skill assets and asset recovery before verdict,
 - public-test signal capture, report copy, JSON export, routine choice, and price intent are visible in the UI and checked in data,
 - `CYCLE_RECORD.md` records `final_permission_gate: must_fail_until_sellable_pass`,
-- non-sellable cycles record `if_quality_final_fails: continue_next_fresh_candidate` and a fresh next action.
+- non-sellable cycles record `final_permission_status: denied_continue`,
+- non-sellable cycles record `if_quality_final_fails: continue_next_fresh_candidate` and a fresh `final_permission_next_action`.
 
 If `sellable_status` is not `pass`, `quality:final` must fail and the next candidate must start instead of sending a completion-style final response.
+
+## R9 Rule
+
+R9 must create `candidates/r9-subscription-ready-radar/` and all quality scripts must target that candidate before verdict.
+
+R9 cannot close until:
+
+- subscription controls remain subordinate to the macro bottleneck map,
+- saved monthly radar, sample paid report copy, subscription price intent, and JSON export are visible in the UI and checked in data,
+- Asset Steward verifies product-making skills and records R9 asset contributions,
+- `CYCLE_RECORD.md` records `final_permission_status: denied_continue` unless `sellable_status: pass`,
+- `final_permission_next_action` names the exact next fresh candidate.
+
+If `quality:final` fails, the agent must proceed to the named next fresh candidate rather than stop at R9.

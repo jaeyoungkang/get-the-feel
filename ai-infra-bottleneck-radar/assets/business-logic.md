@@ -136,3 +136,20 @@ This still is not product-level sellable enough to stop. The next product step i
 - a persistent portfolio/watch context without becoming a stock picker,
 - clearer evidence that the user would return after the first public-test signal,
 - a stronger paid offer frame that remains non-advice.
+
+## R9 Sellability Verdict
+
+R9 becomes subscription-ready as a local product candidate:
+
+- the macro bottleneck map remains the primary product surface,
+- the user can save a selected bottleneck as a monthly radar,
+- the user can choose a subscription-like price intent,
+- the user can copy a sample paid report,
+- the exported signal can support a customer interview or waitlist test.
+
+This still does not grant stop permission. Product-level sellability remains blocked until at least one real paid-proof substitute exists:
+
+- customer interview or waitlist capture outside local storage,
+- payment-intent or preorder evidence,
+- legal boundary review for the non-advice product,
+- approved operating SLA for monthly source review.
