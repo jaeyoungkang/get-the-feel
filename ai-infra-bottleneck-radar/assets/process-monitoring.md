@@ -150,3 +150,14 @@ R11 cannot close until:
 - external paths remain `external_required` and `not_captured`,
 - promotion requires evidence outside localStorage,
 - exact next-candidate fields bind non-sellable status to `candidates/r12-sellable-boundary-radar/`.
+
+## R12 Rule
+
+R12 must create `candidates/r12-sellable-boundary-radar/` and all quality scripts must target that candidate before verdict.
+
+R12 cannot close until:
+
+- sellable-boundary decision is visible in data and UI,
+- current decision remains `blocked` when external evidence is absent,
+- pass and blocked conditions are checked mechanically,
+- exact next-candidate fields bind non-sellable status to `candidates/r13-operator-sla-radar/`.

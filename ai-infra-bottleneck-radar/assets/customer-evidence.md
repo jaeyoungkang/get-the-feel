@@ -41,3 +41,16 @@ An external-proof candidate must show where the packet goes next:
 Each path remains `external_required` and `not_captured` until evidence exists outside localStorage.
 
 Sellability cannot pass from a local packet alone. The next promotion boundary requires external evidence outside localStorage plus payment/legal/SLA resolution or explicit product-level narrowing.
+
+## R12 Sellable-Boundary Rule
+
+A sellable-boundary candidate must make the current decision explicit.
+
+Required decision fields:
+
+- current decision
+- decision reason
+- pass conditions
+- blocked conditions
+
+If external evidence is absent or only localStorage exists, the decision must remain `blocked`.

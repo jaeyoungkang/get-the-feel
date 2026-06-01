@@ -2,7 +2,7 @@ import { existsSync } from "node:fs";
 import { join } from "node:path";
 
 const root = new URL("..", import.meta.url).pathname;
-const currentCandidate = "r11-external-proof-radar";
+const currentCandidate = "r12-sellable-boundary-radar";
 const required = [
   "AGENTS.md",
   "assets/ASSET_MAP.md",

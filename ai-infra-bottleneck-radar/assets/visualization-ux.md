@@ -110,3 +110,16 @@ The first viewport still must answer:
 - source/trust boundary.
 
 External-proof controls must be labeled as paths, not completed proof.
+
+## R12 Sellable-Boundary Surface Rule
+
+The sellable-boundary panel can show blocked/pass conditions, but it stays below the macro map.
+
+It must show:
+
+- current decision,
+- decision reason,
+- pass conditions,
+- blocked conditions.
+
+It must not look like a checkout page or launch approval.

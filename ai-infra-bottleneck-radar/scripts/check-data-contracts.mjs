@@ -103,8 +103,8 @@ for (const path of data.thin_paths) {
   }
 }
 
-if (data.meta.candidate_id !== "r11-external-proof-radar") {
-  throw new Error("quality gate must target r11-external-proof-radar");
+if (data.meta.candidate_id !== "r12-sellable-boundary-radar") {
+  throw new Error("quality gate must target r12-sellable-boundary-radar");
 }
 
 const stageIds = new Set(data.stages.map((stage) => stage.id));
@@ -126,26 +126,26 @@ if (compliance.get("paid-legal") !== "external_required") {
   throw new Error("paid legal review must remain external_required before paid release");
 }
 if (data.pricing_hypothesis?.paid_service_status !== "not_launched") {
-  throw new Error("pricing hypothesis must remain not_launched for R11");
+  throw new Error("pricing hypothesis must remain not_launched for R12");
 }
 if (data.update_sla?.paid_sla_status !== "candidate_not_launched") {
-  throw new Error("paid SLA must remain candidate_not_launched for R11");
+  throw new Error("paid SLA must remain candidate_not_launched for R12");
 }
 
-if (!data.customer_proof || data.customer_proof.proof_status !== "external_proof_path_candidate") {
-  throw new Error("R11 must classify customer proof as external_proof_path_candidate");
+if (!data.customer_proof || data.customer_proof.proof_status !== "sellable_boundary_candidate") {
+  throw new Error("R12 must classify customer proof as sellable_boundary_candidate");
 }
-if (!data.customer_proof.proof_boundary || !data.customer_proof.proof_boundary.includes("not completed customer proof")) {
-  throw new Error("R11 must include customer proof boundary refusing completed customer proof claims");
+if (!data.customer_proof.proof_boundary || !data.customer_proof.proof_boundary.includes("sellability denied until external customer/payment evidence exists outside localStorage")) {
+  throw new Error("R12 must include customer proof boundary denying sellability until external evidence exists");
 }
-if (!data.feedback_surface || data.feedback_surface.capture_storage !== "localStorage.ai-bottleneck-r11-external-proof-context") {
-  throw new Error("R11 must include external-proof context storage path");
+if (!data.feedback_surface || data.feedback_surface.capture_storage !== "localStorage.ai-bottleneck-r12-sellable-boundary-context") {
+  throw new Error("R12 must include sellable-boundary context storage path");
 }
 if (!Array.isArray(data.feedback_surface.repeat_use_workflows) || data.feedback_surface.repeat_use_workflows.length < stageIds.size) {
-  throw new Error("R11 must include repeat-use workflows for displayed stages");
+  throw new Error("R12 must include repeat-use workflows for displayed stages");
 }
 if (!Array.isArray(data.feedback_surface.pricing_choices) || data.feedback_surface.pricing_choices.length < 2) {
-  throw new Error("R11 must include pricing choices");
+  throw new Error("R12 must include pricing choices");
 }
 for (const test of data.feedback_surface.pricing_choices) {
   if (test.evidence_status !== "local_choice_only") {
@@ -154,42 +154,54 @@ for (const test of data.feedback_surface.pricing_choices) {
 }
 for (const blocker of ["real customer capture", "payment approval", "legal review", "paid SLA approval"]) {
   if (!data.customer_proof.external_blockers?.includes(blocker)) {
-    throw new Error(`R11 missing external blocker: ${blocker}`);
+    throw new Error(`R12 missing external blocker: ${blocker}`);
   }
 }
 if (!html.includes("Macro Bottleneck Map") || !html.includes("가장 큰 병목") || !html.includes("전파 경로")) {
-  throw new Error("R11 first viewport must preserve the macro bottleneck promise");
+  throw new Error("R12 first viewport must preserve the macro bottleneck promise");
 }
-for (const term of ["External Proof Surface", "외부 검증 링크 저장", "외부 검증 경로", "결제 의향", "외부 검증 링크 복사", "외부 검증 JSON 다운로드"]) {
-  if (!html.includes(term)) throw new Error(`R11 external-proof UI missing ${term}`);
+for (const term of ["Sellable Boundary Surface", "판매 가능 경계 저장", "판매 가능 판정", "결제 의향", "판매 가능 경계 복사", "판매 가능 경계 JSON 다운로드"]) {
+  if (!html.includes(term)) throw new Error(`R12 sellable-boundary UI missing ${term}`);
 }
 if (!html.includes("병목과 전파 경로") || !data.feedback_surface.summary.includes("병목과 전파 경로")) {
-  throw new Error("R11 external-proof copy must support the macro bottleneck promise");
+  throw new Error("R12 sellable-boundary copy must support the macro bottleneck promise");
 }
 if (!data.subscription_surface || !data.subscription_surface.sample_paid_report || !data.subscription_surface.upgrade_decision) {
-  throw new Error("R11 must include subscription surface sample report and upgrade decision");
+  throw new Error("R12 must include subscription surface sample report and upgrade decision");
 }
 if (!data.paid_proof_surface || !data.paid_proof_surface.packet_name || !data.paid_proof_surface.external_evidence_path) {
-  throw new Error("R11 must include paid_proof_surface packet and external evidence path");
+  throw new Error("R12 must include paid_proof_surface packet and external evidence path");
 }
 for (const key of ["selected_stage", "selected_snapshot", "routine", "price", "use_case", "contact_hint", "proof_boundary"]) {
   if (!data.paid_proof_surface.required_packet_fields?.includes(key)) {
-    throw new Error(`R11 external proof packet missing required field ${key}`);
+    throw new Error(`R12 sellable-boundary packet missing required field ${key}`);
   }
 }
 if (data.paid_proof_surface.payment_status !== "not_collected" || data.paid_proof_surface.legal_status !== "external_required" || data.paid_proof_surface.sla_status !== "candidate_not_launched") {
-  throw new Error("R11 external proof surface must refuse payment/legal/SLA completion claims");
+  throw new Error("R12 sellable-boundary surface must refuse payment/legal/SLA completion claims");
 }
 if (!data.external_proof_surface || !Array.isArray(data.external_proof_surface.capture_paths) || data.external_proof_surface.capture_paths.length < 3) {
-  throw new Error("R11 must include external proof capture paths");
+  throw new Error("R12 must include external proof capture paths");
 }
 for (const path of data.external_proof_surface.capture_paths) {
   if (path.status !== "external_required" || path.evidence_result !== "not_captured") {
-    throw new Error(`R11 external path ${path.id} must remain external_required and not_captured`);
+    throw new Error(`R12 external path ${path.id} must remain external_required and not_captured`);
   }
 }
 if (!data.external_proof_surface.promotion_rule?.includes("outside localStorage")) {
-  throw new Error("R11 promotion rule must require external evidence outside localStorage");
+  throw new Error("R12 promotion rule must require external evidence outside localStorage");
+}
+if (!data.sellable_boundary || data.sellable_boundary.current_decision !== "blocked") {
+  throw new Error("R12 must keep sellable_boundary.current_decision blocked until evidence exists");
+}
+if (!data.sellable_boundary.decision_reason?.includes("external evidence is not captured")) {
+  throw new Error("R12 sellable boundary must explain missing external evidence");
+}
+if (!data.sellable_boundary.pass_conditions?.some((item) => item.includes("outside localStorage"))) {
+  throw new Error("R12 pass conditions must require evidence outside localStorage");
+}
+if (!data.sellable_boundary.blocked_conditions?.includes("local export only")) {
+  throw new Error("R12 blocked conditions must include local export only");
 }
 
 console.log("data contract gate: pass");

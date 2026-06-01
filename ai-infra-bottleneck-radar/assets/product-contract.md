@@ -72,6 +72,13 @@ Within 30 seconds, the user can identify the highest-pressure AI infrastructure 
 - The macro bottleneck map remains the first product surface before any external-proof controls.
 - Sellability cannot pass from a local export alone.
 
+## Sellable-Boundary Acceptance
+
+- The product states whether sellability is pass or blocked.
+- If external evidence is missing, the decision must be blocked.
+- Pass conditions and blocked conditions must be visible and tied to customer evidence, payment, legal boundary, and update SLA.
+- The decision supports the macro map; it cannot replace the macro bottleneck promise.
+
 ## External Blocker Acceptance
 
 - Local product readiness and paid-release readiness are separate statuses.

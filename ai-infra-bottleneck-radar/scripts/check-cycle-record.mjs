@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const root = new URL("..", import.meta.url).pathname;
-const currentCandidate = "r11-external-proof-radar";
+const currentCandidate = "r12-sellable-boundary-radar";
 const record = readFileSync(join(root, "assets/CYCLE_RECORD.md"), "utf8");
 
 function field(name) {
@@ -36,7 +36,7 @@ const required = [
   "next_candidate_path:",
   "next_candidate_primary_advancement:",
   "allowed_to_stop:",
-  "stop_permission_after_r11:",
+  "stop_permission_after_r12:",
   "final_permission_status:",
   "final_permission_next_action:",
   "asset_map_present:",
@@ -109,18 +109,18 @@ if (status.sellable_status !== "pass" && !status.next_action.includes("candidate
   process.exit(1);
 }
 
-if (status.sellable_status !== "pass" && status.next_candidate_id !== "r12-sellable-boundary-radar") {
-  console.error("R11 non-sellable cycle must bind next_candidate_id to r12-sellable-boundary-radar.");
+if (status.sellable_status !== "pass" && status.next_candidate_id !== "r13-operator-sla-radar") {
+  console.error("R12 non-sellable cycle must bind next_candidate_id to r13-operator-sla-radar.");
   process.exit(1);
 }
 
-if (status.sellable_status !== "pass" && status.next_candidate_path !== "candidates/r12-sellable-boundary-radar/") {
-  console.error("R11 non-sellable cycle must bind next_candidate_path to candidates/r12-sellable-boundary-radar/.");
+if (status.sellable_status !== "pass" && status.next_candidate_path !== "candidates/r13-operator-sla-radar/") {
+  console.error("R12 non-sellable cycle must bind next_candidate_path to candidates/r13-operator-sla-radar/.");
   process.exit(1);
 }
 
-if (status.sellable_status !== "pass" && !status.next_candidate_primary_advancement.includes("sellable boundary")) {
-  console.error("R11 non-sellable cycle must define next_candidate_primary_advancement as sellable boundary.");
+if (status.sellable_status !== "pass" && !status.next_candidate_primary_advancement.includes("operator SLA")) {
+  console.error("R12 non-sellable cycle must define next_candidate_primary_advancement as operator SLA.");
   process.exit(1);
 }
 

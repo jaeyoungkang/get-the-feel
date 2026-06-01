@@ -175,3 +175,14 @@ R11 becomes an external-proof path candidate:
 - promotion requires evidence outside localStorage.
 
 This still does not grant stop permission. R12 must decide the sellable boundary using actual external evidence status or explicitly keep sellability blocked.
+
+## R12 Sellability Verdict
+
+R12 explicitly keeps sellability blocked:
+
+- external evidence is not captured outside localStorage,
+- payment approval is missing,
+- legal review is missing,
+- paid monthly update SLA is not staffed.
+
+The next sellability blocker is the operator SLA: even if evidence exists, the service cannot be sold without a credible update operation.

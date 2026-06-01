@@ -127,3 +127,11 @@ Allowed `snapshot_type`:
 - Each external path remains `external_required` and `not_captured` until real evidence exists.
 - Promotion requires evidence outside localStorage.
 - `check-data-contracts.mjs` must fail if external-proof readiness is treated as completed customer proof.
+
+## R12 Sellable-Boundary Data Rule
+
+- `customer_proof.proof_status` must be `sellable_boundary_candidate`.
+- `sellable_boundary.current_decision` must remain `blocked` while external evidence is not captured.
+- `sellable_boundary.pass_conditions` must require evidence outside localStorage.
+- `sellable_boundary.blocked_conditions` must include local export only.
+- `check-data-contracts.mjs` must fail if the candidate implies sellability from local evidence alone.
