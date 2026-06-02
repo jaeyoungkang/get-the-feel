@@ -172,3 +172,15 @@ R13 cannot close until:
 - staffing remains `not_staffed` unless a real staffed operation exists,
 - monitor `next_candidate_binding_checked` matches top-level next candidate fields,
 - exact next-candidate fields bind non-sellable status to `candidates/r14-paid-onboarding-radar/`.
+
+## R14 Rule
+
+R14 must create `candidates/r14-paid-onboarding-radar/` and all quality scripts must target that candidate before verdict.
+
+R14 cannot close until:
+
+- paid onboarding steps are visible in data and UI,
+- payment remains `blocked_external_required`,
+- SLA remains `blocked_not_staffed`,
+- monitor `next_candidate_binding_checked` matches top-level next candidate fields,
+- exact next-candidate fields bind non-sellable status to `candidates/r15-market-test-radar/`.

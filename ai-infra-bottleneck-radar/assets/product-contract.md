@@ -85,6 +85,12 @@ Within 30 seconds, the user can identify the highest-pressure AI infrastructure 
 - If staffing is `not_staffed`, sellability remains blocked.
 - Operator SLA belongs below the macro map and cannot replace bottleneck analysis.
 
+## Paid-Onboarding Acceptance
+
+- Paid onboarding may show reviewable steps, but payment and SLA steps remain blocked until approved.
+- The onboarding flow must require non-advice/source-boundary acknowledgement.
+- It must not look like a completed checkout or paid launch.
+
 ## External Blocker Acceptance
 
 - Local product readiness and paid-release readiness are separate statuses.

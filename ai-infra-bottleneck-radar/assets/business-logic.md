@@ -197,3 +197,14 @@ R13 keeps sellability blocked because the monthly update operation is not staffe
 - paid SLA decision is blocked.
 
 The next candidate must not create paid onboarding unless the SLA boundary remains visible and non-sellable status continues to block final permission.
+
+## R14 Sellability Verdict
+
+R14 becomes paid-onboarding reviewable but not sellable:
+
+- bottleneck and routine steps are ready,
+- boundary acknowledgement is ready,
+- payment remains external-required,
+- SLA remains not staffed.
+
+Sellability remains blocked until market evidence, payment approval, legal boundary, and staffed SLA are resolved.

@@ -54,3 +54,17 @@ Required decision fields:
 - blocked conditions
 
 If external evidence is absent or only localStorage exists, the decision must remain `blocked`.
+
+## R14 Paid-Onboarding Boundary Rule
+
+Paid onboarding is evidence preparation, not paid proof.
+
+The candidate may show:
+
+- choose bottleneck,
+- choose routine,
+- review non-advice/source boundary,
+- payment step,
+- SLA step.
+
+The payment step remains `blocked_external_required` and the SLA step remains `blocked_not_staffed` until real approval/staffing exists. Local onboarding review cannot make `sellable_status` pass.

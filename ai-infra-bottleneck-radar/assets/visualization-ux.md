@@ -129,3 +129,9 @@ It must not look like a checkout page or launch approval.
 Operator-SLA controls can show owner, cadence, staffing status, source review window, and escalation status.
 
 They must stay below the macro map and must not imply paid operation is staffed when staffing is `not_staffed`.
+
+## R14 Paid-Onboarding Surface Rule
+
+Paid-onboarding controls may show steps, but they stay below the macro map.
+
+Payment and SLA steps must visibly remain blocked. The surface must not become a checkout page.

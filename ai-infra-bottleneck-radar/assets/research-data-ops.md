@@ -142,3 +142,11 @@ Allowed `snapshot_type`:
 - `operator_sla` must define owner, staffing status, cadence, source review window, escalation status, decision, blocked reason, and pass conditions.
 - `operator_sla.paid_sla_decision` must remain `blocked` while staffing is `not_staffed`.
 - `check-data-contracts.mjs` must fail if the candidate implies staffed paid operation without staffing.
+
+## R14 Paid-Onboarding Data Rule
+
+- `paid_onboarding.onboarding_status` must be `blocked_before_payment`.
+- Payment step must remain `blocked_external_required`.
+- SLA step must remain `blocked_not_staffed`.
+- Non-advice acknowledgement must be required.
+- `check-data-contracts.mjs` must fail if paid onboarding implies completed payment or launch approval.

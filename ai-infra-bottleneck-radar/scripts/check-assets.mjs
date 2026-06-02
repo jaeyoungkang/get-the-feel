@@ -2,7 +2,7 @@ import { existsSync } from "node:fs";
 import { join } from "node:path";
 
 const root = new URL("..", import.meta.url).pathname;
-const currentCandidate = "r13-operator-sla-radar";
+const currentCandidate = "r14-paid-onboarding-radar";
 const required = [
   "AGENTS.md",
   "assets/ASSET_MAP.md",
@@ -21,6 +21,7 @@ const required = [
   "skills/source-backed-bottleneck-data/SKILL.md",
   "skills/feedback-ready-product-surface/SKILL.md",
   "skills/product-level-sellability/SKILL.md",
+  "skills/paid-onboarding-boundary/SKILL.md",
   `candidates/${currentCandidate}/index.html`,
   `candidates/${currentCandidate}/styles.css`,
   `candidates/${currentCandidate}/app.js`,

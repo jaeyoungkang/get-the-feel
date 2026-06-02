@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 const root = new URL("..", import.meta.url).pathname;
-const currentCandidate = "r13-operator-sla-radar";
+const currentCandidate = "r14-paid-onboarding-radar";
 const record = readFileSync(join(root, "assets/CYCLE_RECORD.md"), "utf8");
 
 function field(name) {
@@ -17,6 +17,7 @@ const required = [
   "Asset Steward:",
   "Data/Sellability:",
   "skills/product-level-sellability/SKILL.md",
+  "skills/paid-onboarding-boundary/SKILL.md",
   "assets/skill-registry.md",
   "product_feedback_readiness:",
   "repeat_use_readiness:",
@@ -37,7 +38,7 @@ const required = [
   "next_candidate_primary_advancement:",
   "next_candidate_binding_checked:",
   "allowed_to_stop:",
-  "stop_permission_after_r13:",
+  "stop_permission_after_r14:",
   "final_permission_status:",
   "final_permission_next_action:",
   "asset_map_present:",
@@ -110,18 +111,18 @@ if (status.sellable_status !== "pass" && !status.next_action.includes("candidate
   process.exit(1);
 }
 
-if (status.sellable_status !== "pass" && status.next_candidate_id !== "r14-paid-onboarding-radar") {
-  console.error("R13 non-sellable cycle must bind next_candidate_id to r14-paid-onboarding-radar.");
+if (status.sellable_status !== "pass" && status.next_candidate_id !== "r15-market-test-radar") {
+  console.error("R14 non-sellable cycle must bind next_candidate_id to r15-market-test-radar.");
   process.exit(1);
 }
 
-if (status.sellable_status !== "pass" && status.next_candidate_path !== "candidates/r14-paid-onboarding-radar/") {
-  console.error("R13 non-sellable cycle must bind next_candidate_path to candidates/r14-paid-onboarding-radar/.");
+if (status.sellable_status !== "pass" && status.next_candidate_path !== "candidates/r15-market-test-radar/") {
+  console.error("R14 non-sellable cycle must bind next_candidate_path to candidates/r15-market-test-radar/.");
   process.exit(1);
 }
 
-if (status.sellable_status !== "pass" && !status.next_candidate_primary_advancement.includes("paid onboarding")) {
-  console.error("R13 non-sellable cycle must define next_candidate_primary_advancement as paid onboarding.");
+if (status.sellable_status !== "pass" && !status.next_candidate_primary_advancement.includes("market test")) {
+  console.error("R14 non-sellable cycle must define next_candidate_primary_advancement as market test.");
   process.exit(1);
 }
 
