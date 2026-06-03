@@ -32,7 +32,7 @@ Intent Lock → Gap Ledger → Mechanical Verdict
 - Mechanical Verdict 인스턴스: 정합성 검사 CLI, CI gate, 배선 검증 스크립트. 구체는 도메인이 결정. **unknown/not-met은 release blocking**은 공리.
 - Mechanical Verdict 최소 항목(반복 사이클 도메인): 자기보고 필드는 기계가 두 층으로 검증한다. 구현(스크립트)은 도메인, 베이스는 최소 항목만 명세한다.
   - 형식·카운트: 필수 필드의 빈값·라벨-only fail, 카운트 임계(예: core 기여 ≥ 1), 상한(N) 검증. LLM이 못 속이는 객관 사실만 본다.
-  - 산출물 diff: `primary_user_task`의 산출물(코드·데이터) fingerprint를 사이클마다 기록하고, core 주장 시 직전 사이클 대비 실제 변화를 기계가 확인한다. 산출물이 안 변했으면 core 주장은 기각. 자기보고가 아니라 산출물 사실로 판정한다.
+  - 산출물 diff: `primary_user_task`의 산출물(코드·데이터) fingerprint를 사이클마다 기록하고, core 주장 시 직전 사이클 대비 실제 변화를 기계가 확인한다. 산출물이 안 변했으면 core 주장은 기각. 자기보고가 아니라 산출물 사실로 판정한다. 새 산출물(새 value story)은 fingerprint 변화만으로 부족하다 — primary 산출물에 묶이는지(primary promise 핵심 명사 포함 + 잠긴 primary 산출물 참조)도 점검한다. 묶이지 않은 새 데이터 배열은 surface.
 
 ---
 
