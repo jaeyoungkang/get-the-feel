@@ -30,6 +30,9 @@ Intent Lock → Gap Ledger → Mechanical Verdict
 - Intent Lock 인스턴스: 제품 정체성 문서, 약속, 샘플 artifact, 엔지니어링 결정 문서. 형식은 도메인이 결정.
 - Gap Ledger 인스턴스: 검증 원장, 변경 로그, 운영 피드백 ledger. 형식은 도메인이 결정. **append-only**는 공리.
 - Mechanical Verdict 인스턴스: 정합성 검사 CLI, CI gate, 배선 검증 스크립트. 구체는 도메인이 결정. **unknown/not-met은 release blocking**은 공리.
+- Mechanical Verdict 최소 항목(반복 사이클 도메인): 자기보고 필드는 기계가 두 층으로 검증한다. 구현(스크립트)은 도메인, 베이스는 최소 항목만 명세한다.
+  - 형식·카운트: 필수 필드의 빈값·라벨-only fail, 카운트 임계(예: core 기여 ≥ 1), 상한(N) 검증. LLM이 못 속이는 객관 사실만 본다.
+  - 산출물 diff: `primary_user_task`의 산출물(코드·데이터) fingerprint를 사이클마다 기록하고, core 주장 시 직전 사이클 대비 실제 변화를 기계가 확인한다. 산출물이 안 변했으면 core 주장은 기각. 자기보고가 아니라 산출물 사실로 판정한다.
 
 ---
 

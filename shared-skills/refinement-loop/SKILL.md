@@ -138,7 +138,7 @@ Refinement Loop는 본래 *베이스 자체*를 다듬는 메타 프로세스다
 - **자가 점검에 긍정형 통과 기준 3개 박는다**:
   1. *Forward Momentum* — 다음 단계로 갈 *코드 단위·사용자 표면·데이터 항목* 중 1개 이상이 결과물에서 식별되었는가
   2. *자산 기여* — 도메인 자산 체계의 카테고리 1개에 *WHO·WHY 한 줄 갱신*을 포함한 기여 1조각이 더해졌는가. 사이클 시작 시 intent-lock에서 박은 자산 카테고리·기여 형태가 실제로 일어났는지 양방향 점검.
-  3. *제품 계약 발전* — 사용자 약속이 추가·수정·검증·반증 중 하나로 1조각 발전했는가. 자산 기여(공급 측)와 짝인 *수요 측* 통과 기준 — *세 번 폐기 공통 함정(약속 휘발) 차단*.
+  3. *제품 계약 발전* — 사용자 약속이 추가·수정·검증·반증 중 하나로 1조각 발전했는가. 자산 기여(공급 측)와 짝인 *수요 측* 통과 기준 — *세 번 폐기 공통 함정(약속 휘발) 차단*. 이 발전이 `primary_user_task`에 닿으면 core, pitch·onboarding·pricing·copy 등 판매 표면이면 surface(표면/본질 판정 규칙 적용). surface만 누적되고 core 발전이 0이면 통과 아님.
 - 부정형 거부 신호만으로 통과 판단 금지.
 - **사이클 결과물이 사다리 단계와 어긋나거나(예: 종이 단계인데 문장 다듬기만 했다), 자산 기여 없이 코드만 누적되거나, 제품 계약 발전 0이면 사이클 부분 폐기.**
 
@@ -209,6 +209,7 @@ Refinement Loop는 본래 *베이스 자체*를 다듬는 메타 프로세스다
 - skill_assets_checked:
 - skill_receipts_required:
 - cycle_contributions:
+- contribution_surface_or_core: (각 기여가 `primary_user_task`를 바꿨으면 core, pitch·onboarding·pricing·copy면 surface — 표면/본질 판정 규칙 적용)
 - missing_or_stale_assets:
 - next_cycle_asset_rule:
 - verdict: keep / repair-before-next / reject-cycle
@@ -246,6 +247,21 @@ Refinement Loop는 본래 *베이스 자체*를 다듬는 메타 프로세스다
 - 코드 이름은 바뀌었지만 사용자가 보는 정보 구조는 같다.
 - 중심 약속이 side panel이나 설명 문구에만 있고 primary surface에는 없다.
 - 정량 표현(크기·색·위치·두께)이 실제 metric, 산식, 또는 명시된 예시 데이터와 연결되지 않는다.
+- 판매·온보딩·가격·카피를 "새 사용자 가치"로 주장한다 (자동 surface인데 core로 승격 시도).
+
+**표면/본질 판정 (필수)**
+
+매 사이클 다음 필드를 채운다.
+- `primary_user_task` — 사용자가 실제로 수행하는 핵심 task. **product contract의 잠긴 primary promise에서 도출한다 (에이전트가 임의로 정하지 않는다).**
+- `changed_user_outcome` — 이번 사이클이 그 task의 무엇을 바꿨나
+- `surface_or_core` — core / surface
+
+판정 규칙:
+- 기본값 = surface. pitch·onboarding·pricing·copy·설명·demo framing은 자동 surface.
+- core 인정 = `primary_user_task`의 입력·판단·행동·결과 중 하나가 실제로 달라졌을 때만.
+- **`surface_or_core` 판정은 Asset Steward 단독이 아니라 Intent Guardian이 교차 확인한다. 둘이 불일치하면 surface로 본다(보수적 기본값).**
+- 단일 사이클 surface-only는 허용하되 표시한다. **local_ready 또는 대표 후보 승격 직전 마지막 유효 사이클은 core 기여 1개 이상 필수.** 연속 사이클이 surface만 누적하고 core가 0이면 사이클 부분 폐기.
+- **`core` 주장은 산출물 diff로 기계 검증한다(원리 1 Mechanical Verdict 최소 항목).** `primary_user_task`의 산출물 fingerprint가 직전 사이클 대비 실제로 변했을 때만 core 인정. 자기보고 필드만으로 core 통과 금지.
 
 ### Spiral Loop — 원 의도 앵커 게이트
 

@@ -68,19 +68,26 @@ compatibility: Product domains that build user-facing artifacts with repeated cy
    - HTTP/smoke check where applicable
    `unknown`은 대표 후보 승격 차단이다.
 
-7. **Stop Permission Gate** — 제품 레벨 판매 가능 전에는 멈출 수 없다.
+7. **Stop Permission Gate** — local Spiral 종료는 외부 수요 검증 패키지 완성 + core 기여로 판정한다.
    - cycle record에 아래 상태를 명시한다:
      - `local_candidate_status`
      - `representative_status`
-     - `sellable_status`
+     - `primary_user_task` / `core_contribution_this_cycle` / `core_evidence` — 표면/본질 판정 결과 (refinement-loop 표면/본질 판정 규칙)
+     - `n_of_N` / `cap_reached_disposition`
+     - `local_ready` — 외부 수요 검증 패키지가 존재하는가
+     - `demand_status` — demand_unknown / demand_rejected / pivot_required
      - `next_action`
      - `allowed_to_stop`
-   - `sellable_status`는 법무·결제·조직 승인 상태가 아니라 **제품 레벨 판단**이다. 고객에게 보여 피드백을 받을 수 있는가, 반복 사용 이유가 있는가, 가격 제안이 표면에 도달했는가, 원래 제품 약속이 첫 화면에서 작동하는가를 본다.
-   - `allowed_to_stop: yes`는 `sellable_status: pass`일 때만 허용한다.
-   - `local_candidate_status: pass`는 멈춤 사유가 아니다. `sellable_status`가 pass가 아니면 다음 후보 생성 또는 외부 blocker 분류가 필요하다.
-   - 외부 blocker는 법무·결제·운영 승인 같은 **출시/사업 blocker**로 기록할 수 있지만, 제품 루프 정지 사유가 아니다. 제품 표면이 고객 피드백을 받을 수준이 아니면 blocker가 아니라 다음 루프 입력이다.
-   - 제품 레벨에서 아직 약하면 `external_blocker`를 적어도 `allowed_to_stop: yes`로 둘 수 없다. 다음 후보의 제품 가설로 전환한다.
-   - completion-style final response 전에는 도메인의 final permission gate를 실행한다. 실패하면 멈추지 말고 `next_action` 후보를 계속 만든다.
+   - `local_ready`는 제품 레벨 판단이다. 고객에게 보여 피드백을 받을 수 있는가, 반복 사용 이유가 있는가, 가격 제안이 표면에 도달했는가, 원래 제품 약속이 첫 화면에서 작동하는가, 그리고 외부 수요 검증 패키지가 완성됐는가를 본다.
+   - **`local_ready: pass` 조건은 둘 다 충족이다:** (a) 수요 검증 패키지 완성, (b) 직전 유효 사이클에 `core_contribution_this_cycle` ≥ 1. surface 기여만으로는 `local_ready` 금지.
+   - **수요 검증 패키지 각 항목은 한 줄 라벨이 아니라 구체값이어야 pass다.** target user(누구), 실제 task(무엇을 수행), 최소 artifact(어떤 산출물로), 반증 질문(무엇이 거짓이면 가설 기각), 금지된 claim(무엇을 주장하지 않음), 검증 위치(어디서). 빈 값 또는 라벨만이면 fail.
+   - **`local_ready: pass` = local Spiral 종료(terminal).** `allowed_to_stop: yes`는 `local_ready: pass`일 때 허용한다. 추가 local cycle은 새 외부 증거가 들어올 때만 시작한다.
+   - `local_candidate_status: pass`만으로는 종료 못 한다.
+   - `demand_status: demand_unknown`은 local 종료를 막지 않는다. 수요 검증은 출시 후, 루프 밖이다 — `local_ready`면 demand_unknown이어도 local Spiral은 종료하고 수요 검증으로 handoff한다.
+   - 외부 수요가 부정적이면 `demand_rejected` 또는 `pivot_required`로 기록하고 다음 제품 가설로 전환한다. `blocked`로 두고 같은 local cycle을 반복하지 않는다.
+   - **`n_of_N` 상한과 `cap_reached_disposition`은 Cycle 1 전에 기록한다.** `local_ready` 미달로 N에 도달하면 무한 `next_action`을 금지하고, `cap_reached_disposition`(외부 검증 부족 / 데이터·사람 손 부족 / pivot_required)으로 분류해 종료한다.
+   - **`core_contribution_this_cycle`, `n_of_N`, 수요 검증 패키지 빈값은 기계 검증 대상이다(원리 1 Mechanical Verdict 최소 항목).** 자기보고 값만으로 `local_ready` 통과 금지 — `primary_user_task` 산출물 diff로 core 주장을 교차 확인한다.
+   - completion-style final response 전에는 도메인의 final permission gate를 실행한다.
 
 8. **Asset Recovery** — 후보 종료 시 배움을 작동 위치로 이동한다.
    - 스킬
@@ -114,4 +121,4 @@ compatibility: Product domains that build user-facing artifacts with repeated cy
   - 이전 후보의 배움은 자산으로 회수
   - 각 후보는 로컬에서 독립적으로 열리는 완성품 후보
   - 대표 후보 승격과 로컬 후보 통과를 구분
-  - 제품 레벨 판매 가능 전에는 `next_action` 없이 final completion 금지
+  - `local_ready` 전에는 `next_action` 없이 final completion 금지
