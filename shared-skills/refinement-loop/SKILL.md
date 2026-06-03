@@ -262,6 +262,7 @@ Refinement Loop는 본래 *베이스 자체*를 다듬는 메타 프로세스다
 - **`surface_or_core` 판정은 Asset Steward 단독이 아니라 Intent Guardian이 교차 확인한다. 둘이 불일치하면 surface로 본다(보수적 기본값).**
 - 단일 사이클 surface-only는 허용하되 표시한다. **local_ready 또는 대표 후보 승격 직전 마지막 유효 사이클은 core 기여 1개 이상 필수.** 연속 사이클이 surface만 누적하고 core가 0이면 사이클 부분 폐기.
 - **`core` 주장은 산출물 diff로 기계 검증한다(원리 1 Mechanical Verdict 최소 항목).** `primary_user_task`의 산출물 fingerprint가 직전 사이클 대비 실제로 변했을 때만 core 인정. 자기보고 필드만으로 core 통과 금지.
+- **새 전달 가치(경험) 탐색도 core의 한 형태다.** 기존 가치의 산출물 심화뿐 아니라, primary promise 아래 새 value story를 추가해 그 산출물을 만들면 core(새 산출물이라 fingerprint가 null→non-null로 변함). primary promise와 무관한 가치는 surface(정체성 이탈). 단일 가치만 반복하고 새 가치 탐색이 0인 사이클은 [intent-lock 전달 가치 탐색] 게이트에서 차단된다.
 
 ### Spiral Loop — 원 의도 앵커 게이트
 
