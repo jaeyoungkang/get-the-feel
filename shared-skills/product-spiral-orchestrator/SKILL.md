@@ -10,6 +10,36 @@ compatibility: Product domains that build user-facing artifacts with repeated cy
 
 핵심 규칙: **각 제품 사이클은 새 후보 완성품을 처음부터 만든다.** 이전 후보는 직접 수정하지 않고, 배움만 자산·스킬·데이터 계약·디자인 규칙·비즈니스 로직으로 회수한다.
 
+이 스킬에서 제품 루프의 단위는 항상 **사용자가 실제로 열어볼 수 있는 완제품 후보 1개**다. 문서, 템플릿, 회고, 자산 정비만으로는 제품 루프가 닫히지 않는다. 그런 작업은 완제품 후보를 만들기 위한 preflight 또는 후보 종료 후 recovery이며, 제품 루프 자체가 아니다.
+
+## Terminology
+
+- **Product Spiral**: 하나의 제품 메타 의도를 완성도 높은 대표 후보까지 끌어올리는 전체 반복.
+- **Session / Phase**: 사람이 운영상 묶는 큰 구간. 예: `C1 Core Discovery`. 한 Session은 여러 loop를 포함할 수 있다.
+- **Loop / Cycle**: 완제품 후보 1개를 만들고 verdict와 asset recovery까지 닫는 단위. 한 loop = 한 candidate.
+- **Candidate**: 각 loop의 독립 실행 가능한 완제품 후보. 예: `candidates/c1-1/`, `candidates/c1-2/`.
+- **Representative Candidate**: 여러 후보 중 외부 검증 또는 배포 후보로 승격된 것.
+- **Asset / Lesson**: 이전 후보에서 얻은 교훈을 다음 후보가 이어받도록 저장한 작동 자산. 후보 파일 자체를 패치하는 것이 아니라, 교훈을 제품 계약·Story Chain·데이터 계약·시각화 규칙·검증 규칙 등으로 회수한다.
+
+`C1` 같은 이름은 loop일 수도 있고 Session일 수도 있으므로 반드시 명시한다. 예를 들어 `C1`이 Session이고 그 안에서 5회 loop를 돈다면 후보는 5개가 필요하다.
+
+```text
+C1-1 candidate -> lesson/assets/verdict -> C1-2 candidate
+-> lesson/assets/verdict -> C1-3 candidate ...
+```
+
+이 흐름의 본질은 **코드 관성은 끊고, 교훈은 이어받는 것**이다.
+
+## Maturity Intent
+
+초기·중기·후기는 같은 loop 형식을 쓰지만 교훈, 자산, 판정을 키우는 목적이 다르다.
+
+- **초기 Discovery**: 진짜 핵심축을 찾는다. 기존 축을 승격·격하·폐기하고, 새 축 후보를 발견한다. 완제품 후보는 각 축 가설을 사용자 표면에서 얇지만 실제로 검증해야 한다.
+- **중기 Convergence**: 발견된 핵심축을 결합한다. 시각화, 데이터, 모델, 사용자 행동이 서로 이어지는지 보고, 약한 연결을 자산과 후보에 반영한다.
+- **후기 Readiness**: 대표 후보 승격과 외부 검증을 준비한다. 운영 계약, 신뢰 경계, 수요 검증 패키지, mechanical verdict를 강화한다.
+
+어느 단계든 loop 산출물은 완제품 후보여야 한다. 단계 차이는 후보가 검증하는 질문과 회수되는 교훈의 종류에서 난다.
+
 ## When To Use
 
 - 새 제품 인스턴스를 시작할 때
@@ -36,6 +66,7 @@ compatibility: Product domains that build user-facing artifacts with repeated cy
 
 2. **Candidate Fresh Start Gate** — 새 사이클은 새 후보 폴더에서 시작한다.
    - 권장 구조: `<project-name>/candidates/<candidate-id>/`
+   - Session 안의 하위 loop라면 `<project-name>/candidates/<session-id>-<loop-no>/`처럼 둘 다 드러낸다.
    - 사용자가 기존 프로젝트 삭제를 명시하면 기존 폴더를 삭제하고 새 이름으로 시작한다.
    - 후보 폴더에는 독립 실행 가능한 완성품이 있어야 한다: `index.html` 또는 앱 entry, 스타일, 데이터, 검증 스크립트.
    - 기존 후보의 `app.js`, `index.html`, `styles.css`를 직접 패치하면 cycle 실패.
@@ -54,6 +85,8 @@ compatibility: Product domains that build user-facing artifacts with repeated cy
    - 핵심 사용자 행동이 실제로 가능하다.
    - 데이터/상태/시나리오 라벨이 사용자 표면에 보인다.
    - 대표/판매 승격 차단 사유가 있더라도 로컬에서는 끝까지 동작한다.
+   - Discovery 단계 후보라도 문서 설명이 아니라 사용자가 경험할 수 있는 표면을 가져야 한다.
+   - 핵심축 발견을 목표로 하는 후보는 축 판정 UI 또는 관찰 가능한 사용자 행동을 포함한다. 축 판정은 문서만으로 승격하지 않는다.
 
 5. **Monitor Gate** — 최소 3개 모니터를 둔다.
    - Intent Guardian: 원 의도 보존
@@ -97,6 +130,8 @@ compatibility: Product domains that build user-facing artifacts with repeated cy
    - 디자인 규칙
    - 비즈니스 로직
    chat transcript나 cycle record에만 남기면 미회수다.
+   - 다음 후보는 이전 후보 파일을 직접 이어받지 않아도 되지만, 이전 후보의 교훈·판정·자산은 반드시 읽고 반영해야 한다.
+   - 반영하지 않는 교훈은 Refuse First 사유와 함께 폐기한다.
 
 ## Output
 
@@ -113,12 +148,16 @@ compatibility: Product domains that build user-facing artifacts with repeated cy
 
 - **Never**
   - 기존 후보를 조금 고쳐서 새 사이클이라고 부르기
+  - 문서·게이트·템플릿만 만들고 제품 loop가 닫혔다고 말하기
+  - Session 이름(`C1`)과 loop/candidate 이름(`C1-1`)을 섞어 후보 개수를 흐리기
   - 카드/KPI/종목 리스트가 원래 macro map 요구를 대체하게 하기
   - 자산 회수 없이 코드만 누적하기
   - "판매 가능"이라고 말하면서 출처·갱신·시나리오·법적 경계가 unknown인 상태로 두기
 - **Always**
   - 새 후보는 새 폴더 또는 명시적 fresh-start 위치에서 시작
+  - 한 loop는 한 완제품 후보를 남김
   - 이전 후보의 배움은 자산으로 회수
+  - 다음 후보는 회수된 교훈·자산·판정을 입력으로 시작
   - 각 후보는 로컬에서 독립적으로 열리는 완성품 후보
   - 대표 후보 승격과 로컬 후보 통과를 구분
   - `local_ready` 전에는 `next_action` 없이 final completion 금지
