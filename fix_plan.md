@@ -8,7 +8,8 @@
 
 ## 대기 중 (Pending)
 
-- [ ] **c1-1** 첫 후보 완제품 — Discovery, 축은 후보 시작 시 에이전트 선택(핵심 동사 유력). preflight: 신뢰 출처 목록 제안(approve-4) + 콘텐츠 데이터 계약 스키마 + orchestrator receipt. 시작 시 세부 단위로 분해. **적대적 리뷰 회수 사항 포함**:
+- [ ] **c1-2** 둘째 후보 완제품 — 축: 불변화사·전치사(up/out 공간 감각) 유력. 입력: c1-1 교훈 전부 (R1 보기 셔플, R2 근접 오개념 오답, G2 라벨 명시 필드, G5 사용자 표면 어휘). verdict에 셔플·라벨 검사 추가. fresh start — c1-1 파일 패치 금지.
+- [ ] ~~**c1-1**~~ (완료 — Done 참조) 첫 후보 완제품 — Discovery, 축은 후보 시작 시 에이전트 선택(핵심 동사 유력). preflight: 신뢰 출처 목록 제안(approve-4) + 콘텐츠 데이터 계약 스키마 + orchestrator receipt. 시작 시 세부 단위로 분해. **적대적 리뷰 회수 사항 포함**:
   - Discovery 후보의 콘텐츠 깊이는 승격 기준 3(동사 5개 풀)이 아니라 **1동사 vertical slice**로 — 단계별 기준 분리를 receipt에서 결정, N=5 상한도 콘텐츠 비용 재추정 후 N=3 검토
   - 데이터 계약에 **출처 타당성 게이트** 설계 — 출처 *유무*(기계)와 별개로 출처가 그 감각 설명을 실제로 뒷받침하는지의 사람 리뷰 단계. "출처 붙은 오개념" 차단이 1순위 위험
   - mechanical verdict는 **단일 검증 스크립트 1개**로 시작 (표본 lighthouse 교훈: 게이트는 좁게 시작, 설정 파일 비대화 금지)
@@ -16,11 +17,12 @@
 
 ## 진행 중 (In Progress)
 
-- [ ] **c1-1** (분해) — a. preflight ✅ (데이터 계약 + 출처 목록 + 사이클 의도 잠금 + N=3 재조정) / b. have 콘텐츠 생성 / c. 후보 완제품 + verdict 도구 / d. 평가 + cycle record 마감 + 자산 회수
+없음.
 
 ## 완료 (Done)
 
 - [x] **bootstrap-1** 도메인 부트스트랩 — 제품 계약 잠금 + Asset Map + Harness Case + 작업 큐 (2026-06-10)
+- [x] **c1-1** 첫 후보 완제품 (have vertical slice) — mechanical ALL PASS, 페르소나 2 + 모니터 3 평가, disposition: asset-only. V1 부분 검증 + 반증 1건(정답 위치 고정) → R1~R8·G1~G6 자산 회수 (2026-06-11)
 
 ---
 

@@ -27,6 +27,8 @@
       "id": "have-t1",
       "sense_id": "have-domain-location",
       "sentence": "She has the window seat.",
+      "subject_label": "She",
+      "object_label": "the window seat",
       "prompt": "이 have가 그리는 그림은?",
       "choices": ["...", "...", "..."],
       "answer_index": 1,
@@ -45,3 +47,5 @@
 4. **감각 선택형 형식**: `prompt`는 감각·그림을 묻는다. 뜻 암기형("have의 뜻은?")·단순 빈칸은 금지 — 거부 신호(계약 참조).
 5. **카운트 최소선** (Discovery vertical slice): sense ≥ 1, training ≥ 8, transfer ≥ 4. 미달이면 후보에 싣지 않는다.
 6. **모든 `*_items[*].sense_id`는 같은 파일의 `senses[*].id`에 존재**해야 한다 (고아 문항 금지).
+7. **시각화 라벨은 명시 필드로**: 문항의 `subject_label`/`object_label`은 c1-2부터 필수. 앱이 문장에서 파싱 추출하는 것 금지 (UX 문법 G2 — c1-1에서 부사·도치 문장의 라벨 깨짐 확인).
+8. **정답 위치**: 앱은 보기 표시 순서를 문항마다 셔플해야 한다 (훈련 설계 R1). 데이터의 `answer_index` 고정 위치가 화면에 그대로 노출되면 fail — verdict가 후보 코드의 셔플 존재를 검사 (c1-2부터).

@@ -37,3 +37,32 @@ Skill Load Receipt
   - M2 신체부위 위치 도식 헐거움 → "영역에 속한 특징"으로 교정 / M3 problem을 정적 sense로 재분류 / M4 x4 표면 변형 전이 → have a rest로 교체 / M1 langacker 전용 금지 — 메모
 - 기각된 의심: heine 위치 도식 자체, 어휘 난도, 정답 중의성, x1·x2·x3 전이 타당성
 - validation: `subagent-consensus / weak` — 사람 리뷰(approve-4 출처 승인) 전 strong 승격 불가
+
+## 평가 기록 (c1-1d, 2026-06-11)
+
+### Mechanical Verdict
+`node tools/verdict/check.mjs c1-1` — 6검사군 **ALL PASS** (content-contract / candidate-files / data-sync / separation-surface / no-gamification / smoke)
+
+### 페르소나 blind task (약한 verdict — 베이스 모르는 학습자 시뮬레이션, append-only)
+- **민지 (B1 직장인, 중립)**: 완주. 훈련 9/10, 전이 4~5/5. 감각 설명이 "가지다"와 실제로 다르게 작동한 지점: t2(번호), t8(problem — 진행형 표지로 해소, "제일 많이 배운 지점"). 시각 메타포 처음 2-3회 실효 → 후반 장식화. **결함**: SVG 라벨 파싱 깨짐("We usually"가 주어), 표면 어휘 학술적(체화·V2·weak·후보), 진척 첫날 빈 화면. 재방문: "아마 안 연다" — 콘텐츠 1일치.
+- **현우 (회의론자, 듀오 380일 이탈)**: 완주. 훈련 10/10, 전이 5/5 — **단, 패턴 매칭으로**: 전 문항 정답이 (b) 위치 고정 + 보기 미셔플 → 3문항 만에 문장 안 읽고 풀림. "감각 선택형이라는 포장지 안의 설명은 진짜지만 훈련 방식은 가짜." 인정 2: 단일 공간 감각 통일 관점("따로 외웠던 머릿속을 정리해줬다"), 자기 한계 정직 표기. 산출 갭 지적: "고를 줄 알게 됐지만 입은 한 번도 안 연다."
+
+### 모니터 3종
+- **Intent Guardian: pass** — 약속·거부 신호 보존, scope creep 0. (선택 수리: 오답 시 SVG 미정착 긴장)
+- **Asset Steward: repair-before-next** — ux-grammar.md·training-design.md 미생성(차별점이 app.js에만 삶), deriveLabels 파서 결함의 회수처 부재 → **본 사이클에서 즉시 회수 완료** (assets/ 2파일 신설 + CONTRACT 라벨 필드)
+- **Data/Sellability: pass** — weak 표기·honesty 문구 정직. (선택: 진척 N=1 라벨)
+
+### Stop Permission
+- `local_candidate_status`: pass (mechanical ALL PASS, 완제품으로 완주 가능)
+- `representative_status`: not-promoted
+- `primary_user_task`: have 감각 훈련 세션 완주 (훈련 10 → 전이 5 → 진척) — 산출물: candidates/c1-1 앱 + assets/content/have.json
+- `core_contribution_this_cycle`: 2 — ① V1 검증 결과: **부분 검증 + 핵심 반증 1건** (감각 선택형 *설명·메타포*는 작동 — 두 페르소나 모두 인정; *훈련 방식*은 정답 위치 고정으로 패턴 매칭에 오염 — 반증). ② 자산 신설: 콘텐츠 코퍼스 + 데이터 계약 + verdict 도구 + 훈련 설계 규칙 R1-R8 + UX 문법 G1-G6
+- `core_evidence`: 산출물 diff — 신규 파일 9개 (commit 2a417ad, dd889aa, 본 commit), 페르소나 blind task 기록 2건
+- `n_of_N`: 1 of 3
+- `local_ready`: no (Discovery 진행 중, 수요 검증 패키지 미완)
+- `demand_status`: demand_unknown
+- `next_action`: c1-2 — 다른 축(불변화사·전치사 유력) + R1·R2·G2·G5 적용
+- `allowed_to_stop`: no
+
+### Disposition
+**asset-only** — 후보 파일은 보존(패치 금지), 배움은 assets/·CONTRACT·계약으로 회수 완료. c1-2는 fresh start.
