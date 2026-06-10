@@ -15,8 +15,9 @@
       "id": "have-domain-location",
       "ko": "감각 설명 (한국인 학습자용 한 줄)",
       "image": "그림으로 떠올릴 한 줄 (공간·신체 감각)",
+      "boundary_ko": "선택 — 이 감각이 지우면 안 되는 문법 경계 한 줄 (예: 진행형 가부). 단일 도식이 문법 행동 차이를 가리는 것을 막는다",
       "source_refs": [
-        { "source_id": "sources.md의 ID", "locator": "장·절·표제어", "claim": "출처가 실제로 뒷받침하는 주장 한 줄" }
+        { "source_id": "sources.md의 ID", "locator": "장·절·표제어", "claim": "출처가 실제로 뒷받침하는 주장 한 줄 — claim이 sense의 image까지 보증하는지 검수 대상" }
       ],
       "validation": { "method": "human | subagent-consensus", "strength": "strong | weak", "date": "YYYY-MM-DD" }
     }

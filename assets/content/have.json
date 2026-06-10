@@ -1,0 +1,243 @@
+{
+  "axis": "core-verbs",
+  "item": "have",
+  "senses": [
+    {
+      "id": "have-domain-location",
+      "ko": "무언가를 손에 넣거나 사는 게 아니라, 그것이 그냥 주어의 영역 안에 자리 잡고 있다는 정적인 감각.",
+      "image": "내 몸 둘레에 보이지 않는 원이 있고, 그 원 안쪽 자리에 무언가가 놓여 있는 그림.",
+      "boundary_ko": "이 정적 have는 진행형이 안 된다 — *I am having a sister (×). 지금 상태 그대로 말한다: I have a sister.",
+      "source_refs": [
+        {
+          "source_id": "heine-1997",
+          "locator": "Ch. 2 (Conceptual sources of possession) — Location schema",
+          "claim": "소유 구문은 소유물이 소유자의 위치·영역 안에 있다는 공간 도식에서 인지적으로 비롯된다."
+        },
+        {
+          "source_id": "langacker-1987",
+          "locator": "Vol. I, Ch. on stative relations (trajector/landmark)",
+          "claim": "have류 동사는 동작이 아니라 두 개체 사이의 정적 관계를 윤곽 짓는다."
+        }
+      ],
+      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+    },
+    {
+      "id": "have-event-in-domain",
+      "ko": "사건·경험(점심·회의·휴식)이 주어의 영역(하루·시간) 안에 자리해 있어, 주어가 그것을 겪는다는 감각.",
+      "image": "내 하루라는 원 안에 사건 한 칸이 자리 잡고 있는 그림 — 그 칸의 시간이 오면 내가 그것을 겪는다.",
+      "boundary_ko": "이 사건성 have는 진행형이 된다(We are having lunch ○). 정적 위치의 have는 안 된다(*I am having a sister ×) — 두 감각을 가르는 표지.",
+      "source_refs": [
+        {
+          "source_id": "heine-1997",
+          "locator": "Ch. 2 (Location schema) — extension to abstract possessa",
+          "claim": "소유의 위치 도식은 구체물뿐 아니라 추상적·비구체적 대상으로도 확장된다."
+        },
+        {
+          "source_id": "oald",
+          "locator": "have, sense group: 'experience / do an activity' (have lunch / a meeting / a problem)",
+          "claim": "have는 식사·모임·문제 같은 사건·경험을 목적어로 취하는 용법이 학습자 사전에 표준 용법으로 실려 있다."
+        }
+      ],
+      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+    }
+  ],
+  "training_items": [
+    {
+      "id": "have-t1",
+      "sense_id": "have-domain-location",
+      "sentence": "She has the window seat.",
+      "prompt": "이 has가 그리는 그림은?",
+      "choices": [
+        "그녀가 창가 좌석을 돈 주고 사서 소유했다",
+        "창가 좌석이 그녀의 영역 안에 놓여 있다",
+        "그녀가 창가 좌석을 향해 걸어가고 있다"
+      ],
+      "answer_index": 1,
+      "why_ko": "have는 좌석을 사거나 그쪽으로 움직이는 동작이 아니라, 그 좌석이 그녀의 영역 안에 정적으로 자리 잡고 있다는 그림이다."
+    },
+    {
+      "id": "have-t2",
+      "sense_id": "have-domain-location",
+      "sentence": "I have your phone number.",
+      "prompt": "이 have의 감각은?",
+      "choices": [
+        "내가 네 번호를 방금 받아 손에 쥐는 동작",
+        "네 번호가 이미 내 영역 안에 들어와 있다",
+        "내가 네 번호를 얻으려고 애쓰는 중이다"
+      ],
+      "answer_index": 1,
+      "why_ko": "번호를 '받는' 동작이 아니라, 그 번호가 이미 내 영역 안에 자리 잡고 있는 정적인 상태를 그린다."
+    },
+    {
+      "id": "have-t3",
+      "sense_id": "have-domain-location",
+      "sentence": "The house has three bedrooms.",
+      "prompt": "집이 침실을 'have'한다는 건 어떤 그림인가?",
+      "choices": [
+        "집이 침실을 가지다 — 집이 침실의 주인이다",
+        "침실 세 개가 그 집의 영역(테두리) 안에 들어 있다",
+        "집이 침실 세 개를 새로 사들였다"
+      ],
+      "answer_index": 1,
+      "why_ko": "집은 무언가를 '소유'하지 않는다. 침실들이 집이라는 영역 안에 자리한다는 위치 감각일 뿐이다."
+    },
+    {
+      "id": "have-t4",
+      "sense_id": "have-domain-location",
+      "sentence": "He has brown eyes.",
+      "prompt": "이 has가 그리는 그림은?",
+      "choices": [
+        "그가 갈색 눈을 가지다 — 눈을 소유물처럼 지니다",
+        "갈색 눈이 그라는 사람의 영역에 속한 특징이다",
+        "그가 갈색 눈을 어디선가 얻어 왔다"
+      ],
+      "answer_index": 1,
+      "why_ko": "신체 특징은 사거나 얻는 게 아니라, 그라는 영역에 속해 있는 것으로 그려지는 정적 감각이다."
+    },
+    {
+      "id": "have-t5",
+      "sense_id": "have-domain-location",
+      "sentence": "We have a small garden behind the house.",
+      "prompt": "이 have의 감각으로 가장 가까운 것은?",
+      "choices": [
+        "우리가 정원을 구입해 소유권을 얻었다",
+        "작은 정원이 우리 영역(생활 공간) 안에 들어와 있다",
+        "우리가 정원을 만들려고 작업 중이다"
+      ],
+      "answer_index": 1,
+      "why_ko": "소유권 주장이 아니라, 정원이 우리 영역 안에 그냥 자리 잡고 있다는 정적인 위치 감각이다."
+    },
+    {
+      "id": "have-t6",
+      "sense_id": "have-event-in-domain",
+      "sentence": "We usually have lunch at noon.",
+      "prompt": "이 have가 그리는 그림은?",
+      "choices": [
+        "우리가 점심(음식)을 손에 들고 소유한다",
+        "점심이라는 사건이 우리 영역 안에 들어와 우리가 그것을 겪는다",
+        "우리가 점심을 향해 이동하고 있다"
+      ],
+      "answer_index": 1,
+      "why_ko": "have lunch는 음식을 '가지는' 게 아니라, 점심이라는 사건이 우리 하루 안에 자리해 우리가 그것을 겪는 감각이다. (사건성이라 We are having lunch도 가능)"
+    },
+    {
+      "id": "have-t7",
+      "sense_id": "have-event-in-domain",
+      "sentence": "I have a meeting at three o'clock.",
+      "prompt": "이 have의 감각은?",
+      "choices": [
+        "내가 회의 자료를 손에 쥐고 있다",
+        "회의라는 사건이 내 영역(내 하루) 안에 들어와 있다",
+        "내가 회의실로 걸어가는 중이다"
+      ],
+      "answer_index": 1,
+      "why_ko": "회의를 물건처럼 가지는 게 아니라, 그 사건이 내 영역 안에 자리 잡아 내가 그것을 겪게 된다는 그림이다."
+    },
+    {
+      "id": "have-t8",
+      "sense_id": "have-domain-location",
+      "sentence": "She has a problem with her laptop.",
+      "prompt": "이 has가 그리는 그림은?",
+      "choices": [
+        "그녀가 문제를 소유물처럼 가지다",
+        "문제라는 상황이 그녀의 영역 안에 놓여 있다",
+        "그녀가 문제를 일부러 만들어 냈다"
+      ],
+      "answer_index": 1,
+      "why_ko": "have a problem은 문제를 '소유'하는 게 아니라, 곤란한 상황이 지금 그녀 영역 안에 정적으로 놓여 있다는 그림이다. (그래서 *is having a problem이 어색하다 — 정적 have)"
+    },
+    {
+      "id": "have-t9",
+      "sense_id": "have-event-in-domain",
+      "sentence": "Let's have a quick chat after class.",
+      "prompt": "이 have의 감각으로 가장 가까운 것은?",
+      "choices": [
+        "우리가 대화(라는 물건)를 손에 넣자",
+        "수업 뒤에 대화라는 사건을 우리 영역 안에 두고 함께 겪자",
+        "우리가 대화하는 장소로 이동하자"
+      ],
+      "answer_index": 1,
+      "why_ko": "have a chat은 대화를 가지는 게 아니라, 대화라는 사건이 우리 영역 안에서 일어나 우리가 함께 겪는 그림이다."
+    },
+    {
+      "id": "have-t10",
+      "sense_id": "have-event-in-domain",
+      "sentence": "They had a great time at the party.",
+      "prompt": "이 had가 그리는 그림은?",
+      "choices": [
+        "그들이 즐거운 시간을 물건처럼 소유했다",
+        "즐거운 시간이라는 경험이 그들의 영역 안에 들어와 그들이 그것을 겪었다",
+        "그들이 파티 시간에 맞춰 도착했다"
+      ],
+      "answer_index": 1,
+      "why_ko": "have a great time은 시간을 가지는 게 아니라, 즐거운 경험이 그들 영역 안에 자리해 그들이 그것을 겪었다는 감각이다."
+    }
+  ],
+  "transfer_items": [
+    {
+      "id": "have-x1",
+      "sense_id": "have-domain-location",
+      "sentence": "We have ten minutes before the train leaves.",
+      "prompt": "이 have의 감각은?",
+      "choices": [
+        "우리가 10분을 돈처럼 가지고 있다",
+        "10분이라는 여유가 우리 영역 안에 놓여 있다",
+        "우리가 10분 뒤를 향해 달려가고 있다"
+      ],
+      "answer_index": 1,
+      "why_ko": "시간을 '소유'하는 게 아니라, 출발 전 10분이라는 여유가 지금 우리 영역 안에 정적으로 놓여 있다는 그림이다."
+    },
+    {
+      "id": "have-x2",
+      "sense_id": "have-domain-location",
+      "sentence": "This idea has real potential.",
+      "prompt": "추상적인 idea가 무언가를 'have'한다는 건 어떤 그림인가?",
+      "choices": [
+        "아이디어가 잠재력을 사서 소유했다",
+        "잠재력이 그 아이디어라는 영역 안에 깃들어 있다",
+        "아이디어가 잠재력을 향해 발전해 가고 있다"
+      ],
+      "answer_index": 1,
+      "why_ko": "추상물조차 무언가를 '얻는' 게 아니라, 잠재력이 그 아이디어의 영역 안에 자리 잡고 있다는 정적 위치 감각으로 그려진다."
+    },
+    {
+      "id": "have-x3",
+      "sense_id": "have-domain-location",
+      "sentence": "She has a lot of patience with children.",
+      "prompt": "이 has가 그리는 그림으로 가장 가까운 것은?",
+      "choices": [
+        "그녀가 인내심을 노력해서 얻어 냈다",
+        "많은 인내심이 그녀라는 영역 안에 갖춰져 있다",
+        "그녀가 인내심을 발휘하려고 애쓰는 중이다"
+      ],
+      "answer_index": 1,
+      "why_ko": "인내심 같은 성질도 얻거나 발휘하는 동작이 아니라, 그녀 영역 안에 정적으로 자리해 있다는 위치 감각으로 그려진다."
+    },
+    {
+      "id": "have-x4",
+      "sense_id": "have-event-in-domain",
+      "sentence": "Why don't you have a rest before dinner?",
+      "prompt": "이 have의 감각은?",
+      "choices": [
+        "휴식을 물건처럼 받아서 가지라는 뜻",
+        "휴식이라는 사건을 저녁 전 시간 안에 두고 겪으라는 뜻",
+        "쉬는 장소로 옮겨 가라는 뜻"
+      ],
+      "answer_index": 1,
+      "why_ko": "have a rest는 휴식을 '받는' 게 아니라, 휴식이라는 사건 한 칸을 네 시간 영역 안에 두고 겪으라는 그림이다."
+    },
+    {
+      "id": "have-x5",
+      "sense_id": "have-event-in-domain",
+      "sentence": "I had a strange dream last night.",
+      "prompt": "이 had가 그리는 그림은?",
+      "choices": [
+        "내가 꿈을 물건처럼 손에 쥐었다",
+        "이상한 꿈이라는 경험이 내 영역 안에 들어와 내가 그것을 겪었다",
+        "내가 꿈을 꾸려고 일부러 노력했다"
+      ],
+      "answer_index": 1,
+      "why_ko": "have a dream은 꿈을 소유하는 게 아니라, 그 경험이 밤사이 내 영역 안에 들어와 내가 그것을 겪었다는 감각이다."
+    }
+  ]
+}
