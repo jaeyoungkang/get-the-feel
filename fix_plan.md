@@ -16,7 +16,7 @@
 
 ## 진행 중 (In Progress)
 
-없음.
+- [ ] **c1-1** (분해) — a. preflight ✅ (데이터 계약 + 출처 목록 + 사이클 의도 잠금 + N=3 재조정) / b. have 콘텐츠 생성 / c. 후보 완제품 + verdict 도구 / d. 평가 + cycle record 마감 + 자산 회수
 
 ## 완료 (Done)
 

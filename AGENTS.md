@@ -23,7 +23,7 @@ product-weaver의 fork-style 도메인 인스턴스. 베이스 파일(`docs/prin
 
 ## Spiral 운영
 
-- Session **C1 = Discovery**. 후보 상한 `n_of_N` **N=5**, 도달 실패 시 `cap_reached_disposition` 분류 후 종료 (`product/contract.md` 상한 섹션).
+- Session **C1 = Discovery**. 후보 상한 `n_of_N` **N=3** (미승인 — approve-1), 도달 실패 시 `cap_reached_disposition` 분류 후 종료 (`product/contract.md` 상한 섹션).
 - 후보 폴더: `candidates/c1-<n>/` — **독립 실행 가능한 완제품** (entry, 스타일, 데이터, 검증 결과). 이전 후보 파일 직접 패치 금지 — fresh start.
 - 후보 시작 전: `shared-skills/product-spiral-orchestrator/SKILL.md` receipt + 사이클 의도 잠금(축 선택, 제품 계약 발전 한 줄, 전달 가치 탐색 한 줄, 자산 기여 WHO·WHY).
 - 후보 종료 시: 배움을 `product/`·`assets/`·`tools/`로 회수. 평가 질문: **"다음 후보의 약속 전달력을 올리는가"** — 더 빨리가 아니라 더 효과적으로. transcript·cycle record에만 남으면 미회수.
