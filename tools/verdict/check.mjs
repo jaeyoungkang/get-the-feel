@@ -481,10 +481,24 @@ function checkSmoke() {
       for (const k of itemFields) {
         if (!(k in it)) { bad++; g.fail(poolName + " item " + (it.id || "?") + ": 필드 " + k + " 없음"); }
       }
-      if (Array.isArray(it.choices) && it.choices.length === 3) { /* ok */ }
-      else { bad++; g.fail(poolName + " item " + (it.id || "?") + ": choices 3개 아님"); }
-      if (typeof it.answer_index !== "number" || it.answer_index < 0 || it.answer_index > 2) {
+      // R9/CONTRACT 4 — 유형 시스템. type 없으면 sense-choice(기존 코퍼스 호환).
+      const itType = it.type || "sense-choice";
+      if (!["sense-choice", "verb-choice", "sense-cloze"].includes(itType)) {
+        bad++; g.fail(poolName + " item " + (it.id || "?") + ": 미등록 type '" + itType + "'");
+      }
+      if (!Array.isArray(it.choices) || it.choices.length < 2 || it.choices.length > 4) {
+        bad++; g.fail(poolName + " item " + (it.id || "?") + ": choices 2~4개 아님");
+      }
+      if (typeof it.answer_index !== "number" || it.answer_index < 0 ||
+          (Array.isArray(it.choices) && it.answer_index >= it.choices.length)) {
         bad++; g.fail(poolName + " item " + (it.id || "?") + ": answer_index 범위 밖");
+      }
+      // 빈칸 유형은 ___ 마커 필수 + 보기는 단어(공백 최소)
+      if ((itType === "verb-choice" || itType === "sense-cloze") && !/___/.test(it.sentence || "")) {
+        bad++; g.fail(poolName + " item " + (it.id || "?") + ": 빈칸 유형인데 ___ 마커 없음");
+      }
+      if (itType === "sense-choice" && /___/.test(it.sentence || "")) {
+        bad++; g.fail(poolName + " item " + (it.id || "?") + ": sense-choice에 ___ 마커 — type 오분류");
       }
     }
     if (bad === 0) g.ok(poolName + " 스키마 일치 (" + pool.length + ")");
@@ -492,9 +506,27 @@ function checkSmoke() {
 }
 
 // ===================================================================
+//  적대적 콘텐츠 검수 게이트 — "출처 붙은 오개념" 2회 반복(c1-1 B1, c1-2 B2)으로 승격.
+//  형식 검사: 후보 cycle-record에 독립 검수 기록 섹션이 존재해야 한다.
+//  (검수의 '품질'은 기계가 못 본다 — 존재·형식만. 내용은 리뷰 권한.)
+// ===================================================================
+function checkAdversarialReview() {
+  const g = group("adversarial-review");
+  const rec = path.join(CAND_DIR, "cycle-record.md");
+  if (!fs.existsSync(rec)) { g.fail("cycle-record.md 없음"); return; }
+  const txt = fs.readFileSync(rec, "utf8");
+  if (/적대적\s*검수/.test(txt) && /blocking/i.test(txt)) {
+    g.ok("적대적 검수 기록 존재 (blocking 판정 포함)");
+  } else {
+    g.fail("cycle-record에 적대적 검수 기록 없음 — 콘텐츠 후보 탑재 차단 (CONTRACT 규칙 2)");
+  }
+}
+
+// ===================================================================
 //  실행
 // ===================================================================
 checkContentContract();
+checkAdversarialReview();
 checkCandidateFiles();
 checkDataSync();
 checkSeparationSurface();

@@ -26,7 +26,7 @@
 - `why_it_must_grow`: 퀴즈 형식·난이도 설계·전이 세트 분리 규칙이 자산화되지 않으면 매 후보가 훈련 설계를 처음부터 다시 발명한다.
 - `how_to_update`: 후보의 퀴즈 정답률·전이 결과에서 배운 설계 교훈을 규칙으로 회수.
 - `mechanical_or_review_gate`: 훈련/전이 중복 금지 기계 검사 + Asset Steward 모니터.
-- `last_cycle_contribution`: c1-1 — R1~R8 신설 / c1-2 — R1·R2·R3·R4·R8 적용 검증 (페르소나 재검증으로 작동 확인).
+- `last_cycle_contribution`: c1-1 — R1~R8 신설 / c1-2 — R1·R2 작동 실증(페르소나 재검증), R3·R4·R8은 설계 반영(미실증) / feedback-1 — R9 신설(미적용 — c2-1에서 첫 실행).
 
 ## 4. UX 문법 (감각 전달 디자인)
 
