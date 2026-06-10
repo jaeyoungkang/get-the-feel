@@ -6,10 +6,17 @@
  * 검사군 (각 PASS/FAIL):
  *   content-contract   콘텐츠 JSON이 CONTRACT.md 규칙 충족
  *   candidate-files    후보 폴더에 필수 파일 존재
- *   data-sync          data.js의 CONTENT가 have.json과 의미적 동일
+ *   data-sync          data.js의 CONTENT가 후보의 콘텐츠 파일과 의미적 동일
+ *                      (후보별 매핑: c1-1→have.json, c1-2→up.json)
  *   separation-surface 전이 문항이 훈련 출제 풀에 섞이지 않는 구조
  *   no-gamification    point/streak/badge 류 식별자 부재
+ *   choice-shuffle     후보 app.js에 보기 셔플 구현(shuffleChoices) 존재 (R1·CONTRACT 8)
+ *   label-fields       콘텐츠 전 문항에 subject_label/object_label 존재 +
+ *                      app.js에 문장 파싱 라벨 추출 부재 (G2·CONTRACT 7)
  *   smoke              data.js 파싱 + CONTENT 스키마 일치
+ *
+ *   choice-shuffle·label-fields 는 교훈 회수 이후 후보(c1-2~)에만 적용한다.
+ *   c1-1 은 회수 전 후보이므로 두 검사를 skip(ok 표기)한다 — 회귀 금지 대상에서 제외.
  *
  * 전체 결과를 exit code로: 모든 검사 PASS → 0, 하나라도 FAIL → 1.
  */
@@ -42,6 +49,19 @@ function group(name) {
 const CONTENT_DIR = path.join(ROOT, "assets", "content");
 const SOURCES_MD = path.join(ROOT, "product", "sources.md");
 const CAND_DIR = path.join(ROOT, "candidates", candidateId);
+
+// 후보 ↔ 콘텐츠 파일 매핑. 후보마다 어떤 감각 항목을 싣는지 선언.
+const CANDIDATE_CONTENT = {
+  "c1-1": "have.json",
+  "c1-2": "up.json",
+};
+// 매핑이 없으면 후보 폴더 data.js를 단일 권위로 삼되, data-sync는 fail 처리.
+const CANDIDATE_CONTENT_FILE = CANDIDATE_CONTENT[candidateId] || null;
+
+// 교훈(R1 셔플 / G2 명시 라벨) 회수 이후 후보에만 신규 검사 적용.
+// c1-1은 회수 전 후보 — choice-shuffle·label-fields를 skip(ok)한다.
+const NEW_CHECKS_FROM = new Set(["c1-2"]);
+const APPLY_NEW_CHECKS = NEW_CHECKS_FROM.has(candidateId);
 
 function readJsonContentFiles() {
   if (!fs.existsSync(CONTENT_DIR)) return [];
@@ -220,17 +240,21 @@ function checkCandidateFiles() {
 function checkDataSync() {
   const g = group("data-sync");
   const dataPath = path.join(CAND_DIR, "data.js");
-  const havePath = path.join(CONTENT_DIR, "have.json");
+  if (!CANDIDATE_CONTENT_FILE) {
+    g.fail("후보 '" + candidateId + "'의 콘텐츠 매핑 미정의 (CANDIDATE_CONTENT에 추가 필요)");
+    return;
+  }
+  const contentPath = path.join(CONTENT_DIR, CANDIDATE_CONTENT_FILE);
   if (!fs.existsSync(dataPath)) { g.fail("data.js 없음"); return; }
-  if (!fs.existsSync(havePath)) { g.fail("assets/content/have.json 없음"); return; }
+  if (!fs.existsSync(contentPath)) { g.fail("assets/content/" + CANDIDATE_CONTENT_FILE + " 없음"); return; }
   let embedded, source;
   try { embedded = evalDataJs(dataPath); }
   catch (e) { g.fail("data.js 평가 실패: " + e.message); return; }
-  try { source = JSON.parse(fs.readFileSync(havePath, "utf8")); }
-  catch (e) { g.fail("have.json 파싱 실패: " + e.message); return; }
+  try { source = JSON.parse(fs.readFileSync(contentPath, "utf8")); }
+  catch (e) { g.fail(CANDIDATE_CONTENT_FILE + " 파싱 실패: " + e.message); return; }
   if (!embedded) { g.fail("data.js에 window.CONTENT 없음"); return; }
-  if (deepEqual(embedded, source)) g.ok("data.js CONTENT ≡ have.json (JSON 의미 동일)");
-  else g.fail("data.js CONTENT 가 have.json 과 의미적으로 다름");
+  if (deepEqual(embedded, source)) g.ok("data.js CONTENT ≡ " + CANDIDATE_CONTENT_FILE + " (JSON 의미 동일)");
+  else g.fail("data.js CONTENT 가 " + CANDIDATE_CONTENT_FILE + " 과 의미적으로 다름");
 }
 
 // ===================================================================
@@ -267,15 +291,16 @@ function checkSeparationSurface() {
       g.fail("전이 풀이 transfer_items를 참조하지 않음 — 출제 소스 불명확");
   }
 
-  // 데이터 차원 보강: 콘텐츠의 전이 문장이 훈련 문장 집합과 분리됨
+  // 데이터 차원 보강: 후보 콘텐츠의 전이 문장이 훈련 문장 집합과 분리됨
   try {
-    const have = JSON.parse(fs.readFileSync(path.join(CONTENT_DIR, "have.json"), "utf8"));
-    const trainSet = new Set((have.training_items || []).map((i) => normSentence(i.sentence)));
+    const cf = CANDIDATE_CONTENT_FILE || "have.json";
+    const content = JSON.parse(fs.readFileSync(path.join(CONTENT_DIR, cf), "utf8"));
+    const trainSet = new Set((content.training_items || []).map((i) => normSentence(i.sentence)));
     let leaked = 0;
-    for (const x of have.transfer_items || []) {
+    for (const x of content.transfer_items || []) {
       if (trainSet.has(normSentence(x.sentence))) { leaked++; g.fail("전이 문장이 훈련에 존재: " + x.id); }
     }
-    if (leaked === 0) g.ok("콘텐츠: 전이 문장 ∩ 훈련 문장 = 공집합");
+    if (leaked === 0) g.ok("콘텐츠(" + cf + "): 전이 문장 ∩ 훈련 문장 = 공집합");
   } catch (e) {
     g.fail("콘텐츠 분리 점검 실패: " + e.message);
   }
@@ -321,7 +346,103 @@ function checkNoGamification() {
 }
 
 // ===================================================================
-//  6. smoke
+//  6. choice-shuffle  (R1 / CONTRACT 8 — c1-2~)
+// ===================================================================
+// 후보 app.js에 보기 표시 순서 셔플 구현이 존재하는가.
+//   - shuffleChoices 함수 정의 존재
+//   - 그 함수가 실제로 호출(사용)됨
+//   - 함수 본문에 무작위 셔플 알고리즘 흔적(Math.random) 존재
+function checkChoiceShuffle() {
+  const g = group("choice-shuffle");
+  if (!APPLY_NEW_CHECKS) {
+    g.ok("후보 '" + candidateId + "'는 교훈 회수 전 후보 — 셔플 검사 skip (c1-2~ 적용)");
+    return;
+  }
+  const appPath = path.join(CAND_DIR, "app.js");
+  if (!fs.existsSync(appPath)) { g.fail("app.js 없음"); return; }
+  const src = fs.readFileSync(appPath, "utf8");
+
+  const body = extractFnBody(src, "shuffleChoices");
+  if (body === null) {
+    g.fail("shuffleChoices 함수 정의를 찾지 못함 — 보기 셔플 미구현 (R1 위반)");
+    return;
+  }
+  g.ok("shuffleChoices 함수 정의 존재");
+
+  // 호출처: 정의를 제외한 곳에서 shuffleChoices( 가 등장하는지
+  const calls = (src.match(/\bshuffleChoices\s*\(/g) || []).length;
+  if (calls >= 2) g.ok("shuffleChoices 사용처 존재 (정의 외 호출 발견)");
+  else g.fail("shuffleChoices가 정의만 있고 사용되지 않음 — 셔플이 화면에 적용 안 됨");
+
+  if (/Math\.random\s*\(/.test(body)) g.ok("shuffleChoices 본문에 무작위 셔플(Math.random) 존재");
+  else g.fail("shuffleChoices 본문에 무작위화 흔적(Math.random) 없음 — 고정 순서 의심");
+}
+
+// ===================================================================
+//  7. label-fields  (G2 / CONTRACT 7 — c1-2~)
+// ===================================================================
+// 콘텐츠 전 문항에 subject_label/object_label 명시 필드 존재 +
+// app.js가 문장에서 정규식으로 주어/대상을 파싱 추출하지 않음.
+function checkLabelFields() {
+  const g = group("label-fields");
+  if (!APPLY_NEW_CHECKS) {
+    g.ok("후보 '" + candidateId + "'는 교훈 회수 전 후보 — 라벨 검사 skip (c1-2~ 적용)");
+    return;
+  }
+  // (a) 후보 콘텐츠의 전 문항에 명시 라벨 필드 존재
+  const cf = CANDIDATE_CONTENT_FILE;
+  if (!cf) { g.fail("후보 콘텐츠 매핑 미정의 — 라벨 검사 불가"); return; }
+  let content;
+  try { content = JSON.parse(fs.readFileSync(path.join(CONTENT_DIR, cf), "utf8")); }
+  catch (e) { g.fail(cf + " 파싱 실패: " + e.message); return; }
+  let missing = 0;
+  for (const it of (content.training_items || []).concat(content.transfer_items || [])) {
+    if (!it.subject_label || String(it.subject_label).trim() === "") {
+      missing++; g.fail(cf + " item " + (it.id || "?") + ": subject_label 누락");
+    }
+    if (!it.object_label || String(it.object_label).trim() === "") {
+      missing++; g.fail(cf + " item " + (it.id || "?") + ": object_label 누락");
+    }
+  }
+  if (missing === 0) g.ok(cf + ": 전 문항 subject_label/object_label 존재");
+
+  // (b) app.js가 명시 라벨 필드를 실제로 사용
+  const appPath = path.join(CAND_DIR, "app.js");
+  if (!fs.existsSync(appPath)) { g.fail("app.js 없음"); return; }
+  const src = fs.readFileSync(appPath, "utf8");
+  if (/subject_label/.test(src) && /object_label/.test(src))
+    g.ok("app.js가 subject_label/object_label 명시 필드를 참조");
+  else
+    g.fail("app.js가 명시 라벨 필드를 참조하지 않음 — 라벨 출처 불명확");
+
+  // (c) 문장 파싱 라벨 추출 부재.
+  // have|has|had|up 주변을 정규식으로 잘라 주어/대상을 뽑아내는 패턴을 금지.
+  // 강조 하이라이트(highlightUp 등)는 라벨 추출이 아니므로 허용 — 캡처 그룹을
+  // 라벨로 쓰는 추출형 패턴만 잡는다: \b(has|have|had|up)\b 를 포함하면서
+  // sentence를 .match/.exec/.split 로 분해하는 코드.
+  const parseSignals = [
+    /\.match\([^)]*\b(has|have|had|having|up)\b[^)]*\)/i,
+    /\.exec\([^)]*\b(has|have|had|having|up)\b[^)]*\)/i,
+    /\b(has|have|had|having)\b\s*\)\s*\\s\+\s*\(\.\*\)/i, // c1-1식 ^(.+?)\b(have)\b\s+(.*)$ 류
+    /\^\(\.\+\?\)\\b\(?(has|have|had|up)/i,                 // ^(.+?)\b(have... 패턴 문자열
+    /function\s+deriveLabels/i,                            // c1-1의 파싱 라벨 추출 함수명
+  ];
+  let parseHit = null;
+  for (const re of parseSignals) {
+    const m = re.exec(src);
+    if (m) { parseHit = m[0].slice(0, 60); break; }
+  }
+  // 추가: subject/object 변수를 sentence.match 결과에서 끌어오는 구조
+  if (!parseHit) {
+    const m = /(subj|subject|obj|object)\s*=\s*m\s*\?/i.exec(src);
+    if (m) parseHit = m[0];
+  }
+  if (parseHit) g.fail("app.js에 문장 파싱 라벨 추출 흔적: '" + parseHit + "' (G2 위반)");
+  else g.ok("app.js에 문장 파싱 라벨 추출 부재 (G2 충족)");
+}
+
+// ===================================================================
+//  8. smoke
 // ===================================================================
 function checkSmoke() {
   const g = group("smoke");
@@ -376,6 +497,8 @@ checkCandidateFiles();
 checkDataSync();
 checkSeparationSurface();
 checkNoGamification();
+checkChoiceShuffle();
+checkLabelFields();
 checkSmoke();
 
 console.log("");

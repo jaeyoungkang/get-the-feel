@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>up — 하나의 그림으로 익히기</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="app" class="app">
+    <!-- 화면은 app.js가 렌더한다 -->
+    <noscript>
+      <p class="noscript">이 도구는 JavaScript가 필요합니다. 브라우저에서 스크립트를 켜고 다시 열어 주세요.</p>
+    </noscript>
+  </main>
+
+  <!-- 상태·검증 정보는 첫 화면에서 치우고 ⓘ 패널 뒤로 (UX 문법 G5). app.js가 토글한다. -->
+  <button class="info-btn" id="info-btn" type="button" aria-label="도구 정보 열기" aria-expanded="false">ⓘ</button>
+  <div class="info-panel" id="info-panel" hidden>
+    <p class="info-title">도구 정보 (만든 사람용)</p>
+    <ul class="info-list">
+      <li>콘텐츠: up · 버전 v1</li>
+      <li>출처 검증 상태: 잠정 (사람 리뷰 전)</li>
+      <li>후보 ID: c1-2</li>
+    </ul>
+    <p class="info-note">이 정보는 도구를 만드는 사람을 위한 메모입니다. 학습에는 필요하지 않습니다.</p>
+  </div>
+
+  <!-- data.js가 먼저 로드되어 window.CONTENT를 채운다 -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
