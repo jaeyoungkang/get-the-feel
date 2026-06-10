@@ -1,23 +1,20 @@
-# product-weaver
+# get-the-feel
 
-**LLM 에이전트로 AI 제품을 만들 때 의도가 코드까지 왜곡 없이 도달하도록 강제하는 최소 골격.**
+**한국인 영어 학습자가 영어의 게르만 토박이 층위 감각을 문장·퀴즈로 체화하는 트레이닝 웹 앱.**
 
-도메인 베이스들이 위에서 자라는 **베이스의 베이스**.
+영어 어휘에는 두 층이 있다 — 게르만 토박이 층(have, get, take, up, out, off…)과 라틴/로망스 차용 층(receive, obtain, acquire…). 한국인 학습자에게 라틴계 어휘는 사전 정의로 붙지만, 일상 영어의 뼈대인 토박이 동사·불변화사는 "정의"가 아니라 "감각"으로 작동해서 생소하다. 이 제품은 그 감각을 훈련시킨다.
 
-4원리 + 1개의 메타 프로세스만 들고 있다. 상세는 `docs/principles.md`.
+이름의 유래: **get**(핵심 동사) + **feel**(게르만 토박이어) — 이름 자체가 제품이 가르치는 감각의 시연. "감을 잡다."
 
 ## 진입
 
-- `AGENTS.md` — 에이전트 navigation
-- `docs/principles.md` — 4원리 + Refinement Loop 정본 (이게 product-weaver의 전부)
-- `shared-skills/` — 핵심 행동의 스킬 정본 (`intent-lock`, `refinement-loop`)과 선택 행동 스킬(`engineering-decision`)
+- `AGENTS.md` — 에이전트 navigation + Harness Case
+- `product/contract.md` — 제품 계약 정본
+- `product/asset-map.md` — 자산 지도
 - `fix_plan.md` — 작업 큐
 
-## 관련
-
-- [agentic-base](https://github.com/jaeyoungkang/agentic-base) — 같은 정신을 공유하는 더 무거운 베이스. Story Chain·정합성 CLI·여러 스킬 등 도구를 더 들고 있다. product-weaver의 가벼움이 부족할 때 옵션.
-- `docs/domain-layer-activation-guide.md` — 도메인 베이스가 자기 Harness Case를 남길 때 참고하는 짧은 선택 가이드.
+product-weaver 도메인 인스턴스. 베이스 정본은 `docs/principles.md` + `shared-skills/`.
 
 ## 상태
 
-2026-05-26: 초안 작성 — codex exec 1·2·3·4차 리뷰 반영 + 자기 점검 비대 회수.
+2026-06-10: 의도 잠금 + 도메인 부트스트랩. Discovery Session(C1) 시작 전.

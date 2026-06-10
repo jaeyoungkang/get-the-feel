@@ -1,86 +1,51 @@
-# product-weaver — Agent Guide
+# get-the-feel — Agent Guide
 
-**LLM 에이전트로 AI 제품을 만들 때 의도가 코드까지 왜곡 없이 도달하도록 강제하는 최소 골격.**
+**한국인 영어 학습자가 영어의 게르만 토박이 층위 감각(have/get/be, up/out/off, 구동사, 어순)을 문장·퀴즈로 체화하는 트레이닝 웹 앱.**
 
-도메인 베이스들이 위에서 자라는 **베이스의 베이스**. 4원리 + 1개의 메타 프로세스만 들고 있다.
-
-이 파일은 세션 진입용 navigation이다. 본질은 `docs/principles.md` 가 정본.
+product-weaver의 fork-style 도메인 인스턴스. 베이스 파일(`docs/principles.md`, `shared-skills/`, `CLAUDE.md`)은 **수정 금지** — 베이스 갱신은 product-weaver 저장소에서 별 사이클로 처리하고 여기서는 fetch + merge (Ask first).
 
 ## Read Order
 
-1. `docs/principles.md` — **4원리 + Refinement Loop 정본** (이게 product-weaver의 전부)
-2. `shared-skills/` — 핵심 행동의 스킬 정본 (`intent-lock`, `refinement-loop`) + 선택 행동 스킬
+1. `product/contract.md` — 제품 계약 정본 (잠긴 의도 + Spiral 도달 기준 + 미승인·빈틈)
+2. `product/asset-map.md` — 자산 지도 (5 trunk + 명시 거부)
+3. `fix_plan.md` — 작업 큐 + 사후 승인 큐
+4. `docs/principles.md` + `shared-skills/` — 베이스 정본. 핵심 행동은 스킬 경유 + Skill Load Receipt 필수.
 
-## 핵심 행동은 스킬을 통해
+## Harness Case
 
-product-weaver의 핵심 행동(새 의도 잠금, 다듬기 루프 운영)은 반드시 `shared-skills/<skill>/SKILL.md` 절차를 통해 수행한다. 스킬 호출 없이 자유 형식으로 4원리를 적용하면 절차가 누락된다.
+| 항목 | 선택 |
+|---|---|
+| Intent Lock | `product/contract.md` — 인터뷰 기반 잠금, 미승인은 별도 섹션 + `fix_plan.md` 사후 승인 큐 |
+| Gap Ledger | `candidates/<id>/cycle-record.md` (후보별, append-only — 판정을 덮어쓰지 않는다) + git commit log |
+| Mechanical Verdict | `tools/verdict/` 스크립트 (c1-1에서 생성) — 콘텐츠 계약 검사(출처 필수), 훈련/전이 분리 검사, 빌드/스모크, 산출물 diff. unknown/not-met은 승격 차단 |
+| 모니터 | Intent Guardian / Asset Steward / Data·Sellability — 후보 종료마다 출력, `repair-before-next`면 다음 후보 전에 자산·게이트 수리 |
+| 의도적 거부 | 게이미피케이션 중심 / 범용 영어 학습 앱 확장 / 엔지니어링 제약 front-load / 선제 도메인 스킬 신설 (`product/asset-map.md` 거부 섹션) |
 
-- 새 의도가 들어왔다 → `shared-skills/intent-lock/SKILL.md`
-- 회고·셀프 게이트·인스턴스화 가이드 갱신 → `shared-skills/refinement-loop/SKILL.md`
-- 제품 후보를 반복 제작한다 → `shared-skills/product-spiral-orchestrator/SKILL.md`
-- 코드 관리 수준을 올릴지 판단해야 한다 → `shared-skills/engineering-decision/SKILL.md`
+## Spiral 운영
 
-Refuse First는 별도 스킬이 아니라 두 스킬의 절차 안에 모드로 흐른다. AGENTS.md Boundaries 와 합쳐서 베이스 전체의 호흡이다.
-
-## Skill Load Gate
-
-핵심 행동을 시작하기 전에 에이전트는 해당 `shared-skills/<skill>/SKILL.md`를 실제로 읽고, 첫 산출물 또는 진행 메시지에 **Skill Load Receipt**를 남긴다. 이 receipt가 없으면 다음 단계로 진행하지 않는다.
-
-Receipt 최소 형식:
-
-```text
-Skill Load Receipt
-- skill: shared-skills/<skill>/SKILL.md
-- loaded_at_step: <discover|draft|cycle-start|review 등>
-- required_gates: <이번 작업에 적용할 gate 2-5개>
-- blocked_until: <잠금/상한/승인/운영계약 등 선행 조건>
-```
-
-두 스킬이 함께 필요한 경우(`intent-lock` + `refinement-loop`) 둘 다 receipt를 남긴다. 스킬을 읽었다고 말만 하고 receipt 없이 코드·문서·루프 산출물로 넘어가면 Preflight 실패다.
-
-## 도메인 인스턴스 시작 형태
-
-**기본 권고: fork-style `git clone`.** product-weaver를 통째로 새 도메인 폴더로 clone하고, 그 위에서 도메인 측 파일(`AGENTS.md`, `README.md`, `fix_plan.md`, 제품 계약 자산 등)을 *갈아엎거나 추가*한다. 베이스 파일(`docs/principles.md`, `shared-skills/`, `CLAUDE.md`)은 *수정 금지* — 베이스 갱신이 필요하면 product-weaver 저장소에서 별 사이클로 처리하고 도메인 측은 fetch + merge (Ask first).
-
-```bash
-git clone <product-weaver-url> ~/youngcompany/<도메인>
-cd ~/youngcompany/<도메인>
-# 이후 도메인 측 파일 갈아엎기 + 새 자산 폴더 신설
-```
-
-**대안 (가벼운 도메인): 참조 방식.** 새 폴더에 자체 `AGENTS.md` 두고 product-weaver를 *상대 경로*로 단방향 참조 (예: `../product-weaver/docs/principles.md`). 베이스 사본 없음. 무게가 더 가볍지만 *베이스 절차가 다른 폴더에 살아있다*는 가정 필요.
-
-두 방식 모두에서:
-- 참조는 **단방향** — 인스턴스 → 베이스. 베이스는 인스턴스 본문을 참조하지 않는다 (Refuse First).
-- git submodule, symbolic link, 코드 import는 쓰지 않는다 — 추상이 인스턴스에 *살아있는 연결*로 묶이면 비대해진다. fork-style clone은 *시작점 복제*라 살아있는 연결 아님 — 허용.
-- 도메인 폴더는 자기 git history로 진화. baseline 갱신과 도메인 작업의 lineage 분리.
-- 사전에 빈 파일을 두지 않는다 (Preflight Gate 정신).
-- 도메인은 필요하면 자기 **Harness Case**를 남긴다. 어떤 산출물·ledger·gate를 켰고 무엇을 의도적으로 거부했는지 적는 도메인별 선택 기록이다. 상세 판단은 `docs/domain-layer-activation-guide.md`를 참고한다.
-
+- Session **C1 = Discovery**. 후보 상한 `n_of_N` **N=5**, 도달 실패 시 `cap_reached_disposition` 분류 후 종료 (`product/contract.md` 상한 섹션).
+- 후보 폴더: `candidates/c1-<n>/` — **독립 실행 가능한 완제품** (entry, 스타일, 데이터, 검증 결과). 이전 후보 파일 직접 패치 금지 — fresh start.
+- 후보 시작 전: `shared-skills/product-spiral-orchestrator/SKILL.md` receipt + 사이클 의도 잠금(축 선택, 제품 계약 발전 한 줄, 전달 가치 탐색 한 줄, 자산 기여 WHO·WHY).
+- 후보 종료 시: 배움을 `product/`·`assets/`·`tools/`로 회수. 평가 질문: **"다음 후보의 약속 전달력을 올리는가"** — 더 빨리가 아니라 더 효과적으로. transcript·cycle record에만 남으면 미회수.
 
 ## Boundaries (Refuse First)
 
 - **Never**
-  - 4원리를 깎거나 풀어 쓰지 않는다. 4원리는 공리.
-  - Refinement Loop 없이 4원리를 추가·변경하지 않는다.
-  - 도메인 인스턴스를 베이스에 끌어올리지 않는다. **베이스는 추상만, 인스턴스는 도메인.**
-  - 비대화 방지 셀프 게이트(`docs/principles.md` 참조) 통과 없이 새 원리·도구·문서·스킬을 추가하지 않는다.
-  - 합의 없이 `docs/principles.md` 본문 수정.
+  - 베이스 파일(`docs/principles.md`, `shared-skills/`, `CLAUDE.md`) 수정
+  - 이전 후보를 조금 고쳐 새 사이클이라 부르기
+  - 출처 없는 감각 설명을 콘텐츠로 승격
+  - 훈련 문장과 전이 문장의 중복
+  - 게이미피케이션 중심·범용 영어 학습 방향의 확장
 - **Ask first**
-  - 새 원리 신설 또는 4원리 본문 갱신
-  - 새 메타 프로세스 추가
-  - Refinement Loop 주기·입력·출력 명세 변경
+  - 4축 경계·Primary Promise 변경
+  - Spiral 도달 기준(승격 5기준, N=5) 변경
+  - 배포·과금·타인 사용자 노출
 - **Always**
-  - 변경 검토는 `docs/principles.md` 의 비대화 방지 셀프 게이트를 따른다
-  - 핵심 행동은 `shared-skills/<skill>/SKILL.md` 를 통해 수행한다
-  - 운영 발견 사항은 *SKILL/원리 변경 자체*로 회수한다(commit log가 변경 사유를 잡는다). 별도 누적 텍스트 ledger를 베이스에 두지 않는다 — clone 받는 사용자에게 운영 흔적은 *역사*일 뿐이다.
+  - 핵심 행동은 스킬 경유 + Skill Load Receipt
+  - 한 turn = 한 항목 = 한 commit (`fix_plan.md`)
+  - 후보마다 `cycle-record.md`에 stop permission 필드 기록
+  - 사후 승인 큐 항목은 trigger 시점에 사용자에게 승인 요청
 
 ## Inheritance
 
-이 저장소는 **독립**이다. 외부 AGENTS.md를 상속하지 않는다.
-
-이유: product-weaver는 다른 베이스들의 **상위 추상**이므로 상속이 거꾸로 가면 추상이 도메인에 오염된다.
-
-## Validation
-
-product-weaver 자체는 **정본 문서 집합**이고 실행 코드를 들고 있지 않다. 검증은 사람 리뷰 + codex exec 리뷰로 한다. **기계 검증 CLI는 의도적으로 두지 않는다** — 베이스에 CLI가 늘어나는 순간 비대화가 시작된다.
+베이스(product-weaver) 정본을 단방향 참조한다. 인스턴스 → 베이스 방향만. 도메인 산출물을 베이스로 끌어올리지 않는다.
