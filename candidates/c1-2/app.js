@@ -322,8 +322,8 @@
           (correct ? "맞았어요 — 이 그림이에요." : "다시 — 이 그림을 보세요.") + '</p>' +
         '<p class="why">' + esc(item.why_ko) + '</p>' +
         // 메타포: 정답이면 미정착에서 출발해 정착(애니메이션), 오답이면 G4로 미정착 1박자.
-        // 단 반복 피로(G3, fatigued)면 처음부터 정착 상태로 즉시 그린다.
-        renderViz(item, fatigued ? true : false) +
+        // G4가 G3보다 우선 — 오답이면 반복 피로여도 미정착부터 (ux-grammar G4 우선순위 규칙).
+        renderViz(item, (fatigued && correct) ? true : false) +
         (sense && sense.boundary_ko
           ? '<p class="boundary"><b>down이 서는가:</b> ' + esc(sense.boundary_ko) + '</p>'
           : "") +

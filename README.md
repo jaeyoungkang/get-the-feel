@@ -17,4 +17,4 @@ product-weaver 도메인 인스턴스. 베이스 정본은 `docs/principles.md` 
 
 ## 상태
 
-2026-06-10: 의도 잠금 + 도메인 부트스트랩. Discovery Session(C1) 시작 전.
+2026-06-11: C1 Discovery 종료 (후보 2개: c1-1 have / c1-2 up — c1-2가 현재 최선). 졸업선 충족, 중기 전환은 승인 대기 (fix_plan approve-6).

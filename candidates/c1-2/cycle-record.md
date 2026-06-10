@@ -36,3 +36,35 @@ Skill Load Receipt
   - M1 boundary_ko에 slow/calm down(감소·진정 = 별개 도식) 단서 추가 / M2 x1 표면 변형 전이 → 길의 가상 이동(fictive motion)으로 교체 / M3 t10 오답 문구 교정 / M4 t9 오답을 근접 오개념(시계 바늘 12시)으로 강화
 - 기각된 의심: answer_index 균등 분포(R1은 앱 셔플 의무라 무관), burn up/down 대비 정확성, vertical 문항 정답 유일성
 - validation: subagent-consensus / weak
+
+## 평가 기록 (c1-2d, 2026-06-11)
+
+### Mechanical Verdict
+`node tools/verdict/check.mjs c1-2` — 8검사군 **ALL PASS** (기존 6 + choice-shuffle + label-fields). c1-1 회귀 0.
+
+### 페르소나 blind task (약한 verdict, append-only)
+- **현우 (회의론자 — c1-1을 깨뜨린 동일 페르소나의 재검증)**: 완주. 훈련 9/10, 전이 4/5.
+  - **c1-1 혹평 1 (정답 위치 패턴): 교정 확인** — 위치 찍기 33점 수준으로 무력화, 보기 길이·어휘 단서 꼼수도 차단. "영어 문장을 안 읽으면 둘 중 뭘 골라야 할지 알 수 없다."
+  - **사이클 가설 검증**: burn up 오답 → 그릇 차오름 메타포로 교정 경험. "텍스트로 100번 읽어도 안 박히던 게 그릇 그림 하나로 박혔다. 이건 진짜다." — 시각 차별점이 불변화사 축에서 강하게 작동.
+  - **혹평 2 (산출 부재): 여전 — 단 정직해짐** (G5 적용 인정). **혹평 3 (콘텐츠 1일치): 여전 — "이번엔 그 1일치가 알맹이가 있다"** (R6 과제 유지).
+  - G5 검증: "학원 광고 냄새 빠졌다."
+
+### 모니터 3종
+- **Intent Guardian: pass** — 의도 3축·거부 신호·G5 정직성 보존. 이월 메모: 인트로의 2-sense 예고는 승격 기준 1에서.
+- **Asset Steward: repair-before-next → 본 사이클에서 회수 완료**: ① G4>G3 우선순위 규칙(ux-grammar 갱신 + 코드 교정 `(fatigued && correct)`) ② no-gamification의 SVG points= 오탐 제외(check.mjs) ③ label-fields 휴리스틱 한계를 asset-map에 명문화.
+- **Data/Sellability: pass** — weak 정직 표기, 증가 의미망 배제 정합, ⓘ 패널은 숨김이 아니라 접힘.
+
+### Stop Permission
+- `local_candidate_status`: pass
+- `representative_status`: not-promoted (현재 최선 후보 — 승격은 기준 3 깊이·기준 5 재사용 동력 미충족)
+- `primary_user_task`: up 감각 훈련 세션 완주 — 산출물: candidates/c1-2 앱 + up.json + verdict 확장
+- `core_contribution_this_cycle`: 2 — ① V1 가설 검증 (R1·R2 교정이 패턴 풀이를 실제 차단 + 시각 메타포가 불변화사 축에서 작동, 페르소나 실수행 증거) ② 자산: up 코퍼스, 메타포 2종(G1 확장), G4>G3 규칙, verdict 2검사
+- `core_evidence`: 산출물 diff (commit 132fd88, 0b8047d, 본 commit) + 동일 페르소나 재검증 기록
+- `n_of_N`: 2 of 3
+- `local_ready`: no (수요 검증 패키지 미완 — Discovery 졸업으로 충분, local_ready는 Readiness 단계 과제)
+- `demand_status`: demand_unknown
+- `next_action`: **C1 Discovery Session 졸업선 충족 — Session 종료, 단계 전환(중기 Convergence)은 사람 결정** (orchestrator: Session 경계 = human authority)
+- `allowed_to_stop`: yes (Session 경계 도달 — local spiral 종료가 아니라 Session 종료)
+
+### Disposition
+**asset-only + 현재 대표 후보 후보(가칭)** — c1-2가 두 후보 중 최선. 파일 보존, 배움 회수 완료. 다음 후보(중기)는 fresh start로 c1-1·c1-2 교훈 전부를 입력.

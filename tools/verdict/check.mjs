@@ -334,9 +334,11 @@ function checkNoGamification() {
     const p = path.join(CAND_DIR, f);
     if (!fs.existsSync(p)) continue;
     const src = fs.readFileSync(p, "utf8");
+    // SVG 좌표 속성(points="...")은 게이미피케이션 식별자가 아니다 — 오탐 제외 (c1-2 회수)
+    const scanned = src.replace(/\bpoints?\s*=\s*"/gi, 'svgcoords="');
     for (let bi = 0; bi < bannedLabel.length; bi++) {
       const re = new RegExp("\\b" + bannedLabel[bi] + "s?\\b", "i");
-      if (re.test(src)) {
+      if (re.test(scanned)) {
         hit++;
         g.fail(f + ": 게이미피케이션 식별자 '" + bannedLabel[bi] + "' 발견");
       }
