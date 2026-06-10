@@ -1,0 +1,268 @@
+{
+  "axis": "particles",
+  "item": "up",
+  "senses": [
+    {
+      "id": "up-vertical",
+      "ko": "대상이 낮은 데서 높은 데로 올라가거나 위쪽을 향한다는, 수직 방향의 공간 감각.",
+      "image": "땅에 붙어 있던 것이 화살표를 따라 위로 솟구치거나, 시선이 아래에서 위 끝으로 올라가는 그림.",
+      "boundary_ko": "이 수직 up은 문자 그대로의 방향이라 반대 방향 down이 그대로 성립한다(stand up ↔ sit down, look up ↔ look down). 방향을 뒤집을 수 있으면 수직 감각이다.",
+      "source_refs": [
+        {
+          "source_id": "lindner-1981",
+          "locator": "Ch. on UP — spatial/vertical schema of the particle UP",
+          "claim": "불변화사 UP의 의미망은 대상이 수직 축을 따라 위로 향하는 공간 도식을 핵으로 삼는다."
+        },
+        {
+          "source_id": "tyler-evans-2003",
+          "locator": "Ch. on the vertical axis (up/down) — proto-scene",
+          "claim": "up은 수직 축 위에서 trajector가 높은 쪽에 위치하거나 그쪽으로 향하는 원형 장면(proto-scene)을 가진다."
+        }
+      ],
+      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+    },
+    {
+      "id": "up-completion",
+      "ko": "어떤 일이 끝까지 차올라 한계·완료 지점에 도달했다는, 수직 상승이 은유로 확장된 감각.",
+      "image": "그릇이 바닥부터 차오르다 가장자리(끝)까지 꽉 차서 더 올라갈 데가 없어지는 그림 — 위로 차오르다 한계에 닿는다.",
+      "boundary_ko": "이 완료 up은 '아래로'가 없다 — *eat down은 불가능하다. 방향을 뒤집을 수 없으면(반대말 down이 안 서면) 완료 감각이지 수직 감각이 아니다. (slow down·calm down의 down은 완료의 반대가 아니라 감소·진정이라는 별개의 그림이다.)",
+      "source_refs": [
+        {
+          "source_id": "lindner-1981",
+          "locator": "Ch. on UP — completive/perfective extension of the UP network",
+          "claim": "UP의 의미망은 수직 상승 도식에서 동작이 끝점까지 도달하는 완료(completive) 용법으로 확장된다."
+        }
+      ],
+      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+    }
+  ],
+  "training_items": [
+    {
+      "id": "up-t1",
+      "sense_id": "up-vertical",
+      "sentence": "Please stand up when the teacher comes in.",
+      "subject_label": "you",
+      "object_label": "rise upright",
+      "prompt": "이 up이 그리는 그림은?",
+      "choices": [
+        "몸이 낮은 자세에서 위로 솟아 똑바로 서는 방향",
+        "서 있는 동작을 끝까지 완전히 끝내 버림",
+        "stand up은 그냥 외운 숙어라 up에 그림은 없다"
+      ],
+      "answer_index": 0,
+      "why_ko": "stand up은 앉아 있던 몸이 수직으로 올라가 서는 방향 감각이다. 그래서 반대 방향 sit down이 그대로 성립한다."
+    },
+    {
+      "id": "up-t2",
+      "sense_id": "up-vertical",
+      "sentence": "Everyone looked up at the night sky.",
+      "subject_label": "everyone",
+      "object_label": "gaze upward",
+      "prompt": "이 up의 감각은?",
+      "choices": [
+        "하늘을 다 보고 나서 보는 일을 끝냄",
+        "시선이 아래에서 위쪽 끝으로 올라가는 방향",
+        "look up은 사전을 찾는다는 뜻의 숙어다"
+      ],
+      "answer_index": 1,
+      "why_ko": "look up은 시선이 수직으로 위를 향하는 방향 감각이다. 반대로 look down도 그대로 되니 문자적 수직 up이다."
+    },
+    {
+      "id": "up-t3",
+      "sense_id": "up-vertical",
+      "sentence": "Can you pick up that pen from the floor?",
+      "subject_label": "the pen",
+      "object_label": "lift off the floor",
+      "prompt": "펜을 pick up한다는 건 어떤 그림인가?",
+      "choices": [
+        "펜을 집는 일을 완전히 끝까지 해냄",
+        "pick up은 '태우러 간다'는 뜻이라 위와 상관없다",
+        "펜이 바닥에서 손 높이로 들려 올라가는 방향"
+      ],
+      "answer_index": 2,
+      "why_ko": "pick up은 바닥에 있던 펜이 위로 들려 올라가는 수직 방향 감각이다. 대상이 아래에서 위로 움직인다."
+    },
+    {
+      "id": "up-t4",
+      "sense_id": "up-vertical",
+      "sentence": "The balloon floated up into the clouds.",
+      "subject_label": "the balloon",
+      "object_label": "rise into the sky",
+      "prompt": "이 up이 그리는 그림은?",
+      "choices": [
+        "풍선이 점점 위로 떠올라 가는 방향",
+        "풍선이 구름까지 다 차올라 꽉 참",
+        "풍선이 위로 가든 말든 up은 강조일 뿐이다"
+      ],
+      "answer_index": 0,
+      "why_ko": "float up은 풍선이 아래에서 하늘 위로 올라가는 수직 방향 그 자체다. 내려오면 float down이 되니 문자적 up이다."
+    },
+    {
+      "id": "up-t5",
+      "sense_id": "up-vertical",
+      "sentence": "She climbed up the steep hill slowly.",
+      "subject_label": "she",
+      "object_label": "ascend the hill",
+      "prompt": "이 up의 감각으로 가장 가까운 것은?",
+      "choices": [
+        "언덕 오르기를 끝까지 마쳐 완료함",
+        "낮은 데서 언덕 위쪽으로 몸이 올라가는 방향",
+        "climb up은 통째로 외우는 숙어라 up에 뜻이 없다"
+      ],
+      "answer_index": 1,
+      "why_ko": "climb up은 몸이 아래에서 언덕 위로 올라가는 수직 방향 감각이다. climb down으로 방향을 뒤집을 수 있다."
+    },
+    {
+      "id": "up-t6",
+      "sense_id": "up-completion",
+      "sentence": "Hurry and eat up all your vegetables.",
+      "subject_label": "the vegetables",
+      "object_label": "all gone",
+      "prompt": "eat up이 그리는 그림은?",
+      "choices": [
+        "음식을 위로 들어 올려서 먹는다",
+        "그냥 먹는다는 말을 강조한 것뿐, up은 의미 없다",
+        "먹는 일이 끝까지 차올라 하나도 안 남게 다 비운다"
+      ],
+      "answer_index": 2,
+      "why_ko": "eat up은 위로 먹는 게 아니라, 먹는 일이 끝점까지 도달해 남김없이 다 비웠다는 완료 감각이다. 그래서 *eat down은 안 된다."
+    },
+    {
+      "id": "up-t7",
+      "sense_id": "up-completion",
+      "sentence": "Let me fill up the bottle with water.",
+      "subject_label": "the bottle",
+      "object_label": "full to the top",
+      "prompt": "이 up의 감각은?",
+      "choices": [
+        "물이 바닥부터 차올라 병의 끝(꼭대기)까지 꽉 참",
+        "병을 손으로 들어 위로 올린다",
+        "fill up은 주유한다는 뜻의 숙어라 위와 무관하다"
+      ],
+      "answer_index": 0,
+      "why_ko": "fill up은 물이 끝까지 차올라 가장자리에 닿는 완료·한계 도달 감각이다. 위로 차오르다 더 올라갈 데가 없어진 그림이다."
+    },
+    {
+      "id": "up-t8",
+      "sense_id": "up-completion",
+      "sentence": "I need to finish up this report tonight.",
+      "subject_label": "the report",
+      "object_label": "fully done",
+      "prompt": "finish up이 그리는 그림으로 가장 가까운 것은?",
+      "choices": [
+        "보고서를 책상 위로 올려 둔다",
+        "finish에 up이 붙어도 finish와 똑같은 뜻이다",
+        "남은 부분까지 끝까지 채워 완전히 마무리한다"
+      ],
+      "answer_index": 2,
+      "why_ko": "finish up은 남은 일이 끝점까지 차올라 완전히 끝났다는 완료 감각이다. up이 '끝까지 도달'을 더해 마무리를 강조한다."
+    },
+    {
+      "id": "up-t9",
+      "sense_id": "up-completion",
+      "sentence": "Sorry, time's up — please put your pens down.",
+      "subject_label": "the time",
+      "object_label": "limit reached",
+      "prompt": "time이 up이라는 건 어떤 그림인가? (시간은 위로 가지 않는데?)",
+      "choices": [
+        "시계 바늘이 위(12시)에 도달했다는 그림이다",
+        "주어진 시간이 한계(끝)까지 다 차올라 더 남지 않았다",
+        "time's up은 그냥 외우는 표현이라 up에 그림이 없다"
+      ],
+      "answer_index": 1,
+      "why_ko": "time's up은 시간이 위로 간 게 아니라, 주어진 양이 끝까지 차올라 한계에 닿아 더 없다는 완료 감각이다. 방향이 아니라 한계 도달이라 down이 안 선다."
+    },
+    {
+      "id": "up-t10",
+      "sense_id": "up-completion",
+      "sentence": "The old barn burned up in the fire.",
+      "subject_label": "the barn",
+      "object_label": "completely gone",
+      "prompt": "burn up이 그리는 그림은? (불은 위로 타오르는데, 왜 완료일까?)",
+      "choices": [
+        "불길이 헛간 위로 솟아오르는 방향만 가리킨다",
+        "타는 일이 끝까지 진행돼 헛간이 남김없이 다 타 없어졌다",
+        "burn up과 burn down은 위/아래 방향만 다른 같은 그림이다"
+      ],
+      "answer_index": 1,
+      "why_ko": "burn up은 불의 방향이 아니라, 타는 일이 끝점까지 도달해 완전히 다 타버렸다는 완료 감각이다. burn down은 '무너져 내림'을 보지만, up은 '소진'을 본다."
+    }
+  ],
+  "transfer_items": [
+    {
+      "id": "up-x1",
+      "sense_id": "up-vertical",
+      "sentence": "The narrow road goes up the mountain.",
+      "subject_label": "the road",
+      "object_label": "toward the top",
+      "prompt": "길은 움직이지 않는데 go up이라니 — 이 up의 감각은?",
+      "choices": [
+        "시선이 길을 따라 산 위쪽으로 올라가는 방향",
+        "길 공사가 끝까지 진행돼 완료됐다",
+        "go up은 위층에 간다는 숙어라 산길에는 못 쓴다"
+      ],
+      "answer_index": 0,
+      "why_ko": "길 자체는 움직이지 않지만, 길을 따라가는 시선이 아래에서 산 위로 오른다 — 수직 방향 감각은 멈춰 있는 것에도 그려진다. 반대로 내려가면 go down이 선다."
+    },
+    {
+      "id": "up-x2",
+      "sense_id": "up-completion",
+      "sentence": "We used up the last of the printer ink yesterday.",
+      "subject_label": "the ink",
+      "object_label": "all consumed",
+      "prompt": "use up이 그리는 그림으로 가장 가까운 것은?",
+      "choices": [
+        "잉크를 위쪽으로 들어 올려 썼다",
+        "use up은 그냥 use를 강조한 것이라 차이가 없다",
+        "쓰는 일이 끝까지 진행돼 잉크가 한 방울도 안 남게 다 소진됐다"
+      ],
+      "answer_index": 2,
+      "why_ko": "use up은 위로 쓰는 게 아니라, 쓰는 일이 끝점까지 차올라 잉크가 바닥나 다 소진됐다는 완료 감각이다."
+    },
+    {
+      "id": "up-x3",
+      "sense_id": "up-completion",
+      "sentence": "Let's wrap up the meeting before five o'clock.",
+      "subject_label": "the meeting",
+      "object_label": "fully closed",
+      "prompt": "wrap up이 그리는 그림은?",
+      "choices": [
+        "회의 자료를 걷어 위로 쌓아 올린다",
+        "회의가 남은 안건까지 끝점에 도달해 완전히 닫힌다",
+        "wrap up은 선물을 포장한다는 뜻의 숙어일 뿐이다"
+      ],
+      "answer_index": 1,
+      "why_ko": "wrap up은 포장이나 위쪽 이동이 아니라, 회의가 끝점까지 차올라 완전히 닫히는 완료 감각이다. 그래서 *wrap down은 없다."
+    },
+    {
+      "id": "up-x4",
+      "sense_id": "up-vertical",
+      "sentence": "He held the trophy up for the crowd to see.",
+      "subject_label": "the trophy",
+      "object_label": "lifted high",
+      "prompt": "이 up이 그리는 그림은?",
+      "choices": [
+        "트로피가 손에 들려 머리 위 높이로 올라간 방향",
+        "트로피를 보여 주는 일을 끝까지 완료함",
+        "hold up은 '강도질하다'라는 뜻이라 위와 무관하다"
+      ],
+      "answer_index": 0,
+      "why_ko": "hold ... up은 트로피가 아래에서 위 높이로 들려 올라간 수직 방향 감각이다. 내리면 hold down 쪽이 되니 문자적 up이다."
+    },
+    {
+      "id": "up-x5",
+      "sense_id": "up-completion",
+      "sentence": "Don't worry, the bruise will clear up in a few days.",
+      "subject_label": "the bruise",
+      "object_label": "fully gone",
+      "prompt": "clear up이 그리는 그림으로 가장 가까운 것은?",
+      "choices": [
+        "멍이 피부 위로 떠오른다",
+        "clear up은 날씨가 갠다는 뜻뿐이라 멍에는 안 쓴다",
+        "낫는 일이 끝까지 진행돼 멍이 완전히 사라진 상태에 도달한다"
+      ],
+      "answer_index": 2,
+      "why_ko": "clear up은 위로 가는 게 아니라, 사라지는 과정이 끝점까지 도달해 멍이 말끔히 없어졌다는 완료 감각이다. up이 '끝까지'를 더한다."
+    }
+  ]
+}

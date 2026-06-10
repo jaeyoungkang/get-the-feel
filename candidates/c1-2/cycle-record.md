@@ -26,3 +26,13 @@ Skill Load Receipt
 - **전달 가치 탐색**: V1 심화 (새 축에서) + G5 적용 — 사용자 표면 어휘 전환(학술→생활 어휘)이 첫 화면 30초 이해를 개선하는지.
 - **자산 기여 (WHO·WHY)**: 콘텐츠 코퍼스에 up 콘텐츠 + 메타포 어휘(G1)에 수직·완료 도식 추가. WHO: 한국인 영어 학습자. WHY: up을 "위"라는 번역 하나로 처리해 eat up / time's up / fill up이 각각 암기가 되는 문제 — 수직과 완료·증가가 한 감각임을 체화.
 - **n_of_N**: 2 of 3.
+
+## 콘텐츠 합의 기록 (c1-2b, 2026-06-11)
+
+- 생성: opus 서브에이전트 (up.json — sense 2, training 10, transfer 5, 라벨 필드 전수, answer_index 분산)
+- 적대적 검수: 독립 opus 서브에이전트. **blocking 2건 + minor 4건**, 전건 회수:
+  - B1 sense 오분류: x3(prices go up)는 완료가 아니라 증가(MORE IS UP) — 2-sense 계약을 깨는 제3 의미망 밀반입 → wrap up(명확한 완료) 문항으로 교체
+  - B2 출처 오인용: MORE IS UP(증가)을 완료 근거로 인용 + 원전에 없는 라벨 조어 → lakoff-johnson ref를 completion sense에서 제거 (lindner 단독)
+  - M1 boundary_ko에 slow/calm down(감소·진정 = 별개 도식) 단서 추가 / M2 x1 표면 변형 전이 → 길의 가상 이동(fictive motion)으로 교체 / M3 t10 오답 문구 교정 / M4 t9 오답을 근접 오개념(시계 바늘 12시)으로 강화
+- 기각된 의심: answer_index 균등 분포(R1은 앱 셔플 의무라 무관), burn up/down 대비 정확성, vertical 문항 정답 유일성
+- validation: subagent-consensus / weak
