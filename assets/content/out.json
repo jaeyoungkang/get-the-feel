@@ -1,0 +1,271 @@
+{
+  "axis": "particles",
+  "item": "out",
+  "senses": [
+    {
+      "id": "out-exit",
+      "ko": "용기·테두리 안에 있던 것이 그 경계를 넘어 밖으로 나가는, 안→밖 방향의 공간 감각.",
+      "image": "둥근 용기(원) 안에 있던 것이 화살표를 따라 테두리를 넘어 바깥으로 빠져나가는 그림 — 안에 갇혀 있던 것이 경계 밖으로 나온다.",
+      "boundary_ko": "이 exit out은 문자 그대로의 안→밖이라 반대 방향 in이 그대로 선다(go out ↔ go in, take out ↔ put in). 방향을 뒤집어 in이 서면 exit 감각이다 — 뒤집어도 in이 안 서면(다음 reveal 감각) exit이 아니다.",
+      "source_refs": [
+        {
+          "source_id": "lindner-1981",
+          "locator": "Ch. on OUT — spatial schema: trajector exits the bounded landmark (container)",
+          "claim": "불변화사 OUT의 의미망은 trajector가 경계 지어진 용기(landmark) 안에서 그 경계를 넘어 밖으로 나가는 공간 도식을 핵으로 삼는다."
+        },
+        {
+          "source_id": "tyler-evans-2003",
+          "locator": "Ch. on out — proto-scene: trajector outside the boundaries of a landmark container",
+          "claim": "out은 trajector가 landmark 용기의 경계 바깥에 위치하거나 그쪽으로 이동하는 원형 장면(proto-scene)을 가진다."
+        }
+      ],
+      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+    },
+    {
+      "id": "out-reveal",
+      "ko": "용기 도식이 은유로 확장된 감각 — 숨어(가려) 있던 것이 시야·접근 가능한 밖으로 드러나 잡히게 된다(find out, come out, point out). 안 보이던 게 경계를 넘어 '보이는 영역'으로 나온다.",
+      "image": "가려진 상자(혹은 안개) 안에 숨어 있던 것이 경계를 넘어 밖으로 나와, 이제 눈에 보이고 손이 닿는 영역에 드러나는 그림 — 숨음에서 드러남으로.",
+      "boundary_ko": "이 reveal out은 '드러남' 쪽으로만 확장돼 반대 방향이 없다 — *find in·*come in(드러나다 뜻)이 안 선다. exit out은 in으로 뒤집히지만(go out↔go in) reveal out은 안 뒤집힌다. 뒤집어 in이 안 서면 reveal 감각이다.",
+      "source_refs": [
+        {
+          "source_id": "lindner-1981",
+          "locator": "Ch. on OUT — extension to 'accessibility / coming into view' (find out, come out)",
+          "claim": "OUT의 의미망은 용기에서 밖으로 나가는 공간 도식에서, 숨어 있던 대상이 드러나 접근·인지 가능해지는(visible/accessible) 의미로 확장된다."
+        }
+      ],
+      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+    }
+  ],
+  "training_items": [
+    {
+      "id": "out-t1",
+      "sense_id": "out-exit",
+      "sentence": "She walked out of the meeting room in a hurry.",
+      "subject_label": "she",
+      "object_label": "exit the room",
+      "type": "sense-choice",
+      "prompt": "이 out이 그리는 그림은?",
+      "choices": [
+        "그녀가 회의실 안에서 경계를 넘어 바깥으로 나가는 방향",
+        "그녀가 회의 안건을 끝까지 다 드러내 밝혔다",
+        "walk out은 그냥 외우는 숙어라 out에 그림이 없다"
+      ],
+      "answer_index": 0,
+      "why_ko": "walk out of는 그녀가 회의실이라는 용기 안에서 경계를 넘어 밖으로 나가는 안→밖 방향 감각이다. 반대로 들어가면 walk in이 그대로 서니 문자적 exit out이다."
+    },
+    {
+      "id": "out-t2",
+      "sense_id": "out-exit",
+      "sentence": "Please take the trash out before you leave.",
+      "subject_label": "the trash",
+      "object_label": "move outside",
+      "type": "sense-choice",
+      "prompt": "take ... out이 그리는 그림은?",
+      "choices": [
+        "쓰레기를 끝까지 다 처리해 완료함",
+        "쓰레기가 집(안)에서 경계를 넘어 바깥으로 옮겨지는 방향",
+        "take out은 '음식을 포장한다'는 뜻뿐이라 쓰레기엔 안 쓴다"
+      ],
+      "answer_index": 1,
+      "why_ko": "take the trash out은 쓰레기가 집이라는 용기 안에서 밖으로 옮겨지는 안→밖 방향이다. 안으로 들이면 take in 쪽이 서니 문자적 exit out이다."
+    },
+    {
+      "id": "out-t3",
+      "sense_id": "out-exit",
+      "sentence": "The cat got out through the open window.",
+      "subject_label": "the cat",
+      "object_label": "escape outside",
+      "type": "sense-choice",
+      "prompt": "get out이 그리는 그림으로 가장 가까운 것은?",
+      "choices": [
+        "고양이가 어떤 사실을 드러내 알려 줬다",
+        "고양이가 나가는 일을 완전히 끝냈다",
+        "고양이가 집(안)에서 창문 경계를 넘어 바깥으로 빠져나간 방향"
+      ],
+      "answer_index": 2,
+      "why_ko": "get out은 고양이가 집이라는 용기 안에서 열린 창의 경계를 넘어 밖으로 나간 안→밖 방향이다. 다시 들이면 get in이 서니 문자적 exit out이다."
+    },
+    {
+      "id": "out-t4",
+      "sense_id": "out-exit",
+      "sentence": "He poured the milk out into a glass.",
+      "subject_label": "the milk",
+      "object_label": "flow outside",
+      "type": "sense-choice",
+      "prompt": "pour ... out이 그리는 그림은?",
+      "choices": [
+        "우유가 통(안)에서 경계를 넘어 바깥(잔)으로 흘러 나가는 방향",
+        "우유를 끝까지 다 따라 통을 완전히 비웠다",
+        "pour out은 '속마음을 털어놓다'라는 뜻이라 우유엔 못 쓴다"
+      ],
+      "answer_index": 0,
+      "why_ko": "pour ... out은 우유가 통이라는 용기 안에서 경계를 넘어 바깥으로 흘러 나가는 안→밖 방향이다. 우유를 통에 도로 부으면 pour in이 서니 문자적 exit out이다. (이 문장은 '다 비움'이 아니라 흘러 나가는 방향 자체를 본다)"
+    },
+    {
+      "id": "out-t5",
+      "sense_id": "out-reveal",
+      "sentence": "I finally found out the truth about the accident.",
+      "subject_label": "the truth",
+      "object_label": "becomes known",
+      "type": "sense-choice",
+      "prompt": "find out이 그리는 그림으로 가장 가까운 것은? (진실은 어디로 나오는 걸까?)",
+      "choices": [
+        "진실을 방 밖으로 들고 나갔다",
+        "숨어 있던 진실이 가려진 데서 드러나 내가 알게 되는(보이는 영역으로 나오는) 그림",
+        "find out은 그냥 find를 강조한 것이라 out은 의미 없다"
+      ],
+      "answer_index": 1,
+      "why_ko": "find out은 진실이 물리적으로 밖으로 나가는 게 아니라, 숨어 있던 진실이 드러나 내 인지 영역으로 나오는 확장된 out이다. 그래서 반대로 *find in은 안 선다 — exit out과 달리 드러남 쪽으로만 확장됐다."
+    },
+    {
+      "id": "out-t6",
+      "sense_id": "out-reveal",
+      "sentence": "The teacher pointed out my spelling mistake.",
+      "subject_label": "my mistake",
+      "object_label": "brought to view",
+      "type": "sense-choice",
+      "prompt": "point out이 그리는 그림은?",
+      "choices": [
+        "선생님이 실수를 교실 밖으로 내보냈다",
+        "실수를 고치는 일을 끝까지 완료했다",
+        "안 보이던 실수가 가리킴을 받아 눈에 보이는 영역으로 드러나는 그림"
+      ],
+      "answer_index": 2,
+      "why_ko": "point out은 실수를 밖으로 옮기는 게 아니라, 가려져 있던 실수가 가리킴을 받아 보이는 영역으로 드러나는 확장된 out이다. *point in이 안 서니 reveal 감각이다."
+    },
+    {
+      "id": "out-t7",
+      "sense_id": "out-reveal",
+      "sentence": "The stars came out as the sky grew dark.",
+      "subject_label": "the stars",
+      "object_label": "become visible",
+      "type": "sense-choice",
+      "prompt": "come out이 그리는 그림으로 가장 가까운 것은?",
+      "choices": [
+        "별이 보이지 않던 데서 드러나 눈에 보이는 영역으로 나오는 그림",
+        "별이 하늘 끝까지 다 차올라 완료됐다",
+        "come out은 '데이트하러 나오다'라는 뜻뿐이라 별엔 안 쓴다"
+      ],
+      "answer_index": 0,
+      "why_ko": "come out은 별이 어디서 물리적으로 빠져나오는 게 아니라, 낮 동안 가려져 안 보이던 별이 드러나 보이는 영역으로 나오는 확장된 out이다. *come in(드러나다)이 안 서니 reveal 감각이다."
+    },
+    {
+      "id": "out-t8",
+      "sense_id": "out-reveal",
+      "sentence": "Her new book comes out next spring.",
+      "subject_label": "her book",
+      "object_label": "released to public",
+      "type": "sense-choice",
+      "prompt": "책이 come out한다는 건 어떤 그림인가?",
+      "choices": [
+        "책을 서점 밖으로 들고 나간다",
+        "책 쓰는 일을 끝까지 완료한다",
+        "아직 세상에 안 나온(가려진) 책이 드러나 사람들이 접근할 수 있는 영역으로 나온다"
+      ],
+      "answer_index": 2,
+      "why_ko": "(출간되다) come out은 책이 물리적으로 밖으로 나가는 게 아니라, 아직 세상에 없던 책이 드러나 누구나 접근할 수 있는 영역으로 나오는 확장된 out이다. *come in이 안 서니 reveal 감각이다."
+    },
+    {
+      "id": "out-t9",
+      "sense_id": "out-exit",
+      "sentence": "The firefighters helped everyone climb ___ of the building.",
+      "subject_label": "everyone",
+      "object_label": "exit the building",
+      "type": "sense-cloze",
+      "prompt": "빈칸에 들어갈 불변화사로 감각이 맞는 것은?",
+      "choices": ["out", "up", "off"],
+      "answer_index": 0,
+      "why_ko": "climb out of는 사람들이 건물이라는 용기 안에서 경계를 넘어 바깥으로 빠져나가는 안→밖 방향이라 out이 맞다(반대로 climb in이 선다). up은 '아래→위'(climb up)의 수직 방향이고 off는 '붙어 있다 분리됨'의 그림인데, 이 문장은 건물 안에서 밖으로 나오는 그림이라 안→밖의 out만 맞는다."
+    },
+    {
+      "id": "out-t10",
+      "sense_id": "out-reveal",
+      "sentence": "It will take weeks to figure ___ what went wrong.",
+      "subject_label": "the cause",
+      "object_label": "becomes known",
+      "type": "sense-cloze",
+      "prompt": "빈칸에 들어갈 불변화사로 감각이 맞는 것은?",
+      "choices": ["out", "up", "in"],
+      "answer_index": 0,
+      "why_ko": "figure out은 가려져 있던 원인이 드러나 알게 되는(보이는 영역으로 나오는) 확장된 out이라 맞다 — *figure in(알아내다)은 안 선다. up은 '끝까지 차올라 완료'이고 in은 '안으로 들임'의 그림인데, 이 문장은 '안 보이던 게 드러나 알게 됨'이라 드러남의 out만 맞는다."
+    }
+  ],
+  "transfer_items": [
+    {
+      "id": "out-x1",
+      "sense_id": "out-exit",
+      "sentence": "Smoke was drifting out of the chimney all morning.",
+      "subject_label": "the smoke",
+      "object_label": "flow outside",
+      "type": "sense-choice",
+      "prompt": "drift out이 그리는 그림은?",
+      "choices": [
+        "연기가 굴뚝(안)에서 경계를 넘어 바깥으로 흘러 나가는 방향",
+        "연기가 굴뚝 끝까지 차올라 완료됐다",
+        "drift out은 '잠들다'라는 뜻의 숙어라 굴뚝엔 안 쓴다"
+      ],
+      "answer_index": 0,
+      "why_ko": "drift out of는 연기가 굴뚝이라는 용기 안에서 경계를 넘어 바깥으로 흘러 나가는 안→밖 방향이다. 안으로 빨려 들면 drift in 쪽이 서니 문자적 exit out이다."
+    },
+    {
+      "id": "out-x2",
+      "sense_id": "out-reveal",
+      "sentence": "The full story only came out years later.",
+      "subject_label": "the story",
+      "object_label": "becomes known",
+      "type": "sense-choice",
+      "prompt": "이야기가 come out한다는 건 어떤 그림인가?",
+      "choices": [
+        "이야기를 방 밖으로 들고 나갔다",
+        "감춰져 있던 이야기 전말이 드러나 사람들이 알게 되는 영역으로 나온다",
+        "이야기를 끝까지 다 써서 완료했다"
+      ],
+      "answer_index": 1,
+      "why_ko": "come out은 이야기가 물리적으로 밖으로 나가는 게 아니라, 오래 감춰져 있던 전말이 드러나 사람들이 알 수 있는 영역으로 나오는 확장된 out이다. *come in이 안 서니 reveal 감각이다."
+    },
+    {
+      "id": "out-x3",
+      "sense_id": "out-exit",
+      "sentence": "The kids ran out into the yard to play.",
+      "subject_label": "the kids",
+      "object_label": "exit outside",
+      "type": "sense-choice",
+      "prompt": "run out이 그리는 그림으로 가장 가까운 것은? (run out of와 헷갈리지 말 것)",
+      "choices": [
+        "아이들이 노는 일을 끝까지 완료했다",
+        "아이들의 기운이 바닥나 다 떨어졌다",
+        "아이들이 실내(안)에서 경계를 넘어 마당(밖)으로 뛰어 나가는 방향"
+      ],
+      "answer_index": 2,
+      "why_ko": "여기서 run out은 아이들이 집 안에서 마당 밖으로 뛰어 나가는 안→밖 방향 exit이다. (run out of '바닥나다'의 out은 그릇 안 내용물이 다 빠져나가 텅 빈다는 같은 안→밖 도식의 은유 — 둘 다 '안의 것이 밖으로'다.) 여기선 방향 자체라 ran in이 서니 문자적 exit out이다."
+    },
+    {
+      "id": "out-x4",
+      "sense_id": "out-reveal",
+      "sentence": "Scientists are still trying to work ___ how the virus spreads.",
+      "subject_label": "the mechanism",
+      "object_label": "becomes known",
+      "type": "sense-cloze",
+      "prompt": "빈칸에 들어갈 불변화사로 감각이 맞는 것은? (work out은 '운동'? '풀리다'?)",
+      "choices": ["out", "up", "off"],
+      "answer_index": 0,
+      "why_ko": "여기 work out은 운동(work out at the gym)이 아니라, 가려져 있던 작동 방식이 드러나 알게 되는(풀려서 보이는 영역으로 나오는) 확장된 out이다 — 답·해법이 안 보이다가 '나온다'. up은 '끝까지 차올라 완료', off는 '붙어 있다 분리됨'의 그림인데, 이 문장은 '안 풀리던 게 드러나 알게 됨'이라 드러남의 out만 맞는다."
+    },
+    {
+      "id": "out-x5",
+      "sense_id": "out-exit",
+      "sentence": "Could you let the dog out before bedtime?",
+      "subject_label": "the dog",
+      "object_label": "move outside",
+      "type": "sense-choice",
+      "prompt": "let ... out이 그리는 그림은?",
+      "choices": [
+        "강아지가 집(안)에서 경계를 넘어 바깥으로 나가게 해 주는 방향",
+        "강아지를 재우는 일을 끝까지 완료한다",
+        "강아지의 비밀을 드러내 알려 준다"
+      ],
+      "answer_index": 0,
+      "why_ko": "let the dog out은 강아지가 집이라는 용기 안에서 경계를 넘어 밖으로 나가도록 해 주는 안→밖 방향이다. 도로 들이면 let in이 서니 문자적 exit out이다."
+    }
+  ]
+}

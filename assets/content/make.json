@@ -1,0 +1,260 @@
+{
+  "axis": "core-verbs",
+  "item": "make",
+  "senses": [
+    {
+      "id": "make-create",
+      "ko": "없던 것을 손으로 빚어 형체가 생기게 하는, 결과물이 남는 제작 감각 — do가 '행위 자체'를 가리킨다면, make는 그 행위 끝에 새로 생겨난 '만들어진 것'을 가리킨다.",
+      "image": "두 손이 재료를 주물러 빚자, 처음엔 없던 형체 하나가 그 자리에 새로 솟아나 남는 그림. 행위가 지나간 뒤 빈자리가 아니라 '만들어진 결과물'이 놓여 있다.",
+      "boundary_ko": "do는 행위·활동 자체라 끝나면 산물이 따로 안 남지만(do homework — 숙제하는 활동), make는 행위 끝에 *새로 생겨난 것*(make dinner의 음식 같은 구체물이든, make a decision·make a mistake의 결정·오류 같은 추상 산물이든)이 남는다. 한국인이 가장 헷갈리는 갈림: 활동을 수행하면 do, 끝에 새 산물을 빚어내면 make다.",
+      "source_refs": [
+        {
+          "source_id": "langacker-1987",
+          "locator": "Vol. II, Ch. on creation / resultant-entity predications",
+          "claim": "make류 동사는 행위의 결과로 새로운 개체(resultant entity)가 생겨남을 윤곽 지으며, 결과물의 존재가 의미의 핵심이다 — 행위 자체만 윤곽 짓는 동사와 구별된다."
+        },
+        {
+          "source_id": "oald",
+          "locator": "make, sense group: 'create / produce sth' vs do, sense group: 'perform an action / activity'",
+          "claim": "make는 무언가를 만들어 내어 결과물이 생기는 용법으로, do는 행위·활동을 수행하는 용법으로 학습자 사전에 구분되어 실려 있다."
+        }
+      ],
+      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+    },
+    {
+      "id": "make-cause",
+      "ko": "만들기 감각이 확장돼, 없던 상태·사건을 빚어내 생겨나게 하는 사역 감각 — 사물을 빚듯, 주어가 힘을 가해 어떤 상태나 반응이 새로 생겨나게 한다(make her laugh, make it possible).",
+      "image": "주어가 대상에 힘을 밀어 넣자, 그 끝에서 없던 상태나 반응(웃음·가능함)이 새로 빚어져 솟아나는 그림. 제작에서 물건이 생기듯, 여기선 상태·사건이 결과물처럼 생겨난다.",
+      "boundary_ko": "make의 사역은 주어가 힘을 가해 결과 상태를 '빚어내는' 그림이다(I made him wait — 내가 그를 기다리는 상태로 몰아넣음). 단순히 시키거나 부탁하는 게 아니라, 결과가 생겨나게 만드는 force가 있다 — 그래서 강제·유발의 뉘앙스가 따라온다. get sb to do(설득해 ~하게 함)보다 force가 직접적이다.",
+      "source_refs": [
+        {
+          "source_id": "talmy-2000",
+          "locator": "Vol. I, Ch. on force dynamics — causative 'make' and the application of force toward a resultant state",
+          "claim": "make 사역 구문은 힘 역학(force dynamics)에서 작용자가 대상에 힘을 가해 결과 상태·사건이 생겨나게 함을 표현하며, 이는 사물 제작의 결과 생성 도식과 같은 구조를 공유한다."
+        },
+        {
+          "source_id": "langacker-1987",
+          "locator": "Vol. II, Ch. on causative predications — X makes Y become/do Z",
+          "claim": "make + 목적어 + 보어/원형 구문은 주어가 대상이 어떤 상태에 이르거나 행동하게 하는 사역 관계를 윤곽 지으며, 결과 상태의 발생을 핵심으로 삼는다."
+        }
+      ],
+      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+    }
+  ],
+  "training_items": [
+    {
+      "id": "make-t1",
+      "sense_id": "make-create",
+      "sentence": "My grandmother made a thick wool blanket for the baby.",
+      "subject_label": "my grandmother",
+      "object_label": "a wool blanket (created)",
+      "type": "sense-choice",
+      "prompt": "이 made가 그리는 그림은?",
+      "choices": [
+        "할머니의 손끝에서 없던 담요 한 장이 새로 빚어져 생겨났다",
+        "할머니가 담요를 다루는 활동을 했을 뿐 결과물은 없다",
+        "할머니가 이미 있던 담요를 아기에게 건넸다"
+      ],
+      "answer_index": 0,
+      "why_ko": "make a blanket은 담요를 다루는 활동(do)이 아니라, 손으로 빚어 없던 담요 한 장이 결과물로 새로 생겨나는 제작 감각이다. 끝에 형체 있는 결과물이 남는다."
+    },
+    {
+      "id": "make-t2",
+      "sense_id": "make-create",
+      "sentence": "The carpenter made a sturdy chair out of oak.",
+      "subject_label": "the carpenter",
+      "object_label": "a chair (created)",
+      "type": "sense-choice",
+      "prompt": "이 made가 그리는 그림으로 가장 가까운 것은?",
+      "choices": [
+        "목수가 의자를 옮기는 일을 했다",
+        "목수가 의자에 관한 활동만 하고 결과물은 안 남았다",
+        "목수가 참나무를 깎아 없던 의자 하나를 형체로 빚어냈다"
+      ],
+      "answer_index": 2,
+      "why_ko": "make a chair는 의자를 다루는 활동이 아니라, 재료(참나무)를 깎아 없던 의자가 결과물로 새로 생겨나는 제작이다. out of oak이 재료에서 형체가 빚어짐을 못박는다."
+    },
+    {
+      "id": "make-t3",
+      "sense_id": "make-create",
+      "sentence": "Could you make breakfast while I get the kids ready?",
+      "subject_label": "you",
+      "object_label": "breakfast (created)",
+      "type": "sense-choice",
+      "prompt": "make breakfast이 그리는 그림은? (do와 헷갈리기 쉽다)",
+      "choices": [
+        "아침과 관련된 일을 그냥 처리한다 — 결과물은 따로 없다",
+        "재료를 손질해 없던 아침 식사가 음식으로 새로 차려져 생겨난다",
+        "이미 있던 아침을 식탁으로 나른다"
+      ],
+      "answer_index": 1,
+      "why_ko": "make breakfast은 아침에 관한 활동을 막연히 하는 do가 아니라, 재료에서 아침 식사라는 결과물(음식)을 빚어내는 제작이다. 끝에 먹을 음식이 남는다는 게 do와 갈리는 지점이다."
+    },
+    {
+      "id": "make-t4",
+      "sense_id": "make-cause",
+      "sentence": "That silly joke made everyone laugh out loud.",
+      "subject_label": "that joke",
+      "object_label": "everyone laughing (caused)",
+      "type": "sense-choice",
+      "prompt": "make ... laugh는 어떤 그림인가? (목적어가 사물이 아니라 반응이다)",
+      "choices": [
+        "농담이 사람들의 웃음을 다른 곳으로 가져갔다",
+        "사람들이 원래 웃고 있었고 농담은 무관하다",
+        "농담이 힘을 가해 없던 웃음이라는 반응을 사람들에게서 빚어냈다"
+      ],
+      "answer_index": 2,
+      "why_ko": "make laugh는 사물을 빚어내듯, 농담이 힘을 가해 없던 웃음이라는 반응을 사람들에게서 생겨나게 한 사역이다. 제작에서 물건이 생기듯 여기선 웃음이 결과로 솟아난다."
+    },
+    {
+      "id": "make-t5",
+      "sense_id": "make-cause",
+      "sentence": "New software made the whole process much faster.",
+      "subject_label": "new software",
+      "object_label": "the process becoming faster (caused)",
+      "type": "sense-choice",
+      "prompt": "이 made가 그리는 그림으로 가장 가까운 것은?",
+      "choices": [
+        "소프트웨어가 힘을 가해 '더 빠른 상태'를 그 과정에 새로 빚어냈다",
+        "소프트웨어가 빠른 과정을 어디선가 받아 왔다",
+        "과정이 원래부터 빨랐고 소프트웨어는 그대로 두었다"
+      ],
+      "answer_index": 0,
+      "why_ko": "make ... faster는 소프트웨어가 그 과정에 힘을 가해 '더 빠름'이라는 결과 상태를 새로 빚어낸 사역이다. 없던 상태를 결과물처럼 생겨나게 하는 제작 감각의 확장이다."
+    },
+    {
+      "id": "make-t6",
+      "sense_id": "make-create",
+      "sentence": "She always ___ her own birthday cake from scratch.",
+      "subject_label": "she",
+      "object_label": "her birthday cake (created)",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
+      "choices": ["does", "makes", "gets"],
+      "answer_index": 1,
+      "why_ko": "does her cake면 케이크에 관한 활동을 처리한다는 막연한 행위이고, gets her cake면 케이크를 사거나 받아 오는 도달이다. from scratch는 재료에서 없던 케이크를 빚어내는 제작을 못박으므로 makes가 맞다 — do(행위)·get(도달)과 달리 make는 결과물이 새로 생겨남을 그린다."
+    },
+    {
+      "id": "make-t7",
+      "sense_id": "make-create",
+      "sentence": "Have you ___ your homework for tomorrow's class yet?",
+      "subject_label": "you",
+      "object_label": "your homework (the activity)",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (경계 — 한국인 최대 혼동 지점)",
+      "choices": ["made", "gotten", "done"],
+      "answer_index": 2,
+      "why_ko": "homework는 빚어낼 결과물이 아니라 '수행하는 활동'이라 do가 맞다(done) — *made your homework은 한국인이 가장 자주 틀리는 자리다. make는 끝에 형체 있는 결과물이 남을 때만 쓴다(make dinner). 숙제는 활동이라 do, 저녁은 결과물이라 make로 갈린다. (경계 문항: do/make의 핵심 분기)"
+    },
+    {
+      "id": "make-t8",
+      "sense_id": "make-cause",
+      "sentence": "The long delay ___ the passengers angry and restless.",
+      "subject_label": "the long delay",
+      "object_label": "the passengers becoming angry (caused)",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
+      "choices": ["made", "left", "got"],
+      "answer_index": 0,
+      "why_ko": "left the passengers angry는 화난 상태를 그냥 그대로 둔(방치한) 그림이고, got the passengers angry는 어떤 상태에 이르게 함을 그리지만 빚어내는 force가 약하다. made the passengers angry는 지연이 힘을 직접 밀어 넣어 '화난 상태'를 승객들에게 새로 빚어낸 사역이라, 결과 상태를 생겨나게 하는 force가 가장 직접적이다 — 세 동사 모두 문장은 성립하지만 그리는 그림(방치/약한 이행/결과 상태 빚기)이 갈린다."
+    },
+    {
+      "id": "make-t9",
+      "sense_id": "make-cause",
+      "sentence": "Better lighting will ___ the whole room much cozier.",
+      "subject_label": "better lighting",
+      "object_label": "the room becoming cozier (caused)",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
+      "choices": ["keep", "make", "get"],
+      "answer_index": 1,
+      "why_ko": "keep the room cozier는 이미 아늑한 상태를 유지함이고, get the room cozier는 그 상태에 이르게 하지만 빚어내는 force가 약하다. make는 조명이 힘을 가해 '더 아늑한' 결과 상태를 방에 새로 빚어낸 사역이라 맞다 — 셋 다 문법은 되지만 '없던 상태를 빚어 생겨나게 함'의 force는 make에 가장 또렷하다."
+    },
+    {
+      "id": "make-t10",
+      "sense_id": "make-cause",
+      "sentence": "Years of practice finally ___ her tricky landing smooth and clean.",
+      "subject_label": "years of practice",
+      "object_label": "the landing becoming smooth (caused)",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
+      "choices": ["got", "kept", "made"],
+      "answer_index": 2,
+      "why_ko": "got her landing smooth는 그 상태에 이르게 하지만 빚어내는 force가 약하고, kept her landing smooth는 이미 매끄러운 상태를 유지함이다. made her landing smooth는 오랜 연습이 힘을 가해 '매끄러운' 결과 상태를 착지에 새로 빚어낸 사역이라 맞다 — 셋 다 문법은 되지만 '없던 결과 상태를 빚어 생겨나게 함'은 make에 가장 또렷하다."
+    }
+  ],
+  "transfer_items": [
+    {
+      "id": "make-x1",
+      "sense_id": "make-create",
+      "sentence": "The committee made a detailed plan for the new park.",
+      "subject_label": "the committee",
+      "object_label": "a detailed plan (created)",
+      "type": "sense-choice",
+      "prompt": "추상적인 '계획'을 make한다는 건 어떤 그림인가?",
+      "choices": [
+        "계획에 관한 일을 그냥 처리했을 뿐 남은 것은 없다",
+        "위원회가 없던 계획 하나를 짜 맞춰 결과물로 빚어냈다",
+        "위원회가 이미 있던 계획을 받아 왔다"
+      ],
+      "answer_index": 1,
+      "why_ko": "make a plan은 계획에 관한 활동(do)이 아니라, 조각들을 짜 맞춰 없던 계획을 결과물로 빚어내는 제작이다. 추상물이어도 끝에 '만들어진 계획'이 남는다 — 사물 제작의 결과 생성이 추상으로 확장된 자리다."
+    },
+    {
+      "id": "make-x2",
+      "sense_id": "make-cause",
+      "sentence": "The loud thunder made the baby start crying.",
+      "subject_label": "the thunder",
+      "object_label": "the baby crying (caused)",
+      "type": "sense-choice",
+      "prompt": "이 made가 그리는 그림으로 가장 가까운 것은?",
+      "choices": [
+        "천둥이 힘을 가해 없던 울음이라는 반응을 아기에게서 빚어냈다",
+        "천둥이 아기의 울음을 멀리 데려갔다",
+        "아기가 원래 울고 있었고 천둥은 무관하다"
+      ],
+      "answer_index": 0,
+      "why_ko": "make ... cry는 천둥이 힘을 밀어 넣어 없던 울음이라는 반응을 아기에게서 새로 생겨나게 한 사역이다. 사물을 빚어내듯, 여기선 울음이라는 사건이 결과로 솟아난다."
+    },
+    {
+      "id": "make-x3",
+      "sense_id": "make-create",
+      "sentence": "Try not to ___ so many spelling mistakes in the final draft.",
+      "subject_label": "you",
+      "object_label": "spelling mistakes (produced)",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (경계 문항 — 보기 모두 문법적으로는 가능하다)",
+      "choices": ["do", "get", "make"],
+      "answer_index": 2,
+      "why_ko": "mistake는 do가 아니라 make와 짝이다(make a mistake) — 실수는 '저지름'으로 없던 오류가 결과로 생겨나는 것이라 제작 감각에 묶인다. do mistake는 비문에 가깝고, get a mistake는 실수를 받아 온다는 엉뚱한 도달이 된다. 활동이면 do지만 결과물(여기선 오류)이 생기면 make라는 경계 자리다."
+    },
+    {
+      "id": "make-x4",
+      "sense_id": "make-cause",
+      "sentence": "A short nap can ___ you fresh and clear-headed again.",
+      "subject_label": "a short nap",
+      "object_label": "you becoming fresh (caused)",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
+      "choices": ["make", "get", "keep"],
+      "answer_index": 0,
+      "why_ko": "keep you fresh는 이미 맑은 상태를 유지함이고, get you fresh는 그 상태에 이르게 하지만 빚어내는 force가 약하다. make you fresh는 낮잠이 힘을 가해 '맑고 개운한' 상태를 새로 빚어낸 사역이라 맞다 — 셋 다 문법은 되지만 '없던 상태가 결과로 생겨나게 함'의 force는 make에 가장 또렷하다."
+    },
+    {
+      "id": "make-x5",
+      "sense_id": "make-cause",
+      "sentence": "Clear instructions will make the assembly possible for anyone.",
+      "subject_label": "clear instructions",
+      "object_label": "the assembly becoming possible (caused)",
+      "type": "sense-choice",
+      "prompt": "make it possible은 어떤 그림인가? (경계 문항 — 추상 상태를 빚어낸다)",
+      "choices": [
+        "설명서가 '가능함'이라는 상태를 다른 데서 가져왔다",
+        "설명서가 힘을 가해 '가능한' 상태를 조립에 새로 빚어냈다",
+        "조립이 원래 가능했고 설명서는 그대로 두었다"
+      ],
+      "answer_index": 1,
+      "why_ko": "make ... possible은 설명서가 힘을 가해 없던 '가능함'이라는 상태를 조립에 새로 생겨나게 한 사역이다. 사물을 빚어내듯 추상 상태(가능함)를 결과물처럼 빚어내는 자리라, 헷갈리기 쉬운 경계지만 make의 결과 생성 감각에 묶인다."
+    }
+  ]
+}

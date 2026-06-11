@@ -1,0 +1,264 @@
+{
+  "axis": "core-verbs",
+  "item": "take",
+  "senses": [
+    {
+      "id": "take-grasp",
+      "ko": "주어가 스스로 손을 뻗어 대상을 자기 영역 안으로 끌어들여 점유하는, 의지적인 획득 감각 — get이 '저절로 와 닿거나 수령함'까지 품는 도달이라면, take는 '내가 손을 뻗어 잡는' 능동적 점유다.",
+      "image": "내 손이 영역 밖으로 뻗어 나가 무언가를 붙잡고, 그것을 내 쪽 영역 안으로 끌어당겨 자리에 놓는 그림. 화살표가 대상에서 나에게로 오는 게 아니라, 내 손이 대상을 향해 나갔다가 그것을 쥐고 돌아온다.",
+      "boundary_ko": "get은 외부에서 와 닿아 받는 경우까지 포함하지만(I got a text — 문자가 나에게 옴), take는 주어가 능동적으로 손을 뻗어 잡는 쪽이라 수동적 수령에는 안 맞는다(*I took a text from my sister ×). 의지로 집어 드는 동작이 있으면 take, 그냥 도달·수령이면 get이다.",
+      "source_refs": [
+        {
+          "source_id": "heine-1997",
+          "locator": "Ch. 2 (Conceptual sources of possession) — Action schema (the 'X takes Y' source)",
+          "claim": "소유 구문의 인지적 원천 중 하나는 소유자가 능동적으로 대상을 잡아 자기 영역으로 가져오는 행위(action) 도식이며, take가 그 전형적 동사다."
+        },
+        {
+          "source_id": "langacker-1987",
+          "locator": "Vol. I, Ch. on action chains — agent-initiated energy transfer, source→goal grasping",
+          "claim": "동사는 행위자가 에너지를 내보내 대상을 자기 쪽 관계로 끌어들이는 동작연쇄를 윤곽 지을 수 있으며, take류는 행위자가 능동적으로 대상을 점유로 끌어들이는 행위를 윤곽 짓는다."
+        }
+      ],
+      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+    },
+    {
+      "id": "take-carry",
+      "ko": "주어가 대상을 잡아 든 채 다른 곳으로 데려가거나 가져가는, 화자에게서 멀어지는 방향의 이동 감각 — bring이 '이쪽으로 가져옴'이라면 take는 '저쪽으로 가져감'으로 방향이 반대다.",
+      "image": "내가 무언가를 손에 쥔 채 화자가 선 자리에서 멀어지는 방향으로 들고 가는 그림. bring의 화살표가 바깥에서 화자 쪽으로 온다면, take의 화살표는 화자 곁에서 바깥의 다른 지점으로 나간다.",
+      "boundary_ko": "방향이 핵심이다 — 화자/기준점 쪽으로 오면 bring(Bring it here ○), 화자/기준점에서 멀어지면 take(Take it there ○). 같은 물건이라도 어느 방향으로 옮기느냐로 갈린다. get은 '밖→내 영역 안으로 도달'이라 데려가는 방향성이 없다.",
+      "source_refs": [
+        {
+          "source_id": "talmy-2000",
+          "locator": "Ch. on satellite-framed languages — deictic motion verbs and path/direction",
+          "claim": "영어의 이동 동사는 기준점(화자) 대비 경로의 방향(접근/이탈)을 어휘화하며, take/bring 같은 짝은 화자 기준 이탈/접근의 직시적 방향 대비를 이룬다."
+        },
+        {
+          "source_id": "oald",
+          "locator": "take, sense group: 'carry / move sb-sth (from one place to another, away from the speaker)'",
+          "claim": "take는 사람·사물을 화자에게서 떨어진 다른 장소로 데려가거나 가져가는 용법이 학습자 사전에 표준 용법으로 실려 있으며, bring(이쪽으로)과 방향이 대비된다."
+        }
+      ],
+      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+    }
+  ],
+  "training_items": [
+    {
+      "id": "take-t1",
+      "sense_id": "take-grasp",
+      "sentence": "She reached over and took the last cookie from the plate.",
+      "subject_label": "she",
+      "object_label": "the last cookie (grasped)",
+      "type": "sense-choice",
+      "prompt": "이 took이 그리는 그림은?",
+      "choices": [
+        "쿠키가 저절로 그녀 영역 안으로 굴러 들어와 닿았다",
+        "그녀가 손을 뻗어 쿠키를 붙잡아 자기 쪽으로 끌어들였다",
+        "그녀가 쿠키를 다른 사람에게 건네주었다"
+      ],
+      "answer_index": 1,
+      "why_ko": "take는 쿠키가 저절로 와 닿는 도달(get)이 아니라, 그녀가 능동적으로 손을 뻗어 잡아 자기 영역으로 끌어들이는 의지적 점유다. reached over가 그 손을 뻗는 동작을 못박는다."
+    },
+    {
+      "id": "take-t2",
+      "sense_id": "take-grasp",
+      "sentence": "He took the biggest slice of pizza without asking.",
+      "subject_label": "he",
+      "object_label": "the biggest slice (grasped)",
+      "type": "sense-choice",
+      "prompt": "이 took이 그리는 그림은?",
+      "choices": [
+        "그가 손을 뻗어 가장 큰 조각을 차지해 자기 영역으로 끌어왔다",
+        "피자 조각이 저절로 그의 접시로 옮겨졌다",
+        "그가 자기 조각을 남에게 나눠 주었다"
+      ],
+      "answer_index": 0,
+      "why_ko": "take는 그가 능동적으로 손을 뻗어 가장 큰 조각을 골라 차지하는 의지적 점유다 — have/get으로 바꾸면 '이미 가지고 있음'이나 '받아 옴'이 되어 손을 뻗어 차지하는 그림이 사라진다. without asking이 그 능동적으로 집어 가는 동작을 못박는다."
+    },
+    {
+      "id": "take-t3",
+      "sense_id": "take-grasp",
+      "sentence": "He took my hand and pulled me up the slope.",
+      "subject_label": "he",
+      "object_label": "my hand (grasped)",
+      "type": "sense-choice",
+      "prompt": "이 took이 그리는 그림으로 가장 가까운 것은?",
+      "choices": [
+        "내 손이 그의 영역으로 저절로 들어갔다",
+        "그가 손을 뻗어 내 손을 붙잡아 자기 쪽으로 끌어 쥐었다",
+        "그가 내 손을 다른 사람에게 넘겼다"
+      ],
+      "answer_index": 1,
+      "why_ko": "take my hand는 내 손이 저절로 가는 게 아니라, 그가 능동적으로 뻗어 잡는 점유 동작이다. 잡은 뒤 pulled로 이어지는 것도 그 의지적 붙잡음에서 나온다."
+    },
+    {
+      "id": "take-t4",
+      "sense_id": "take-grasp",
+      "sentence": "You should take your medicine right after breakfast.",
+      "subject_label": "you",
+      "object_label": "your medicine (taken in)",
+      "type": "sense-choice",
+      "prompt": "take medicine은 약을 손에 쥐는 그림일까, 다른 무엇일까? (경계 문항)",
+      "choices": [
+        "약이 저절로 몸 안으로 들어온다",
+        "당신이 약을 약국으로 도로 가져간다",
+        "당신이 약을 능동적으로 집어 들어 자기 몸(영역) 안으로 들여 복용한다"
+      ],
+      "answer_index": 2,
+      "why_ko": "take medicine은 엄밀히는 약을 삼켜 복용한다는 굳은 섭취 용법이라 손으로 물건을 집는 take-grasp와는 결이 한 겹 다르다 — 그 점은 솔직히 인정한다. 다만 get medicine(약을 받아 옴)과 달리, '내가 능동적으로 약을 집어 내 몸이라는 영역 안으로 들인다'는 의지적 들임의 방향은 점유 계열과 같다. 그래서 별 결처럼 보여도 능동 점유 쪽에 느슨히 묶인다."
+    },
+    {
+      "id": "take-t5",
+      "sense_id": "take-carry",
+      "sentence": "Could you take these letters to the post office?",
+      "subject_label": "you",
+      "object_label": "these letters (carried away)",
+      "type": "sense-choice",
+      "prompt": "이 take가 그리는 그림은?",
+      "choices": [
+        "편지가 우체국에서 당신 쪽으로 온다",
+        "당신이 편지를 들고 이 자리에서 우체국 쪽으로 가져간다",
+        "편지가 당신 영역 안에 가만히 놓여 있다"
+      ],
+      "answer_index": 1,
+      "why_ko": "take ... to는 편지를 잡아 든 채 지금 이 자리에서 멀어지는 우체국 쪽으로 가져가는 이동이다. 이쪽으로 가져오는 bring과 방향이 반대다."
+    },
+    {
+      "id": "take-t6",
+      "sense_id": "take-carry",
+      "sentence": "Her father takes her to school every morning.",
+      "subject_label": "her father",
+      "object_label": "her (carried to school)",
+      "type": "sense-choice",
+      "prompt": "이 takes가 그리는 그림으로 가장 가까운 것은?",
+      "choices": [
+        "아빠가 그녀를 학교에서 집으로 데려온다",
+        "그녀가 스스로 학교에 도착해 닿는다",
+        "아빠가 그녀를 데리고 집에서 학교라는 다른 곳으로 데려간다"
+      ],
+      "answer_index": 2,
+      "why_ko": "take her to school은 그녀를 데리고 기준점(집)에서 멀어지는 학교 쪽으로 데려가는 이동이다. 집으로 데려오는 거라면 bring이 되니, take는 '저쪽으로'의 방향을 그린다."
+    },
+    {
+      "id": "take-t7",
+      "sense_id": "take-grasp",
+      "sentence": "He ___ an umbrella from the stand before stepping into the rain.",
+      "subject_label": "he",
+      "object_label": "an umbrella (grasped)",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은?",
+      "choices": ["took", "had", "got"],
+      "answer_index": 0,
+      "why_ko": "had umbrella는 우산이 이미 그의 영역 안에 있는 정적 상태이고, got은 외부에서 와 닿아 받는 도달까지 포함한다. 여기선 그가 스탠드에서 손을 뻗어 우산을 능동적으로 집어 드는 동작이라 took이 맞다 — have(이미 안)·get(와 닿음)과 달리 take는 내가 손을 뻗어 잡는 점유다."
+    },
+    {
+      "id": "take-t8",
+      "sense_id": "take-grasp",
+      "sentence": "When the tray came around, she ___ a glass of juice.",
+      "subject_label": "she",
+      "object_label": "a glass of juice (grasped)",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
+      "choices": ["had", "made", "took"],
+      "answer_index": 2,
+      "why_ko": "had a glass면 주스가 그냥 그녀 영역 안에 있는 정적 상태고, made a glass면 그녀가 주스를 빚어 만든 것이 된다. 쟁반이 돌아올 때 그녀가 손을 뻗어 한 잔을 집어 든 능동적 점유라 took이 맞다 — 세 동사 모두 문장은 성립하지만 그리는 그림(정적 보유/제작/집어 듦)이 갈린다."
+    },
+    {
+      "id": "take-t9",
+      "sense_id": "take-carry",
+      "sentence": "Don't forget to ___ your passport with you to the airport.",
+      "subject_label": "you",
+      "object_label": "your passport (carried along)",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
+      "choices": ["take", "get", "have"],
+      "answer_index": 0,
+      "why_ko": "get your passport이면 여권을 손에 넣는 도달이고, have your passport이면 여권이 이미 곁에 있는 상태다 — 둘 다 화자 기준의 방향(deixis)이 없다. with you to the airport은 여권을 지닌 채 화자가 선 자리에서 멀어지는 공항 쪽으로 들고 가는 이동이라 take가 맞다 — 셋 다 문법은 되지만 '화자에게서 멀어지는 방향'으로 데려가는 그림은 take에만 있다."
+    },
+    {
+      "id": "take-t10",
+      "sense_id": "take-grasp",
+      "sentence": "If the road is blocked, we'll ___ the next exit instead.",
+      "subject_label": "we",
+      "object_label": "the next exit (chosen)",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (경계 문항 — 보기 모두 문법적으로는 가능하다)",
+      "choices": ["take", "have", "get"],
+      "answer_index": 0,
+      "why_ko": "take the exit은 여러 길 중 다음 출구를 능동적으로 골라 그 길로 들어서는 점유 감각의 확장이다 — 손을 뻗어 하나를 잡듯 경로를 골라잡는다. have the exit(출구가 영역 안에 있음)·get the exit(출구에 도달)과 달리, take는 '내가 골라 그 길을 취한다'는 의지를 그린다. 길을 잡는 것처럼 보여도 능동 점유에 묶이는 경계 자리다."
+    }
+  ],
+  "transfer_items": [
+    {
+      "id": "take-x1",
+      "sense_id": "take-grasp",
+      "sentence": "The committee took full responsibility for the delay.",
+      "subject_label": "the committee",
+      "object_label": "full responsibility (claimed)",
+      "type": "sense-choice",
+      "prompt": "추상적인 '책임'을 take한다는 건 어떤 그림인가?",
+      "choices": [
+        "책임이 위원회 쪽으로 저절로 떠밀려 왔다",
+        "위원회가 책임을 다른 부서로 넘겼다",
+        "위원회가 책임을 능동적으로 끌어안아 자기 영역으로 삼았다"
+      ],
+      "answer_index": 2,
+      "why_ko": "take responsibility는 책임이 떠밀려 오는 게 아니라, 위원회가 스스로 그것을 끌어안아 자기 것으로 점유하는 의지적 행위다. 구체물을 손으로 잡는 take의 능동 점유가 추상으로 확장된 자리다."
+    },
+    {
+      "id": "take-x2",
+      "sense_id": "take-carry",
+      "sentence": "A strong current took the small boat far out to sea.",
+      "subject_label": "the current",
+      "object_label": "the small boat (carried away)",
+      "type": "sense-choice",
+      "prompt": "이 took이 그리는 그림으로 가장 가까운 것은? (주어가 사람이 아니라 물살이다)",
+      "choices": [
+        "물살이 배를 붙들어 해안에서 멀어지는 바다 쪽으로 실어 갔다",
+        "물살이 배를 해안 쪽으로 끌어다 놓았다",
+        "배가 스스로 바다로 떠나 닿았다"
+      ],
+      "answer_index": 0,
+      "why_ko": "주어가 물살이어도 take는 배를 붙든 채 기준점(해안)에서 멀어지는 바다 쪽으로 데려가는 이동을 그린다. 이쪽으로 끌어왔다면 bring 쪽이 되니, take는 '멀어지는 방향'의 운반이다."
+    },
+    {
+      "id": "take-x3",
+      "sense_id": "take-grasp",
+      "sentence": "She ___ a deep breath before walking onto the stage.",
+      "subject_label": "she",
+      "object_label": "a deep breath (drawn in)",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
+      "choices": ["had", "took", "got"],
+      "answer_index": 1,
+      "why_ko": "had a breath면 숨이 그냥 있는 상태고, got a breath이면 숨 돌릴 틈이 와 닿은 도달이다. take a breath은 그녀가 능동적으로 숨을 끌어 들이마시는 행위라 took이 맞다 — 공기를 내 몸 영역 안으로 의지적으로 들이는 take의 점유 감각이다. 세 보기 모두 문장은 되지만 그리는 그림이 갈린다."
+    },
+    {
+      "id": "take-x4",
+      "sense_id": "take-carry",
+      "sentence": "Could you ___ this message to your manager when you see her?",
+      "subject_label": "you",
+      "object_label": "this message (carried to the manager)",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
+      "choices": ["take", "get", "have"],
+      "answer_index": 0,
+      "why_ko": "get this message면 메시지를 손에 넣는 도달이고, have this message면 메시지가 이미 곁에 있는 상태다 — 둘 다 화자 기준의 방향(deixis)이 없다. to your manager는 메시지를 지닌 채 화자가 선 자리에서 멀어지는 매니저 쪽으로 전해 가는 이동이라 take가 맞다 — 셋 다 문법은 되지만 '화자에게서 멀어지는 방향'으로 전해 가는 그림은 take에만 있다."
+    },
+    {
+      "id": "take-x5",
+      "sense_id": "take-grasp",
+      "sentence": "He took a different view of the problem from everyone else.",
+      "subject_label": "he",
+      "object_label": "a different view (adopted)",
+      "type": "sense-choice",
+      "prompt": "관점을 take한다는 건 어떤 그림인가? (경계 문항)",
+      "choices": [
+        "그에게 어떤 관점이 저절로 주어져 닿았다",
+        "그가 자기 관점을 남에게 넘겨주었다",
+        "그가 여러 관점 중 다른 하나를 능동적으로 골라 자기 입장으로 취했다"
+      ],
+      "answer_index": 2,
+      "why_ko": "take a view는 관점이 주어지는 게 아니라, 여러 입장 중 하나를 능동적으로 골라 자기 것으로 취하는 점유의 확장이다 — 손으로 하나를 골라 쥐듯 입장을 골라잡는다. 추상이라 헷갈리기 쉬운 경계지만 능동 점유 감각에 묶인다."
+    }
+  ]
+}

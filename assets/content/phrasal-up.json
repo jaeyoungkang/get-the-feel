@@ -42,6 +42,24 @@
         "strength": "weak",
         "date": "2026-06-11"
       }
+    },
+    {
+      "id": "opaque-idiom",
+      "ko": "두 그림의 합으로 깔끔히 갈리지 않는 관용 구동사 — 역사 속에서 한 덩어리로 굳어진 표현이라, 동사+불변화사로 분해하지 말고 통째로 익히는 게 맞다(bring up=화제를 꺼내다, look up=찾다, make up=지어내다). 학자들도 갈리는 사례(give up 등)는 그 '합성 테스트가 깔끔히 안 갈린다'는 사실 자체가 통째로 익히라는 신호다.",
+      "image": "두 그림(동사 그림 + 불변화사 그림)을 합쳐 봐도 뜻이 안 나오는 자물쇠 그림 — 열쇠는 합성이 아니라 그 표현이 굳어진 역사다. 합쳐서 안 열리면 통째로 외운다.",
+      "boundary_ko": "먼저 합성 테스트(두 그림으로 분해되는가)를 해 본다 — drink up·pack up처럼 동사+완료로 뜻이 그대로 나오면 합성(compose-*), bring up(화제를 꺼내다)·look up(찾다)·make up(지어내다)처럼 합쳐도 뜻이 깔끔히 안 갈리면 관용이다. 학자들도 갈리는 사례(give up 등)는 합성 테스트가 깔끔히 안 갈린다는 사실 자체가 통째로 익히라는 신호다. 관용임을 *아는 것*이 '모든 구동사=그림의 합'이라는 과신을 막는다 — 구석의 자백이 아니라 정면으로 배운다.",
+      "source_refs": [
+        {
+          "source_id": "lindner-1981",
+          "locator": "Ch. on UP — idiomatized vs. compositional verb-particle constructions",
+          "claim": "동사+UP 구문의 의미망 분석은 합성적으로 환원되는 사례와, 역사적으로 관용화되어 합성으로 완전히 환원되지 않는 사례를 구분한다 — 모든 VPC가 동일하게 투명한 합성은 아니다."
+        }
+      ],
+      "validation": {
+        "method": "subagent-consensus",
+        "strength": "weak",
+        "date": "2026-06-11"
+      }
     }
   ],
   "training_items": [
@@ -180,6 +198,40 @@
       "answer_index": 1,
       "why_ko": "heat up은 heat(데우는 동작)에 up(끝까지 차올라 완료)이 합쳐져, 온도가 목표 지점까지 차오르며 데워진다는 그림이다. 방향을 뒤집을 수 없어 *heat down은 없다 — 완료 합성.",
       "verb_label": "heat"
+    },
+    {
+      "id": "pup-t9",
+      "sense_id": "opaque-idiom",
+      "sentence": "Don't bring up politics at dinner.",
+      "subject_label": "you",
+      "object_label": "raise a topic",
+      "type": "sense-choice",
+      "prompt": "bring up('화제를 꺼내다')이 그리는 그림은? (두 그림으로 분해해 보면?)",
+      "choices": [
+        "'가져오다(bring)' + '위로(up)' — 정치를 위로 들어 올렸다",
+        "'가져오다(bring)' + '끝까지(up)' — 화제를 끝까지 가져와 완료했다",
+        "합성으로 깔끔히 안 갈리는 굳은 표현 — '화제를 꺼내다' 한 덩어리로 통째로 익힌다"
+      ],
+      "answer_index": 2,
+      "why_ko": "bring의 그림(이쪽으로 가져옴)에 up을 합쳐도 '(말을) 꺼내다'는 깔끔히 안 나온다 — ①의 수직 합성도, ②의 완료 합성도 bring up을 깔끔히 설명하지 못한다. 합성 테스트가 갈리지 않으면 통째로 익히는 게 정직하다.",
+      "verb_label": "bring"
+    },
+    {
+      "id": "pup-t10",
+      "sense_id": "opaque-idiom",
+      "sentence": "He made up a silly excuse on the spot.",
+      "subject_label": "he",
+      "object_label": "invented out of nothing",
+      "type": "sense-choice",
+      "prompt": "make up('지어내다')이 그리는 그림은? (두 그림으로 분해되나?)",
+      "choices": [
+        "'만들다(make)' + '위로(up)' — 변명을 위로 쌓아 올렸다",
+        "두 그림을 합쳐도 '지어내다'가 안 나오는 굳은 표현 — 통째로 익힌다",
+        "'만들다(make)' + '끝까지(up)' — 변명 만들기를 완전히 끝냈다"
+      ],
+      "answer_index": 1,
+      "why_ko": "make의 그림(만들다)에 up(위로/끝까지)을 합쳐 봐도 '없는 걸 꾸며 지어내다'라는 뜻은 안 나온다 — ①의 수직 합성도, ③의 완료 합성도 make up(지어내다)을 못 설명한다. give up·look up(찾다)과 같은 관용이라, 합성 테스트가 안 되면 통째로 익히는 게 맞다.",
+      "verb_label": "make"
     }
   ],
   "transfer_items": [
@@ -250,6 +302,23 @@
       "answer_index": 2,
       "why_ko": "hop up은 hop(깡충 뛰는 동작)에 up(아래→위)이 합쳐져 몸이 의자 위 높이로 오르는 수직 합성이다. 내려오면 hop down이 그대로 서므로 문자적 방향 up이다.",
       "verb_label": "hop"
+    },
+    {
+      "id": "pup-x5",
+      "sense_id": "opaque-idiom",
+      "sentence": "If you don't know the word, look it up in the dictionary.",
+      "subject_label": "you",
+      "object_label": "search and find",
+      "type": "sense-choice",
+      "prompt": "look up('사전에서 찾다')은 두 그림의 합으로 풀리나?",
+      "choices": [
+        "'보다(look)' + '위로(up)' — 시선을 위로 들어 올린다(look up at the sky)",
+        "'보다(look)' + '끝까지(up)' — 보는 일을 완전히 끝낸다",
+        "'찾아본다'는 뜻은 두 그림의 합으로 안 나오는 굳은 관용 — 통째로 익힌다"
+      ],
+      "answer_index": 2,
+      "why_ko": "look up at the sky의 look up은 시선이 위로 가는 수직 합성이지만(①), 사전에서 '찾다'라는 뜻의 look up은 합성으로 안 풀린다 — look(보다)+up(위로)을 합쳐도 '정보를 찾아본다'가 안 나온다. 같은 표면형이라도 한쪽은 합성, 한쪽은 관용이다. 합성 테스트가 배신하면(②의 완료도 안 맞음) 통째로 익히는 게 정직하다.",
+      "verb_label": "look"
     }
   ]
 }
