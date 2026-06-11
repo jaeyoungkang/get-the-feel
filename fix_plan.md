@@ -33,9 +33,9 @@
 
 ## 사후 승인 큐 (Proposals — 사용자 승인 필요, 에이전트 단독 잠금 금지)
 
-- [ ] **approve-1** Spiral 도달 기준 전체(대표 후보 승격 5기준 + 자산 효과성 기준 + N=5) — 위임 결정, `product/contract.md` Spiral 목표 섹션
+- [ ] **approve-1** Spiral 도달 기준 전체(대표 후보 승격 5기준 + 자산 효과성 기준 + C1 N=3 재조정) — 위임 결정, `product/contract.md` Spiral 목표 섹션 (approve-6 승인으로 운영 기준 일부 암묵 추인 — 명시 승인은 retro-1에서)
 - [ ] **approve-2** 단어 암기형·문법 설명형 거부 여부 — 잠정: 감각 체화에 종속될 때만 허용. trigger: 첫 회고
 - [ ] **approve-3** 정답률 데이터 저장 방식 — 잠정: 로컬 저장. trigger: c1-1 engineering-decision
 - [ ] **approve-4** 신뢰 출처 목록 — c1-1 preflight에서 제안 후 승인
 - [ ] **approve-5** 배포 형태 — 잠정: 로컬 실행. trigger: 타인 사용자 발생 시
-- [ ] **approve-6** C1 Discovery Session 종료 + 중기(Convergence) 전환 — 졸업선 충족 근거: 후보 2개 mechanical verdict 통과 실재 + 불변화사 축 가설 검증. 단계 전환은 사람 결정 (orchestrator Session 경계)
+- [x] **approve-6** ✅ 승인 (2026-06-11) — C1 종료, C2 Convergence 진입. C2 졸업선 6기준 + N=5 함께 잠금 (contract.md)
