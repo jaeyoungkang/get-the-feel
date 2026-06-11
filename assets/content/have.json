@@ -54,6 +54,7 @@
       "id": "have-t1",
       "sense_id": "have-domain-location",
       "sentence": "She has the window seat.",
+      "sentence_ko": "그녀가 창가 자리야.",
       "prompt": "이 has가 그리는 그림은?",
       "choices": [
         "그녀가 창가 좌석을 돈 주고 사서 소유했다",
@@ -69,6 +70,7 @@
       "id": "have-t2",
       "sense_id": "have-domain-location",
       "sentence": "I have your phone number.",
+      "sentence_ko": "나 네 전화번호 알아.",
       "prompt": "이 have의 감각은?",
       "choices": [
         "내가 네 번호를 방금 받아 손에 쥐는 동작",
@@ -84,6 +86,7 @@
       "id": "have-t3",
       "sense_id": "have-domain-location",
       "sentence": "The house has three bedrooms.",
+      "sentence_ko": "그 집은 침실이 세 개야.",
       "prompt": "집이 침실을 'have'한다는 건 어떤 그림인가?",
       "choices": [
         "집이 침실을 가지다 — 집이 침실의 주인이다",
@@ -99,6 +102,7 @@
       "id": "have-t4",
       "sense_id": "have-domain-location",
       "sentence": "He has brown eyes.",
+      "sentence_ko": "그는 눈이 갈색이야.",
       "prompt": "이 has가 그리는 그림은?",
       "choices": [
         "그가 갈색 눈을 가지다 — 눈을 소유물처럼 지니다",
@@ -114,6 +118,7 @@
       "id": "have-t5",
       "sense_id": "have-domain-location",
       "sentence": "We have a small garden behind the house.",
+      "sentence_ko": "우리는 집 뒤에 작은 정원이 있어.",
       "prompt": "이 have의 감각으로 가장 가까운 것은?",
       "choices": [
         "우리가 정원을 구입해 소유권을 얻었다",
@@ -129,6 +134,7 @@
       "id": "have-t6",
       "sense_id": "have-event-in-domain",
       "sentence": "We usually have lunch at noon.",
+      "sentence_ko": "우리는 보통 정오에 점심을 먹어.",
       "prompt": "이 have가 그리는 그림은?",
       "choices": [
         "우리가 점심(음식)을 손에 들고 소유한다",
@@ -144,6 +150,7 @@
       "id": "have-t7",
       "sense_id": "have-event-in-domain",
       "sentence": "I have a meeting at three o'clock.",
+      "sentence_ko": "나 세 시에 회의 있어.",
       "prompt": "이 have의 감각은?",
       "choices": [
         "내가 회의 자료를 손에 쥐고 있다",
@@ -159,6 +166,7 @@
       "id": "have-t8",
       "sense_id": "have-domain-location",
       "sentence": "She has a problem with her laptop.",
+      "sentence_ko": "그녀는 노트북에 문제가 있어.",
       "prompt": "이 has가 그리는 그림은?",
       "choices": [
         "그녀가 문제를 소유물처럼 가지다",
@@ -174,6 +182,7 @@
       "id": "have-t9",
       "sense_id": "have-event-in-domain",
       "sentence": "Let's have a quick chat after class.",
+      "sentence_ko": "수업 끝나고 잠깐 얘기 좀 하자.",
       "prompt": "이 have의 감각으로 가장 가까운 것은?",
       "choices": [
         "우리가 대화(라는 물건)를 손에 넣자",
@@ -189,6 +198,7 @@
       "id": "have-t10",
       "sense_id": "have-event-in-domain",
       "sentence": "They had a great time at the party.",
+      "sentence_ko": "그들은 파티에서 정말 즐거운 시간을 보냈어.",
       "prompt": "이 had가 그리는 그림은?",
       "choices": [
         "그들이 즐거운 시간을 물건처럼 소유했다",
@@ -206,6 +216,7 @@
       "id": "have-x1",
       "sense_id": "have-domain-location",
       "sentence": "We have ten minutes before the train leaves.",
+      "sentence_ko": "기차 떠나기까지 우리한테 10분 있어.",
       "prompt": "이 have의 감각은?",
       "choices": [
         "우리가 10분을 돈처럼 가지고 있다",
@@ -221,6 +232,7 @@
       "id": "have-x2",
       "sense_id": "have-domain-location",
       "sentence": "This idea has real potential.",
+      "sentence_ko": "이 아이디어는 정말 가능성이 있어.",
       "prompt": "추상적인 idea가 무언가를 'have'한다는 건 어떤 그림인가?",
       "choices": [
         "아이디어가 잠재력을 사서 소유했다",
@@ -236,6 +248,7 @@
       "id": "have-x3",
       "sense_id": "have-domain-location",
       "sentence": "She has a lot of patience with children.",
+      "sentence_ko": "그녀는 아이들한테 인내심이 정말 많아.",
       "prompt": "이 has가 그리는 그림으로 가장 가까운 것은?",
       "choices": [
         "그녀가 인내심을 노력해서 얻어 냈다",
@@ -251,6 +264,7 @@
       "id": "have-x4",
       "sense_id": "have-event-in-domain",
       "sentence": "Why don't you have a rest before dinner?",
+      "sentence_ko": "저녁 먹기 전에 좀 쉬는 게 어때?",
       "prompt": "이 have의 감각은?",
       "choices": [
         "휴식을 물건처럼 받아서 가지라는 뜻",
@@ -266,6 +280,7 @@
       "id": "have-x5",
       "sense_id": "have-event-in-domain",
       "sentence": "I had a strange dream last night.",
+      "sentence_ko": "어젯밤에 이상한 꿈을 꿨어.",
       "prompt": "이 had가 그리는 그림은?",
       "choices": [
         "내가 꿈을 물건처럼 손에 쥐었다",

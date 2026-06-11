@@ -19,7 +19,11 @@
           "claim": "동사는 에너지가 source에서 goal로 흘러 대상이 새로운 관계·상태에 도달하는 동작연쇄를 윤곽 지을 수 있으며, get류는 결과 관계로의 도달을 윤곽 짓는다."
         }
       ],
-      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+      "validation": {
+        "method": "subagent-consensus",
+        "strength": "weak",
+        "date": "2026-06-11"
+      }
     },
     {
       "id": "get-state-change",
@@ -38,7 +42,11 @@
           "claim": "상태를 위치로, 상태 변화를 그 위치로의 이동으로 보는 은유는 영어에 체계적으로 자리하며, 도달 동사가 상태 변화를 표현하는 확장의 토대가 된다."
         }
       ],
-      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+      "validation": {
+        "method": "subagent-consensus",
+        "strength": "weak",
+        "date": "2026-06-11"
+      }
     }
   ],
   "training_items": [
@@ -46,6 +54,7 @@
       "id": "get-t1",
       "sense_id": "get-arrival",
       "sentence": "I got a text from my sister this morning.",
+      "sentence_ko": "오늘 아침에 여동생한테서 문자가 왔어.",
       "subject_label": "I",
       "object_label": "a text (arriving)",
       "type": "sense-choice",
@@ -62,6 +71,7 @@
       "id": "get-t2",
       "sense_id": "get-arrival",
       "sentence": "She finally got the job she wanted.",
+      "sentence_ko": "그녀는 마침내 원하던 일자리를 얻었어.",
       "subject_label": "she",
       "object_label": "the job (arriving)",
       "type": "sense-choice",
@@ -78,6 +88,7 @@
       "id": "get-t3",
       "sense_id": "get-arrival",
       "sentence": "We got home just before the storm.",
+      "sentence_ko": "우리는 폭풍이 오기 직전에 집에 도착했어.",
       "subject_label": "we",
       "object_label": "home (arriving at)",
       "type": "sense-choice",
@@ -94,6 +105,7 @@
       "id": "get-t4",
       "sense_id": "get-state-change",
       "sentence": "The kids got tired after the long hike.",
+      "sentence_ko": "아이들은 긴 등산 끝에 지쳐 버렸어.",
       "subject_label": "the kids",
       "object_label": "into a tired state",
       "type": "sense-choice",
@@ -110,6 +122,7 @@
       "id": "get-t5",
       "sense_id": "get-state-change",
       "sentence": "It gets cold here as soon as the sun goes down.",
+      "sentence_ko": "여기는 해가 지자마자 추워져.",
       "subject_label": "it (the weather)",
       "object_label": "into a cold state",
       "type": "sense-choice",
@@ -126,11 +139,16 @@
       "id": "get-t6",
       "sense_id": "get-arrival",
       "sentence": "She ___ a package from her mom a minute ago.",
+      "sentence_ko": "그녀는 조금 전에 엄마한테서 소포를 받았어.",
       "subject_label": "she",
       "object_label": "a package (arriving)",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은?",
-      "choices": ["has", "got", "makes"],
+      "choices": [
+        "has",
+        "got",
+        "makes"
+      ],
       "answer_index": 1,
       "why_ko": "has는 소포가 이미 그녀 영역 안에 있는 정적 상태를 그리지만, a minute ago는 '막 들어온 도달 사건'을 가리키므로 들어오는 순간을 그리는 got이 맞다. have(이미 안)와 get(들어오는 순간)의 대비다."
     },
@@ -138,47 +156,67 @@
       "id": "get-t7",
       "sense_id": "get-arrival",
       "sentence": "Can you ___ me a glass of water from the kitchen?",
+      "sentence_ko": "부엌에서 물 한 잔만 가져다줄래?",
       "subject_label": "you",
       "object_label": "a glass of water (bringing in for me)",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은?",
-      "choices": ["get", "have", "know"],
+      "choices": [
+        "get",
+        "make",
+        "take"
+      ],
       "answer_index": 0,
-      "why_ko": "from the kitchen이 '가서 영역 안으로 가져오는' 동적 도달을 못박는다 — get me a glass는 부엌에 가서 물을 내 쪽으로 들여오는 움직임이다. have는 '이미 안에 있음'(정적)이라 *have me a glass from the kitchen은 비문이라 못 들어간다. get(가서 영역 안으로 가져오는 도달) vs have(이미 안)의 대비다."
+      "why_ko": "from the kitchen이 '가서 영역 안으로 가져오는' 동적 도달을 못박는다 — get me a glass는 부엌에 가서 물을 내 쪽으로 들여오는 움직임이다. make me a glass는 물을 빚어 만들어 내는 제작이고(물은 만드는 게 아니라 떠 오는 것), take me a glass는 잔을 들고 화자에게서 멀어지는 쪽으로 가져가는 방향이라 '내 쪽으로 가져오라'는 이 문장과 반대다. 세 동사 모두 'V me a glass' 꼴로 문법은 되지만, 부엌에 가서 내 쪽으로 들여오는 도달은 get뿐이다 — get(도달)·make(제작)·take(멀어지는 운반)의 감각 대비."
     },
     {
       "id": "get-t8",
       "sense_id": "get-state-change",
       "sentence": "If you don't sleep, you ___ sick easily.",
+      "sentence_ko": "잠을 안 자면 쉽게 병이 나.",
       "subject_label": "you",
       "object_label": "into a sick state",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은?",
-      "choices": ["are", "have", "get"],
+      "choices": [
+        "are",
+        "have",
+        "get"
+      ],
       "answer_index": 2,
       "why_ko": "are sick은 아픈 상태에 머물러 있음이고, have sickness는 병이 영역 안에 자리한 정적 그림이다. 여기선 주어(you)가 '아프다는 상태 자리로 옮겨 가 닿는' 변화를 묻으므로 도달 동사 get이 맞다 — be(머묾)와 get(주어가 상태로 옮겨 가 닿음)의 대비."
     },
     {
       "id": "get-t9",
       "sense_id": "get-arrival",
-      "sentence": "I ___ your point — you don't need to explain again.",
+      "sentence": "Now I ___ what you mean — you don't need to explain again.",
+      "sentence_ko": "이제 무슨 말인지 알겠어 — 다시 설명 안 해도 돼.",
       "subject_label": "I",
-      "object_label": "your point (arriving in mind)",
+      "object_label": "what you mean",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (이해가 머릿속에 '도달'한다)",
-      "choices": ["get", "make", "give"],
+      "choices": [
+        "get",
+        "have",
+        "keep"
+      ],
       "answer_index": 0,
-      "why_ko": "get your point은 네 요점이 바깥에서 내 머릿속(영역) 안으로 들어와 닿은 도달 — '이해가 도착했다'는 그림이다. have your point이라 안 하는 이유는, 이해는 정적 소유가 아니라 닿는 사건이기 때문이다. (경계 문항: get의 도달이 추상으로 확장된 자리)"
+      "why_ko": "get the idea는 그 생각이 바깥에서 내 머릿속(영역) 안으로 들어와 닿은 도달 — '이해가 방금 도착했다'는 그림이라, now가 그 닿은 순간을 가리킨다. have the idea는 생각이 이미 영역 안에 정적으로 있음(보유)이고, keep the idea는 그 생각을 흘러나가지 않게 붙들어 둠(유지)이라 — 셋 다 문법은 되지만 '방금 이해가 도착함'은 get뿐이다. get(도달)·have(정적 보유)·keep(붙들어 유지)의 감각 대비. (have what you mean은 비문 — '이해'는 보유가 아니라 도달의 그림이다. keep은 이미 아는 것을 붙들 뿐 새로 닿지 않는다.)"
     },
     {
       "id": "get-t10",
       "sense_id": "get-arrival",
       "sentence": "Hurry ___ — we're leaving in two minutes!",
+      "sentence_ko": "서둘러 — 2분 뒤에 출발이야!",
       "subject_label": "you",
       "object_label": "to completion",
       "type": "sense-cloze",
       "prompt": "빈칸에 들어갈 불변화사로 감각이 맞는 것은?",
-      "choices": ["up", "out", "off"],
+      "choices": [
+        "up",
+        "out",
+        "off"
+      ],
       "answer_index": 0,
       "why_ko": "hurry up의 up은 서두르는 일이 끝점까지 차올라 완료에 도달하라는 감각이다(완료 up). out은 '안→밖으로 나옴', off는 '붙어 있다 분리됨'의 그림인데, 이 문장엔 그런 밖으로 나오거나 떨어져 나가는 그림이 없다 — 끝까지 차올라 완료에 닿는 up만 맞는다. (정답 up의 감각만 환원 — out·off는 별개 그림)"
     }
@@ -188,6 +226,7 @@
       "id": "get-x1",
       "sense_id": "get-arrival",
       "sentence": "He got an email from the bank late last night.",
+      "sentence_ko": "그는 어젯밤 늦게 은행에서 이메일을 받았어.",
       "subject_label": "he",
       "object_label": "an email (arriving)",
       "type": "sense-choice",
@@ -204,6 +243,7 @@
       "id": "get-x2",
       "sense_id": "get-state-change",
       "sentence": "Her handwriting got better over the semester.",
+      "sentence_ko": "그녀의 글씨가 학기 내내 점점 좋아졌어.",
       "subject_label": "her handwriting",
       "object_label": "into a better state",
       "type": "sense-choice",
@@ -220,23 +260,33 @@
       "id": "get-x3",
       "sense_id": "get-arrival",
       "sentence": "Did you ___ my message about the meeting?",
+      "sentence_ko": "회의 관련해서 내 메시지 받았어?",
       "subject_label": "you",
       "object_label": "my message (arriving)",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은?",
-      "choices": ["have", "get", "send"],
+      "choices": [
+        "have",
+        "get",
+        "keep"
+      ],
       "answer_index": 1,
-      "why_ko": "have my message면 메시지가 이미 네 영역 안에 있다는 상태를 전제하지만, 여기선 '그게 너에게 들어와 닿았느냐'는 도달 여부를 묻는다 — get이 '밖→안으로 들어와 닿음'을 그린다. (have/get 대비)"
+      "why_ko": "have my message면 메시지가 이미 네 영역 안에 있다는 정적 상태를 전제하고, keep my message면 그 메시지를 지우지 않고 붙들어 둠(유지)이다. 여기선 '그게 너에게 들어와 닿았느냐'는 도달 여부를 묻으므로 get이 맞다 — get이 '밖→안으로 들어와 닿음'을 그린다. get(도달)·have(정적 보유)·keep(붙들어 유지)의 감각 대비."
     },
     {
       "id": "get-x4",
       "sense_id": "get-state-change",
       "sentence": "The room ___ dark within minutes.",
+      "sentence_ko": "방이 몇 분 만에 어두워졌어.",
       "subject_label": "the room",
       "object_label": "into a dark state",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은?",
-      "choices": ["was", "got", "had"],
+      "choices": [
+        "was",
+        "got",
+        "had"
+      ],
       "answer_index": 1,
       "why_ko": "within minutes는 '몇 분 만에 어두운 상태로 옮겨 가 닿는' 변화의 도달을 못박는다 — was dark(어두운 상태에 머묾)로는 이 짧은 시간 안의 이행이 안 그려진다. 주어(방)가 그 어두운 상태로 옮겨 가 닿는 그림이라 도달 동사 get이 맞다 — be(머묾)와 get(상태로의 도달)의 대비."
     },
@@ -244,11 +294,16 @@
       "id": "get-x5",
       "sense_id": "get-arrival",
       "sentence": "Please clean ___ the kitchen before the guests arrive.",
+      "sentence_ko": "손님 오기 전에 부엌 좀 치워 줘.",
       "subject_label": "you",
       "object_label": "to completion",
       "type": "sense-cloze",
       "prompt": "빈칸에 들어갈 불변화사로 감각이 맞는 것은?",
-      "choices": ["up", "out", "in"],
+      "choices": [
+        "up",
+        "out",
+        "in"
+      ],
       "answer_index": 0,
       "why_ko": "clean up의 up은 치우는 일이 끝점까지 차올라 완전히 마무리되는 완료 감각이다. out은 '안의 것을 밖으로 비워 냄'(clean out), in은 '안으로 들임'의 그림인데, 이 문장엔 어디로 비우거나 들이는 방향 그림이 없다 — 끝까지 차올라 마무리되는 up만 맞는다. (정답 up의 완료 감각만 환원)"
     }

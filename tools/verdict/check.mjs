@@ -283,7 +283,7 @@ function checkCandidateFiles() {
 // ===================================================================
 // 닫힌 후보 — 마감 시점 verdict PASS가 정본 (cycle-record 참조). 코퍼스는 계속
 // 진화하므로 닫힌 후보의 data.js와 현 코퍼스의 drift는 결함이 아니다 (c2-2b 운영 결정).
-const CLOSED_CANDIDATES = new Set(["c1-1", "c1-2", "c2-1"]);
+const CLOSED_CANDIDATES = new Set(["c1-1", "c1-2", "c2-1", "c2-2"]);
 
 function checkDataSync() {
   const g = group("data-sync");

@@ -27,3 +27,14 @@ Skill Load Receipt
 - **전달 가치 탐색**: V1 심화 (해석 피드백 — 이해 확인) + V2 유지 (Day 연속성).
 - **자산 기여 (WHO·WHY)**: 코퍼스 8파일 120문장 + 전 문항 해석. WHO: 한국인 영어 학습자. WHY: keep을 "유지하다" 번역으로 외워 have와의 힘(force) 차이를 못 느끼는 문제 + 영어 문장 이해 불안(해석 부재)을 정답 후 해석으로 해소.
 - **n_of_N**: 3 of 5.
+
+## 콘텐츠 합의 기록 (c2-3b, 2026-06-11)
+
+- 생성: opus 순차 2건 — ① keep.json(force dynamics 유지 감각, keep/have/get 3중 대비 verb-choice 5, 전 문항 sentence_ko 포함) + get.json 대비축 수렴 3건(know/make·give/send → 대비축 동사) ② sentence_ko 백필 105문항 (7파일, 구어체, 빈칸은 완성문 기준)
+- 적대적 검수: 독립 opus. **blocking 1 + minor 3**, 회수:
+  - B1 get-t9 "Now I ___ the idea" — have가 정답급(결과상태 독해) → "what you mean"으로 교체 (have what you mean 비문 → get 유일)
+  - M1 Talmy locator 추상적·langacker keep 사례 단정 — 사람 리뷰(approve-4) 시 확인 항목으로 / M2 keep-hold 의인화 도식(수용 가능한 교육 단순화, keep-state와 통일 권고) / M3 have/keep 단방향 참조 정합 확인
+  - 코퍼스 비대칭 note: have·up.json의 type 필드 미백필 (grandfather 유효, 차후 소급 정리 권고)
+- 기각: keep 시한부 유일성, sense 분할 작위성, get-t7 take 오답, get-x3 keep 오답
+- sentence_ko 표본 15 합격 (번역투 0, why_ko 역할 분리, 누설 0)
+- 기계 재검증: 120문장 중복 0, keep 스키마 완비, answer_index 5/5/5
