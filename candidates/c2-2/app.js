@@ -854,7 +854,7 @@
             : "")) +
         '<div class="progress-head">' +
           '<span>' + headLabel + " " + n + " / " + total + '</span>' +
-          '<span class="item-pill" style="background:' + itemColor(entry.srcKey) + '">' + esc(itemShort(entry.srcKey)) + '</span>' +
+          // G11: 질문 단계에는 항목명(item-pill) 노출 금지 — verb-choice/cloze의 정답 누설 (사용자 적발)
           '<span class="type-pill ' + type + '">' + typeLabel(type) + '</span>' +
         '</div>' +
         '<div class="progress-track"><div class="progress-fill" style="width:' + fill + '%"></div></div>' +
@@ -918,6 +918,7 @@
     var fb = document.getElementById("feedback");
     fb.innerHTML =
       '<div class="feedback">' +
+        '<span class="item-pill" style="background:' + itemColor(entry.srcKey) + '">' + esc(itemShort(entry.srcKey)) + '</span>' +
         '<p class="verdict ' + (correct ? "ok" : "no") + '">' +
           (correct ? "맞았어요 — 이 그림이에요." : "다시 — 이 그림을 보세요.") + '</p>' +
         ((type === "verb-choice" || type === "sense-cloze")
