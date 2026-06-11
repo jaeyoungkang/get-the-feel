@@ -85,6 +85,23 @@ const CANDIDATE_CONTENT = {
     },
     quiz: ["have.json", "get.json", "take.json", "make.json", "up.json", "out.json", "phrasal-up.json"],
   },
+  // c2-3 = C2 Convergence. 핵심 동사 5번째 keep 합류 → data.js는 window.CONTENT_ALL 로 8파일 전부 노출.
+  // 출제 풀 = 8파일 전부. 8키 각각을 해당 json과 의미 비교한다.
+  "c2-3": {
+    multi: true,
+    embed: "CONTENT_ALL",
+    keys: {
+      "have": "have.json",
+      "get": "get.json",
+      "take": "take.json",
+      "make": "make.json",
+      "keep": "keep.json",
+      "up": "up.json",
+      "out": "out.json",
+      "phrasal-up": "phrasal-up.json",
+    },
+    quiz: ["have.json", "get.json", "take.json", "make.json", "keep.json", "up.json", "out.json", "phrasal-up.json"],
+  },
 };
 const CANDIDATE_MAP = CANDIDATE_CONTENT[candidateId] || null;
 const IS_MULTI = !!(CANDIDATE_MAP && typeof CANDIDATE_MAP === "object" && CANDIDATE_MAP.multi);
@@ -95,8 +112,13 @@ const QUIZ_CONTENT_FILES = IS_MULTI ? CANDIDATE_MAP.quiz : (CANDIDATE_CONTENT_FI
 
 // 교훈(R1 셔플 / G2 명시 라벨) 회수 이후 후보에만 신규 검사 적용.
 // c1-1은 회수 전 후보 — choice-shuffle·label-fields를 skip(ok)한다.
-const NEW_CHECKS_FROM = new Set(["c1-2", "c2-1", "c2-2"]);
+const NEW_CHECKS_FROM = new Set(["c1-2", "c2-1", "c2-2", "c2-3"]);
 const APPLY_NEW_CHECKS = NEW_CHECKS_FROM.has(candidateId);
+
+// sentence_ko(CONTRACT 9)·질문단계 단서 차단(G11)은 c2-3부터 적용한다.
+// c2-3 전 후보는 회수 전 후보 — 두 검사를 skip(ok)한다 (회귀 금지 대상에서 제외).
+const KO_CHECKS_FROM = new Set(["c2-3"]);
+const APPLY_KO_CHECKS = KO_CHECKS_FROM.has(candidateId);
 
 function readJsonContentFiles() {
   if (!fs.existsSync(CONTENT_DIR)) return [];
@@ -656,6 +678,95 @@ function checkAdversarialReview() {
 }
 
 // ===================================================================
+//  9. sentence-ko  (CONTRACT 9 — c2-3~)
+//  전 콘텐츠 문항(training + transfer)에 비지 않은 sentence_ko 한 줄이 존재해야 한다.
+//  (앱의 "정답 후 표시"는 별도 G11/G12 관심사 — 여기서는 데이터 계약(존재)만 본다.)
+// ===================================================================
+function checkSentenceKo() {
+  const g = group("sentence-ko");
+  if (!APPLY_KO_CHECKS) {
+    g.ok("후보 '" + candidateId + "'는 해석 회수 전 후보 — sentence_ko 검사 skip (c2-3~ 적용)");
+    return;
+  }
+  let files;
+  try { files = readJsonContentFiles(); }
+  catch (e) { g.fail("콘텐츠 JSON 파싱 실패: " + e.message); return; }
+  if (files.length === 0) { g.fail("assets/content/*.json 없음"); return; }
+
+  let missing = 0, total = 0;
+  for (const f of files) {
+    const d = f.data;
+    const pool = (Array.isArray(d.training_items) ? d.training_items : [])
+      .concat(Array.isArray(d.transfer_items) ? d.transfer_items : []);
+    for (const it of pool) {
+      total++;
+      if (!it.sentence_ko || String(it.sentence_ko).trim() === "") {
+        missing++;
+        g.fail(f.name + " item " + (it.id || "?") + ": sentence_ko 누락");
+      }
+    }
+  }
+  if (missing === 0) g.ok("전 콘텐츠 문항 sentence_ko 존재 (" + total + "문항, " + files.length + "파일)");
+}
+
+// ===================================================================
+//  10. question-cue  (G11 — c2-3~)
+//  질문 렌더 블록에 정답 단서(항목 알약/항목색/감각 라벨) 호출이 없어야 한다.
+//  - 질문 함수(renderQuestion)와 피드백 함수가 분리돼 있어야 검사 가능 (그렇게 구조화함).
+//  - renderQuestion 본문에 item-pill / itemColor( / senseLabel( 가 없는지 정적 확인.
+//    (유형 알약 typeLabel/type-pill 은 허용 — 단서가 아니다.)
+// ===================================================================
+function checkQuestionCue() {
+  const g = group("question-cue");
+  if (!APPLY_KO_CHECKS) {
+    g.ok("후보 '" + candidateId + "'는 단서 차단 회수 전 후보 — question-cue 검사 skip (c2-3~ 적용)");
+    return;
+  }
+  const appPath = path.join(CAND_DIR, "app.js");
+  if (!fs.existsSync(appPath)) { g.fail("app.js 없음"); return; }
+  const src = fs.readFileSync(appPath, "utf8");
+
+  // 질문 렌더 함수가 피드백 렌더와 분리돼 존재해야 한다.
+  const qBody = extractFnBody(src, "renderQuestion");
+  if (qBody === null) {
+    g.fail("renderQuestion 함수를 찾지 못함 — 질문/피드백 분리 구조가 아님 (G11 정적 검사 불가)");
+    return;
+  }
+  g.ok("renderQuestion 함수 분리 존재");
+
+  // 피드백 함수도 분리돼 있어야(단서가 질문이 아니라 피드백에 산다는 것을 확인).
+  const fbBody = extractFnBody(src, "renderFeedback");
+  if (fbBody === null) {
+    g.fail("renderFeedback 함수를 찾지 못함 — 단서(항목 알약·해석)가 질문과 섞였을 위험");
+  } else {
+    g.ok("renderFeedback 함수 분리 존재");
+  }
+
+  // 질문 블록에 금지 단서 호출이 없는지.
+  const banned = [
+    { re: /item-pill/, name: "item-pill (항목 알약)" },
+    { re: /\bitemColor\s*\(/, name: "itemColor( (항목색)" },
+    { re: /\bitemShort\s*\(/, name: "itemShort( (항목 약칭)" },
+    { re: /\bsenseLabel\s*\(/, name: "senseLabel( (감각명)" },
+    { re: /\bsenseColor\s*\(/, name: "senseColor( (감각색)" },
+    { re: /sentence_ko/, name: "sentence_ko (정답 전 해석 — G12 위반)" },
+  ];
+  let hit = 0;
+  for (const b of banned) {
+    if (b.re.test(qBody)) { hit++; g.fail("renderQuestion 본문에 단서 호출: " + b.name + " (G11/G12 위반)"); }
+  }
+  if (hit === 0) g.ok("renderQuestion 본문에 단서 호출 부재 (항목/감각/색/해석 — G11·G12 충족)");
+
+  // 단서가 실제로 피드백 경로에 *살아 있는지* 보강 확인 (분리만 하고 누락하면 의미 상실).
+  if (fbBody !== null) {
+    if (/item-pill/.test(fbBody)) g.ok("피드백 경로에 item-pill 존재 (항목 정보는 정답 후에)");
+    else g.fail("renderFeedback에 item-pill 없음 — 항목 단서가 사라짐 (G11 의도와 어긋남)");
+    if (/sentence_ko/.test(fbBody)) g.ok("피드백 경로에 sentence_ko 존재 (해석은 정답 후 — G12)");
+    else g.fail("renderFeedback에 sentence_ko 없음 — 정답 후 해석 미표시 (G12 미구현)");
+  }
+}
+
+// ===================================================================
 //  실행
 // ===================================================================
 checkContentContract();
@@ -667,6 +778,8 @@ checkNoGamification();
 checkChoiceShuffle();
 checkLabelFields();
 checkSmoke();
+checkSentenceKo();
+checkQuestionCue();
 
 console.log("");
 console.log("get-the-feel verdict — candidate: " + candidateId);
