@@ -19,7 +19,11 @@
           "claim": "have류 동사는 동작이 아니라 두 개체 사이의 정적 관계를 윤곽 짓는다."
         }
       ],
-      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+      "validation": {
+        "method": "subagent-consensus",
+        "strength": "weak",
+        "date": "2026-06-11"
+      }
     },
     {
       "id": "have-event-in-domain",
@@ -38,7 +42,11 @@
           "claim": "have는 식사·모임·문제 같은 사건·경험을 목적어로 취하는 용법이 학습자 사전에 표준 용법으로 실려 있다."
         }
       ],
-      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+      "validation": {
+        "method": "subagent-consensus",
+        "strength": "weak",
+        "date": "2026-06-11"
+      }
     }
   ],
   "training_items": [
@@ -53,7 +61,9 @@
         "그녀가 창가 좌석을 향해 걸어가고 있다"
       ],
       "answer_index": 1,
-      "why_ko": "have는 좌석을 사거나 그쪽으로 움직이는 동작이 아니라, 그 좌석이 그녀의 영역 안에 정적으로 자리 잡고 있다는 그림이다."
+      "why_ko": "have는 좌석을 사거나 그쪽으로 움직이는 동작이 아니라, 그 좌석이 그녀의 영역 안에 정적으로 자리 잡고 있다는 그림이다.",
+      "subject_label": "She",
+      "object_label": "the window seat"
     },
     {
       "id": "have-t2",
@@ -66,7 +76,9 @@
         "내가 네 번호를 얻으려고 애쓰는 중이다"
       ],
       "answer_index": 1,
-      "why_ko": "번호를 '받는' 동작이 아니라, 그 번호가 이미 내 영역 안에 자리 잡고 있는 정적인 상태를 그린다."
+      "why_ko": "번호를 '받는' 동작이 아니라, 그 번호가 이미 내 영역 안에 자리 잡고 있는 정적인 상태를 그린다.",
+      "subject_label": "I",
+      "object_label": "your phone number"
     },
     {
       "id": "have-t3",
@@ -79,7 +91,9 @@
         "집이 침실 세 개를 새로 사들였다"
       ],
       "answer_index": 1,
-      "why_ko": "집은 무언가를 '소유'하지 않는다. 침실들이 집이라는 영역 안에 자리한다는 위치 감각일 뿐이다."
+      "why_ko": "집은 무언가를 '소유'하지 않는다. 침실들이 집이라는 영역 안에 자리한다는 위치 감각일 뿐이다.",
+      "subject_label": "the house",
+      "object_label": "three bedrooms"
     },
     {
       "id": "have-t4",
@@ -92,7 +106,9 @@
         "그가 갈색 눈을 어디선가 얻어 왔다"
       ],
       "answer_index": 1,
-      "why_ko": "신체 특징은 사거나 얻는 게 아니라, 그라는 영역에 속해 있는 것으로 그려지는 정적 감각이다."
+      "why_ko": "신체 특징은 사거나 얻는 게 아니라, 그라는 영역에 속해 있는 것으로 그려지는 정적 감각이다.",
+      "subject_label": "he",
+      "object_label": "brown eyes"
     },
     {
       "id": "have-t5",
@@ -105,7 +121,9 @@
         "우리가 정원을 만들려고 작업 중이다"
       ],
       "answer_index": 1,
-      "why_ko": "소유권 주장이 아니라, 정원이 우리 영역 안에 그냥 자리 잡고 있다는 정적인 위치 감각이다."
+      "why_ko": "소유권 주장이 아니라, 정원이 우리 영역 안에 그냥 자리 잡고 있다는 정적인 위치 감각이다.",
+      "subject_label": "we",
+      "object_label": "a small garden"
     },
     {
       "id": "have-t6",
@@ -118,7 +136,9 @@
         "우리가 점심을 향해 이동하고 있다"
       ],
       "answer_index": 1,
-      "why_ko": "have lunch는 음식을 '가지는' 게 아니라, 점심이라는 사건이 우리 하루 안에 자리해 우리가 그것을 겪는 감각이다. (사건성이라 We are having lunch도 가능)"
+      "why_ko": "have lunch는 음식을 '가지는' 게 아니라, 점심이라는 사건이 우리 하루 안에 자리해 우리가 그것을 겪는 감각이다. (사건성이라 We are having lunch도 가능)",
+      "subject_label": "we",
+      "object_label": "lunch"
     },
     {
       "id": "have-t7",
@@ -131,7 +151,9 @@
         "내가 회의실로 걸어가는 중이다"
       ],
       "answer_index": 1,
-      "why_ko": "회의를 물건처럼 가지는 게 아니라, 그 사건이 내 영역 안에 자리 잡아 내가 그것을 겪게 된다는 그림이다."
+      "why_ko": "회의를 물건처럼 가지는 게 아니라, 그 사건이 내 영역 안에 자리 잡아 내가 그것을 겪게 된다는 그림이다.",
+      "subject_label": "I",
+      "object_label": "a meeting"
     },
     {
       "id": "have-t8",
@@ -144,7 +166,9 @@
         "그녀가 문제를 일부러 만들어 냈다"
       ],
       "answer_index": 1,
-      "why_ko": "have a problem은 문제를 '소유'하는 게 아니라, 곤란한 상황이 지금 그녀 영역 안에 정적으로 놓여 있다는 그림이다. (그래서 *is having a problem이 어색하다 — 정적 have)"
+      "why_ko": "have a problem은 문제를 '소유'하는 게 아니라, 곤란한 상황이 지금 그녀 영역 안에 정적으로 놓여 있다는 그림이다. (그래서 *is having a problem이 어색하다 — 정적 have)",
+      "subject_label": "she",
+      "object_label": "a problem"
     },
     {
       "id": "have-t9",
@@ -157,7 +181,9 @@
         "우리가 대화하는 장소로 이동하자"
       ],
       "answer_index": 1,
-      "why_ko": "have a chat은 대화를 가지는 게 아니라, 대화라는 사건이 우리 영역 안에서 일어나 우리가 함께 겪는 그림이다."
+      "why_ko": "have a chat은 대화를 가지는 게 아니라, 대화라는 사건이 우리 영역 안에서 일어나 우리가 함께 겪는 그림이다.",
+      "subject_label": "we",
+      "object_label": "a quick chat"
     },
     {
       "id": "have-t10",
@@ -170,7 +196,9 @@
         "그들이 파티 시간에 맞춰 도착했다"
       ],
       "answer_index": 1,
-      "why_ko": "have a great time은 시간을 가지는 게 아니라, 즐거운 경험이 그들 영역 안에 자리해 그들이 그것을 겪었다는 감각이다."
+      "why_ko": "have a great time은 시간을 가지는 게 아니라, 즐거운 경험이 그들 영역 안에 자리해 그들이 그것을 겪었다는 감각이다.",
+      "subject_label": "they",
+      "object_label": "a great time"
     }
   ],
   "transfer_items": [
@@ -185,7 +213,9 @@
         "우리가 10분 뒤를 향해 달려가고 있다"
       ],
       "answer_index": 1,
-      "why_ko": "시간을 '소유'하는 게 아니라, 출발 전 10분이라는 여유가 지금 우리 영역 안에 정적으로 놓여 있다는 그림이다."
+      "why_ko": "시간을 '소유'하는 게 아니라, 출발 전 10분이라는 여유가 지금 우리 영역 안에 정적으로 놓여 있다는 그림이다.",
+      "subject_label": "we",
+      "object_label": "ten minutes"
     },
     {
       "id": "have-x2",
@@ -198,7 +228,9 @@
         "아이디어가 잠재력을 향해 발전해 가고 있다"
       ],
       "answer_index": 1,
-      "why_ko": "추상물조차 무언가를 '얻는' 게 아니라, 잠재력이 그 아이디어의 영역 안에 자리 잡고 있다는 정적 위치 감각으로 그려진다."
+      "why_ko": "추상물조차 무언가를 '얻는' 게 아니라, 잠재력이 그 아이디어의 영역 안에 자리 잡고 있다는 정적 위치 감각으로 그려진다.",
+      "subject_label": "this idea",
+      "object_label": "real potential"
     },
     {
       "id": "have-x3",
@@ -211,7 +243,9 @@
         "그녀가 인내심을 발휘하려고 애쓰는 중이다"
       ],
       "answer_index": 1,
-      "why_ko": "인내심 같은 성질도 얻거나 발휘하는 동작이 아니라, 그녀 영역 안에 정적으로 자리해 있다는 위치 감각으로 그려진다."
+      "why_ko": "인내심 같은 성질도 얻거나 발휘하는 동작이 아니라, 그녀 영역 안에 정적으로 자리해 있다는 위치 감각으로 그려진다.",
+      "subject_label": "she",
+      "object_label": "patience"
     },
     {
       "id": "have-x4",
@@ -224,7 +258,9 @@
         "쉬는 장소로 옮겨 가라는 뜻"
       ],
       "answer_index": 1,
-      "why_ko": "have a rest는 휴식을 '받는' 게 아니라, 휴식이라는 사건 한 칸을 네 시간 영역 안에 두고 겪으라는 그림이다."
+      "why_ko": "have a rest는 휴식을 '받는' 게 아니라, 휴식이라는 사건 한 칸을 네 시간 영역 안에 두고 겪으라는 그림이다.",
+      "subject_label": "you",
+      "object_label": "a rest"
     },
     {
       "id": "have-x5",
@@ -237,7 +273,9 @@
         "내가 꿈을 꾸려고 일부러 노력했다"
       ],
       "answer_index": 1,
-      "why_ko": "have a dream은 꿈을 소유하는 게 아니라, 그 경험이 밤사이 내 영역 안에 들어와 내가 그것을 겪었다는 감각이다."
+      "why_ko": "have a dream은 꿈을 소유하는 게 아니라, 그 경험이 밤사이 내 영역 안에 들어와 내가 그것을 겪었다는 감각이다.",
+      "subject_label": "I",
+      "object_label": "a strange dream"
     }
   ]
 }
