@@ -802,7 +802,7 @@
     } else if (unseen > 0) {
       status = '<p class="position-note"><b>Day ' + dayNo + '</b> · 지금까지 ' + done + ' / ' + total +
         '문장을 봤어요. <b>아직 안 본 새 문장이 ' + unseen + '개</b> 남아 있어요 — 오늘 또 새 문장으로 만나요.' +
-        (prevN > 0 ? ' (이전 버전 ' + prevN + '일 기록 포함)' : '') + '</p>';
+        (prevN > 0 ? ' (이전 버전 ' + prevN + '일 기록 포함 — 콘텐츠가 늘어 추세 비교는 근사예요)' : '') + '</p>';
     } else {
       status = '<p class="position-note"><b>전체 한 바퀴 완주</b>를 마쳤어요. 이제 ' +
         '틀렸던 문장을 다시 보는 <b>복습 모드</b>로 감각을 단단히 할 수 있어요.</p>';

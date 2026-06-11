@@ -60,3 +60,27 @@ Skill Load Receipt
 - `representative_status`: c2-2가 대표. c2-3은 C2 기준 2(동사 5/5)·3 마감용 후보 — 승격 판단은 사용자 몫(기준 4·5는 달력 시간·사람 리뷰).
 - `core_contribution_this_cycle`: keep 코퍼스(새 동사 풀) + G12 해석 피드백 + G11 단서 차단 구조 — primary 산출물(감각 퀴즈 화면)에 묶임.
 - `n_of_N`: 3 of 5. `next_action`: 사용자 대기(기준 4 실사용·기준 5 출처 리뷰). `allowed_to_stop`: 빌드 단위 종료 — local Spiral 종료는 사용자 판단.
+
+## 평가 기록 (c2-3d, 2026-06-11)
+
+### Mechanical Verdict + 실행 스모크
+11검사군 ALL PASS (sentence-ko·question-cue 신설 포함, 5후보 회귀 0) + jsdom 실행 스모크 전 단계 통과 (G10 교훈 — tools/smoke/smoke-c2-3.mjs).
+
+### 페르소나 생략 (Refuse First 기록)
+실사용자(운영자)가 매일 세션으로 검증 중 — 직전 사이클에서 페르소나·모니터·기계가 전부 놓친 결함(정답 누설)을 실사용 1세션에 적발한 실적. 중복 평가 대신 실사용 검증으로 대체. 다음 외부 페르소나는 타인 blind task(기준 6 실행) 시점.
+
+### 모니터 3종
+- **Intent Guardian: pass** — 의도 3축 실재, Day 이어받기 측정 정직성 유지(읽기 전용 import, 흐린 막대 구분)
+- **Asset Steward: repair-before-next → 회수 완료** — G9 keep 메타포 등재, 빌더 자가 한계 2건(손 가독성·합산 근사) 알려진 한계로, asset-map 4 trunk c2-3 갱신
+- **Data/Sellability: repair-before-next → 회수 완료** — 추세 근사 라벨 화면 추가 ("콘텐츠가 늘어 추세 비교는 근사예요"), 기준 2 충족 선언 확인
+
+### Stop Permission
+- `local_candidate_status`: pass / `representative_status`: **promoted-to-best** (c2-2에서 승계 — 사용자 일상 사용 대상)
+- `primary_user_task`: 일일 세션 (8감각 120문장, 해석 피드백)
+- `core_contribution_this_cycle`: 2 — ① C2 기준 2(동사 5/5·120문항)·기준 3(대비축 수렴) 충족 선언 ② 자산: keep 코퍼스+메타포, sentence_ko 120, G9 확장, verdict 2검사
+- `n_of_N`: 3 of 5 / `local_ready`: no — **C2 졸업: 기준 1·2·3·6 ✓, 4·5는 사용자 몫**
+- `next_action`: 사용자 트랙(기준 4 일일 세션 — c2-3에서 계속, Day 이어받기 / 기준 5 approve-4) → 충족 시 retro-1 + C2 졸업 판정
+- `allowed_to_stop`: yes (에이전트 몫 완료 — 사용자 경계)
+
+### Disposition
+c2-2 → asset-only (기록 보존, CLOSED 등재). **c2-3 = 새 대표 후보.**
