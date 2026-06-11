@@ -28,3 +28,14 @@ Skill Load Receipt
 - **자산 기여 (WHO·WHY)**: 코퍼스에 get + 구동사 합성 콘텐츠, 메타포 어휘에 합성 표현 추가. WHO: 한국인 영어 학습자. WHY: have/get을 "가지다/얻다"로 따로 외워 동적/정적 대비를 못 느끼고, 구동사를 통암기하는 문제 — 감각의 합성으로 푼다.
 - **n_of_N**: 1 of **5** (C2 상한, 계약 잠금).
 - **cap_reached_disposition**: 계약 C2 섹션 참조.
+
+## 콘텐츠 합의 기록 (c2-1b, 2026-06-11)
+
+- 생성: opus (get.json 15문항 — 3유형 혼합 R9 첫 실전 / phrasal-up.json 12문항 — cross-axis 합성). 정직 보고: 계약 카운트 우선으로 6/3→8/4 상향
+- 적대적 검수: 독립 opus. **blocking 3 + minor 4**, 전건 회수 (수정 적용: 제3 opus):
+  - B1 정답 유일성: "Can I have a glass of water"가 관용 공동 정답 → 심부름 맥락으로 교체
+  - B2 idiom 혼입: tie up(관용)·save up(준관용)은 합성 환원 불가 — "모든 구동사는 합성적"이라는 오개념 위험 → 투명 사례(pack up, wash up) 교체 + boundary_ko에 합성 한계 단서
+  - B3 은유 방향 오인용: STATES ARE LOCATIONS는 주어→상태 이동인데 image가 반대 방향 → 일원화 (출처 붙은 오개념 3번째 적발 — 게이트 작동 증거)
+  - M1 수령 보증 확장 / M2 was 공동 정답 교체 / M3 cloze 오답 설명 의무 / M4 구동사 재탕 제거(stand/climb/rise up → sit/hop/prop up, up.json과 겹침 0)
+- 기각: got/have 시제 혼선, get 수동 미커버(범위 밖), get-t6 유일성
+- verdict ALL PASS (전 코퍼스 57문장 중복 0). validation: subagent-consensus / weak

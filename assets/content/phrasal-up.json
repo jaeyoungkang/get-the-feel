@@ -1,0 +1,227 @@
+{
+  "axis": "phrasal-verbs",
+  "item": "V+up",
+  "senses": [
+    {
+      "id": "compose-vertical",
+      "ko": "동사의 감각 × up의 수직 감각이 합쳐진 그림 — get up = '도달(get)' + '위로(up)'처럼, 구동사는 통암기가 아니라 이미 아는 두 그림의 합성이다.",
+      "image": "동사가 그리는 움직임 위에 up의 '아래→위' 화살표가 포개진 그림. get up이면 누운 상태에서 선 상태로 '도달'(get)하면서 몸이 '위로'(up) 올라가는, 두 화살표가 겹친 한 장면.",
+      "boundary_ko": "이 수직 합성의 up은 문자 그대로의 방향이라 반대 방향이 성립한다(get up ↔ sit/lie down, stand up ↔ sit down). 방향을 뒤집을 수 있으면 수직 합성이지 완료 합성이 아니다.",
+      "source_refs": [
+        {
+          "source_id": "lindner-1981",
+          "locator": "Ch. on UP — verb-particle constructions, compositional vertical sense of V+UP",
+          "claim": "영어 동사+UP 구문의 의미는 통째 암기되는 것이 아니라 동사의 의미와 불변화사 UP의 공간(수직) 도식이 합성되어 형성된다."
+        },
+        {
+          "source_id": "talmy-2000",
+          "locator": "Ch. on satellite-framed languages — path expressed by the satellite (up)",
+          "claim": "영어는 위성틀 언어로, 경로(위로 향함)를 동사가 아니라 위성(up 같은 불변화사)이 표현하므로 동사 감각과 불변화사 경로가 분리·합성된다."
+        }
+      ],
+      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+    },
+    {
+      "id": "compose-completion",
+      "ko": "동사의 감각 × up의 완료 감각이 합쳐진 그림 — drink up = '마시다(drink)' + '끝까지 차올라 완료(up)'. 동사 동작이 끝점까지 도달함을 up이 더해 준다.",
+      "image": "동사가 그리는 동작이 진행되다가, up의 '끝까지 차올라 한계에 닿음'이 포개져 그 동작이 남김없이 완료되는 그림. drink up이면 마시는 동작이 잔이 빌 때까지 차올라 끝나는 한 장면.",
+      "boundary_ko": "이 완료 합성의 up은 '아래로'가 없다 — *drink down·*clean down은 완료의 반대로 성립하지 않는다. 방향을 뒤집을 수 없으면(반대말 down이 안 서면) 완료 합성이지 수직 합성이 아니다. 단, 완료 up 합성은 투명한 경우(eat·drink·clean·heat·pack up처럼 동사+완료로 의미가 그대로 환원되는 경우)에 한한다 — save up·tie up처럼 굳어진 표현은 down 테스트는 통과해도 의미가 합성으로 완전히 환원되지 않는다(굳어진 관용 쪽으로 기운다).",
+      "source_refs": [
+        {
+          "source_id": "lindner-1981",
+          "locator": "Ch. on UP — completive/perfective extension composed with the verb",
+          "claim": "동사+UP 구문에서 UP의 완료(completive) 의미는 동사의 동작이 끝점까지 도달함을 더하며, 수직 도식에서 은유적으로 확장된 이 완료 감각이 동사 의미와 합성된다."
+        }
+      ],
+      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+    }
+  ],
+  "training_items": [
+    {
+      "id": "pup-t1",
+      "sense_id": "compose-vertical",
+      "sentence": "I get up at six every morning.",
+      "subject_label": "I",
+      "object_label": "rise + reach upright",
+      "type": "sense-choice",
+      "prompt": "get up은 어떤 두 그림이 합쳐진 것인가?",
+      "choices": [
+        "'도달(get)' + '위로(up)' — 누운 상태에서 선 상태로 도달하며 몸이 위로 올라간다",
+        "get up은 통째로 외우는 숙어라 get·up 각각의 그림은 없다",
+        "'마시다' + '끝까지' — 일어나는 일을 완전히 끝낸다"
+      ],
+      "answer_index": 0,
+      "why_ko": "get up은 암기 숙어가 아니라, 이미 아는 두 그림의 합성이다 — get(밖→안으로 도달)이 '선 자세에 도달'을 그리고, up(아래→위)이 몸이 위로 향함을 그린다. 그래서 반대로 lie down이 선다(수직 합성)."
+    },
+    {
+      "id": "pup-t2",
+      "sense_id": "compose-vertical",
+      "sentence": "The crane lifted the container up onto the ship.",
+      "subject_label": "the container",
+      "object_label": "raised + upward",
+      "type": "sense-choice",
+      "prompt": "lift up은 어떤 두 그림의 합성인가?",
+      "choices": [
+        "lift와 up은 같은 뜻이라 up은 그냥 강조일 뿐이다",
+        "'들다(lift)' + '위로(up)' — 드는 동작에 위쪽 방향이 포개진다",
+        "'들다' + '끝까지' — 드는 일을 완료해 버린다"
+      ],
+      "answer_index": 1,
+      "why_ko": "lift up은 lift(드는 동작) 위에 up(아래→위 방향)이 포개진 합성이다. 컨테이너가 위 높이로 향하므로, 내리면 lower ... down 쪽이 선다 — 문자적 수직 합성."
+    },
+    {
+      "id": "pup-t3",
+      "sense_id": "compose-vertical",
+      "sentence": "She jumped up when she heard the good news.",
+      "subject_label": "she",
+      "object_label": "spring + upward",
+      "type": "sense-choice",
+      "prompt": "jump up이 그리는 합성 그림으로 가장 가까운 것은?",
+      "choices": [
+        "'뛰다' + '끝까지' — 뛰는 일을 완전히 끝낸다",
+        "jump up은 외우는 표현이라 up에 그림이 없다",
+        "'뛰다(jump)' + '위로(up)' — 뛰는 동작에 몸이 위로 솟는 방향이 포개진다"
+      ],
+      "answer_index": 2,
+      "why_ko": "jump up은 jump(뛰는 동작) 위에 up(아래→위)이 포개진 합성이다. 몸이 위로 솟구치므로 방향을 뒤집어 jump down도 성립한다 — 수직 합성."
+    },
+    {
+      "id": "pup-t4",
+      "sense_id": "compose-completion",
+      "sentence": "Come on, drink up — the bus is here.",
+      "subject_label": "the drink",
+      "object_label": "consume + to the end",
+      "type": "sense-choice",
+      "prompt": "drink up은 어떤 두 그림의 합성인가?",
+      "choices": [
+        "'마시다' + '위로' — 잔을 위로 들어 올려 마신다",
+        "drink up은 외우는 숙어라 up에 그림이 없다",
+        "'마시다(drink)' + '끝까지 차올라 완료(up)' — 잔이 빌 때까지 남김없이 마신다"
+      ],
+      "answer_index": 2,
+      "why_ko": "drink up은 drink(마시는 동작)에 up(끝까지 차올라 완료)이 합쳐진 그림이다. 잔이 빌 때까지 도달해 다 마시는 것이라, *drink down은 안 된다 — 완료 합성."
+    },
+    {
+      "id": "pup-t5",
+      "sense_id": "compose-completion",
+      "sentence": "Let's clean up the kitchen after dinner.",
+      "subject_label": "the kitchen",
+      "object_label": "tidy + fully done",
+      "type": "sense-choice",
+      "prompt": "clean up이 그리는 합성 그림은?",
+      "choices": [
+        "'치우다' + '위로' — 물건을 위로 쌓아 올린다",
+        "'치우다(clean)' + '끝까지 완료(up)' — 치우는 일이 끝점까지 차올라 말끔히 마무리된다",
+        "clean과 clean up은 완전히 같은 뜻이다"
+      ],
+      "answer_index": 1,
+      "why_ko": "clean up은 clean(치우는 동작)에 up(끝까지 차올라 완료)이 합쳐진 그림이다. 치우는 일이 끝점에 도달해 말끔해지는 것이라, *clean down은 없다 — 완료 합성."
+    },
+    {
+      "id": "pup-t6",
+      "sense_id": "compose-vertical",
+      "sentence": "Sit ___ straight so the doctor can listen to your back.",
+      "subject_label": "you",
+      "object_label": "torso + upward",
+      "type": "sense-cloze",
+      "prompt": "빈칸에 들어갈 불변화사로 합성 감각이 맞는 것은?",
+      "choices": ["up", "off", "out"],
+      "answer_index": 0,
+      "why_ko": "sit up은 sit에 up(아래→위)이 합쳐져 굽었던 상체가 위로 곧게 펴 올라가는 수직 합성이다. 반대로 slouch/lie down 쪽으로 내려가니 문자적 방향 up이다. off는 '붙어 있다 분리됨', out은 '안→밖으로 나옴'의 그림인데 이 문장엔 떨어져 나가거나 밖으로 나오는 그림이 없다 — 위로 곧게 펴 올라가는 up만 맞는다."
+    },
+    {
+      "id": "pup-t7",
+      "sense_id": "compose-vertical",
+      "sentence": "He propped up the ladder against the wall.",
+      "subject_label": "the ladder",
+      "object_label": "support + upright",
+      "type": "sense-choice",
+      "prompt": "prop up은 어떤 두 그림의 합성인가?",
+      "choices": [
+        "'받치다(prop)' + '위로(up)' — 받치는 동작에 아래→위로 세워 올리는 방향이 포개진다",
+        "'받치다' + '끝까지' — 받치는 일을 완전히 끝낸다",
+        "prop up은 외우는 표현이라 up에 그림이 없다"
+      ],
+      "answer_index": 0,
+      "why_ko": "prop up은 prop(받치는 동작)에 up(아래→위)이 합쳐져 사다리가 쓰러지지 않게 위로 세워 받쳐지는 수직 합성이다. 받침을 빼 쓰러뜨리면 아래로 내려가니 문자적 방향 up이다."
+    },
+    {
+      "id": "pup-t8",
+      "sense_id": "compose-completion",
+      "sentence": "Can you heat up the soup while I set the table?",
+      "subject_label": "the soup",
+      "object_label": "warm + to the point",
+      "type": "sense-choice",
+      "prompt": "heat up이 그리는 합성 그림으로 가장 가까운 것은?",
+      "choices": [
+        "'데우다' + '위로' — 냄비를 위로 들어 올려 데운다",
+        "'데우다(heat)' + '끝까지 차올라 완료(up)' — 온도가 먹기 좋은 지점까지 차올라 데워진다",
+        "heat과 heat up은 완전히 같은 뜻이다"
+      ],
+      "answer_index": 1,
+      "why_ko": "heat up은 heat(데우는 동작)에 up(끝까지 차올라 완료)이 합쳐져, 온도가 목표 지점까지 차오르며 데워진다는 그림이다. 방향을 뒤집을 수 없어 *heat down은 없다 — 완료 합성."
+    }
+  ],
+  "transfer_items": [
+    {
+      "id": "pup-x1",
+      "sense_id": "compose-vertical",
+      "sentence": "The diver came up to the surface for air.",
+      "subject_label": "the diver",
+      "object_label": "ascend + upward",
+      "type": "sense-choice",
+      "prompt": "come up은 어떤 두 그림의 합성인가?",
+      "choices": [
+        "'오다' + '끝까지' — 오는 일을 완료한다",
+        "come up은 '생기다'라는 뜻의 외우는 숙어라 방향이 없다",
+        "'오다(come)' + '위로(up)' — 다가오는 동작에 아래→위로 올라오는 방향이 포개진다"
+      ],
+      "answer_index": 2,
+      "why_ko": "come up은 come(다가오는 동작)에 up(아래→위)이 합쳐져 잠수부가 수면 위로 올라오는 수직 합성이다. 내려가면 go down 쪽이 서므로 문자적 방향 up이다."
+    },
+    {
+      "id": "pup-x2",
+      "sense_id": "compose-completion",
+      "sentence": "Please wash ___ the dishes before you go to bed.",
+      "subject_label": "the dishes",
+      "object_label": "clean + fully done",
+      "type": "sense-cloze",
+      "prompt": "빈칸에 들어갈 불변화사로 합성 감각이 맞는 것은?",
+      "choices": ["up", "down", "off"],
+      "answer_index": 0,
+      "why_ko": "wash up은 wash(씻는 동작)에 up(끝까지 차올라 완료)이 합쳐져 설거지를 끝점까지 도달해 빠짐없이 마치는 투명한 완료 합성이다 — 동사+완료로 의미가 그대로 환원된다. down은 '아래로 씻어 내림'(wash down: 물로 흘려보냄)이라 완료의 반대가 아니고, off는 '붙은 것을 씻어 떼어 냄'(wash off)의 분리 그림이라 이 문장의 '끝까지 마침'과는 별개다 — 끝점에 차올라 닿는 up만 맞는다."
+    },
+    {
+      "id": "pup-x3",
+      "sense_id": "compose-completion",
+      "sentence": "Hurry and pack up your things — we leave in ten minutes.",
+      "subject_label": "your things",
+      "object_label": "gather + fully packed",
+      "type": "sense-choice",
+      "prompt": "pack up이 그리는 합성 그림으로 가장 가까운 것은?",
+      "choices": [
+        "'싸다' + '위로' — 짐을 위쪽으로 쌓아 올린다",
+        "'싸다(pack)' + '끝까지 완료(up)' — 남은 짐까지 끝점에 도달해 빠짐없이 다 싼다",
+        "pack up은 그냥 pack을 강조한 것이라 차이가 없다"
+      ],
+      "answer_index": 1,
+      "why_ko": "pack up은 pack(싸는 동작)에 up(끝까지 차올라 완료)이 합쳐진 투명한 합성이다 — 짐을 남김없이 다 싸 끝점에 도달한다는 그림. 방향을 뒤집을 수 없어 *pack down은 없다 — 완료 합성이고, 동사+완료로 의미가 그대로 환원된다."
+    },
+    {
+      "id": "pup-x4",
+      "sense_id": "compose-vertical",
+      "sentence": "She hopped up onto the kitchen stool.",
+      "subject_label": "she",
+      "object_label": "spring + upward",
+      "type": "sense-choice",
+      "prompt": "hop up은 어떤 두 그림의 합성인가?",
+      "choices": [
+        "hop up은 외우는 숙어라 up에 그림이 없다",
+        "'뛰다' + '끝까지' — 뛰는 일을 완료해 버린다",
+        "'뛰다(hop)' + '위로(up)' — 깡충 뛰는 동작에 아래→위 방향이 포개져 의자 위로 오른다"
+      ],
+      "answer_index": 2,
+      "why_ko": "hop up은 hop(깡충 뛰는 동작)에 up(아래→위)이 합쳐져 몸이 의자 위 높이로 오르는 수직 합성이다. 내려오면 hop down이 그대로 서므로 문자적 방향 up이다."
+    }
+  ]
+}
