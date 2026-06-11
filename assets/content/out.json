@@ -15,11 +15,15 @@
         },
         {
           "source_id": "tyler-evans-2003",
-          "locator": "Ch. on out — proto-scene: trajector outside the boundaries of a landmark container",
+          "locator": "Ch. 7 'Bounded landmarks' — out의 경계 용기 proto-scene",
           "claim": "out은 trajector가 landmark 용기의 경계 바깥에 위치하거나 그쪽으로 이동하는 원형 장면(proto-scene)을 가진다."
         }
       ],
-      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+      "validation": {
+        "method": "subagent-consensus",
+        "strength": "weak",
+        "date": "2026-06-11"
+      }
     },
     {
       "id": "out-reveal",
@@ -33,7 +37,11 @@
           "claim": "OUT의 의미망은 용기에서 밖으로 나가는 공간 도식에서, 숨어 있던 대상이 드러나 접근·인지 가능해지는(visible/accessible) 의미로 확장된다."
         }
       ],
-      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+      "validation": {
+        "method": "subagent-consensus",
+        "strength": "weak",
+        "date": "2026-06-11"
+      }
     }
   ],
   "training_items": [
@@ -182,7 +190,11 @@
       "object_label": "exit the building",
       "type": "sense-cloze",
       "prompt": "빈칸에 들어갈 불변화사로 감각이 맞는 것은?",
-      "choices": ["out", "up", "off"],
+      "choices": [
+        "out",
+        "up",
+        "off"
+      ],
       "answer_index": 0,
       "why_ko": "climb out of는 사람들이 건물이라는 용기 안에서 경계를 넘어 바깥으로 빠져나가는 안→밖 방향이라 out이 맞다(반대로 climb in이 선다). up은 '아래→위'(climb up)의 수직 방향이고 off는 '붙어 있다 분리됨'의 그림인데, 이 문장은 건물 안에서 밖으로 나오는 그림이라 안→밖의 out만 맞는다."
     },
@@ -195,7 +207,11 @@
       "object_label": "becomes known",
       "type": "sense-cloze",
       "prompt": "빈칸에 들어갈 불변화사로 감각이 맞는 것은?",
-      "choices": ["out", "up", "in"],
+      "choices": [
+        "out",
+        "up",
+        "in"
+      ],
       "answer_index": 0,
       "why_ko": "figure out은 가려져 있던 원인이 드러나 알게 되는(보이는 영역으로 나오는) 확장된 out이라 맞다 — *figure in(알아내다)은 안 선다. up은 '끝까지 차올라 완료'이고 in은 '안으로 들임'의 그림인데, 이 문장은 '안 보이던 게 드러나 알게 됨'이라 드러남의 out만 맞는다."
     }
@@ -261,7 +277,11 @@
       "object_label": "becomes known",
       "type": "sense-cloze",
       "prompt": "빈칸에 들어갈 불변화사로 감각이 맞는 것은? (work out은 '운동'? '풀리다'?)",
-      "choices": ["out", "up", "off"],
+      "choices": [
+        "out",
+        "up",
+        "off"
+      ],
       "answer_index": 0,
       "why_ko": "여기 work out은 운동(work out at the gym)이 아니라, 가려져 있던 작동 방식이 드러나 알게 되는(풀려서 보이는 영역으로 나오는) 확장된 out이다 — 답·해법이 안 보이다가 '나온다'. up은 '끝까지 차올라 완료', off는 '붙어 있다 분리됨'의 그림인데, 이 문장은 '안 풀리던 게 드러나 알게 됨'이라 드러남의 out만 맞는다."
     },

@@ -1,17 +1,20 @@
-# 신뢰 출처 목록 (잠정 — approve-4 미승인)
+# 신뢰 출처 목록 (웹 검증 완료 — approve-4 사람 승인 대기)
 
 > 잠금자: 메인-서브 합의 — 자율 모드. 사람 승인 전까지 모든 출처는 잠정이며, 이 목록에 근거한 감각 설명의 `validation.strength`는 `weak`를 넘지 못한다.
+>
+> **웹 검증 (2026-06-11)**: 9건 전부 실재·서지 확인 완료. 발견된 귀속 오류 2건(STATES ARE LOCATIONS의 1980 오귀속 → lakoff-1993 신설, Langacker keep 미확인 → Talmy 재귀속)과 locator 정정은 콘텐츠에 반영됨. **사람 리뷰는 아래 표 + 콘텐츠 claim 표본 확인 후 승인만 하면 됩니다** (조사 불요).
 
 ## Tier 1 — 학술 (감각 설명의 *주장*은 T1 근거 필수)
 
 | ID | 출처 | 쓰임 |
 |---|---|---|
-| `heine-1997` | Heine, B. (1997). *Possession: Cognitive Sources, Forces, and Grammaticalization*. Cambridge UP. | have류 소유 구문의 인지적 원천 (위치·영역 도식) |
-| `langacker-1987` | Langacker, R. (1987/1991). *Foundations of Cognitive Grammar* I·II. Stanford UP. | 동사 의미의 도식(trajector/landmark), 정적 관계 감각 |
-| `tyler-evans-2003` | Tyler, A. & Evans, V. (2003). *The Semantics of English Prepositions*. Cambridge UP. | 전치사·불변화사의 공간 감각(proto-scene) |
-| `lindner-1981` | Lindner, S. (1981). *A Lexico-Semantic Analysis of English Verb Particle Constructions with OUT and UP*. UCSD 박사논문. | up/out 불변화사 의미망 |
-| `lakoff-johnson-1980` | Lakoff, G. & Johnson, M. (1980). *Metaphors We Live By*. U Chicago P. | 공간 은유의 체계성 |
-| `talmy-2000` | Talmy, L. (2000). *Toward a Cognitive Semantics*. MIT Press. | 위성틀(satellite-framed) 언어로서의 영어 — 게르만 층위의 유형론 근거 |
+| `heine-1997` | Heine, B. (1997). *Possession: Cognitive Sources, Forces, and Grammaticalization*. Cambridge Studies in Linguistics 83. | 소유 술어의 8개 event schema (Location·Action·Goal 등 — **Action과 Goal은 별개 도식**: 능동 획득 vs 수령) |
+| `langacker-1987` | Langacker, R. (1987/1991). *Foundations of Cognitive Grammar* I·II. Stanford UP. | have류 정적 관계(trajector/landmark — 확인됨). **keep 사례는 미확인 → 콘텐츠에서 Talmy로 재귀속 완료 (2026-06-11)** |
+| `tyler-evans-2003` | Tyler, A. & Evans, V. (2003). *The Semantics of English Prepositions: Spatial Scenes, Embodied Meaning and Cognition*. Cambridge UP. | proto-scene — 수직축은 Ch.5, out 계열은 Ch.7 (전치사 전용 아님 — particle 포함 확인) |
+| `lindner-1981` | Lindner, S. (1981). *A Lexico-Semantic Analysis of English Verb Particle Constructions with OUT and UP*. UCSD 박사논문 (원제 어순: OUT and UP). | up/out 불변화사 의미망 + VPC 합성/관용 구분 |
+| `lakoff-johnson-1980` | Lakoff, G. & Johnson, M. (1980). *Metaphors We Live By*. U Chicago P. | 방위 은유 (MORE IS UP — Ch.4 실재 확인). **주의: STATES ARE LOCATIONS는 이 책에 없음 — lakoff-1993으로** |
+| `lakoff-1993` | Lakoff, G. (1993). "The Contemporary Theory of Metaphor". In Ortony (ed.), *Metaphor and Thought* (2nd ed.). Cambridge UP. | Event Structure Metaphor (STATES ARE LOCATIONS, CHANGE IS MOTION) — get 상태 변화 감각의 정확한 출전 (검증에서 신설) |
+| `talmy-2000` | Talmy, L. (2000). *Toward a Cognitive Semantics* (2권). MIT Press. | **권 분리 주의**: force dynamics(keep/let/make) = Vol.I Part4 Ch.7 (pp.409–470) / 위성틀 유형론 = Vol.II Part1 Ch.1 "Lexicalization Patterns" |
 
 ## Tier 2 — 사전·코퍼스 (예문의 *자연성*·용법 확인)
 

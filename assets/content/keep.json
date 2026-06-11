@@ -10,16 +10,15 @@
       "source_refs": [
         {
           "source_id": "talmy-2000",
-          "locator": "Vol. I, Ch. on force dynamics — maintenance of a state against a tendency toward change (the 'keeping' force pattern)",
+          "locator": "Vol. I, Part 4, Ch. 7 'Force Dynamics in Language and Cognition' (pp. 409–470) — keep/let/make가 정전 사례",
           "claim": "힘 역학(force dynamics)에서 어떤 상태·위치를 '유지'하는 것은 그것이 변하거나 벗어나려는 내재적 경향(tendency)에 대항하는 대항력의 작용으로 분석되며, 단순한 정적 존재와 구별된다."
-        },
-        {
-          "source_id": "langacker-1987",
-          "locator": "Vol. I, Ch. on stative/maintained relations — continued control of a relation over time",
-          "claim": "동사는 어떤 관계가 시간에 걸쳐 유지·통제되는 과정을 윤곽 지을 수 있으며, 이는 두 개체 사이의 정적 관계만 윤곽 짓는 소유 동사와 달리 관계의 지속적 유지를 핵심으로 삼는다."
         }
       ],
-      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+      "validation": {
+        "method": "subagent-consensus",
+        "strength": "weak",
+        "date": "2026-06-11"
+      }
     },
     {
       "id": "keep-state",
@@ -29,16 +28,15 @@
       "source_refs": [
         {
           "source_id": "talmy-2000",
-          "locator": "Vol. I, Ch. on force dynamics — causative/maintenance of a resultant state against decay",
+          "locator": "Vol. I, Part 4, Ch. 7 'Force Dynamics in Language and Cognition' (pp. 409–470) — keep/let/make가 정전 사례",
           "claim": "힘 역학에서 어떤 결과 상태를 지속시키는 것은 그 상태가 흐트러지려는 경향에 대항해 힘을 계속 가하는 것으로 표현되며, 상태의 단순한 존재(be)나 자발적 잔류(stay)와 구별되는 유지의 force 패턴을 이룬다."
-        },
-        {
-          "source_id": "langacker-1987",
-          "locator": "Vol. II, Ch. on resultative / maintained-state predications — keep + complement",
-          "claim": "keep + 형용사·분사 보어 구문은 주어가 대상을 어떤 상태에 계속 머물게 하는 유지 관계를 윤곽 지으며, 상태로의 변화를 윤곽 짓는 inchoative(get류)와 구별된다."
         }
       ],
-      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+      "validation": {
+        "method": "subagent-consensus",
+        "strength": "weak",
+        "date": "2026-06-11"
+      }
     }
   ],
   "training_items": [
@@ -118,7 +116,11 @@
       "object_label": "her receipts (held in)",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
-      "choices": ["keeps", "has", "gets"],
+      "choices": [
+        "keeps",
+        "has",
+        "gets"
+      ],
       "answer_index": 0,
       "sentence_ko": "그녀는 영수증을 전부 작은 상자에 모아 둔다.",
       "why_ko": "has her receipts면 영수증이 그냥 그녀 영역 안에 있는 정적 보유이고, gets her receipts면 영수증을 받아 손에 넣는 도달이다. 여기선 버려질 영수증을 버리지 않고 상자에 붙들어 계속 보관하는 유지라 keeps가 맞다 — 셋 다 문장은 되지만 keep(붙들어 유지)·have(그냥 있음, 힘 없음)·get(받아 닿음)의 감각이 갈린다."
@@ -131,7 +133,11 @@
       "object_label": "my umbrella (held in)",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
-      "choices": ["have", "keep", "get"],
+      "choices": [
+        "have",
+        "keep",
+        "get"
+      ],
       "answer_index": 1,
       "sentence_ko": "비 그칠 때까지 내 우산 가지고 있어도 돼.",
       "why_ko": "have my umbrella면 우산이 그냥 네 영역 안에 있음(정적)이고, get my umbrella면 우산을 받아 손에 넣는 도달이다. until the rain stops가 '돌려주기 전까지 네 곁에 계속 붙들어 두라'는 유지의 기간을 못박으므로 keep이 맞다 — 돌려줘야 할 것을 그때까지 붙드는 force가 keep에만 있다. keep(붙들어 유지)·have(그냥 있음)·get(받아 닿음)의 대비."
@@ -178,7 +184,11 @@
       "object_label": "held in a cool state",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
-      "choices": ["get", "keep", "make"],
+      "choices": [
+        "get",
+        "keep",
+        "make"
+      ],
       "answer_index": 1,
       "sentence_ko": "두꺼운 돌벽이 여름 내내 집을 시원하게 유지해 준다.",
       "why_ko": "get the house cool은 집이 시원한 상태로 옮겨 가 닿는 변화(한 번 시원해짐)이고, make the house cool은 시원한 상태를 새로 빚어내는 사역이다. all summer는 '여름 내내 식지 않게 그 시원함을 붙들어 이어 줌'을 못박으므로 keep이 맞다 — 한 번 만드는 make·도달하는 get과 달리, 흐트러지려는 상태를 계속 붙드는 유지의 force는 keep에 있다."
@@ -227,7 +237,11 @@
       "object_label": "a daily journal (held in)",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
-      "choices": ["keeps", "has", "gets"],
+      "choices": [
+        "keeps",
+        "has",
+        "gets"
+      ],
       "answer_index": 0,
       "sentence_ko": "그는 긴 항해 내내 매일 일기를 썼다.",
       "why_ko": "has a journal이면 일기장이 그냥 그의 영역 안에 있음(정적 보유)이고, gets a journal이면 일기장을 받아 손에 넣는 도달이다. keep a journal은 끊기려는 기록을 매일 빠짐없이 이어 붙들어 가는 유지라 keeps가 맞다 — 중단되려는 흐름에 맞서 계속 이어 가는 force가 keep에 있다. keep(붙들어 이어 감)·have(그냥 있음)·get(받아 닿음)의 대비."
@@ -240,7 +254,11 @@
       "object_label": "held away from the body",
       "type": "sense-cloze",
       "prompt": "빈칸에 들어갈 불변화사로 감각이 맞는 것은?",
-      "choices": ["off", "up", "in"],
+      "choices": [
+        "off",
+        "up",
+        "in"
+      ],
       "answer_index": 0,
       "sentence_ko": "좋은 비옷은 하루 종일 비를 막아 준다.",
       "why_ko": "keep the rain off의 off는 비가 몸 표면에 붙으려는 것을 떼어 내 닿지 못하게 막는 그림이라, '비를 막아 줌'에 맞는다. up은 '끝까지 차올라 완료', in은 '안에 가둠'의 그림인데, 이 문장은 비를 몸에서 떨어뜨려 막는 것이라 분리의 off만 맞는다 — keep이 그 막는 상태(비가 닿지 않음)를 하루 종일 붙들어 이어 준다."
@@ -270,7 +288,11 @@
       "object_label": "held in a healthy state",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
-      "choices": ["gets", "makes", "keeps"],
+      "choices": [
+        "gets",
+        "makes",
+        "keeps"
+      ],
       "answer_index": 2,
       "sentence_ko": "규칙적인 운동은 나이 들어서도 너를 건강하게 유지해 준다.",
       "why_ko": "gets you healthy는 건강한 상태로 옮겨 가 닿는 변화(한 번 건강해짐)이고, makes you healthy는 건강한 상태를 새로 빚어내는 사역이다. well into old age는 '나이 들어서도 무너지지 않게 그 건강을 붙들어 이어 줌'을 못박으므로 keeps가 맞다 — 한 번 도달하는 get·만드는 make와 달리, 흐트러지려는 상태를 계속 붙드는 유지의 force는 keep에 있다."

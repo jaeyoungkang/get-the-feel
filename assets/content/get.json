@@ -10,7 +10,7 @@
       "source_refs": [
         {
           "source_id": "heine-1997",
-          "locator": "Ch. 2 (Conceptual sources of possession) — Action/Goal schema (the 'X takes/gets Y' source)",
+          "locator": "Ch. 1 — event schemas (Goal·Action은 별개 도식; 수령은 Goal 'Y exists for X' 계열, 능동 획득은 Action 'X takes Y')",
           "claim": "소유 구문의 인지적 원천 중 하나는 소유자가 대상을 자기 영역으로 가져오거나 받아 영역 안에 들어오게 하는 획득·수령·이동(action·goal) 도식이며, 이는 정적 위치 도식과 구별되는 동적 source다 — 능동적으로 가져오는 경우와 외부에서 와 닿아 받는(receive) 경우를 모두 포함한다."
         },
         {
@@ -37,9 +37,9 @@
           "claim": "get + 형용사·과거분사 구문은 주어가 어떤 결과 상태로 이행(inchoative)함을 윤곽 짓는다 — 상태 자체가 아니라 그 상태로의 변화·도달을 그린다."
         },
         {
-          "source_id": "lakoff-johnson-1980",
-          "locator": "Ch. on orientational/ontological metaphor — STATES ARE LOCATIONS, CHANGE IS MOTION",
-          "claim": "상태를 위치로, 상태 변화를 그 위치로의 이동으로 보는 은유는 영어에 체계적으로 자리하며, 도달 동사가 상태 변화를 표현하는 확장의 토대가 된다."
+          "source_id": "lakoff-1993",
+          "locator": "The Contemporary Theory of Metaphor — Event Structure Metaphor (STATES ARE LOCATIONS, CHANGE IS MOTION)",
+          "claim": "상태는 위치, 변화는 그 위치로의 이동이라는 사건 구조 은유가 영어에 체계적으로 존재한다 — 주어가 상태(위치)로 옮겨 가 닿는 방향."
         }
       ],
       "validation": {
