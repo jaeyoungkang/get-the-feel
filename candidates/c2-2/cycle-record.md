@@ -39,3 +39,37 @@ Skill Load Receipt
 - 기각: take/get 분할(heine action vs goal 도식 정확), make force dynamics 인용, do/make 경계 문항, out 뒤집기 테스트
 - 운영 결정: 닫힌 후보(c1-x, c2-1)의 data-sync는 **마감 시점 PASS가 정본** — 코퍼스 진화에 따른 이후 drift는 결함이 아님 (후보는 박제, 코퍼스는 성장)
 - validation: subagent-consensus / weak
+
+## 평가 기록 (c2-2d, 2026-06-11)
+
+### Mechanical Verdict
+9검사군 ALL PASS (4후보 전부 일관 — 닫힌 후보는 CLOSED_CANDIDATES 명시 분기).
+
+### 페르소나 blind task (민지 2차 방문) — **치명 결함 적발 → 수리 → 재검증**
+- 1차 시도: **0문항 — 시작 버튼 사망.** 헬퍼 5종(itemColor·itemShort·typeLabel·senseLabel·senseColor)이 호출만 있고 미정의 → ReferenceError로 렌더 전면 차단. **mechanical verdict는 실행 스모크가 없어 ALL PASS인 채로 죽은 후보를 통과시킴** — 페르소나 blind task가 게이트 공백을 적발 (검증 체계의 가장 중요한 발견).
+- 수리: 헬퍼 5종 정의 + 미정의 호출 정적 스캔(오탐 제외 0건).
+- 재검증 (독립 jsdom 구동): 전 단계 PASS — 인트로→훈련15→전이5→진척, 런타임 에러 0, Day2 신규 문항 13-14/15(미출제 우선 동작), 관용 자물쇠 자연 주입 16/20 세션.
+
+### 모니터 3종
+- **Intent Guardian: pass** — 일일 공급·R10·sense 추적 코드 도달, scope creep 0, CLOSED 분기는 기록된 운영 결정의 정직한 구현. 풀 소진 시 "복습 모드" 정직 전환 확인.
+- **Asset Steward: repair-before-next → 회수 완료**: G9(take/make/out/자물쇠 메타포)·G10(헬퍼 사고 + verdict 실행 스모크 공백 — 1회라 기록만, 재발 시 검사 승격) 신설. baseline 소급 결함 교훈 회수(아래).
+- **Data/Sellability: repair-before-next → 회수 완료**: **C2 기준 2 미달 명시 — 핵심 동사 4/5** (have/get/take/make — 5번째는 c2-3). "거의 됐다" 판정 금지 규칙에 따라 미달로 기록. 105문장·중복 0·weak 표기 정합은 확인.
+
+### 교훈 회수 (자산 반영)
+- baseline 소급 결함: 구 후보 시절 콘텐츠가 신규 결합 후보에 합류할 때 후속 CONTRACT 규칙 미준수가 처음 노출된다 — have.json 라벨 15건 정본 수리로 해소, 패턴은 CONTRACT 메모로.
+- verdict 실행 스모크 공백: 죽은 후보가 ALL PASS 가능 — G10에 기록, 재발 시 검사 승격.
+
+### Stop Permission
+- `local_candidate_status`: pass (수리 후 재검증 완료)
+- `representative_status`: not-promoted — **현 최선 후보** (코퍼스 7항목 105문장 + 일일 공급)
+- `primary_user_task`: 일일 세션 완주 + Day2 재방문 (훈련 15 → 전이 5 → Day-N 진척)
+- `core_contribution_this_cycle`: 2 — ① 기준 2의 카운트 축(문항 100+·불변화사 2) 충족, 동사 4/5 미달 명시 ② 자산: 코퍼스 4배, R10 반례 검증(자연 주입 작동), G9·G10, 일일 공급 구조, handoff 패키지(기준 6)
+- `core_evidence`: 산출물 diff (commit 991c142, fd9083a, 본 commit) + jsdom 재검증 기록
+- `n_of_N`: 2 of 5
+- `local_ready`: no — C2 졸업 기준: 1 ✓ / 2 ✗(동사 4/5) / 3 ◐ / 4 ✗(본인 실사용 0 — 사용자 몫) / 5 ✗(weak — approve-4 사용자 몫) / 6 ✓(handoff/blind-task-guide.md)
+- `demand_status`: demand_unknown
+- `next_action`: c2-3 — 5번째 동사(go 또는 keep) + 기준 3 마감. 기준 4·5는 사용자 손 대기 (에이전트 압축 불가)
+- `allowed_to_stop`: no (단, 자율 run은 여기서 사용자 경계에 도달 — 기준 4·5가 전제)
+
+### Disposition
+**asset-only + 현 최선 후보 (c2-1에서 승계)** — 파일 보존, 배움 회수 완료.

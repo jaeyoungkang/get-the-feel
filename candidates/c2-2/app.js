@@ -81,6 +81,39 @@
   };
   function itemType(item) { return item.type || "sense-choice"; }
 
+  // ---- 표시 헬퍼 (항목·감각·유형 라벨/색) — c2-2d 수리: 호출만 있고 미정의였던 5종 ----
+  var ITEM_COLOR = {
+    "have": "#7c5cbf", "get": "#2b6cb0", "take": "#c05621", "make": "#2f855a",
+    "up": "#4c7d46", "out": "#b83280", "phrasal-up": "#6d4c41"
+  };
+  var ITEM_SHORT = {
+    "have": "have", "get": "get", "take": "take", "make": "make",
+    "up": "up", "out": "out", "phrasal-up": "V+up"
+  };
+  var SENSE_LABEL = {
+    "have-domain-location": "대상이 영역 안에", "have-event-in-domain": "사건이 영역 안에",
+    "get-arrival": "밖에서 안으로 도달", "get-state-change": "상태로 옮겨 감",
+    "take-grasp": "손 뻗어 점유", "take-carry": "잡아 데려감",
+    "make-create": "새로 빚어냄", "make-cause": "상태를 빚어냄",
+    "up-vertical": "아래에서 위로", "up-completion": "끝까지 차오름",
+    "out-exit": "안에서 밖으로", "out-reveal": "가려진 것이 드러남",
+    "compose-vertical": "합성 — 위로", "compose-completion": "합성 — 끝까지",
+    "opaque-idiom": "관용 — 통째로"
+  };
+  function itemColor(key) { return ITEM_COLOR[key] || "#574f47"; }
+  function itemShort(key) { return ITEM_SHORT[key] || key; }
+  function typeLabel(type) {
+    if (type === "verb-choice") return "동사 고르기";
+    if (type === "sense-cloze") return "불변화사 고르기";
+    return "그림 고르기";
+  }
+  function senseLabel(id) { return SENSE_LABEL[id] || id; }
+  function senseColor(id) {
+    if (id === "opaque-idiom") return "#5d5650";
+    if (id.indexOf("compose-") === 0) return ITEM_COLOR["phrasal-up"];
+    return itemColor(String(id).split("-")[0]);
+  }
+
   // opaque-idiom 판별 (관용 — 합성 3칸 대신 자물쇠)
   function isOpaque(senseId) { return senseId === "opaque-idiom"; }
   // 합성(투명) 판별 (compose-vertical / compose-completion)
