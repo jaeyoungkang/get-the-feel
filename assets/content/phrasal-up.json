@@ -19,7 +19,11 @@
           "claim": "영어는 위성틀 언어로, 경로(위로 향함)를 동사가 아니라 위성(up 같은 불변화사)이 표현하므로 동사 감각과 불변화사 경로가 분리·합성된다."
         }
       ],
-      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+      "validation": {
+        "method": "subagent-consensus",
+        "strength": "weak",
+        "date": "2026-06-11"
+      }
     },
     {
       "id": "compose-completion",
@@ -33,7 +37,11 @@
           "claim": "동사+UP 구문에서 UP의 완료(completive) 의미는 동사의 동작이 끝점까지 도달함을 더하며, 수직 도식에서 은유적으로 확장된 이 완료 감각이 동사 의미와 합성된다."
         }
       ],
-      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+      "validation": {
+        "method": "subagent-consensus",
+        "strength": "weak",
+        "date": "2026-06-11"
+      }
     }
   ],
   "training_items": [
@@ -51,7 +59,8 @@
         "'마시다' + '끝까지' — 일어나는 일을 완전히 끝낸다"
       ],
       "answer_index": 0,
-      "why_ko": "get up은 암기 숙어가 아니라, 이미 아는 두 그림의 합성이다 — get(밖→안으로 도달)이 '선 자세에 도달'을 그리고, up(아래→위)이 몸이 위로 향함을 그린다. 그래서 반대로 lie down이 선다(수직 합성)."
+      "why_ko": "get up은 암기 숙어가 아니라, 이미 아는 두 그림의 합성이다 — get(밖→안으로 도달)이 '선 자세에 도달'을 그리고, up(아래→위)이 몸이 위로 향함을 그린다. 그래서 반대로 lie down이 선다(수직 합성).",
+      "verb_label": "get"
     },
     {
       "id": "pup-t2",
@@ -67,7 +76,8 @@
         "'들다' + '끝까지' — 드는 일을 완료해 버린다"
       ],
       "answer_index": 1,
-      "why_ko": "lift up은 lift(드는 동작) 위에 up(아래→위 방향)이 포개진 합성이다. 컨테이너가 위 높이로 향하므로, 내리면 lower ... down 쪽이 선다 — 문자적 수직 합성."
+      "why_ko": "lift up은 lift(드는 동작) 위에 up(아래→위 방향)이 포개진 합성이다. 컨테이너가 위 높이로 향하므로, 내리면 lower ... down 쪽이 선다 — 문자적 수직 합성.",
+      "verb_label": "lift"
     },
     {
       "id": "pup-t3",
@@ -83,7 +93,8 @@
         "'뛰다(jump)' + '위로(up)' — 뛰는 동작에 몸이 위로 솟는 방향이 포개진다"
       ],
       "answer_index": 2,
-      "why_ko": "jump up은 jump(뛰는 동작) 위에 up(아래→위)이 포개진 합성이다. 몸이 위로 솟구치므로 방향을 뒤집어 jump down도 성립한다 — 수직 합성."
+      "why_ko": "jump up은 jump(뛰는 동작) 위에 up(아래→위)이 포개진 합성이다. 몸이 위로 솟구치므로 방향을 뒤집어 jump down도 성립한다 — 수직 합성.",
+      "verb_label": "jump"
     },
     {
       "id": "pup-t4",
@@ -99,7 +110,8 @@
         "'마시다(drink)' + '끝까지 차올라 완료(up)' — 잔이 빌 때까지 남김없이 마신다"
       ],
       "answer_index": 2,
-      "why_ko": "drink up은 drink(마시는 동작)에 up(끝까지 차올라 완료)이 합쳐진 그림이다. 잔이 빌 때까지 도달해 다 마시는 것이라, *drink down은 안 된다 — 완료 합성."
+      "why_ko": "drink up은 drink(마시는 동작)에 up(끝까지 차올라 완료)이 합쳐진 그림이다. 잔이 빌 때까지 도달해 다 마시는 것이라, *drink down은 안 된다 — 완료 합성.",
+      "verb_label": "drink"
     },
     {
       "id": "pup-t5",
@@ -115,7 +127,8 @@
         "clean과 clean up은 완전히 같은 뜻이다"
       ],
       "answer_index": 1,
-      "why_ko": "clean up은 clean(치우는 동작)에 up(끝까지 차올라 완료)이 합쳐진 그림이다. 치우는 일이 끝점에 도달해 말끔해지는 것이라, *clean down은 없다 — 완료 합성."
+      "why_ko": "clean up은 clean(치우는 동작)에 up(끝까지 차올라 완료)이 합쳐진 그림이다. 치우는 일이 끝점에 도달해 말끔해지는 것이라, *clean down은 없다 — 완료 합성.",
+      "verb_label": "clean"
     },
     {
       "id": "pup-t6",
@@ -125,9 +138,14 @@
       "object_label": "torso + upward",
       "type": "sense-cloze",
       "prompt": "빈칸에 들어갈 불변화사로 합성 감각이 맞는 것은?",
-      "choices": ["up", "off", "out"],
+      "choices": [
+        "up",
+        "off",
+        "out"
+      ],
       "answer_index": 0,
-      "why_ko": "sit up은 sit에 up(아래→위)이 합쳐져 굽었던 상체가 위로 곧게 펴 올라가는 수직 합성이다. 반대로 slouch/lie down 쪽으로 내려가니 문자적 방향 up이다. off는 '붙어 있다 분리됨', out은 '안→밖으로 나옴'의 그림인데 이 문장엔 떨어져 나가거나 밖으로 나오는 그림이 없다 — 위로 곧게 펴 올라가는 up만 맞는다."
+      "why_ko": "sit up은 sit에 up(아래→위)이 합쳐져 굽었던 상체가 위로 곧게 펴 올라가는 수직 합성이다. 반대로 slouch/lie down 쪽으로 내려가니 문자적 방향 up이다. off는 '붙어 있다 분리됨', out은 '안→밖으로 나옴'의 그림인데 이 문장엔 떨어져 나가거나 밖으로 나오는 그림이 없다 — 위로 곧게 펴 올라가는 up만 맞는다.",
+      "verb_label": "sit"
     },
     {
       "id": "pup-t7",
@@ -143,7 +161,8 @@
         "prop up은 외우는 표현이라 up에 그림이 없다"
       ],
       "answer_index": 0,
-      "why_ko": "prop up은 prop(받치는 동작)에 up(아래→위)이 합쳐져 사다리가 쓰러지지 않게 위로 세워 받쳐지는 수직 합성이다. 받침을 빼 쓰러뜨리면 아래로 내려가니 문자적 방향 up이다."
+      "why_ko": "prop up은 prop(받치는 동작)에 up(아래→위)이 합쳐져 사다리가 쓰러지지 않게 위로 세워 받쳐지는 수직 합성이다. 받침을 빼 쓰러뜨리면 아래로 내려가니 문자적 방향 up이다.",
+      "verb_label": "prop"
     },
     {
       "id": "pup-t8",
@@ -159,7 +178,8 @@
         "heat과 heat up은 완전히 같은 뜻이다"
       ],
       "answer_index": 1,
-      "why_ko": "heat up은 heat(데우는 동작)에 up(끝까지 차올라 완료)이 합쳐져, 온도가 목표 지점까지 차오르며 데워진다는 그림이다. 방향을 뒤집을 수 없어 *heat down은 없다 — 완료 합성."
+      "why_ko": "heat up은 heat(데우는 동작)에 up(끝까지 차올라 완료)이 합쳐져, 온도가 목표 지점까지 차오르며 데워진다는 그림이다. 방향을 뒤집을 수 없어 *heat down은 없다 — 완료 합성.",
+      "verb_label": "heat"
     }
   ],
   "transfer_items": [
@@ -177,7 +197,8 @@
         "'오다(come)' + '위로(up)' — 다가오는 동작에 아래→위로 올라오는 방향이 포개진다"
       ],
       "answer_index": 2,
-      "why_ko": "come up은 come(다가오는 동작)에 up(아래→위)이 합쳐져 잠수부가 수면 위로 올라오는 수직 합성이다. 내려가면 go down 쪽이 서므로 문자적 방향 up이다."
+      "why_ko": "come up은 come(다가오는 동작)에 up(아래→위)이 합쳐져 잠수부가 수면 위로 올라오는 수직 합성이다. 내려가면 go down 쪽이 서므로 문자적 방향 up이다.",
+      "verb_label": "come"
     },
     {
       "id": "pup-x2",
@@ -187,9 +208,14 @@
       "object_label": "clean + fully done",
       "type": "sense-cloze",
       "prompt": "빈칸에 들어갈 불변화사로 합성 감각이 맞는 것은?",
-      "choices": ["up", "down", "off"],
+      "choices": [
+        "up",
+        "down",
+        "off"
+      ],
       "answer_index": 0,
-      "why_ko": "wash up은 wash(씻는 동작)에 up(끝까지 차올라 완료)이 합쳐져 설거지를 끝점까지 도달해 빠짐없이 마치는 투명한 완료 합성이다 — 동사+완료로 의미가 그대로 환원된다. down은 '아래로 씻어 내림'(wash down: 물로 흘려보냄)이라 완료의 반대가 아니고, off는 '붙은 것을 씻어 떼어 냄'(wash off)의 분리 그림이라 이 문장의 '끝까지 마침'과는 별개다 — 끝점에 차올라 닿는 up만 맞는다."
+      "why_ko": "wash up은 wash(씻는 동작)에 up(끝까지 차올라 완료)이 합쳐져 설거지를 끝점까지 도달해 빠짐없이 마치는 투명한 완료 합성이다 — 동사+완료로 의미가 그대로 환원된다. down은 '아래로 씻어 내림'(wash down: 물로 흘려보냄)이라 완료의 반대가 아니고, off는 '붙은 것을 씻어 떼어 냄'(wash off)의 분리 그림이라 이 문장의 '끝까지 마침'과는 별개다 — 끝점에 차올라 닿는 up만 맞는다.",
+      "verb_label": "wash"
     },
     {
       "id": "pup-x3",
@@ -205,7 +231,8 @@
         "pack up은 그냥 pack을 강조한 것이라 차이가 없다"
       ],
       "answer_index": 1,
-      "why_ko": "pack up은 pack(싸는 동작)에 up(끝까지 차올라 완료)이 합쳐진 투명한 합성이다 — 짐을 남김없이 다 싸 끝점에 도달한다는 그림. 방향을 뒤집을 수 없어 *pack down은 없다 — 완료 합성이고, 동사+완료로 의미가 그대로 환원된다."
+      "why_ko": "pack up은 pack(싸는 동작)에 up(끝까지 차올라 완료)이 합쳐진 투명한 합성이다 — 짐을 남김없이 다 싸 끝점에 도달한다는 그림. 방향을 뒤집을 수 없어 *pack down은 없다 — 완료 합성이고, 동사+완료로 의미가 그대로 환원된다.",
+      "verb_label": "pack"
     },
     {
       "id": "pup-x4",
@@ -221,7 +248,8 @@
         "'뛰다(hop)' + '위로(up)' — 깡충 뛰는 동작에 아래→위 방향이 포개져 의자 위로 오른다"
       ],
       "answer_index": 2,
-      "why_ko": "hop up은 hop(깡충 뛰는 동작)에 up(아래→위)이 합쳐져 몸이 의자 위 높이로 오르는 수직 합성이다. 내려오면 hop down이 그대로 서므로 문자적 방향 up이다."
+      "why_ko": "hop up은 hop(깡충 뛰는 동작)에 up(아래→위)이 합쳐져 몸이 의자 위 높이로 오르는 수직 합성이다. 내려오면 hop down이 그대로 서므로 문자적 방향 up이다.",
+      "verb_label": "hop"
     }
   ]
 }

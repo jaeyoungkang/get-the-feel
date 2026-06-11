@@ -397,12 +397,8 @@
   // phrasal-up 문항에서 동사(첫 단어 또는 V+up의 V)만 뽑는다 — 표시용(라벨 추출 G2 무관: 시각화 캡션).
   // 빈칸 유형이면 정답 불변화사 앞 동사를, 평문이면 ... up 앞 동사를 찾는다. 실패 시 object_label.
   function verbOf(item) {
-    var s = item.sentence;
-    // "<verb> up" 또는 "<verb> ___" 패턴에서 verb 후보.
-    var m = s.match(/([A-Za-z]+)\s+(?:up\b|___)/);
-    if (m) return m[1].toLowerCase();
-    // get up / sit up 같이 분리된 경우 — object_label 의존
-    return (item.object_label || "동작").split(/\s+/)[0];
+    // G2/G7 — 합성 캡션도 명시 필드만 사용. 문장 파싱 추출 금지 (c2-1 verbOf 결함 회수).
+    return item.verb_label || "(동사)";
   }
   function verbWithUp(item) {
     return verbOf(item) + " up";
