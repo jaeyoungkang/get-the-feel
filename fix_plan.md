@@ -39,5 +39,5 @@
 - [x] **approve-2** ✅ 잠정안 승인 (감각 체화 종속 시 허용)
 - [x] **approve-3** ✅ 로컬 저장 유지 승인
 - [ ] **approve-4** 신뢰 출처 목록 — c1-1 preflight에서 제안 후 승인
-- [x] **approve-5** ✅ 로컬 유지 승인 (실배포는 C3 재결정)
+- [x] **approve-5** ✅ 재결정 (2026-06-11): 외부 배포 — GitHub Pages (jaeyoung2026.github.io/get-the-feel, 배포 산출물만 공개). 재배포: tools/deploy/deploy-pages.sh
 - [x] **approve-6** ✅ 승인 (2026-06-11) — C1 종료, C2 Convergence 진입. C2 졸업선 6기준 + N=5 함께 잠금 (contract.md)

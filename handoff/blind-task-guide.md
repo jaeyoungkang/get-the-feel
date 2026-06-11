@@ -4,12 +4,12 @@
 
 ## 보내는 것
 
-`candidates/c2-2/` 폴더 (4파일: index.html, styles.css, app.js, data.js). 압축해 전달, "index.html을 브라우저로 여세요" 한 줄만.
+**URL 한 줄: https://jaeyoung2026.github.io/get-the-feel/** (GitHub Pages 배포 — approve-5 재결정 2026-06-11, 배포 산출물만 공개). 대안: `candidates/c2-3/` 폴더 압축 전달.
 
 ## 참가자 안내문 (이대로 복사해 전송)
 
 > 영어 학습 도구를 하나 테스트해 주세요. 10분이면 됩니다.
-> 1. 받은 폴더의 index.html을 더블클릭해서 여세요.
+> 1. https://jaeyoung2026.github.io/get-the-feel/ 을 브라우저로 여세요.
 > 2. 화면이 시키는 대로 한 세션(훈련 15문항 + 새 문장 테스트 5문항)을 끝까지 해 주세요.
 > 3. 끝나면 아래 4가지만 답해 주세요 (솔직하게 — 좋은 말 필요 없음):
 >    - 몇 점 나왔나요? (훈련 / 새 문장)
