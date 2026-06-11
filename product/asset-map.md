@@ -14,7 +14,7 @@
 
 ## 2. 감각 콘텐츠 코퍼스 + 데이터 계약 (핵심 자산)
 
-- `asset_path`: `assets/content/` (스키마 정본: `assets/content/CONTRACT.md`)
+- `asset_path`: `assets/content/` (스키마 정본: `assets/content/CONTRACT.md`) + 하위 자산 `assets/misconceptions.md` (오개념 카탈로그 — R2·R3 설계 재료, retro-2 신설)
 - `why_it_must_grow`: 이 도메인의 본체. 출처 묶인 감각 설명·훈련 문장 풀·전이 세트가 자라야 후보가 훈련 과정을 지탱할 두께를 갖는다. 후보는 버려져도 코퍼스는 남는다.
 - `how_to_update`: LLM 생성 + 출처 근거 제약. 출처 없는 감각 설명은 승격 불가. 후보 종료 시 검증된 콘텐츠를 코퍼스로 회수.
 - `mechanical_or_review_gate`: 데이터 계약 스키마 검사(출처 필드 필수) + 훈련/전이 분리 검사 — `tools/verdict/check.mjs`.
