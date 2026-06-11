@@ -47,6 +47,6 @@
 
 ## 명시 거부 / 유예 (Refuse First)
 
-- **도메인 스킬/플레이북**: 현재 없음. 같은 실행 지식이 후보 2회 이상 반복될 때 `skills/`로 회수 — 그때 `when_to_use`·`required_receipt`·`mechanical_enforcement` 필수. 선제 신설은 비대화로 거부.
+- **도메인 스킬/플레이북**: `skills/content-consensus/SKILL.md` (retro-1 승격, 2026-06-11 — 5사이클 반복·blocking 12건 적발 실적으로 승격 조건 충족. when_to_use·required_receipt·mechanical_enforcement 명시). 그 외 신설은 같은 조건(2회+ 반복) 충족 시에만.
 - **엔지니어링 규약**: 초기 front-load 거부. 코드 규모·변경 빈도·운영 리스크 trigger 발생 시 `shared-skills/engineering-decision/SKILL.md` 경유로 단계 상승.
 - **비즈니스·가격·판매 가능성**: Discovery 단계 유예. `local_ready`의 수요 검증 패키지(계약 참조)가 선행 산출물이며, 가격·판매 판단은 handoff 이후. 유예이지 삭제가 아님.
