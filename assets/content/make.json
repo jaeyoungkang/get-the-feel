@@ -19,7 +19,12 @@
           "claim": "make는 무언가를 만들어 내어 결과물이 생기는 용법으로, do는 행위·활동을 수행하는 용법으로 학습자 사전에 구분되어 실려 있다."
         }
       ],
-      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+      "validation": {
+        "method": "human",
+        "strength": "strong",
+        "date": "2026-06-13",
+        "basis": "웹 검증(실재·서지·귀속, 2026-06-11) + 사용자 approve-4 승인(2026-06-13)"
+      }
     },
     {
       "id": "make-cause",
@@ -38,7 +43,12 @@
           "claim": "make + 목적어 + 보어/원형 구문은 주어가 대상이 어떤 상태에 이르거나 행동하게 하는 사역 관계를 윤곽 지으며, 결과 상태의 발생을 핵심으로 삼는다."
         }
       ],
-      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+      "validation": {
+        "method": "human",
+        "strength": "strong",
+        "date": "2026-06-13",
+        "basis": "웹 검증(실재·서지·귀속, 2026-06-11) + 사용자 approve-4 승인(2026-06-13)"
+      }
     }
   ],
   "training_items": [
@@ -136,7 +146,11 @@
       "object_label": "her birthday cake (created)",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
-      "choices": ["does", "makes", "gets"],
+      "choices": [
+        "does",
+        "makes",
+        "gets"
+      ],
       "answer_index": 1,
       "why_ko": "does her cake면 케이크에 관한 활동을 처리한다는 막연한 행위이고, gets her cake면 케이크를 사거나 받아 오는 도달이다. from scratch는 재료에서 없던 케이크를 빚어내는 제작을 못박으므로 makes가 맞다 — do(행위)·get(도달)과 달리 make는 결과물이 새로 생겨남을 그린다."
     },
@@ -149,7 +163,11 @@
       "object_label": "your homework (the activity)",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (경계 — 한국인 최대 혼동 지점)",
-      "choices": ["made", "gotten", "done"],
+      "choices": [
+        "made",
+        "gotten",
+        "done"
+      ],
       "answer_index": 2,
       "why_ko": "homework는 빚어낼 결과물이 아니라 '수행하는 활동'이라 do가 맞다(done) — *made your homework은 한국인이 가장 자주 틀리는 자리다. make는 끝에 형체 있는 결과물이 남을 때만 쓴다(make dinner). 숙제는 활동이라 do, 저녁은 결과물이라 make로 갈린다. (경계 문항: do/make의 핵심 분기)"
     },
@@ -162,7 +180,11 @@
       "object_label": "the passengers becoming angry (caused)",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
-      "choices": ["made", "left", "got"],
+      "choices": [
+        "made",
+        "left",
+        "got"
+      ],
       "answer_index": 0,
       "why_ko": "left the passengers angry는 화난 상태를 그냥 그대로 둔(방치한) 그림이고, got the passengers angry는 어떤 상태에 이르게 함을 그리지만 빚어내는 force가 약하다. made the passengers angry는 지연이 힘을 직접 밀어 넣어 '화난 상태'를 승객들에게 새로 빚어낸 사역이라, 결과 상태를 생겨나게 하는 force가 가장 직접적이다 — 세 동사 모두 문장은 성립하지만 그리는 그림(방치/약한 이행/결과 상태 빚기)이 갈린다."
     },
@@ -175,7 +197,11 @@
       "object_label": "the room becoming cozier (caused)",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
-      "choices": ["keep", "make", "get"],
+      "choices": [
+        "keep",
+        "make",
+        "get"
+      ],
       "answer_index": 1,
       "why_ko": "keep the room cozier는 이미 아늑한 상태를 유지함이고, get the room cozier는 그 상태에 이르게 하지만 빚어내는 force가 약하다. make는 조명이 힘을 가해 '더 아늑한' 결과 상태를 방에 새로 빚어낸 사역이라 맞다 — 셋 다 문법은 되지만 '없던 상태를 빚어 생겨나게 함'의 force는 make에 가장 또렷하다."
     },
@@ -188,7 +214,11 @@
       "object_label": "the landing becoming smooth (caused)",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
-      "choices": ["got", "kept", "made"],
+      "choices": [
+        "got",
+        "kept",
+        "made"
+      ],
       "answer_index": 2,
       "why_ko": "got her landing smooth는 그 상태에 이르게 하지만 빚어내는 force가 약하고, kept her landing smooth는 이미 매끄러운 상태를 유지함이다. made her landing smooth는 오랜 연습이 힘을 가해 '매끄러운' 결과 상태를 착지에 새로 빚어낸 사역이라 맞다 — 셋 다 문법은 되지만 '없던 결과 상태를 빚어 생겨나게 함'은 make에 가장 또렷하다."
     }
@@ -237,7 +267,11 @@
       "object_label": "spelling mistakes (produced)",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (경계 문항 — 보기 모두 문법적으로는 가능하다)",
-      "choices": ["do", "get", "make"],
+      "choices": [
+        "do",
+        "get",
+        "make"
+      ],
       "answer_index": 2,
       "why_ko": "mistake는 do가 아니라 make와 짝이다(make a mistake) — 실수는 '저지름'으로 없던 오류가 결과로 생겨나는 것이라 제작 감각에 묶인다. do mistake는 비문에 가깝고, get a mistake는 실수를 받아 온다는 엉뚱한 도달이 된다. 활동이면 do지만 결과물(여기선 오류)이 생기면 make라는 경계 자리다."
     },
@@ -250,7 +284,11 @@
       "object_label": "you becoming fresh (caused)",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
-      "choices": ["make", "get", "keep"],
+      "choices": [
+        "make",
+        "get",
+        "keep"
+      ],
       "answer_index": 0,
       "why_ko": "keep you fresh는 이미 맑은 상태를 유지함이고, get you fresh는 그 상태에 이르게 하지만 빚어내는 force가 약하다. make you fresh는 낮잠이 힘을 가해 '맑고 개운한' 상태를 새로 빚어낸 사역이라 맞다 — 셋 다 문법은 되지만 '없던 상태가 결과로 생겨나게 함'의 force는 make에 가장 또렷하다."
     },

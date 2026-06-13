@@ -19,7 +19,12 @@
           "claim": "동사는 행위자가 에너지를 내보내 대상을 자기 쪽 관계로 끌어들이는 동작연쇄를 윤곽 지을 수 있으며, take류는 행위자가 능동적으로 대상을 점유로 끌어들이는 행위를 윤곽 짓는다."
         }
       ],
-      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+      "validation": {
+        "method": "human",
+        "strength": "strong",
+        "date": "2026-06-13",
+        "basis": "웹 검증(실재·서지·귀속, 2026-06-11) + 사용자 approve-4 승인(2026-06-13)"
+      }
     },
     {
       "id": "take-carry",
@@ -38,7 +43,12 @@
           "claim": "take는 사람·사물을 화자에게서 떨어진 다른 장소로 데려가거나 가져가는 용법이 학습자 사전에 표준 용법으로 실려 있으며, bring(이쪽으로)과 방향이 대비된다."
         }
       ],
-      "validation": { "method": "subagent-consensus", "strength": "weak", "date": "2026-06-11" }
+      "validation": {
+        "method": "human",
+        "strength": "strong",
+        "date": "2026-06-13",
+        "basis": "웹 검증(실재·서지·귀속, 2026-06-11) + 사용자 approve-4 승인(2026-06-13)"
+      }
     }
   ],
   "training_items": [
@@ -153,7 +163,11 @@
       "object_label": "an umbrella (grasped)",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은?",
-      "choices": ["took", "had", "got"],
+      "choices": [
+        "took",
+        "had",
+        "got"
+      ],
       "answer_index": 0,
       "why_ko": "had umbrella는 우산이 이미 그의 영역 안에 있는 정적 상태이고, got은 외부에서 와 닿아 받는 도달까지 포함한다. 여기선 그가 스탠드에서 손을 뻗어 우산을 능동적으로 집어 드는 동작이라 took이 맞다 — have(이미 안)·get(와 닿음)과 달리 take는 내가 손을 뻗어 잡는 점유다."
     },
@@ -166,7 +180,11 @@
       "object_label": "a glass of juice (grasped)",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
-      "choices": ["had", "made", "took"],
+      "choices": [
+        "had",
+        "made",
+        "took"
+      ],
       "answer_index": 2,
       "why_ko": "had a glass면 주스가 그냥 그녀 영역 안에 있는 정적 상태고, made a glass면 그녀가 주스를 빚어 만든 것이 된다. 쟁반이 돌아올 때 그녀가 손을 뻗어 한 잔을 집어 든 능동적 점유라 took이 맞다 — 세 동사 모두 문장은 성립하지만 그리는 그림(정적 보유/제작/집어 듦)이 갈린다."
     },
@@ -179,7 +197,11 @@
       "object_label": "your passport (carried along)",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
-      "choices": ["take", "get", "have"],
+      "choices": [
+        "take",
+        "get",
+        "have"
+      ],
       "answer_index": 0,
       "why_ko": "get your passport이면 여권을 손에 넣는 도달이고, have your passport이면 여권이 이미 곁에 있는 상태다 — 둘 다 화자 기준의 방향(deixis)이 없다. with you to the airport은 여권을 지닌 채 화자가 선 자리에서 멀어지는 공항 쪽으로 들고 가는 이동이라 take가 맞다 — 셋 다 문법은 되지만 '화자에게서 멀어지는 방향'으로 데려가는 그림은 take에만 있다."
     },
@@ -192,7 +214,11 @@
       "object_label": "the next exit (chosen)",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (경계 문항 — 보기 모두 문법적으로는 가능하다)",
-      "choices": ["take", "have", "get"],
+      "choices": [
+        "take",
+        "have",
+        "get"
+      ],
       "answer_index": 0,
       "why_ko": "take the exit은 여러 길 중 다음 출구를 능동적으로 골라 그 길로 들어서는 점유 감각의 확장이다 — 손을 뻗어 하나를 잡듯 경로를 골라잡는다. have the exit(출구가 영역 안에 있음)·get the exit(출구에 도달)과 달리, take는 '내가 골라 그 길을 취한다'는 의지를 그린다. 길을 잡는 것처럼 보여도 능동 점유에 묶이는 경계 자리다."
     }
@@ -241,7 +267,11 @@
       "object_label": "a deep breath (drawn in)",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
-      "choices": ["had", "took", "got"],
+      "choices": [
+        "had",
+        "took",
+        "got"
+      ],
       "answer_index": 1,
       "why_ko": "had a breath면 숨이 그냥 있는 상태고, got a breath이면 숨 돌릴 틈이 와 닿은 도달이다. take a breath은 그녀가 능동적으로 숨을 끌어 들이마시는 행위라 took이 맞다 — 공기를 내 몸 영역 안으로 의지적으로 들이는 take의 점유 감각이다. 세 보기 모두 문장은 되지만 그리는 그림이 갈린다."
     },
@@ -254,7 +284,11 @@
       "object_label": "this message (carried to the manager)",
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
-      "choices": ["take", "get", "have"],
+      "choices": [
+        "take",
+        "get",
+        "have"
+      ],
       "answer_index": 0,
       "why_ko": "get this message면 메시지를 손에 넣는 도달이고, have this message면 메시지가 이미 곁에 있는 상태다 — 둘 다 화자 기준의 방향(deixis)이 없다. to your manager는 메시지를 지닌 채 화자가 선 자리에서 멀어지는 매니저 쪽으로 전해 가는 이동이라 take가 맞다 — 셋 다 문법은 되지만 '화자에게서 멀어지는 방향'으로 전해 가는 그림은 take에만 있다."
     },

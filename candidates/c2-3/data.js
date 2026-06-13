@@ -23,9 +23,10 @@ window.CONTENT_ALL = {
         }
       ],
       "validation": {
-        "method": "subagent-consensus",
-        "strength": "weak",
-        "date": "2026-06-11"
+        "method": "human",
+        "strength": "strong",
+        "date": "2026-06-13",
+        "basis": "웹 검증(실재·서지·귀속, 2026-06-11) + 사용자 approve-4 승인(2026-06-13)"
       }
     },
     {
@@ -46,9 +47,10 @@ window.CONTENT_ALL = {
         }
       ],
       "validation": {
-        "method": "subagent-consensus",
-        "strength": "weak",
-        "date": "2026-06-11"
+        "method": "human",
+        "strength": "strong",
+        "date": "2026-06-13",
+        "basis": "웹 검증(실재·서지·귀속, 2026-06-11) + 사용자 approve-4 승인(2026-06-13)"
       }
     }
   ],
@@ -319,9 +321,10 @@ window.CONTENT_ALL = {
         }
       ],
       "validation": {
-        "method": "subagent-consensus",
-        "strength": "weak",
-        "date": "2026-06-11"
+        "method": "human",
+        "strength": "strong",
+        "date": "2026-06-13",
+        "basis": "웹 검증(실재·서지·귀속, 2026-06-11) + 사용자 approve-4 승인(2026-06-13)"
       }
     },
     {
@@ -342,9 +345,10 @@ window.CONTENT_ALL = {
         }
       ],
       "validation": {
-        "method": "subagent-consensus",
-        "strength": "weak",
-        "date": "2026-06-11"
+        "method": "human",
+        "strength": "strong",
+        "date": "2026-06-13",
+        "basis": "웹 검증(실재·서지·귀속, 2026-06-11) + 사용자 approve-4 승인(2026-06-13)"
       }
     }
   ],
@@ -630,9 +634,10 @@ window.CONTENT_ALL = {
         }
       ],
       "validation": {
-        "method": "subagent-consensus",
-        "strength": "weak",
-        "date": "2026-06-11"
+        "method": "human",
+        "strength": "strong",
+        "date": "2026-06-13",
+        "basis": "웹 검증(실재·서지·귀속, 2026-06-11) + 사용자 approve-4 승인(2026-06-13)"
       }
     },
     {
@@ -653,9 +658,10 @@ window.CONTENT_ALL = {
         }
       ],
       "validation": {
-        "method": "subagent-consensus",
-        "strength": "weak",
-        "date": "2026-06-11"
+        "method": "human",
+        "strength": "strong",
+        "date": "2026-06-13",
+        "basis": "웹 검증(실재·서지·귀속, 2026-06-11) + 사용자 approve-4 승인(2026-06-13)"
       }
     }
   ],
@@ -941,9 +947,10 @@ window.CONTENT_ALL = {
         }
       ],
       "validation": {
-        "method": "subagent-consensus",
-        "strength": "weak",
-        "date": "2026-06-11"
+        "method": "human",
+        "strength": "strong",
+        "date": "2026-06-13",
+        "basis": "웹 검증(실재·서지·귀속, 2026-06-11) + 사용자 approve-4 승인(2026-06-13)"
       }
     },
     {
@@ -964,9 +971,10 @@ window.CONTENT_ALL = {
         }
       ],
       "validation": {
-        "method": "subagent-consensus",
-        "strength": "weak",
-        "date": "2026-06-11"
+        "method": "human",
+        "strength": "strong",
+        "date": "2026-06-13",
+        "basis": "웹 검증(실재·서지·귀속, 2026-06-11) + 사용자 approve-4 승인(2026-06-13)"
       }
     }
   ],
@@ -1247,9 +1255,10 @@ window.CONTENT_ALL = {
         }
       ],
       "validation": {
-        "method": "subagent-consensus",
-        "strength": "weak",
-        "date": "2026-06-11"
+        "method": "human",
+        "strength": "strong",
+        "date": "2026-06-13",
+        "basis": "웹 검증(실재·서지·귀속, 2026-06-11) + 사용자 approve-4 승인(2026-06-13)"
       }
     },
     {
@@ -1265,9 +1274,10 @@ window.CONTENT_ALL = {
         }
       ],
       "validation": {
-        "method": "subagent-consensus",
-        "strength": "weak",
-        "date": "2026-06-11"
+        "method": "human",
+        "strength": "strong",
+        "date": "2026-06-13",
+        "basis": "웹 검증(실재·서지·귀속, 2026-06-11) + 사용자 approve-4 승인(2026-06-13)"
       }
     }
   ],
@@ -1553,9 +1563,10 @@ window.CONTENT_ALL = {
         }
       ],
       "validation": {
-        "method": "subagent-consensus",
-        "strength": "weak",
-        "date": "2026-06-11"
+        "method": "human",
+        "strength": "strong",
+        "date": "2026-06-13",
+        "basis": "웹 검증(실재·서지·귀속, 2026-06-11) + 사용자 approve-4 승인(2026-06-13)"
       }
     },
     {
@@ -1571,9 +1582,10 @@ window.CONTENT_ALL = {
         }
       ],
       "validation": {
-        "method": "subagent-consensus",
-        "strength": "weak",
-        "date": "2026-06-11"
+        "method": "human",
+        "strength": "strong",
+        "date": "2026-06-13",
+        "basis": "웹 검증(실재·서지·귀속, 2026-06-11) + 사용자 approve-4 승인(2026-06-13)"
       }
     }
   ],
@@ -1844,9 +1856,10 @@ window.CONTENT_ALL = {
         }
       ],
       "validation": {
-        "method": "subagent-consensus",
-        "strength": "weak",
-        "date": "2026-06-11"
+        "method": "human",
+        "strength": "strong",
+        "date": "2026-06-13",
+        "basis": "웹 검증(실재·서지·귀속, 2026-06-11) + 사용자 approve-4 승인(2026-06-13)"
       }
     },
     {
@@ -1862,9 +1875,10 @@ window.CONTENT_ALL = {
         }
       ],
       "validation": {
-        "method": "subagent-consensus",
-        "strength": "weak",
-        "date": "2026-06-11"
+        "method": "human",
+        "strength": "strong",
+        "date": "2026-06-13",
+        "basis": "웹 검증(실재·서지·귀속, 2026-06-11) + 사용자 approve-4 승인(2026-06-13)"
       }
     }
   ],
@@ -2150,9 +2164,10 @@ window.CONTENT_ALL = {
         }
       ],
       "validation": {
-        "method": "subagent-consensus",
-        "strength": "weak",
-        "date": "2026-06-11"
+        "method": "human",
+        "strength": "strong",
+        "date": "2026-06-13",
+        "basis": "웹 검증(실재·서지·귀속, 2026-06-11) + 사용자 approve-4 승인(2026-06-13)"
       }
     },
     {
@@ -2168,9 +2183,10 @@ window.CONTENT_ALL = {
         }
       ],
       "validation": {
-        "method": "subagent-consensus",
-        "strength": "weak",
-        "date": "2026-06-11"
+        "method": "human",
+        "strength": "strong",
+        "date": "2026-06-13",
+        "basis": "웹 검증(실재·서지·귀속, 2026-06-11) + 사용자 approve-4 승인(2026-06-13)"
       }
     },
     {
@@ -2186,9 +2202,10 @@ window.CONTENT_ALL = {
         }
       ],
       "validation": {
-        "method": "subagent-consensus",
-        "strength": "weak",
-        "date": "2026-06-11"
+        "method": "human",
+        "strength": "strong",
+        "date": "2026-06-13",
+        "basis": "웹 검증(실재·서지·귀속, 2026-06-11) + 사용자 approve-4 승인(2026-06-13)"
       }
     }
   ],
