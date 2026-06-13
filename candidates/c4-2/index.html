@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>get-the-feel — 8개 감각으로 영어 동사 익히고 써 보기</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="app" class="app">
+    <!-- 화면은 app.js가 렌더한다 -->
+    <noscript>
+      <p class="noscript">이 도구는 JavaScript가 필요합니다. 브라우저에서 스크립트를 켜고 다시 열어 주세요.</p>
+    </noscript>
+  </main>
+
+  <!-- 상태·검증 정보는 첫 화면에서 치우고 ⓘ 패널 뒤로 (UX 문법 G5). app.js가 토글한다. -->
+  <button class="info-btn" id="info-btn" type="button" aria-label="도구 정보 열기" aria-expanded="false">ⓘ</button>
+  <div class="info-panel" id="info-panel" hidden>
+    <p class="info-title">도구 정보 (만든 사람용)</p>
+    <ul class="info-list">
+      <li>콘텐츠: 8개 감각 항목 128문장 · 버전 v2 (c4-1과 동일 코퍼스)</li>
+      <li>감각: have · get · take · make · keep (핵심 동사) / up · out (불변화사) / 구동사(V+up)</li>
+      <li>학습 경로: ① 알아보기(고르기) ② 써보기(써서 익히기, 산출) — 둘 다 같은 코퍼스에서 나옴</li>
+      <li>알아보기 = 인식(고르는 힘) / 써보기 = 산출(꺼내 쓰는 힘). 두 점수는 따로 본다.</li>
+      <li>써보기 난이도: 빈칸 타이핑(쉬움) · 어순 재배열(중간) · 전문 쓰기(어려움)</li>
+      <li>전문 쓰기 자가채점은 약한 verdict — 스스로 표기한 점수라 통계에 합치지 않음</li>
+      <li>출처 검증 상태: 핵심 감각 승인됨 · get+과거분사 감각은 잠정(전문 리뷰 대기)</li>
+      <li>후보 ID: c4-2</li>
+    </ul>
+    <p class="info-note">이 정보는 도구를 만드는 사람을 위한 메모입니다. 학습에는 필요하지 않습니다.</p>
+    <button class="btn ghost small" id="export-log" type="button">세션 기록 내보내기 (JSON)</button>
+  </div>
+
+  <!-- data.js가 먼저 로드되어 window.CONTENT_ALL을 채운다 -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
