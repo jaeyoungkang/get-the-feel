@@ -9,7 +9,7 @@ SRC="$ROOT/candidates/$CAND"
 [ -f "$SRC/index.html" ] || { echo "후보 없음: $SRC"; exit 1; }
 node "$ROOT/tools/verdict/check.mjs" "$CAND" >/dev/null || { echo "verdict FAIL — 배포 차단"; exit 1; }
 WORK="$(mktemp -d)"
-git clone -q --depth 1 git@github.com:jaeyoung2026/get-the-feel.git "$WORK"
+git clone -q --depth 1 https://github.com/jaeyoung2026/get-the-feel.git "$WORK"
 cp "$SRC"/index.html "$SRC"/styles.css "$SRC"/app.js "$SRC"/data.js "$WORK"/
 cd "$WORK" && git add -A
 git diff --cached --quiet && { echo "변경 없음"; exit 0; }

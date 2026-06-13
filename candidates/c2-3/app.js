@@ -388,9 +388,23 @@
   // ===================================================================
 
   // 공통 칩 (둥근 사각 + 라벨)
+  // 라벨이 상자 폭을 넘으면 글자 크기를 줄이고, 그래도 넘치면 말줄임 (G9 보강 — 명시 필드도 길 수 있다)
+  function fitText(label, maxW, baseSize) {
+    var s = String(label);
+    var size = baseSize;
+    var est = function (n, fs) { return n * fs * 0.58; };
+    if (est(s.length, size) > maxW) size = Math.max(9, Math.floor(baseSize * maxW / est(s.length, baseSize)));
+    if (size <= 9 && est(s.length, 9) > maxW) {
+      var keep = Math.max(4, Math.floor(maxW / (9 * 0.58)) - 1);
+      s = s.slice(0, keep) + "…";
+      size = 9;
+    }
+    return { text: s, size: size };
+  }
   function chip(x, y, w, h, col, label) {
+    var f = fitText(label, w - 12, 12);
     return '<rect x="' + x + '" y="' + y + '" width="' + w + '" height="' + h + '" rx="9" fill="#ffffff" stroke="' + col + '" stroke-width="2"/>' +
-      '<text x="' + (x + w / 2) + '" y="' + (y + h / 2 + 5) + '" text-anchor="middle" font-size="12" fill="#232020" font-weight="600">' + esc(label) + '</text>';
+      '<text x="' + (x + w / 2) + '" y="' + (y + h / 2 + 5) + '" text-anchor="middle" font-size="' + f.size + '" fill="#232020" font-weight="600">' + esc(f.text) + '</text>';
   }
 
   // --- have: 칩이 원(영역) 안에 내려앉아 정적으로 자리한다 (G1). 누르는 손 없음. ---
@@ -403,7 +417,7 @@
     return (
       '<svg viewBox="' + vb + '" role="img" aria-label="대상 칩이 영역 원 안에 정적으로 자리한 그림">' +
         '<ellipse cx="' + cx + '" cy="' + cy + '" rx="' + rx + '" ry="' + ry + '" fill="#f3edf4" stroke="' + col + '" stroke-width="2"/>' +
-        '<text x="' + cx + '" y="' + (cy - ry + 16) + '" text-anchor="middle" font-size="11" fill="' + col + '">' + esc(subjectLabel) + ' 영역</text>' +
+        '<text x="' + cx + '" y="' + (cy - ry + 16) + '" text-anchor="middle" font-size="11" fill="' + col + '">' + esc(fitText(subjectLabel, 150, 11).text) + ' 영역</text>' +
         '<g class="' + cls + '"' + startStyle + '>' +
           chip(cx - 52, cy - 16, 104, 36, col, objectLabel) +
         '</g>' +
@@ -428,7 +442,7 @@
     return (
       '<svg viewBox="' + vb + '" role="img" aria-label="영역 안 대상이 밖으로 흘러나가려는데 손이 눌러 붙드는 그림">' +
         '<ellipse cx="' + cx + '" cy="' + cy + '" rx="' + rx + '" ry="' + ry + '" fill="#e3f2ef" stroke="' + col + '" stroke-width="2"/>' +
-        '<text x="' + cx + '" y="' + (cy - ry + 16) + '" text-anchor="middle" font-size="11" fill="' + col + '">' + esc(subjectLabel) + ' 영역</text>' +
+        '<text x="' + cx + '" y="' + (cy - ry + 16) + '" text-anchor="middle" font-size="11" fill="' + col + '">' + esc(fitText(subjectLabel, 150, 11).text) + ' 영역</text>' +
         // 흘러나가려는 경향: 칩 → 경계 밖 점선 화살표 (빠져나가려는 흐름)
         '<line x1="' + (edgeX - 14) + '" y1="' + (cy - 22) + '" x2="' + (outX - 6) + '" y2="' + (cy - 22) + '" stroke="#bf6b5a" stroke-width="2" stroke-dasharray="4 4" opacity="0.85"/>' +
         '<path d="M' + outX + ' ' + (cy - 22) + ' L' + (outX - 12) + ' ' + (cy - 28) + ' L' + (outX - 12) + ' ' + (cy - 16) + ' Z" fill="#bf6b5a" opacity="0.85"/>' +
@@ -461,7 +475,7 @@
     return (
       '<svg viewBox="' + vb + '" role="img" aria-label="대상이 영역 원 밖에서 화살표를 따라 안으로 들어와 닿는 그림">' +
         '<ellipse cx="' + cx + '" cy="' + cy + '" rx="' + rx + '" ry="' + ry + '" fill="#eef4fa" stroke="' + col + '" stroke-width="2"/>' +
-        '<text x="' + cx + '" y="' + (cy - ry + 16) + '" text-anchor="middle" font-size="11" fill="' + col + '">' + esc(subjectLabel) + ' 영역</text>' +
+        '<text x="' + cx + '" y="' + (cy - ry + 16) + '" text-anchor="middle" font-size="11" fill="' + col + '">' + esc(fitText(subjectLabel, 150, 11).text) + ' 영역</text>' +
         '<line x1="' + ax + '" y1="' + cy + '" x2="' + (cx - 6) + '" y2="' + cy + '" stroke="' + col + '" stroke-width="3" stroke-dasharray="4 4"/>' +
         '<path d="M' + cx + ' ' + cy + ' L' + (cx - 16) + ' ' + (cy - 8) + ' L' + (cx - 16) + ' ' + (cy + 8) + ' Z" fill="' + col + '"/>' +
         '<text x="' + (ax + 6) + '" y="' + (cy - 12) + '" font-size="10" fill="#8d867d">밖</text>' +
@@ -483,7 +497,7 @@
     return (
       '<svg viewBox="' + vb + '" role="img" aria-label="주어의 손이 영역 밖 대상을 붙잡아 원 안으로 끌어들이는 그림">' +
         '<ellipse cx="' + cx + '" cy="' + cy + '" rx="' + rx + '" ry="' + ry + '" fill="#f6efe2" stroke="' + col + '" stroke-width="2"/>' +
-        '<text x="' + cx + '" y="' + (cy - ry + 16) + '" text-anchor="middle" font-size="11" fill="' + col + '">' + esc(subjectLabel) + ' 영역</text>' +
+        '<text x="' + cx + '" y="' + (cy - ry + 16) + '" text-anchor="middle" font-size="11" fill="' + col + '">' + esc(fitText(subjectLabel, 150, 11).text) + ' 영역</text>' +
         '<line x1="' + (cx + 4) + '" y1="' + cy + '" x2="' + (reach - 8) + '" y2="' + cy + '" stroke="' + col + '" stroke-width="3"/>' +
         '<path d="M' + (reach - 10) + ' ' + (cy - 12) + ' A 12 12 0 1 0 ' + (reach - 10) + ' ' + (cy + 12) + '" fill="none" stroke="' + col + '" stroke-width="3"/>' +
         '<path d="M' + (cx + 30) + ' ' + cy + ' L' + (cx + 46) + ' ' + (cy - 7) + ' L' + (cx + 46) + ' ' + (cy + 7) + ' Z" fill="' + col + '"/>' +
