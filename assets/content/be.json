@@ -1,0 +1,308 @@
+{
+  "axis": "core-verbs",
+  "item": "be",
+  "senses": [
+    {
+      "id": "be-exist-locate",
+      "ko": "주어가 무언가를 소유하거나 어디론가 움직이는 게 아니라, 그냥 어떤 자리에 존재하거나 위치해 있다는 가장 바탕이 되는 감각.",
+      "image": "텅 빈 공간에 무언가가 '거기 있다'고 점 하나가 찍히는 그림 — There is로 존재를 무대에 올리거나, 주어가 어느 자리에 가만히 놓여 있는 그림.",
+      "boundary_ko": "There is/are는 존재 자체를 무대에 도입한다(There is a book on the table = 책이 거기 있다는 존재 도입). have는 그것이 누구의 영역 안에 속하는지를 말한다(I have a book = 책이 내 영역 안). 같은 장면도 be는 '있다(존재·위치)', have는 '~의 것(영역 내 소유)'으로 갈린다.",
+      "source_refs": [
+        {
+          "source_id": "langacker-1987",
+          "locator": "Vol. I, Ch. on stative relations — copula / existential predication (trajector at a location)",
+          "claim": "be(계사·존재 구문)는 동작이 아니라 주어가 어떤 위치·관계에 정적으로 존재함을 윤곽 짓는 가장 기본적인 정적 술어다 — 변화나 에너지 전달 없이 trajector가 landmark(자리)에 놓인 관계를 그린다."
+        }
+      ],
+      "validation": {
+        "method": "subagent-consensus",
+        "strength": "weak",
+        "date": "2026-06-13",
+        "basis": "be(계사/존재)의 정적 관계 윤곽 주장은 langacker-1987 stative relation 계열(have-domain-location과 같은 T1 축)에서 파생. 장 수준 locator(stative relation·existential)로 표기했으나 'existential there 구문'의 절·표제어 단위 정확 페이지는 미확인 — 사람 리뷰(approve 절차) 전까지 weak. there is(존재 도입) vs have(소유)의 대비는 교육용 단순화."
+      }
+    },
+    {
+      "id": "be-state",
+      "ko": "주어가 어떤 상태나 정체로 옮겨 가는 게 아니라, 지금 그 상태·정체로 가만히 머물러 있다는 정적 감각 — 계사 be가 주어와 상태를 등호로 잇는다.",
+      "image": "주어가 '피곤함'이나 '선생님'이라는 자리에 머물러 가만히 있는 그림 — 어디서 그리로 옮겨 온 움직임 없이, 지금 그 상태·정체 위에 그대로 놓여 있다.",
+      "boundary_ko": "be tired는 피곤한 상태에 '머물러 있음'(I am tired = 지금 피곤한 자리에 있음), get tired는 그 상태로 '옮겨 가 닿음'(I get tired = 피곤한 자리로 이동하는 진입 사건). be married는 부부인 상태에 머묾, get married는 그 상태로 막 진입함(c4-1 get-into-state와 연결). 시점 부사가 붙어 '~한 순간/그때'를 가리키면 머묾이 아니라 진입이라 get 쪽이다.",
+      "source_refs": [
+        {
+          "source_id": "langacker-1987",
+          "locator": "Vol. I, Ch. on stative relations — copula + adjective/nominal (predicate as a stable atemporal relation)",
+          "claim": "be + 형용사·명사(계사 술어)는 주어가 어떤 속성·정체와 맺는 안정적·비시간적(stative) 관계를 윤곽 짓는다 — 상태로의 변화가 아니라 그 상태에 머묾을 그린다."
+        },
+        {
+          "source_id": "lakoff-1993",
+          "locator": "The Contemporary Theory of Metaphor — Event Structure Metaphor (STATES ARE LOCATIONS): being in a state",
+          "claim": "상태는 위치라는 사건 구조 은유에서 be + 상태는 그 위치(상태 자리)에 '있음'을, 변화(get)는 그 위치로의 '이동'을 그린다 — be는 머묾, get은 그리로 옮겨 감의 방향 대비."
+        }
+      ],
+      "validation": {
+        "method": "subagent-consensus",
+        "strength": "weak",
+        "date": "2026-06-13",
+        "basis": "be + 상태/정체의 정적 관계 윤곽은 langacker-1987 stative relation, be(머묾) vs get(진입) 대비는 lakoff-1993 STATES ARE LOCATIONS(get.json get-state-change와 같은 T1 축)에서 파생. 장 수준 locator로 표기, 절·표제어 단위 정확 위치는 미확인 — strong 승격은 사람 리뷰 대기."
+      }
+    }
+  ],
+  "training_items": [
+    {
+      "id": "be-t1",
+      "sense_id": "be-exist-locate",
+      "sentence": "There is a small lamp on the desk.",
+      "sentence_ko": "책상 위에 작은 램프가 하나 있어.",
+      "subject_label": "a small lamp",
+      "object_label": "on the desk",
+      "type": "sense-choice",
+      "prompt": "이 There is가 그리는 그림은?",
+      "choices": [
+        "램프가 책상의 영역에 속한, 책상이 가진 물건이다",
+        "작은 램프가 책상 위 그 자리에 그냥 존재한다고 무대에 올린다",
+        "누군가 램프를 책상 위로 옮겨다 놓는 동작이다"
+      ],
+      "answer_index": 1,
+      "why_ko": "There is는 램프가 '누구의 것'인지(have)도, 옮기는 동작도 아니라, 램프가 그 자리에 존재한다는 것 자체를 무대에 올리는 그림이다. 존재·위치 도입이 be의 바탕 감각이다."
+    },
+    {
+      "id": "be-t2",
+      "sense_id": "be-exist-locate",
+      "sentence": "My keys are somewhere under the sofa.",
+      "sentence_ko": "내 열쇠가 소파 밑 어딘가에 있어.",
+      "subject_label": "my keys",
+      "object_label": "under the sofa",
+      "type": "sense-choice",
+      "prompt": "이 are가 그리는 그림은?",
+      "choices": [
+        "열쇠가 소파라는 영역 안에 속한 소파의 소유물이다",
+        "내가 열쇠를 소파 밑으로 차 넣은 동작이다",
+        "열쇠가 소파 밑 어느 자리에 그냥 놓여 존재한다"
+      ],
+      "answer_index": 2,
+      "why_ko": "be는 열쇠가 누구 것인지나 움직임이 아니라, 그것이 소파 밑 어느 자리에 존재·위치한다는 정적인 그림이다. 위치를 말할 뿐 소유(have)도 이동도 아니다."
+    },
+    {
+      "id": "be-t3",
+      "sense_id": "be-exist-locate",
+      "sentence": "There are two cafes near the station.",
+      "sentence_ko": "역 근처에 카페가 두 군데 있어.",
+      "subject_label": "two cafes",
+      "object_label": "near the station",
+      "type": "sense-choice",
+      "prompt": "이 There are가 그리는 그림으로 가장 가까운 것은?",
+      "choices": [
+        "카페 두 곳이 역 근처에 존재한다고 무대에 올린다",
+        "역이 카페 두 곳을 영역 안에 거느린 소유 관계다",
+        "카페 두 곳이 역 쪽으로 옮겨 와 자리를 잡는 중이다"
+      ],
+      "answer_index": 0,
+      "why_ko": "There are는 역이 카페를 '가졌다'(have)는 소유도, 옮겨 오는 동작도 아니라, 카페 두 곳이 그 근처에 존재한다는 사실 자체를 도입하는 그림이다."
+    },
+    {
+      "id": "be-t4",
+      "sense_id": "be-exist-locate",
+      "sentence": "The children are out in the garden right now.",
+      "sentence_ko": "아이들은 지금 정원에 나가 있어.",
+      "subject_label": "the children",
+      "object_label": "in the garden",
+      "type": "sense-choice",
+      "prompt": "이 are가 그리는 그림은?",
+      "choices": [
+        "아이들이 정원을 자기 영역으로 가지고 있다",
+        "아이들이 지금 정원이라는 자리에 존재·위치해 있다",
+        "아이들이 정원을 향해 막 뛰어 들어가는 도달의 순간이다"
+      ],
+      "answer_index": 1,
+      "why_ko": "be in the garden은 정원을 소유하거나(have) 그리로 도달하는(get) 게 아니라, 아이들이 지금 그 자리에 존재·위치해 있다는 정적인 그림이다."
+    },
+    {
+      "id": "be-t5",
+      "sense_id": "be-state",
+      "sentence": "My grandfather is a retired fisherman.",
+      "sentence_ko": "우리 할아버지는 은퇴한 어부야.",
+      "subject_label": "my grandfather",
+      "object_label": "a retired fisherman",
+      "type": "sense-choice",
+      "prompt": "이 is가 그리는 그림은? (주어와 정체를 잇는다)",
+      "choices": [
+        "할아버지가 어부라는 직업을 영역 안에 소유물처럼 지니고 있다",
+        "할아버지가 막 어부라는 신분으로 옮겨 가 그 자리에 닿았다",
+        "할아버지가 은퇴한 어부라는 정체로 지금 그대로 머물러 있다"
+      ],
+      "answer_index": 2,
+      "why_ko": "be a fisherman은 직업을 '가진'(have) 것도, 그 신분으로 '옮겨 간'(get) 사건도 아니라, 할아버지가 그 정체와 등호로 이어져 그대로 머물러 있다는 계사의 정적 감각이다."
+    },
+    {
+      "id": "be-t6",
+      "sense_id": "be-state",
+      "sentence": "The soup is still warm enough to eat.",
+      "sentence_ko": "수프가 아직 먹을 만큼 따뜻해.",
+      "subject_label": "the soup",
+      "object_label": "warm",
+      "type": "sense-choice",
+      "prompt": "이 is warm이 그리는 그림으로 가장 가까운 것은?",
+      "choices": [
+        "수프가 따뜻한 상태로 지금 그대로 머물러 있다",
+        "수프가 따뜻한 상태로 막 옮겨 가 그 자리에 닿는 변화다",
+        "수프가 따뜻함을 영역 안에 담아 가지고 있다"
+      ],
+      "answer_index": 0,
+      "why_ko": "be warm은 따뜻한 상태로 '옮겨 가 닿는'(get warm) 변화가 아니라, 지금 그 상태에 그대로 머물러 있다는 정적 그림이다. still(아직)이 변화가 아닌 머묾을 가리킨다."
+    },
+    {
+      "id": "be-t7",
+      "sense_id": "be-state",
+      "sentence": "She is quite nervous before every exam.",
+      "sentence_ko": "그녀는 시험 때마다 꽤 긴장해.",
+      "subject_label": "she",
+      "object_label": "nervous",
+      "type": "sense-choice",
+      "prompt": "이 is nervous가 그리는 그림은?",
+      "choices": [
+        "그녀가 긴장이라는 감정을 영역 안에 가지고 있다",
+        "그녀가 긴장한 상태로 막 옮겨 가 그 자리에 닿는 진입 사건이다",
+        "그녀가 시험 때마다 긴장한 상태에 그대로 놓여 머문다"
+      ],
+      "answer_index": 2,
+      "why_ko": "be nervous는 긴장한 상태로 '진입하는'(get nervous) 사건이 아니라, 시험 때마다 그 상태에 머물러 있다는 정적 그림이다. 진입의 순간이 아니라 머무는 상태를 그린다."
+    },
+    {
+      "id": "be-t8",
+      "sense_id": "be-exist-locate",
+      "sentence": "There ___ a long crack in the old ceiling.",
+      "sentence_ko": "오래된 천장에 긴 금이 하나 가 있어.",
+      "subject_label": "a long crack",
+      "object_label": "in the ceiling",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (둘 다 문법은 되지만 그림이 다르다)",
+      "choices": [
+        "has",
+        "is",
+        "makes"
+      ],
+      "answer_index": 1,
+      "why_ko": "There is는 금이 천장에 '존재한다'고 무대에 올리는 그림이다. The ceiling has a crack(천장이 금을 영역 안에 가짐)도 문법은 되지만, There ___ 틀은 존재 도입이라 has가 들어갈 자리가 아니다 — 존재 자체를 세우는 is가 맞다. makes는 금을 새로 만들어 낸다는 제작이라 그림이 다르다. be(존재 도입)·have(영역 내 소유)·make(제작)의 감각 대비."
+    },
+    {
+      "id": "be-t9",
+      "sense_id": "be-state",
+      "sentence": "By midnight everyone ___ fast asleep in the cabin.",
+      "sentence_ko": "자정 무렵엔 다들 오두막에서 곤히 잠들어 있었어.",
+      "subject_label": "everyone",
+      "object_label": "asleep",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (둘 다 문법은 되지만 그림이 다르다)",
+      "choices": [
+        "was",
+        "got",
+        "had"
+      ],
+      "answer_index": 0,
+      "why_ko": "got asleep은 결합 자체가 부자연스럽다 — 영어는 '잠드는' 진입을 fall asleep이나 get to sleep으로 말하지 get asleep으로 쓰지 않는다. had asleep도 비문이다. 그 위에 감각으로 봐도, By midnight everyone was asleep은 자정 무렵 모두가 '잠든 상태에 머물러 있던' 정지 화면이라 머묾을 그리는 be가 맞다 — by midnight은 그 시각의 상태를 묻는 머묾 표현이다. be(상태에 머묾)·get(상태로 진입)의 대비이되, 여기선 get 쪽 결합 자체가 서지 않는다."
+    },
+    {
+      "id": "be-t10",
+      "sense_id": "be-state",
+      "sentence": "He ___ angry the whole evening after the argument.",
+      "sentence_ko": "그는 말다툼 뒤로 저녁 내내 화가 나 있었어.",
+      "subject_label": "he",
+      "object_label": "angry",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (둘 다 문법은 되지만 그림이 다르다)",
+      "choices": [
+        "got",
+        "was",
+        "kept"
+      ],
+      "answer_index": 1,
+      "why_ko": "the whole evening(저녁 내내)은 화난 상태가 '쭉 이어진 머묾'을 가리키므로 그 상태에 머물러 있음을 그리는 was가 맞다. got angry는 화난 상태로 '막 옮겨 가 닿는' 한 순간의 진입이라 '내내'와 안 어울리고, kept angry는 비문에 가깝다(머물려면 stayed angry). be(상태에 머묾)·get(상태로의 진입)의 대비 — 지속을 가리키는 부사가 머묾 쪽을 못박는다."
+    }
+  ],
+  "transfer_items": [
+    {
+      "id": "be-x1",
+      "sense_id": "be-exist-locate",
+      "sentence": "There is plenty of room for everyone in the back.",
+      "sentence_ko": "뒤쪽에 다들 앉을 자리가 넉넉히 있어.",
+      "subject_label": "plenty of room",
+      "object_label": "in the back",
+      "type": "sense-choice",
+      "prompt": "추상적인 '여유 공간'을 두고 쓴 이 There is의 감각은?",
+      "choices": [
+        "넉넉한 공간이 뒤쪽에 존재한다고 무대에 올린다",
+        "뒤쪽 좌석이 그 공간을 영역 안에 소유하고 있다",
+        "사람들이 뒤쪽 공간을 향해 옮겨 가 자리를 채운다"
+      ],
+      "answer_index": 0,
+      "why_ko": "room(여유 공간)처럼 손에 잡히지 않는 것도 be는 '누구의 것'(have)이나 이동이 아니라, 그것이 그 자리에 존재한다고 도입하는 그림으로 그린다. 추상물의 존재도 be의 같은 도식이다."
+    },
+    {
+      "id": "be-x2",
+      "sense_id": "be-exist-locate",
+      "sentence": "The nearest hospital is twenty minutes away by car.",
+      "sentence_ko": "가장 가까운 병원도 차로 20분 거리야.",
+      "subject_label": "the nearest hospital",
+      "object_label": "twenty minutes away",
+      "type": "sense-choice",
+      "prompt": "거리를 두고 쓴 이 is의 그림으로 가장 가까운 것은?",
+      "choices": [
+        "병원이 20분이라는 시간을 영역 안에 가지고 있다",
+        "병원이 차로 20분 떨어진 그 위치에 자리해 존재한다",
+        "병원이 20분 거리 쪽으로 옮겨 가 막 닿았다"
+      ],
+      "answer_index": 1,
+      "why_ko": "be ... away는 병원이 20분을 '가진'(have) 것도 이동도 아니라, 그것이 그만큼 떨어진 자리에 위치해 존재한다는 정적 그림이다. 위치를 거리로 말해도 be의 존재·위치 감각은 같다."
+    },
+    {
+      "id": "be-x3",
+      "sense_id": "be-state",
+      "sentence": "The instructions were unclear to most of the students.",
+      "sentence_ko": "그 설명은 대부분의 학생에게 불분명했어.",
+      "subject_label": "the instructions",
+      "object_label": "unclear",
+      "type": "sense-choice",
+      "prompt": "추상 주어와 속성을 잇는 이 were의 그림은?",
+      "choices": [
+        "설명이 불분명한 상태로 막 옮겨 가 그 자리에 닿는 변화다",
+        "설명이 불분명함이라는 성질을 영역 안에 가지고 있다",
+        "설명이 불분명한 상태로 학생들에게 그대로 놓여 머문다"
+      ],
+      "answer_index": 2,
+      "why_ko": "be unclear는 불분명해지는 '변화'(get unclear)도 소유도 아니라, 설명이 그 속성과 등호로 이어져 그대로 머물러 있다는 계사의 정적 그림이다. 추상 주어와 성질을 이어도 be는 머묾을 그린다."
+    },
+    {
+      "id": "be-x4",
+      "sense_id": "be-state",
+      "sentence": "Honesty ___ the most important thing in a friendship.",
+      "sentence_ko": "정직함이 우정에서 가장 중요한 거야.",
+      "subject_label": "honesty",
+      "object_label": "the most important thing",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (추상 주어를 무엇과 등호로 잇는다)",
+      "choices": [
+        "is",
+        "gets",
+        "has"
+      ],
+      "answer_index": 0,
+      "why_ko": "Honesty is the most important thing은 정직함을 '가장 중요한 것'과 등호로 잇는 계사의 정적 그림이다(그 정체에 머묾). gets는 '그 자리로 옮겨 가 닿는' 변화를 그려 일반적 정의와 안 맞고, has는 정직함이 무언가를 영역 안에 가진다는 소유라 등호 관계가 아니다 — be(등호·머묾)·get(상태로 진입)·have(영역 내 소유)의 감각 대비."
+    },
+    {
+      "id": "be-x5",
+      "sense_id": "be-exist-locate",
+      "sentence": "There ___ a strange noise coming from the engine.",
+      "sentence_ko": "엔진에서 이상한 소리가 나고 있어.",
+      "subject_label": "a strange noise",
+      "object_label": "from the engine",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (존재를 무대에 올린다)",
+      "choices": [
+        "has",
+        "is",
+        "takes"
+      ],
+      "answer_index": 1,
+      "why_ko": "There is는 이상한 소리가 엔진에서 '존재한다'고 무대에 올리는 그림이다. The engine has a noise(엔진이 소리를 영역 안에 가짐)도 문법은 되지만 There ___ 틀은 존재 도입이라 has 자리가 아니고, takes는 소리가 무언가를 능동적으로 가져간다는 그림이라 맞지 않는다 — be(존재 도입)·have(영역 내 소유)·take(능동적 가져감)의 감각 대비."
+    }
+  ]
+}

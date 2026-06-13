@@ -1,0 +1,313 @@
+{
+  "axis": "core-verbs",
+  "item": "come",
+  "senses": [
+    {
+      "id": "come-toward",
+      "ko": "주어가 화자/기준점 *쪽으로 다가오는* 방향의 이동 감각 — go가 '기준점에서 멀어짐'이라면 come은 '기준점으로 다가옴'으로 방향이 정반대다(deixis). 기준점은 꼭 화자만이 아니라 *듣는 이*가 될 수도 있어, 상대 쪽으로 다가갈 때도 come을 쓴다.",
+      "image": "기준점(화자 또는 듣는 이가 선 자리)을 향해, 주어가 바깥에서 화살표를 따라 그 자리 쪽으로 들어오는 그림. go의 화살표가 기준점에서 바깥으로 나간다면, come의 화살표는 바깥에서 기준점 안쪽으로 들어온다 — 점이 기준점에 가까워진다.",
+      "boundary_ko": "방향이 핵심이다 — 기준점 쪽으로 다가오면 come(Come here ○), 기준점에서 멀어지면 go(Go away ○). 한국인 함정: 누가 '밥 먹어!'라고 부를 때 한국어는 '갈게'라 영어로 I'm going이라 하기 쉽지만, 영어는 *부른 사람(듣는 이)의 자리*를 기준점으로 잡아 그쪽으로 다가가므로 I'm coming이 맞다(전화로 '지금 갈게'도 I'm coming). '가다=go'라는 번역 등치가 deixis 방향을 뒤집는 대표 함정이다.",
+      "source_refs": [
+        {
+          "source_id": "talmy-2000",
+          "locator": "Vol. II, Part 1, Ch. 1 'Lexicalization Patterns' — deictic motion verbs (path toward the speaker/addressee reference point vs. away)",
+          "claim": "영어의 이동 동사는 기준점(화자, 때로 듣는 이) 대비 경로의 방향(접근/이탈)을 직시적(deictic)으로 어휘화하며, come/go 같은 짝은 기준점 접근(다가옴)/이탈(멀어짐)의 방향 대비를 이룬다 — 기준점이 듣는 이로 이동할 수 있다."
+        },
+        {
+          "source_id": "oald",
+          "locator": "come (verb), sense 'move toward or visit the place where the speaker or listener is'",
+          "claim": "come은 화자 또는 듣는 이가 있는 곳 쪽으로 다가오거나 그곳을 방문하는 '접근 방향'의 이동이 학습자 사전에 핵심 용법으로 실려 있으며, go(멀어짐)와 방향이 대비된다 — 부름에 답할 때 I'm coming을 쓰는 용례 포함."
+        }
+      ],
+      "validation": {
+        "method": "subagent-consensus",
+        "strength": "weak",
+        "date": "2026-06-13",
+        "basis": "deixis 방향 대비(come=접근/go=이탈, 기준점이 듣는 이로 이동)는 take-carry(take/bring deixis)와 동일 T1(talmy-2000) 계열로 정합. I'm coming 함정은 oald 용례 + misconceptions.md(bring/take deixis)와 같은 계열. 사람 리뷰(approve 절차) 전까지 weak."
+      }
+    },
+    {
+      "id": "come-emerge",
+      "ko": "숨어 있던 것이 *나타나거나*, 결과로 *생겨나 드러나는* 감각 — come out(밖으로 드러남), come true(이루어져 나타남), come up(불쑥 떠오름)처럼 보이지 않던 것이 시야·존재로 들어온다. 이동 동사 come의 '이쪽으로 들어옴'이 '없던/숨었던 것이 드러남 쪽으로 들어옴'으로 확장된 자리다.",
+      "image": "감춰져 있거나 아직 없던 것이, 가려진 곳에서 화살표를 따라 드러나는 쪽(시야·현실)으로 나와 모습을 보이는 그림 — 별이 어둠 속에서 떠오르고, 꿈이 현실이라는 자리로 나와 이루어진다. 어디서 와 닿는다기보다, 보이지 않던 것이 보이는 쪽으로 솟아 나온다.",
+      "boundary_ko": "come-toward(특정 기준점으로 다가오는 물리 이동)와 갈린다: come-emerge는 '드러남·생겨남'이라 다가오는 출발점·기준점이 또렷하지 않고, 숨었던 것이 모습을 보이는 *출현*에 초점이 있다(The truth came out — 진실이 어디서 다가온 게 아니라 드러남). out-reveal(밖으로 드러남, find out)과 결이 겹치지만, come은 '드러나는 쪽으로 나오는 이동' 자체를 동사가 떠맡는다.",
+      "source_refs": [
+        {
+          "source_id": "lakoff-1993",
+          "locator": "The Contemporary Theory of Metaphor — event/appearance mapping (coming into existence/view as motion into a location)",
+          "claim": "존재·출현을 '어떤 자리(시야·현실)로 들어오는 이동'으로 보는 은유가 영어에 체계적으로 존재한다 — come true/come out 등은 보이지 않던 것이 드러나는 쪽으로 나오는 이동으로 읽힌다."
+        },
+        {
+          "source_id": "oald",
+          "locator": "come (verb), sense group 'come into existence / become visible or known' (come out, come true, come up)",
+          "claim": "학습 사전은 come을 '생겨나다·나타나다·알려지다'(come true, come out, come up) 용법으로 기술하며, 숨어 있던 것이 드러나거나 결과로 나타나는 출현 의미를 표준 용법으로 싣는다 — 예문 자연성·용법 확인(T2). 미확인 주장: come-emerge를 단일 인지 도식으로 묶는 이론적 통합은 교육용 묶음이며, 개별 관용(come up=화제로 떠오름 등)의 관용성 정도는 본 출처가 직접 보증하지 않는다(boundary_ko에서 out-reveal과의 결 차이로만 제한)."
+        }
+      ],
+      "validation": {
+        "method": "subagent-consensus",
+        "strength": "weak",
+        "date": "2026-06-13",
+        "basis": "c4-2 동시 생성분. 출현·생겨남을 '드러나는 쪽으로의 이동'으로 보는 도식은 lakoff-1993 사건/은유 계열 + oald 용법. 개별 관용의 관용성·단일 도식 통합은 미확인(교육용 묶음 표기). strong 승격은 사람 리뷰(approve 절차) 대기."
+      }
+    }
+  ],
+  "training_items": [
+    {
+      "id": "come-t1",
+      "sense_id": "come-toward",
+      "sentence": "Come here and sit next to me for a minute.",
+      "sentence_ko": "이리 와서 잠깐 내 옆에 앉아.",
+      "subject_label": "you",
+      "object_label": "here (moving toward the speaker)",
+      "type": "sense-choice",
+      "prompt": "이 come이 그리는 그림은?",
+      "choices": [
+        "상대가 내가 있는 이 자리 쪽으로 다가온다",
+        "상대가 내가 있는 자리에서 점점 멀어져 떠나간다",
+        "상대가 멀찍이 떨어진 다른 자리에 가만히 멈춰 서 있다"
+      ],
+      "answer_index": 0,
+      "why_ko": "come here는 상대가 화자(나)가 있는 기준점 쪽으로 다가오는 이동이다. 여기서 멀어지는 거라면 go away가 되니, come은 '이쪽으로 다가오는 방향'을 그린다."
+    },
+    {
+      "id": "come-t2",
+      "sense_id": "come-toward",
+      "sentence": "A lot of people came to the party last night.",
+      "sentence_ko": "어젯밤 파티에 많은 사람이 왔어.",
+      "subject_label": "a lot of people",
+      "object_label": "the party (moving toward the venue)",
+      "type": "sense-choice",
+      "prompt": "이 came이 그리는 그림으로 가장 가까운 것은?",
+      "choices": [
+        "사람들이 파티 장소에서 각자 자기 집 쪽으로 뿔뿔이 흩어져 떠났다",
+        "사람들이 파티가 열리는 그 자리(기준점) 쪽으로 모여 들어왔다",
+        "사람들이 파티가 시작되기 한참 전부터 그 장소에 줄곧 있었다"
+      ],
+      "answer_index": 1,
+      "why_ko": "come to the party는 사람들이 파티가 열리는 자리(기준점) 쪽으로 다가와 모여드는 이동이다. 그 자리에서 멀어져 떠났다면 go가 되니, come은 기준점으로 다가오는 방향이다."
+    },
+    {
+      "id": "come-t3",
+      "sense_id": "come-toward",
+      "sentence": "Dinner's ready! — I'm coming!",
+      "sentence_ko": "밥 다 됐어! — 지금 가요!",
+      "subject_label": "I",
+      "object_label": "toward the speaker who called",
+      "type": "sense-choice",
+      "prompt": "한국어로는 '가요'인데 왜 영어는 coming일까? (deixis 함정 — 경계 문항)",
+      "choices": [
+        "내가 부른 사람이 있는 자리(기준점) 쪽으로 다가가므로 come이다",
+        "내가 지금 이 방에서 멀어져 나가므로, 멀어짐을 그리는 게 맞다",
+        "밥상이 내 쪽으로 다가오므로 come이다"
+      ],
+      "answer_index": 0,
+      "why_ko": "한국어 '갈게/가요'에 끌려 I'm going이라 하기 쉽지만, 영어는 *부른 사람(듣는 이)이 있는 식탁 자리*를 기준점으로 잡아 그쪽으로 다가가므로 I'm coming이 맞다. '가다=go'라는 번역 등치가 deixis 방향을 뒤집는 대표 함정 — 기준점이 듣는 이 쪽이면 다가감은 come이다."
+    },
+    {
+      "id": "come-t4",
+      "sense_id": "come-emerge",
+      "sentence": "The stars slowly came out once the clouds cleared.",
+      "sentence_ko": "구름이 걷히자 별들이 천천히 모습을 드러냈어.",
+      "subject_label": "the stars",
+      "object_label": "out (emerging into view)",
+      "type": "sense-choice",
+      "prompt": "이 came out이 그리는 그림은?",
+      "choices": [
+        "구름과 함께 별들이 하늘에서 땅으로 우수수 떨어져 내렸다",
+        "숨어 있던 별들이 보이는 쪽으로 나와 모습을 드러냈다",
+        "별들이 멀리서 땅 위의 관찰자 쪽으로 바짝 다가왔다"
+      ],
+      "answer_index": 1,
+      "why_ko": "come out은 구름에 가려 보이지 않던 별이 드러나는 쪽으로 나와 모습을 보이는 출현이다 — 어디서 다가온다기보다, 숨었던 것이 시야로 솟아 나오는 그림이다. come의 '이쪽으로 들어옴'이 '드러남 쪽으로 나옴'으로 확장된 자리다."
+    },
+    {
+      "id": "come-t5",
+      "sense_id": "come-emerge",
+      "sentence": "Her childhood dream finally came true after years of work.",
+      "sentence_ko": "오랜 노력 끝에 그녀의 어릴 적 꿈이 마침내 이루어졌어.",
+      "subject_label": "her childhood dream",
+      "object_label": "true (emerging into reality)",
+      "type": "sense-choice",
+      "prompt": "이 came true의 감각으로 가장 가까운 것은?",
+      "choices": [
+        "이루어지려던 꿈이 그녀에게서 점점 멀어져 끝내 사라져 버렸다",
+        "그 꿈이 처음부터 줄곧 현실인 채로 변함없이 있어 왔다",
+        "꿈이 현실이라는 자리로 나와 이루어져 드러났다"
+      ],
+      "answer_index": 2,
+      "why_ko": "come true는 머릿속에만 있던 꿈이 '현실'이라는 자리로 나와 이루어져 드러나는 출현이다 — 없던/숨었던 것이 현실로 솟아 나온다. come의 '드러나는 쪽으로 나오는 이동'이 추상으로 확장된 자리다."
+    },
+    {
+      "id": "come-t6",
+      "sense_id": "come-toward",
+      "sentence": "Can you ___ over to my place after dinner tonight?",
+      "sentence_ko": "오늘 저녁 먹고 우리 집에 올 수 있어?",
+      "subject_label": "you",
+      "object_label": "over to my place (moving toward the speaker)",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
+      "choices": [
+        "come",
+        "go",
+        "get"
+      ],
+      "answer_index": 0,
+      "why_ko": "go over to my place는 화자(나) 입장에서 보면 '나에게서 멀어지는' 방향이라 어색하고, get over는 '극복하다/넘어오다'로 결이 다르다. my place(화자가 있는 곳)가 기준점이고 듣는 이가 그쪽으로 다가오는 이동이라 come이 맞다 — come(기준점으로 다가옴)·go(기준점에서 멀어짐) deixis 대비가 핵심이다."
+    },
+    {
+      "id": "come-t7",
+      "sense_id": "come-toward",
+      "sentence": "Wait there — I'll ___ to you as soon as I finish.",
+      "sentence_ko": "거기서 기다려 — 끝나는 대로 너한테 갈게.",
+      "subject_label": "I",
+      "object_label": "to you (moving toward the listener)",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (deixis 함정 — 보기 모두 문법적으로는 가능하다)",
+      "choices": [
+        "go",
+        "come",
+        "get"
+      ],
+      "answer_index": 1,
+      "why_ko": "한국어 '너한테 갈게'에 끌려 go라 하기 쉽지만, 영어는 *듣는 이(너)가 선 자리*를 기준점으로 잡아 그쪽으로 다가가므로 come to you가 맞다. go to you면 화자에게서 멀어지는 방향이라 '너에게 다가감'과 어긋나고, get to you는 '너에게 도착해 닿음'이라 결이 다르다 — 기준점이 듣는 이일 때 다가감은 come이다(I'm coming 함정과 같은 자리)."
+    },
+    {
+      "id": "come-t8",
+      "sense_id": "come-emerge",
+      "sentence": "An interesting idea came up during our discussion.",
+      "sentence_ko": "논의 중에 흥미로운 아이디어가 하나 떠올랐어.",
+      "subject_label": "an interesting idea",
+      "object_label": "up (emerging into view)",
+      "type": "sense-choice",
+      "prompt": "이 came up이 그리는 그림은?",
+      "choices": [
+        "없던 아이디어가 논의 중에 화제 위로 불쑥 떠올라 드러났다",
+        "누군가 미리 준비해 둔 아이디어를 손에 집어 들고 회의 자리에 내놓았다",
+        "이미 나와 있던 아이디어를 흘러가지 않게 단단히 붙들어 두었다"
+      ],
+      "answer_index": 0,
+      "why_ko": "come up은 없던/숨었던 아이디어가 논의 중에 화제 위로 솟아 나와 드러나는 출현이다 — 어디서 집어 오거나 붙들어 두는 게 아니라, 보이지 않던 것이 떠올라 모습을 보이는 그림이다. come의 '드러나는 쪽으로 나오는 이동'이 추상으로 확장된 자리다."
+    },
+    {
+      "id": "come-t9",
+      "sense_id": "come-emerge",
+      "sentence": "Nobody is quite sure how the whole misunderstanding ___ about.",
+      "sentence_ko": "그 오해가 어쩌다 그렇게 생겨났는지 아무도 확실히 몰라.",
+      "subject_label": "the whole misunderstanding",
+      "object_label": "about (coming into being)",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
+      "choices": [
+        "set",
+        "came",
+        "brought"
+      ],
+      "answer_index": 1,
+      "why_ko": "set about이면 '~을 시작하다'라 주어가 스스로 일에 착수하는 결이고, brought about은 '(누가) ~을 일으키다'라 일으킨 주체가 따로 있는 타동의 결이라 결이 어긋난다. 여기선 없던 오해가 어쩌다 저절로 생겨나 드러난 출현이라 came about이 맞다 — come about은 일·사태가 스스로 생겨나 나타나는 그림이다. 셋 다 'V about' 꼴로 문장은 되지만 그리는 그림이 갈린다."
+    },
+    {
+      "id": "come-t10",
+      "sense_id": "come-toward",
+      "sentence": "Just stay here in this room — the doctor will ___ to see you shortly.",
+      "sentence_ko": "이 방에서 그대로 기다리세요 — 의사 선생님이 곧 진찰하러 오실 거예요.",
+      "subject_label": "the doctor",
+      "object_label": "to see you (moving toward where the listener stays)",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (경계 문항 — 보기 모두 문법적으로는 가능하다)",
+      "choices": [
+        "go",
+        "get",
+        "come"
+      ],
+      "answer_index": 2,
+      "why_ko": "stay here in this room이 듣는 이가 머무는 자리를 기준점으로 못박는다 — 화자도 그 자리(병실)를 기준으로 잡고 의사가 그쪽으로 다가오므로, go to see you(그 자리에서 멀어짐)는 어긋나고 get to see you(만나게 됨)는 도달·기회의 결로 방향이 흐려진다. 듣는 이가 머무는 자리가 기준점일 때 그쪽으로 다가감은 come이다 — go(멀어짐)가 아니다."
+    }
+  ],
+  "transfer_items": [
+    {
+      "id": "come-x1",
+      "sense_id": "come-toward",
+      "sentence": "Hundreds of birds come to this lake every winter.",
+      "sentence_ko": "겨울마다 수백 마리의 새가 이 호수로 찾아와.",
+      "subject_label": "hundreds of birds",
+      "object_label": "this lake (moving toward the reference point)",
+      "type": "sense-choice",
+      "prompt": "이 come이 그리는 그림으로 가장 가까운 것은? (주어가 사람이 아니라 새다)",
+      "choices": [
+        "새들이 이 호수를 떠나 멀리 다른 곳으로 날아가 흩어진다",
+        "새들이 이 호수(기준점) 쪽으로 날아 들어와 모여든다",
+        "새들이 겨울이고 아니고 없이 이 호수에 일 년 내내 줄곧 머무른다"
+      ],
+      "answer_index": 1,
+      "why_ko": "come to this lake는 새들이 기준으로 잡힌 이 호수 쪽으로 날아와 모여드는 이동이다 — 주어가 새여도 '기준점으로 다가옴'이라는 come의 방향은 같다. 그 자리에서 멀어져 떠났다면 go가 된다."
+    },
+    {
+      "id": "come-x2",
+      "sense_id": "come-emerge",
+      "sentence": "A clever solution to the puzzle suddenly ___ to me in the shower.",
+      "sentence_ko": "샤워하다가 그 퍼즐의 기발한 해법이 문득 떠올랐어.",
+      "subject_label": "a clever solution",
+      "object_label": "to me (surfacing into mind)",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
+      "choices": [
+        "came",
+        "stayed",
+        "ran"
+      ],
+      "answer_index": 0,
+      "why_ko": "stayed to me는 비문에 가깝고, ran to me면 무언가가 나에게 달려오는 물리 이동이라 결이 다르다. 여기선 없던 해법이 머릿속에 문득 떠올라 드러나는 출현이라 came to me가 맞다 — come to me는 생각·해법이 어디 멀리서 다가오는 게 아니라 보이지 않던 것이 의식 위로 솟아 나타나는 그림이다(come-emerge). 셋 다 문장 꼴은 되지만 그리는 그림이 갈린다."
+    },
+    {
+      "id": "come-x3",
+      "sense_id": "come-toward",
+      "sentence": "Hold on — someone is calling, so I'll ___ right back to you.",
+      "sentence_ko": "잠깐만 — 누가 불러서, 금방 너한테 다시 올게.",
+      "subject_label": "I",
+      "object_label": "back to you (moving toward the listener)",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (deixis 함정 — '너한테 ~올게'의 기준점은?)",
+      "choices": [
+        "go",
+        "come",
+        "get"
+      ],
+      "answer_index": 1,
+      "why_ko": "한국어 '다시 올게'를 영어로 옮길 때 '가다=go'에 끌리기 쉽지만, 듣는 이(너)가 선 자리가 기준점이라 그쪽으로 돌아가는 것은 come back to you가 맞다. go back이면 화자에게서 멀어지는 방향이라 '너에게 돌아옴'과 어긋나고, get back은 '되찾다/돌아가 닿다'로 도달의 결이라 다가오는 방향이 흐려진다 — 기준점이 듣는 이일 때 다가감·되돌아옴은 come이다(I'm coming 함정의 변주)."
+    },
+    {
+      "id": "come-x4",
+      "sense_id": "come-emerge",
+      "sentence": "A strange smell was coming from the basement.",
+      "sentence_ko": "지하실에서 이상한 냄새가 나고 있었어.",
+      "subject_label": "a strange smell",
+      "object_label": "from the basement (emerging out of)",
+      "type": "sense-choice",
+      "prompt": "이 coming from이 그리는 그림으로 가장 가까운 것은? (주어가 사람이 아니라 냄새다)",
+      "choices": [
+        "누군가 지하실에 있던 냄새를 일부러 밖으로 퍼 날랐다",
+        "지하실의 냄새가 한곳에 갇힌 채 꼼짝없이 머물러 있었다",
+        "보이지 않던 냄새가 지하실에서 새어 나와 감지되는 쪽으로 솟아 나왔다"
+      ],
+      "answer_index": 2,
+      "why_ko": "come from은 보이지 않던 냄새가 지하실에서 새어 나와 감지되는 쪽으로 솟아 나오는 출현이다 — 주어가 냄새여도 '숨어 있던 것이 드러나/감지되는 쪽으로 나옴'이라는 come의 그림은 같다. 누가 퍼 나르거나 가둬 두는 그림이 아니다."
+    },
+    {
+      "id": "come-x5",
+      "sense_id": "come-toward",
+      "sentence": "When I whistle, the dog comes running straight to me.",
+      "sentence_ko": "내가 휘파람을 불면 강아지가 곧장 나한테 달려와.",
+      "subject_label": "the dog",
+      "object_label": "to me (moving toward the speaker)",
+      "type": "sense-choice",
+      "prompt": "이 comes가 그리는 그림으로 가장 가까운 것은? (주어가 사람이 아니라 강아지다)",
+      "choices": [
+        "강아지가 화자(나)라는 기준점 쪽으로 곧장 달려 다가온다",
+        "강아지가 휘파람을 듣자마자 나에게서 멀어지는 다른 쪽으로 달려 떠나간다",
+        "강아지가 휘파람 소리를 듣고도 제자리에 가만히 멈춰 꼼짝 않는다"
+      ],
+      "answer_index": 0,
+      "why_ko": "come은 강아지가 화자(나)라는 기준점 쪽으로 곧장 달려 다가오는 이동이다 — 주어가 강아지여도 '기준점으로 다가옴'이라는 come의 방향은 같다. 나에게서 멀어졌다면 go가 되니, 기준점(나)으로 다가옴은 come이다."
+    }
+  ]
+}

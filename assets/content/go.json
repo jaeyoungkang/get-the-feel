@@ -1,0 +1,313 @@
+{
+  "axis": "core-verbs",
+  "item": "go",
+  "senses": [
+    {
+      "id": "go-away",
+      "ko": "주어가 화자/기준점에서 *멀어지는* 방향으로 움직이는 이동 감각 — come이 '기준점 쪽으로 다가옴'이라면 go는 '기준점에서 떨어져 나감'으로 방향이 정반대다(deixis). 어디로 가느냐보다 '여기(기준점)에서 멀어진다'가 핵심이다.",
+      "image": "화자가 선 자리를 기준점으로 두고, 주어가 그 자리에서 화살표를 따라 바깥의 다른 지점으로 빠져나가는 그림. come의 화살표가 바깥에서 기준점 쪽으로 들어온다면, go의 화살표는 기준점에서 바깥으로 나간다 — 점이 나로부터 멀어진다.",
+      "boundary_ko": "방향이 핵심이다 — 기준점(화자/지금 여기)에서 멀어지면 go(Go home ○ = 여기서 집 쪽으로 떠남), 기준점 쪽으로 다가오면 come(Come here ○). 같은 '집'이라도 여기서 떠나면 go home, 듣는 이 쪽으로 가면 상황에 따라 come이 된다. take(물건을 들고 멀어짐)와 달리 go는 주어 자신이 멀어지는 이동이라 목적어를 데려가는 그림이 없다.",
+      "source_refs": [
+        {
+          "source_id": "talmy-2000",
+          "locator": "Vol. II, Part 1, Ch. 1 'Lexicalization Patterns' — deictic motion verbs (path relative to the speaker's reference point: motion away from vs. toward)",
+          "claim": "영어의 이동 동사는 기준점(화자) 대비 경로의 방향(이탈/접근)을 직시적(deictic)으로 어휘화하며, go/come 같은 짝은 화자 기준 이탈(멀어짐)/접근(다가옴)의 방향 대비를 이룬다."
+        },
+        {
+          "source_id": "oald",
+          "locator": "go (verb), sense group 'move or travel from one place to another (away from the speaker or the place where the speaker is)'",
+          "claim": "go는 화자/현재 위치에서 다른 곳으로 떠나는 '멀어지는 방향'의 이동이 학습자 사전에 핵심 용법으로 실려 있으며, come(이쪽으로 다가옴)과 방향이 대비된다."
+        }
+      ],
+      "validation": {
+        "method": "subagent-consensus",
+        "strength": "weak",
+        "date": "2026-06-13",
+        "basis": "deixis 방향 대비(go=이탈/come=접근)는 take-carry(take/bring deixis)와 동일 T1(talmy-2000 위성틀·직시 이동) 계열로 정합. 사람 리뷰(approve 절차) 전까지 weak."
+      }
+    },
+    {
+      "id": "go-become",
+      "ko": "주어가 어떤 상태로 *옮겨 가 변하는* 감각 — 주로 나쁘거나 극적인 방향의 변화에 쓴다(go bad 상해 버림, go quiet 갑자기 조용해짐, go crazy 미쳐 버림). 이동 동사 go가 '멀어져 다른 상태로 떠나간다'는 그림으로 은유 확장된 자리(STATES ARE LOCATIONS) — 정상에서 멀어져 다른(흔히 나쁜) 상태로 가 버린다.",
+      "image": "주어가 원래 있던 정상 상태 자리에서 떠나, 다른 상태(흔히 나쁜·극적인 자리)로 옮겨 가 버리는 그림 — 우유가 멀쩡한 자리를 떠나 '상한' 자리로 가 버리고, 사람이 멀쩡한 자리를 떠나 '미친' 자리로 가 버린다. 머물러 있는 be가 아니라, 정상에서 벗어나 다른 상태로 떠나가는 움직임이다.",
+      "boundary_ko": "get-state-change(중립적으로 상태 자리에 옮겨 가 닿음 — get tired, get cold)와 미묘하게 갈린다: go + 형용사는 '정상에서 벗어나 (흔히 나쁜·극적인) 다른 상태로 떠나 버림'이라 부정적·일탈적 색이 강하다(go bad ○ / *go good ×, go quiet ○). 중립·바람직한 변화에는 보통 get을 쓴다(get better ○, *go better ×). 같은 변화라도 '정상을 벗어나 나빠짐'이면 go가 어울린다.",
+      "source_refs": [
+        {
+          "source_id": "lakoff-1993",
+          "locator": "The Contemporary Theory of Metaphor — Event Structure Metaphor (STATES ARE LOCATIONS, CHANGE IS MOTION)",
+          "claim": "상태는 위치, 변화는 그 위치로의 이동이라는 사건 구조 은유가 영어에 체계적으로 존재한다 — go + 형용사는 주어가 한 상태에서 다른 상태(위치)로 옮겨 가는 변화로 읽힌다."
+        },
+        {
+          "source_id": "oald",
+          "locator": "go (verb), sense 'become' — 'go + adjective' (esp. used of changes for the worse: go bad, go grey, go mad, go quiet)",
+          "claim": "학습 사전은 go + 형용사를 'become(어떤 상태가 되다)' 용법으로 기술하며, 특히 나쁜 쪽으로의 변화(go bad/mad/grey 등)에 쓰는 경향과 get(중립적 변화)과의 결 차이를 용법으로 보인다 — 예문 자연성·용법 확인(T2). 미확인 주장: 'go=부정적 변화 전용'이라는 절대 규칙은 일반화이며(go quiet 등 비부정 용례도 있어 '경향'으로만 표기), boundary_ko의 '*go good ×'는 교육용 단순화로 사용."
+        }
+      ],
+      "validation": {
+        "method": "subagent-consensus",
+        "strength": "weak",
+        "date": "2026-06-13",
+        "basis": "c4-2 동시 생성분. inchoative 변화 도식은 get-state-change와 동일 T1(lakoff-1993 사건 구조 은유) 계열 — go의 '멀어져 다른 상태로' 방향이 부정·일탈 색을 더한다. 'go=부정 전용' 절대화는 미확인(경향 표기). strong 승격은 사람 리뷰(approve 절차) 대기."
+      }
+    }
+  ],
+  "training_items": [
+    {
+      "id": "go-t1",
+      "sense_id": "go-away",
+      "sentence": "It's getting late — I should go home now.",
+      "sentence_ko": "늦었네 — 이제 집에 가야겠어.",
+      "subject_label": "I",
+      "object_label": "home (moving away to)",
+      "type": "sense-choice",
+      "prompt": "이 go가 그리는 그림은?",
+      "choices": [
+        "내가 지금 이 자리를 떠나 집 쪽으로 멀어져 간다",
+        "집이 멀리서 내가 서 있는 이 자리 쪽으로 점점 다가온다",
+        "내가 집 안의 한자리에 가만히 머물러 그대로 있다"
+      ],
+      "answer_index": 0,
+      "why_ko": "go home은 내가 지금 있는 기준점(여기)에서 멀어져 집 쪽으로 떠나가는 이동이다. 이쪽으로 다가오는 거라면 come이 되니, go는 '여기서 멀어지는 방향'을 그린다."
+    },
+    {
+      "id": "go-t2",
+      "sense_id": "go-away",
+      "sentence": "She went to the library to return her books.",
+      "sentence_ko": "그녀는 책을 반납하러 도서관에 갔어.",
+      "subject_label": "she",
+      "object_label": "the library (moving away to)",
+      "type": "sense-choice",
+      "prompt": "이 went가 그리는 그림으로 가장 가까운 것은?",
+      "choices": [
+        "그녀가 멀리 떨어진 도서관에서 지금 이 기준 자리 쪽으로 다가왔다",
+        "그녀가 지금 기준 자리에서 멀어져 도서관 쪽으로 떠나갔다",
+        "그녀가 도서관 안에 줄곧 처음부터 자리 잡고 앉아 있었다"
+      ],
+      "answer_index": 1,
+      "why_ko": "go to the library는 그녀가 기준점(여기)에서 멀어져 도서관이라는 다른 지점으로 떠나가는 이동이다. 기준점 쪽으로 다가왔다면 come이 되니, go는 멀어지는 방향이다."
+    },
+    {
+      "id": "go-t3",
+      "sense_id": "go-away",
+      "sentence": "Please go away and leave me alone for a while.",
+      "sentence_ko": "저리 가서 잠깐 나 좀 혼자 있게 해 줘.",
+      "subject_label": "you",
+      "object_label": "away (moving off from here)",
+      "type": "sense-choice",
+      "prompt": "go away는 어떤 방향의 그림인가?",
+      "choices": [
+        "상대가 멀리 있다가 내가 선 이 자리 쪽으로 바짝 다가온다",
+        "상대가 떠나지 않고 내 곁 한자리에 가만히 멈춰 서 있다",
+        "상대가 내가 있는 자리에서 점점 멀어져 떨어져 나간다"
+      ],
+      "answer_index": 2,
+      "why_ko": "go away는 상대가 내(화자)가 있는 기준점에서 멀어져 떨어져 나가는 이동이다. away가 그 '멀어짐'을 한 번 더 못박는다 — 다가오는 come here와 정반대 방향이다."
+    },
+    {
+      "id": "go-t4",
+      "sense_id": "go-become",
+      "sentence": "The milk went bad after sitting out all day.",
+      "sentence_ko": "우유가 하루 종일 밖에 나와 있더니 상해 버렸어.",
+      "subject_label": "the milk",
+      "object_label": "into a bad (spoiled) state",
+      "type": "sense-choice",
+      "prompt": "이 went bad가 그리는 그림은?",
+      "choices": [
+        "우유가 멀쩡한 상태를 떠나 '상한' 다른 상태로 옮겨 가 버렸다",
+        "우유가 처음부터 끝까지 줄곧 상한 상태 그대로 놓여 있었다",
+        "누군가 멀쩡한 우유를 상한 우유로 슬쩍 바꿔치기해 놓았다"
+      ],
+      "answer_index": 0,
+      "why_ko": "go bad는 우유가 멀쩡한(정상) 자리를 떠나 '상한'이라는 나쁜 상태로 옮겨 가 버린 변화다 — 이동 동사 go가 '정상에서 벗어나 다른 상태로 떠나간다'는 그림으로 확장된 자리다. 중립적 변화라면 get을 쓰지만, 나빠지는 일탈이라 go가 어울린다."
+    },
+    {
+      "id": "go-t5",
+      "sense_id": "go-become",
+      "sentence": "The whole room went quiet when she walked in.",
+      "sentence_ko": "그녀가 들어오자 방 전체가 조용해졌어.",
+      "subject_label": "the whole room",
+      "object_label": "into a quiet state",
+      "type": "sense-choice",
+      "prompt": "이 went quiet의 감각으로 가장 가까운 것은?",
+      "choices": [
+        "방이 그녀가 들어오기 한참 전부터 원래 줄곧 조용한 상태였다",
+        "방이 떠들썩하던 자리를 떠나 '조용한' 상태로 갑자기 옮겨 갔다",
+        "누군가 바깥의 조용함을 방 안으로 일부러 들여놓아 깔았다"
+      ],
+      "answer_index": 1,
+      "why_ko": "go quiet는 방이 원래의(떠들썩한) 상태를 떠나 '조용한' 다른 상태로 갑자기 옮겨 간 극적 변화다. 머물러 있는 be quiet가 아니라, 정상 자리에서 벗어나 다른 상태로 떠나가는 go의 그림이다."
+    },
+    {
+      "id": "go-t6",
+      "sense_id": "go-away",
+      "sentence": "We ___ to the beach every summer when I was little.",
+      "sentence_ko": "어릴 때 우리는 여름마다 바닷가에 가곤 했어.",
+      "subject_label": "we",
+      "object_label": "the beach (moving away to)",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
+      "choices": [
+        "went",
+        "came",
+        "got"
+      ],
+      "answer_index": 0,
+      "why_ko": "came to the beach면 바닷가를 기준점으로 두고 그쪽으로 다가오는 방향이고, got to the beach면 '바닷가에 도착해 닿음'이라 도달의 결과에 초점이 간다. 여기선 우리가 (집 같은) 기준점에서 멀어져 바닷가로 떠나가는 이동 자체라 went가 맞다 — go(멀어짐)·come(다가옴) deixis와 get(도착해 닿음)의 대비. 셋 다 문장은 되지만 그리는 방향·초점이 갈린다."
+    },
+    {
+      "id": "go-t7",
+      "sense_id": "go-away",
+      "sentence": "The train ___ before we reached the platform.",
+      "sentence_ko": "우리가 플랫폼에 닿기 전에 기차가 떠나 버렸어.",
+      "subject_label": "the train",
+      "object_label": "away (departing)",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
+      "choices": [
+        "arrived",
+        "left",
+        "went"
+      ],
+      "answer_index": 2,
+      "why_ko": "arrived면 기차가 우리 쪽으로 들어와 닿는 도착이라 방향이 반대다. left도 '떠남'이라 뜻은 가깝지만, go는 '기준점(우리)에서 멀어져 가 버린' 직시적 멀어짐을 그린다 — 우리가 닿기 전에 그 자리에서 멀어져 사라진 그림이라 went가 맞다. come(다가옴)과 정반대로 go는 기준점에서 멀어지는 방향이다."
+    },
+    {
+      "id": "go-t8",
+      "sense_id": "go-become",
+      "sentence": "He went pale the moment he heard the news.",
+      "sentence_ko": "그는 그 소식을 듣자마자 새파랗게 질렸어.",
+      "subject_label": "he",
+      "object_label": "into a pale state",
+      "type": "sense-choice",
+      "prompt": "이 went pale이 그리는 그림은?",
+      "choices": [
+        "그가 정상 안색을 떠나 '창백한' 상태로 갑자기 옮겨 갔다",
+        "그가 소식을 듣기 전부터 창백한 안색을 줄곧 그대로 유지하고 있었다",
+        "그가 어디선가 창백한 기운을 받아 와 손에 쥐고 있었다"
+      ],
+      "answer_index": 0,
+      "why_ko": "go pale은 그가 정상 안색(자리)을 떠나 '창백한' 다른 상태로 갑자기 옮겨 간 극적 변화다 — 머물러 있는 be pale이 아니라, 정상에서 벗어나 다른 상태로 떠나가는 go의 그림이다. the moment가 그 급변 시점을 못박는다."
+    },
+    {
+      "id": "go-t9",
+      "sense_id": "go-become",
+      "sentence": "The crowd ___ wild when the home team scored.",
+      "sentence_ko": "홈 팀이 득점하자 관중이 열광했어.",
+      "subject_label": "the crowd",
+      "object_label": "into a wild state",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
+      "choices": [
+        "was",
+        "went",
+        "stayed"
+      ],
+      "answer_index": 1,
+      "why_ko": "was wild면 열광한 상태에 머물러 있음이고, stayed wild면 그 상태에 계속 머물러 있음이라 둘 다 변화가 없다. 여기선 관중이 차분하던 자리를 떠나 '열광한(wild)' 극적 상태로 갑자기 옮겨 간 변화라 went가 맞다 — go가 '정상에서 벗어나 격한 다른 상태로 떠나감'을 그린다. be/stay(머묾)와 go(상태로 떠나감)의 대비."
+    },
+    {
+      "id": "go-t10",
+      "sense_id": "go-away",
+      "sentence": "I have to ___ to work even on the weekend this week.",
+      "sentence_ko": "이번 주는 주말에도 일하러 가야 해.",
+      "subject_label": "I",
+      "object_label": "work (moving away to)",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (경계 문항 — 보기 모두 문법적으로는 가능하다)",
+      "choices": [
+        "go",
+        "come",
+        "get"
+      ],
+      "answer_index": 0,
+      "why_ko": "come to work면 듣는 이가 있는 직장 쪽으로 다가가는 상대 기준 방향이고, get to work면 '직장에 도착해 닿음'이라 도달의 결과에 초점이 간다. 여기선 내가 (집 같은) 기준점에서 멀어져 직장으로 떠나가는 이동 자체라 go가 맞다 — go(나로부터 멀어짐)·come(상대 쪽으로 다가감)·get(도착해 닿음)의 결이 갈리는 경계 자리다."
+    }
+  ],
+  "transfer_items": [
+    {
+      "id": "go-x1",
+      "sense_id": "go-away",
+      "sentence": "After graduation, many of them went abroad to find work.",
+      "sentence_ko": "졸업 후에 그들 중 다수가 일자리를 찾아 해외로 떠났어.",
+      "subject_label": "many of them",
+      "object_label": "abroad (moving away to)",
+      "type": "sense-choice",
+      "prompt": "이 went abroad가 그리는 그림으로 가장 가까운 것은?",
+      "choices": [
+        "그들이 멀리 떨어진 해외에서 본국이 있는 이쪽으로 돌아왔다",
+        "그들이 본국(기준점)을 떠나 멀리 해외로 멀어져 갔다",
+        "그들이 졸업 전부터 해외에 줄곧 자리 잡고 살고 있었다"
+      ],
+      "answer_index": 1,
+      "why_ko": "go abroad는 그들이 기준점(본국·여기)을 떠나 멀리 해외로 멀어져 가는 이동이다. 기준점 쪽으로 돌아오는 거라면 come back이 되니, go는 '여기서 멀어지는 방향'을 그린다."
+    },
+    {
+      "id": "go-x2",
+      "sense_id": "go-become",
+      "sentence": "The bread had gone stale by the time we found it.",
+      "sentence_ko": "우리가 발견했을 때쯤 빵은 이미 딱딱하게 굳어 있었어.",
+      "subject_label": "the bread",
+      "object_label": "into a stale state",
+      "type": "sense-choice",
+      "prompt": "이 gone stale이 그리는 그림은? (주어가 사람이 아니라 빵이다)",
+      "choices": [
+        "빵이 갓 구운 상태로 줄곧 신선하게 있었다",
+        "누군가 굳은 빵을 빵 자리에 새로 가져다 두었다",
+        "빵이 신선한(정상) 상태를 떠나 '굳은' 나쁜 상태로 옮겨 가 버렸다"
+      ],
+      "answer_index": 2,
+      "why_ko": "go stale은 빵이 신선한(정상) 자리를 떠나 '굳은' 나쁜 상태로 옮겨 가 버린 변화다 — 주어가 사물이어도 '정상에서 벗어나 다른(나쁜) 상태로 떠나감'이라는 go의 그림은 같다. 중립적 변화라면 get이지만, 상해 가는 일탈이라 go가 어울린다."
+    },
+    {
+      "id": "go-x3",
+      "sense_id": "go-away",
+      "sentence": "Could you ___ over to the neighbor's house and ask for some sugar?",
+      "sentence_ko": "옆집에 좀 건너가서 설탕 좀 얻어다 줄래?",
+      "subject_label": "you",
+      "object_label": "over to the neighbor's (moving away to)",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
+      "choices": [
+        "go",
+        "come",
+        "get"
+      ],
+      "answer_index": 0,
+      "why_ko": "come over면 화자가 있는 이 자리 쪽으로 건너오는 방향이라 '옆집으로 건너가라'와 어긋나고, get over는 '극복하다/넘어오다'로 결이 다르다. 여기선 듣는 이가 지금 이 자리(기준점)를 떠나 옆집으로 멀어져 가는 이동이라 go가 맞다 — go(여기서 멀어짐)·come(이쪽으로 다가옴) deixis 대비가 핵심이다."
+    },
+    {
+      "id": "go-x4",
+      "sense_id": "go-become",
+      "sentence": "After the lead engineer quit, the whole project quickly ___ downhill.",
+      "sentence_ko": "수석 엔지니어가 그만둔 뒤로 프로젝트 전체가 빠르게 내리막을 탔어.",
+      "subject_label": "the whole project",
+      "object_label": "into a declining state",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
+      "choices": [
+        "stayed",
+        "went",
+        "got"
+      ],
+      "answer_index": 1,
+      "why_ko": "stayed downhill은 비문에 가깝고, got downhill도 결합이 어색해 표준이 아니다. go downhill은 '정상 자리를 떠나 내리막(나빠지는) 상태로 옮겨 가 버림'을 그리는 굳은 표현이라 여기선 went가 표준이다 — go(정상에서 벗어나 나쁜 상태로 떠나감)의 일탈·악화 색이 또렷이 살아 get로 바꾸기 어려운 자리다."
+    },
+    {
+      "id": "go-x5",
+      "sense_id": "go-away",
+      "sentence": "He quietly slipped out the back door and went off into the night.",
+      "sentence_ko": "그는 조용히 뒷문으로 빠져나가 밤 속으로 사라졌어.",
+      "subject_label": "he",
+      "object_label": "off into the night (moving away)",
+      "type": "sense-choice",
+      "prompt": "이 went off가 그리는 그림으로 가장 가까운 것은?",
+      "choices": [
+        "그가 밤 속에서 화자가 선 자리 쪽으로 다가왔다",
+        "그가 뒷문 앞 자리에 가만히 멈춰 서 있었다",
+        "그가 이 자리에서 멀어져 밤 속으로 떠나가 사라졌다"
+      ],
+      "answer_index": 2,
+      "why_ko": "go off into the night은 그가 기준점(이 자리)에서 멀어져 밤 속으로 떠나가 사라진 이동이다 — slipped out과 이어지는 '여기서 멀어짐'은 come(다가옴)이 아니라 go의 방향이다."
+    }
+  ]
+}
