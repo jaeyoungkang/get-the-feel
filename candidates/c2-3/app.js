@@ -1415,4 +1415,24 @@
     return;
   }
   renderIntro();
+
+  // 기준 4 판정 채널 — 세션 기록 export (계약: "localStorage 세션 로그 export + cycle record")
+  (function bindExport() {
+    var btn = document.getElementById("export-log");
+    if (!btn) return;
+    btn.addEventListener("click", function () {
+      var dump = { candidate: "c2-3", exported_at: new Date().toISOString(), note: "기준 4 판정용 — 본인 실사용 기록 (약한 verdict: 저자=사용자)", keys: {} };
+      for (var i = 0; i < window.localStorage.length; i++) {
+        var k = window.localStorage.key(i);
+        if (k.indexOf("gtf-c2-") === 0) { try { dump.keys[k] = JSON.parse(window.localStorage.getItem(k)); } catch (e) { dump.keys[k] = window.localStorage.getItem(k); } }
+      }
+      var blob = new Blob([JSON.stringify(dump, null, 2)], { type: "application/json" });
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = "get-the-feel-sessions-" + new Date().toISOString().slice(0, 10) + ".json";
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+  })();
+
 })();
