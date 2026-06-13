@@ -825,7 +825,7 @@
     app.innerHTML =
       '<div class="card intro">' +
         '<p class="kicker">8개 감각, 120문장</p>' +
-        '<h1>have·get·take·make·<b>keep</b>·up·out·구동사 —<br>8개 감각을 <b>매일 새 문장으로</b> 익힙니다</h1>' +
+        '<h1>have · get · take · make · <b>keep</b> · up · out · 구동사 —<br>8개 감각을 <b>매일 새 문장으로</b> 익힙니다</h1>' +
         '<div class="whatsnew">이번에 바뀐 점: <b>이제 정답 후 해석을 보여드려요.</b> ' +
           '문제를 풀 때는 영어 문장만 보고 감각으로 고르고, 답을 맞힌 뒤에 한국어 해석을 함께 확인해요. ' +
           '그리고 다섯 번째 동사 <b>keep</b>(붙들어 유지)이 새로 들어왔어요.</div>' +
@@ -973,17 +973,25 @@
     var isLast = state.idx + 1 >= state.entries.length;
     var autoNext = loadAutoNext();
 
-    // G12 — 완성 문장(빈칸 채운 형태 또는 원문) + 그 아래 한국어 해석 ("해석" 라벨, 작게).
-    var sentenceBlock;
-    if (isWord) {
-      sentenceBlock = '<p class="filled-sentence">' + renderFilledSentence(item, answerWord) + '</p>';
-    } else {
-      sentenceBlock = '<p class="filled-sentence">' + esc(item.sentence) + '</p>';
-    }
+    // G12 — 빈칸 유형만 완성 문장 표시(채운 형태가 새 정보). sense-choice는 질문 카드 문장과
+    // 동일하므로 복제하지 않는다 (G14 — 피드백 중복 제거, 페르소나 스크롤 부담 회수).
+    var sentenceBlock = isWord
+      ? '<p class="filled-sentence">' + renderFilledSentence(item, answerWord) + '</p>'
+      : "";
     var interpBlock = item.sentence_ko
       ? '<p class="interp"><span class="interp-label">해석</span>' +
           '<span class="interp-text">' + esc(item.sentence_ko) + '</span></p>'
       : "";
+
+    // G14 — 피드백 정보 위계: 그림(차별점)은 항상 보이고, 진행 버튼은 그림 바로 아래.
+    // 말 설명(why_ko)·문법 메모(boundary)는 <details>로 접어 분량을 줄인다 (페르소나 3/3: "읽을 게 너무 많다").
+    var boundary = boundaryHtml(item);
+    var detailBlock =
+      '<details class="why-details">' +
+        '<summary>왜 그런지 / 문법 메모</summary>' +
+        '<p class="why">' + esc(item.why_ko) + '</p>' +
+        boundary +
+      '</details>';
 
     var fb = document.getElementById("feedback");
     fb.innerHTML =
@@ -996,20 +1004,26 @@
         '</div>' +
         sentenceBlock +
         interpBlock +
-        '<p class="why">' + esc(item.why_ko) + '</p>' +
         feedbackViz(item, type, correct, fatigued) +
-        boundaryHtml(item) +
-        '<label class="autonext-toggle">' +
-          '<input type="checkbox" id="autonext"' + (autoNext ? " checked" : "") + ' /> ' +
-          '맞히면 다음 문항으로 자동 넘기기' +
-        '</label>' +
+        // 진행 버튼: 그림 바로 아래 (스크롤 지옥 회수 — 긴 설명은 이 아래로)
         '<div class="btn-row">' +
           '<button class="btn" id="next-q">' + (isLast ? "결과 보기" : "다음 문항") + '</button>' +
+          '<label class="autonext-toggle">' +
+            '<input type="checkbox" id="autonext"' + (autoNext ? " checked" : "") + ' /> 맞히면 자동 넘기기' +
+          '</label>' +
         '</div>' +
+        detailBlock +
       '</div>';
 
     document.getElementById("autonext").onchange = function () { saveAutoNext(this.checked); };
     document.getElementById("next-q").onclick = nextQuestion;
+
+    // G14 — 답한 직후 피드백(정오 + 그림)을 화면 상단으로. 질문 카드의 잠긴 보기를
+    // 다시 스크롤로 지나치지 않게 — "다음 문항"이 그림 바로 아래에서 곧장 닿는다.
+    try {
+      var head = fb.querySelector(".feedback-head");
+      if (head && head.scrollIntoView) head.scrollIntoView({ behavior: "smooth", block: "start" });
+    } catch (e) { /* 무시 */ }
 
     // ---- 메타포 애니메이션 구동 (G4 > G3) ----
     if (fatigued && correct) {
