@@ -17,4 +17,4 @@ product-weaver 도메인 인스턴스. 베이스 정본은 `docs/principles.md` 
 
 ## 상태
 
-2026-06-11: C1 Discovery 종료. 2026-06-13: C2 Convergence 졸업 (대표 후보 c2-3 — 8감각 120문장, 배포 https://jaeyoung2026.github.io/get-the-feel/). C3 Readiness 진행 중.
+2026-06-13: C1→C2→C3(local_ready)→C4 진화. 대표 후보 **c4-3** 배포 라이브 https://jaeyoung2026.github.io/get-the-feel/ — 11파일 173문항(핵심동사 8·불변화사 2·구동사), 인식+산출 모드. 사용자 피드백 4건 반영. 세션 진입은 AGENTS.md "현재 상태".

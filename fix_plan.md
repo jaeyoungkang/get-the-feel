@@ -1,49 +1,37 @@
 # fix_plan — 작업 큐
 
 **규율**: 한 turn = 한 항목 = 한 commit (`docs/principles.md` Atomic Step).
-
-식별자: `<카테고리>-<번호>`.
+식별자: `<카테고리>-<번호>`. 현재 상태 요약은 `AGENTS.md` "현재 상태" 참조.
 
 ---
 
-## 대기 중 (Pending)
+## 대기 중 (Pending) — 새 세션은 여기서 고른다
 
-- [ ] **C2 Session 계획** (졸업선: contract.md C2 Convergence 6기준, N=5) — 승인 대기 (approve-6):
-  - ~~**c2-1**~~ ✅ 완료 (2026-06-11) — 결합 가설 검증, 기준 1 카운트 충족·기준 3 거의 충족. 신규 반증: 합성 과신 → R10
-  - ~~**c2-2**~~ ✅ 완료 (2026-06-11) — 코퍼스 105문장(동사 4/5·불변화사 2), 일일 공급, R10 자연 주입 검증, handoff 패키지(기준 6). 치명 사고 1건(미정의 헬퍼 — verdict 실행 스모크 공백, 페르소나가 적발) 수리·회수
-  - ~~**c2-3**~~ ✅ 완료 (2026-06-11) — keep(동사 5/5), 대비축 수렴, sentence_ko 120, 해석 피드백. **기준 1·2·3·6 충족 — C2 졸업은 기준 4·5(사용자) 대기**. c2-3가 새 대표 후보 (Day 이어받기)
-  - ✅ **C2 졸업 (2026-06-13)** — 기준 1·2·3·5·6 충족, 기준4 시뮬레이션 대체. 대표 후보 c2-3.
-
-- [x] **C3 Readiness** ✅ (2026-06-13) — c2-3 대표 후보 승격(6기준), 수요 검증 패키지·운영 계약 확정, **local_ready: pass → local Spiral terminal**. 마감조건(keep 폴드) 회수.
-
-## handoff (루프 밖 — 출시 후 수요 검증)
-
-- [ ] **demand-1** target user 3~5명 모집 → blind task(handoff/blind-task-guide.md) → demand_validated/rejected/pivot_required 판정. 결과는 cycle-record append. **실제 사람·달력 시간 필요 (에이전트 밖)**.
-  - **c2-4** 성장 증거 + 타인 검증 패키지 (기준 4·6) — 본인 7세션은 달력 시간 필요, 이 사이클과 병행 시작
-  - **retro-1**은 c2-1과 c2-2 사이 (제품 루프 횟수에 미산입)
-- [ ] ~~**c1-1**~~ ~~**c1-2**~~ (완료 — Done 참조) 첫 후보 완제품 — Discovery, 축은 후보 시작 시 에이전트 선택(핵심 동사 유력). preflight: 신뢰 출처 목록 제안(approve-4) + 콘텐츠 데이터 계약 스키마 + orchestrator receipt. 시작 시 세부 단위로 분해. **적대적 리뷰 회수 사항 포함**:
-  - Discovery 후보의 콘텐츠 깊이는 승격 기준 3(동사 5개 풀)이 아니라 **1동사 vertical slice**로 — 단계별 기준 분리를 receipt에서 결정, N=5 상한도 콘텐츠 비용 재추정 후 N=3 검토
-  - 데이터 계약에 **출처 타당성 게이트** 설계 — 출처 *유무*(기계)와 별개로 출처가 그 감각 설명을 실제로 뒷받침하는지의 사람 리뷰 단계. "출처 붙은 오개념" 차단이 1순위 위험
-  - mechanical verdict는 **단일 검증 스크립트 1개**로 시작 (표본 lighthouse 교훈: 게이트는 좁게 시작, 설정 파일 비대화 금지)
-- [x] **retro-1~3** ✅ 완료 (2026-06-11) — ① content-consensus 도메인 스킬 승격 ② 오개념 카탈로그 신설(+대조 레퍼런스 거부) ③ R4 합격선 체크리스트. 거부 기록: 빈틈 6 한정 문구 4곳 축약 안 함(레이어별 독자가 다름 — 계약/화면/규칙), choice-shuffle 분포 실측은 재발 시. 빈틈 6 본 처리는 V3 결정 시(C3)
+- [ ] **demand-1 (최우선·사용자 손)** — 출시 후 실제 target user 3~5명 수요 검증. `handoff/blind-task-guide.md`로 https://jaeyoung2026.github.io/get-the-feel/ + 4질문 전달 → demand_validated / rejected / pivot_required 판정. 결과는 cycle-record append. **에이전트가 못 하는 유일한 것 — 실제 사람·달력 시간.** `product/demand-validation-package.md`에 설계.
+- [ ] **c5-axis4 (콘텐츠 — 정체성 빈 칸)** — 축④ 어순·구문 신설. 제품이 약속한 4축 중 유일하게 비어 있음. 새 유형 필요(어순은 산출 재배열로 일부 닿음). content-consensus 경유.
+- [ ] **c5-particles (콘텐츠 — 폭)** — 불변화사 down·off·in + 그 구동사. R6 재방문 동력. content-consensus 경유.
+- [ ] **v-speak (가치 후보)** — 말하기(발화·시간압박). 산출이 "쓰기 8할"까지 갔으나 발화는 미해결(회의 페르소나 "입 여는 마지막 2할"). 서버 없는 정적 앱 제약상 설계 포크 — 사용자 결정 필요.
+- [ ] **source-review (사용자 손)** — get-into-state·be·go·come의 weak sense를 사람 출처 리뷰로 strong 승격(approve-4 절차). `product/sources.md`.
 
 ## 진행 중 (In Progress)
-
 없음.
 
-## 완료 (Done)
+## 완료 (Done) — 압축 (상세는 candidates/<id>/cycle-record.md + git log)
 
-- [x] **bootstrap-1** 도메인 부트스트랩 — 제품 계약 잠금 + Asset Map + Harness Case + 작업 큐 (2026-06-10)
-- [x] **c1-1** 첫 후보 완제품 (have vertical slice) — mechanical ALL PASS, 페르소나 2 + 모니터 3 평가, disposition: asset-only. V1 부분 검증 + 반증 1건(정답 위치 고정) → R1~R8·G1~G6 자산 회수 (2026-06-11)
-- [x] **c1-2** 둘째 후보 완제품 (up vertical slice) — mechanical 8검사 ALL PASS, 동일 회의 페르소나 재검증 + 모니터 3. V1 가설 검증(패턴 차단 + 메타포 작동), repair 3건 즉시 회수. **C1 Discovery 졸업선 충족** (2026-06-11)
+- **bootstrap-1**(2026-06-10) 도메인 부트스트랩 — 계약·Asset Map·Harness Case.
+- **C1 Discovery**(06-11): c1-1 have / c1-2 up. R1~R8·G1~G6 자산. 졸업.
+- **retro-1~3**(06-11): content-consensus 스킬 승격, 오개념 카탈로그, R4 합격선.
+- **C2 Convergence**(06-11~13): c2-1 결합(get+구동사)·c2-2 코퍼스 두께+일일공급·c2-3 keep+해석피드백. 졸업선 6기준(기준4 시뮬 대체). R9~R12·G7~G14.
+- **C3 Readiness**(06-13): c2-3 대표 승격, 수요 검증 패키지·운영 계약, local_ready: pass.
+- **C4 진화**(06-13): c4-1 주제선택+통계+get+pp(V4·G15·G16), c4-2 산출 V3(R13·R14·G17), c4-3 배치확장 be·go·come(R15). **사용자 피드백 4건 전부 반영.** 대표 후보 c4-3.
 
 ---
 
-## 사후 승인 큐 (Proposals — 사용자 승인 필요, 에이전트 단독 잠금 금지)
+## 사후 승인 큐 (Proposals) — 전건 처리 완료
 
-- [x] **approve-1** ✅ 일괄 승인 (2026-06-11) + 승격 6번 기준(차별 실재) 추가
-- [x] **approve-2** ✅ 잠정안 승인 (감각 체화 종속 시 허용)
-- [x] **approve-3** ✅ 로컬 저장 유지 승인
-- [x] **approve-4** ✅ 승인 (2026-06-13) — 웹 검증 기반, 전 sense weak→strong. **C2 기준 5 충족**
-- [x] **approve-5** ✅ 재결정 (2026-06-11): 외부 배포 — GitHub Pages (jaeyoung2026.github.io/get-the-feel, 배포 산출물만 공개). 재배포: tools/deploy/deploy-pages.sh
-- [x] **approve-6** ✅ 승인 (2026-06-11) — C1 종료, C2 Convergence 진입. C2 졸업선 6기준 + N=5 함께 잠금 (contract.md)
+- [x] approve-1 ✅ 도달 기준 일괄 승인 + 승격 6번 기준(차별 실재) 추가
+- [x] approve-2 ✅ 암기·문법형 = 감각 체화 종속 시 허용
+- [x] approve-3 ✅ 정답률 로컬 저장
+- [x] approve-4 ✅ 출처 목록 승인 (코어 sense strong) — be·go·come·get-into-state는 추가 리뷰 대기(source-review)
+- [x] approve-5 ✅ 외부 배포 (GitHub Pages, 배포 산출물만 공개)
+- [x] approve-6 ✅ C2 진입 + 졸업선 6기준·N=5 잠금
