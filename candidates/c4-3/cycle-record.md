@@ -54,3 +54,9 @@ Skill Load Receipt
 - 수리 12건: 오답 교체 8(슬롯에 서는 감각 대비 동사로 — buys/fell/stayed/took/feel 등), sense-choice 전환 4(there-존재·방향부사라 대비 동사 없음 — be-t8/x5, come-t9, go-x4).
 - 재발 방지: **R15**(verb-choice 오답 슬롯 문법 성립 의무) 신설 + content-consensus 검수 관점2에 "오답 슬롯 적합 + why_ko '비문' 자백=위반 신호" 추가.
 - verdict ALL PASS, 재배포. **실사용자 검증이 페르소나·기계·검수 3중 게이트가 놓친 클래스를 또 잡음** — 실제 사용이 최강 검증 채널임을 재확인(정답 누설·해석·레이아웃에 이어 4번째).
+
+## 실사용자 버그 검수·수리 2 (2026-06-13)
+- 신고: "get up 문항 오답에 '마시다'+'끝까지' — get과 무관. 더 있다."
+- 원인: compose 문항 오답은 *같은 동사 + 틀린 입자감각*이어야 하는데 pup-t1(get up)만 오답 동사가 '마시다(drink)'로 복붙됨. → '도달(get)'로 수정.
+- 정조준 재검수(직전 전수검수가 놓친 클래스): 11파일 130문항의 모든 오답·해설 동사명을 verb_label과 1:1 대조. **pup-t1 유일, 나머지 0건.** c4-3 data.js 재생성, verdict ALL PASS.
+- 교훈: content-consensus 검수 관점에 이미 "오답 슬롯 적합" 추가됨(R15). 여기에 "compose 오답은 동일 verb_label 유지" 명시.
