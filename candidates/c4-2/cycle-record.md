@@ -1,0 +1,33 @@
+# c4-2 Cycle Record (append-only)
+
+> 단계: C4 진화. #4 작문(제약형 산출, 사용자 결정 2026-06-13) = V3 산출 훈련 — 페르소나·계약이 줄곧 가리킨 "고를 줄 알지만 쓸 줄 모른다" 미해결 가치.
+
+```text
+Skill Load Receipt
+- skill: shared-skills/product-spiral-orchestrator/SKILL.md
+- loaded_at_step: cycle-start (c4-2)
+- candidate_id: c4-2
+- previous_candidate_disposition: c4-1 = promoted (대표 후보·배포, 동결·패치 금지)
+- required_gates: Fresh Start / Candidate Completeness / Monitor / Mechanical Verdict / Stop Permission / Asset Recovery
+- blocked_until: 산출 설계(파생 방식·자가채점 정직 라벨) 잠금 — 진행
+
+Skill Load Receipt
+- skill: shared-skills/intent-lock/SKILL.md
+- loaded_at_step: cycle-start
+- required_gates: 코드 도달 단위 / 제품 계약 발전 / 전달 가치 탐색 / 자산 기여 WHO·WHY
+```
+
+## 사이클 의도 잠금 (c4-2)
+
+- **가설 (V3 산출)**: *"인식(고르기)을 넘어 산출(쓰기)로 반보 더 가면, 감각 체화가 '알아보는 힘'에서 '꺼내 쓰는 힘'으로 한 단계 오른다. 서버 없이도 제약형 산출로 검증 가능하다."*
+- **설계 (서버 불요·정체성 유지)**: 기존 코퍼스 128문장 재사용해 산출 과제 파생. 난이도 3단:
+  - **빈칸 타이핑 (쉬움)**: verb-choice/cloze 문항의 ___에 단어를 *고르지 않고 직접 타이핑*. 정규화 문자열 일치로 자동 채점. (고르기→인출의 반보)
+  - **어순 재배열 (중간)**: 문장 토큰을 섞어 제시 → 올바른 순서로 배열. 자동 채점(원문 일치). 어순축(4축 중 ④) 산출.
+  - **전문 쓰기 (어려움)**: sentence_ko(한국어)를 prompt로 영어 문장 작성 → 모범문(원문) + 자가채점 rubric(① 그 감각을 썼나 ② 어순 ③ 동사형) 제시, 스스로 표기. **자가채점 = 약한 verdict, 정직 라벨**.
+- **정체성 유지**: 모든 산출 과제는 *그 감각 문장*을 만든다 (자유 작문 아님 — 거부 신호 "범용 학습앱" 차단). 피드백에 감각 그림 재노출로 산출을 감각에 묶음.
+- **인식≠산출 분리**: 산출 자가점수를 인식("알아보는 힘") 통계와 합치지 않는다. 별도 "꺼내 쓰는 힘" 표기. 현우 "입 안 열린다"의 그 갭을 정직하게 다룸.
+- **코드 도달 단위**: candidates/c4-2/ 독립 웹앱 — 시작 화면에 "써보기(산출)" 모드 추가, 3난이도, 자가채점 정직 라벨. 이번 사이클 안.
+- **제품 계약 발전**: V3(산출 훈련) draft→구현·검증.
+- **전달 가치 탐색**: 새 가치 V3 — "꺼내 쓰는 힘". 인식 가치(V1)와 짝.
+- **자산 기여 (WHO·WHY)**: training-design에 산출 파생·자가채점 규칙, ux-grammar에 산출 UX. WHO: 한국인 학습자. WHY: 고르기만으론 입이 안 열린다(페르소나 3/3·계약 R7) — 제약형 산출로 인출 연습.
+- **n_of_N**: C4 2 of 3.
