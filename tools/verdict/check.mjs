@@ -102,6 +102,23 @@ const CANDIDATE_CONTENT = {
     },
     quiz: ["have.json", "get.json", "take.json", "make.json", "keep.json", "up.json", "out.json", "phrasal-up.json"],
   },
+  // c4-1 = C4 출시 후 진화. data.js는 window.CONTENT_ALL 로 8파일 전부 노출 (get.json은 3 sense).
+  // 출제 풀 = 8파일 전부. 8키 각각을 해당 json과 의미 비교한다. (c2-3 동결 — c4-1이 새 작업 후보)
+  "c4-1": {
+    multi: true,
+    embed: "CONTENT_ALL",
+    keys: {
+      "have": "have.json",
+      "get": "get.json",
+      "take": "take.json",
+      "make": "make.json",
+      "keep": "keep.json",
+      "up": "up.json",
+      "out": "out.json",
+      "phrasal-up": "phrasal-up.json",
+    },
+    quiz: ["have.json", "get.json", "take.json", "make.json", "keep.json", "up.json", "out.json", "phrasal-up.json"],
+  },
 };
 const CANDIDATE_MAP = CANDIDATE_CONTENT[candidateId] || null;
 const IS_MULTI = !!(CANDIDATE_MAP && typeof CANDIDATE_MAP === "object" && CANDIDATE_MAP.multi);
@@ -112,12 +129,12 @@ const QUIZ_CONTENT_FILES = IS_MULTI ? CANDIDATE_MAP.quiz : (CANDIDATE_CONTENT_FI
 
 // 교훈(R1 셔플 / G2 명시 라벨) 회수 이후 후보에만 신규 검사 적용.
 // c1-1은 회수 전 후보 — choice-shuffle·label-fields를 skip(ok)한다.
-const NEW_CHECKS_FROM = new Set(["c1-2", "c2-1", "c2-2", "c2-3"]);
+const NEW_CHECKS_FROM = new Set(["c1-2", "c2-1", "c2-2", "c2-3", "c4-1"]);
 const APPLY_NEW_CHECKS = NEW_CHECKS_FROM.has(candidateId);
 
 // sentence_ko(CONTRACT 9)·질문단계 단서 차단(G11)은 c2-3부터 적용한다.
 // c2-3 전 후보는 회수 전 후보 — 두 검사를 skip(ok)한다 (회귀 금지 대상에서 제외).
-const KO_CHECKS_FROM = new Set(["c2-3"]);
+const KO_CHECKS_FROM = new Set(["c2-3", "c4-1"]);
 const APPLY_KO_CHECKS = KO_CHECKS_FROM.has(candidateId);
 
 function readJsonContentFiles() {
@@ -305,7 +322,9 @@ function checkCandidateFiles() {
 // ===================================================================
 // 닫힌 후보 — 마감 시점 verdict PASS가 정본 (cycle-record 참조). 코퍼스는 계속
 // 진화하므로 닫힌 후보의 data.js와 현 코퍼스의 drift는 결함이 아니다 (c2-2b 운영 결정).
-const CLOSED_CANDIDATES = new Set(["c1-1", "c1-2", "c2-1", "c2-2"]);
+// c2-3 = 동결된 대표 후보(배포 라이브). get.json 확장(3번째 sense)으로 c2-3 data.js와 현
+// 코퍼스의 drift는 결함이 아니다 — c2-3은 마감 시점 PASS가 정본. c4-1이 새 작업 후보.
+const CLOSED_CANDIDATES = new Set(["c1-1", "c1-2", "c2-1", "c2-2", "c2-3"]);
 
 function checkDataSync() {
   const g = group("data-sync");
