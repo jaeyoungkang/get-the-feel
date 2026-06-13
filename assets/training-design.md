@@ -63,3 +63,7 @@ c2-1 실증 메모: 혼합 출제는 "매 문항 유형 판별"의 긴장을 만
 - 오답도 정답과 **비슷한 길이·구체성**으로 쓴다. "그냥 숙어다" 같은 한 줄 미끼는 R2 근접 오개념 1개로 제한하고, 나머지 오답은 *그럴듯한 다른 그림*을 정답만큼 묘사한다.
 - content-consensus 검수 관점에 추가: verb-choice·cloze는 단어라 무관하나, sense-choice는 **보기 길이 분산이 정답을 가리키지 않는지** 본다.
 - 기계 보강 후보(재발 시): 정답이 최장 보기인 비율이 코퍼스에서 유의하게 높으면 verdict 경고.
+
+## R12 — get+과거분사 출제 (c4-1)
+
+get-into-state(get+pp) 문항은 (a) get/be 대비 verb-choice 포함(시점 부사가 진입/상태를 가름 — 시제 단서 아닌 감각 대비), (b) 수동 오독(be married by someone) 근접 오개념 1개(R2), (c) 진행형 가부 경계(getting dressed ○ / be married 상태)를 boundary로. get-state-change(형용사)와 한 세션에 섞으면 보기에 수동/재귀 경계를 넣어 변별(G16).

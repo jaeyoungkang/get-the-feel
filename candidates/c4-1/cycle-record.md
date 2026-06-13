@@ -66,3 +66,31 @@ Skill Load Receipt
 - 생성: opus (get-into-state sense + get-t11~t15·x6~x8 8문항, get started 포함). 자체 R11 회수.
 - 독립 적대 검수: 별도 opus (권한 분리). **blocking 0**. 핵심 판정: get-into-state vs get-state-change **과분할 아님 — 오개념-표면(수동 혼동) 기준 분할로 정당, 병합 기각**. R11 독립 재확인(정답 최장 1/5), 중복 0, get/be 대비 정답 유일(시점 부사가 진입/상태 가름 — 감각 대비). minor 2: M1(두 sense 변별 위해 get+pp 보기에 수동/재귀 경계 한 줄), M2(married 수동 미끼 보강) — 출제 설계 메모.
 - validation: subagent-consensus/weak (strong은 사람 approve 시).
+
+## 평가 + 수리 + 자산 회수 (c4-1d, 2026-06-13)
+
+### Mechanical Verdict + 스모크
+11검사 ALL PASS, jsdom 스모크(기본·집중·통계 빈/채움·약점→집중) 런타임 0. 6후보 회귀 0.
+
+### 페르소나 (민지, 배포 URL 실구동)
+신기능 3개 작동 확인: 주제 선택(get 집중 시 get 문장만), get+pp(got married/started/tired 그림으로 묶임 — "get started 궁금증 풀림"), 약점→집중 링크·Day2 추이 실재. **결함 4건 적발** → 전건 수리:
+- [HIGH] 통계 "기록 없음" 함정(사후 테스트까지 마쳐야 저장) → 빈 상태 안내 + 요약 CTA "테스트로 마무리" + 미완료 중 통계 링크 비노출
+- [HIGH] 랜딩 무게(첫 버튼 1.8화면 아래) → 모드 선택·버튼을 산문 위로, 설명 details 접기 (G14 연장)
+- [MED] 통계 16줄 과밀 → 푼 감각(t≥2)만 노출, 나머지 접기
+- [MED] get+pp 라벨 잘림 → fitText + 칸 폭 확대 (G13)
+
+### 모니터 3종
+- Intent Guardian: **pass** (R6 보존 — 집중은 선택, 거부신호 0, 통계 정직)
+- Asset Steward: **repair-before-next → 회수 완료**: V4 계약 등재, G15(주제선택·통계)·G16(get+pp) 신설, R12(get+pp 출제), misconceptions(be↔get+pp 수동혼동 + 승격 trigger), asset-map c4-1 갱신
+- Data/Sellability: **pass** (get-into-state weak 정합, N=1 정직, 집중 소진 정직)
+
+### Stop Permission
+- local_candidate_status: pass / representative_status: **promoted (c4-1 = 새 대표 후보, c2-3 승계·동결)**
+- primary_user_task: 감각 훈련 세션(주제 선택 + 9 sense 128문장 + 통계 추이)
+- core_contribution_this_cycle: 2 — V4(학습 경로 선택권) 신 가치 + get+pp 콘텐츠. 산출물 diff 실재
+- n_of_N: C4 1 of 3
+- next_action: c4-2 (#4 제약형 산출 V3) — 사용자 결정대로. 또는 출시 후 수요 검증(demand-1) 계속
+- allowed_to_stop: yes (c4-1 종료, 자산 회수 완료)
+
+### Disposition
+**c4-1 = 새 대표 후보** (배포 라이브). c2-3 → asset-only(동결). 배움 회수 완료.

@@ -10,7 +10,7 @@
 - `why_it_must_grow`: 약속과 전달 가치가 사이클마다 검증·반증으로 갱신되지 않으면 후보가 정체성에서 이탈한다 (약속 휘발 함정).
 - `how_to_update`: 사이클 의도 잠금 시 "제품 계약 발전" 한 줄(추가/구체화/검증/반증) 명시 → 후보 종료 시 반영.
 - `mechanical_or_review_gate`: Intent Guardian 모니터 + 사이클 시작 차단 규칙(계약 발전 명시 없으면 차단).
-- `last_cycle_contribution`: c2-3 — C2 기준 1·2·3 에이전트 몫 충족 선언. 사용자 피드백 2건(정답 누설·해석) 동일 사이클 회수.
+- `last_cycle_contribution`: c4-1 — V4(학습 경로 선택권) 계약 등재, 실사용자 기능 피드백 4건 회수.
 
 ## 2. 감각 콘텐츠 코퍼스 + 데이터 계약 (핵심 자산)
 
@@ -18,7 +18,7 @@
 - `why_it_must_grow`: 이 도메인의 본체. 출처 묶인 감각 설명·훈련 문장 풀·전이 세트가 자라야 후보가 훈련 과정을 지탱할 두께를 갖는다. 후보는 버려져도 코퍼스는 남는다.
 - `how_to_update`: LLM 생성 + 출처 근거 제약. 출처 없는 감각 설명은 승격 불가. 후보 종료 시 검증된 콘텐츠를 코퍼스로 회수.
 - `mechanical_or_review_gate`: 데이터 계약 스키마 검사(출처 필드 필수) + 훈련/전이 분리 검사 — `tools/verdict/check.mjs`.
-- `last_cycle_contribution`: c2-3 — **8파일 120문장, 기준 2 충족** (동사 5: have/get/take/make/keep + 불변화사 2 + 구동사). 전 문항 sentence_ko.
+- `last_cycle_contribution`: c4-1 — get-into-state(get+pp) sense + 8문항. 코퍼스 9 sense 128문장.
 
 ## 3. 훈련 설계 규칙
 
@@ -26,7 +26,7 @@
 - `why_it_must_grow`: 퀴즈 형식·난이도 설계·전이 세트 분리 규칙이 자산화되지 않으면 매 후보가 훈련 설계를 처음부터 다시 발명한다.
 - `how_to_update`: 후보의 퀴즈 정답률·전이 결과에서 배운 설계 교훈을 규칙으로 회수.
 - `mechanical_or_review_gate`: 훈련/전이 중복 금지 기계 검사 + Asset Steward 모니터.
-- `last_cycle_contribution`: c2-3 — verb-choice 대비축 수렴(기준 3 마감), keep/have/get 3중 대비, R10 반례 자연 주입 검증(c2-2).
+- `last_cycle_contribution`: c4-1 — R12(get+pp 출제) 신설.
 
 ## 4. UX 문법 (감각 전달 디자인)
 
@@ -34,7 +34,7 @@
 - `why_it_must_grow`: "감각"은 텍스트 정의가 아니라 화면 경험으로 전달된다. 공간 메타포·이미지·인터랙션의 판단이 누적되지 않으면 후보마다 전달력이 리셋된다.
 - `how_to_update`: 후보 종료 시 작동한/실패한 화면 표현을 규칙으로 회수.
 - `mechanical_or_review_gate`: Intent Guardian + 페르소나 blind task 리뷰 (베이스 어휘 모르는 일반 학습자 가정).
-- `last_cycle_contribution`: c2-3 — G9 keep 메타포 추가, G11(질문 단서 차단)·G12(해석은 정답 후) — 둘 다 사용자 실사용 적발/피드백에서 회수.
+- `last_cycle_contribution`: c4-1 — G15(주제선택·통계 패턴)·G16(get+pp 메타포) 신설, 페르소나 적발 4건(통계 함정·랜딩 무게·과밀·라벨) 회수.
 
 ## 5. 검증 도구 (Mechanical Verdict)
 

@@ -17,6 +17,7 @@ R2(근접 오개념 오답)·R3(경계 문항)의 **설계 재료 정본**. 매 
 
 - **정적 have의 진행형** (*I am having a sister) ↔ 사건성 have는 가능 (are having lunch) — boundary_ko 표지, c1-1 검수 B2
 - **be vs get 상태** (was dark = 상태 / got dark = 변화 진입) — get-x4 (검수 M2로 문장 교정)
+- **be married vs get married** (be+과거분사 = 정적 상태/수동 / get+과거분사 = 결과 상태로의 진입 사건, 진행 가능) — get-into-state, 한국인이 get+pp를 수동태(be married by~)로 오독 (c4-1)
 - ***make homework*** — do(행위) vs make(새로 생겨남) 한국인 최대 혼동 — make-t7
 - **keep vs stay** — stay는 스스로 머묾, keep은 붙드는 힘 — keep-t8
 
@@ -35,3 +36,6 @@ R2(근접 오개념 오답)·R3(경계 문항)의 **설계 재료 정본**. 매 
 - 신규 오개념은 발견 사이클에서 즉시 이 파일에 1줄 회수 (cycle record에만 남기면 미회수).
 - 콘텐츠 생성 프롬프트는 이 파일을 의무 입력으로.
 - 거부 기록: "감각-한국어 대조 레퍼런스" 별도 자산은 거부 (retro-2) — 이 카탈로그의 번역 등치 섹션이 역할 흡수, 중복 자산은 비대화.
+
+## 승격 trigger 메모
+- get-into-state는 현재 `weak`(subagent-consensus). strong 승격 = mediopassive/inchoative 라벨의 사람 출처 리뷰 통과 시 (현재 mediopassive는 "미확인" — 교육용 단순화). approve-4 류 사람 승인 자리.

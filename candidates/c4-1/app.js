@@ -468,6 +468,10 @@
     var vb = compact ? '0 0 200 150' : '0 0 320 200';
     var cx = compact ? 118 : 188, cy = compact ? 80 : 104, rx = compact ? 60 : 86, ry = compact ? 48 : 62;
     var ax = compact ? 8 : 18;
+    // 도착 칸은 get-into-state의 "into a ... state" 라벨을 담는다 (M1). 칩이 좁으면
+    // fitText가 단어 중간에서 잘라("into a tired st…") 뜻이 깨진다 — 칩 폭을 viewBox 한도까지
+    // 넓혀 fitText(G13)가 라벨을 통째로 담게 한다. (compact 150 → x:43..193, full 160 → x:108..268, 둘 다 viewBox 안.)
+    var chipW = compact ? 150 : 160;
     return (
       '<svg viewBox="' + vb + '" role="img" aria-label="대상이 영역 원 밖에서 화살표를 따라 안으로 들어와 닿는 그림">' +
         '<ellipse cx="' + cx + '" cy="' + cy + '" rx="' + rx + '" ry="' + ry + '" fill="#eef4fa" stroke="' + col + '" stroke-width="2"/>' +
@@ -476,7 +480,7 @@
         '<path d="M' + cx + ' ' + cy + ' L' + (cx - 16) + ' ' + (cy - 8) + ' L' + (cx - 16) + ' ' + (cy + 8) + ' Z" fill="' + col + '"/>' +
         '<text x="' + (ax + 6) + '" y="' + (cy - 12) + '" font-size="10" fill="#8d867d">밖</text>' +
         '<g class="' + cls + '"' + startStyle + '>' +
-          chip(cx - 50, cy - 16, 100, 36, col, objectLabel) +
+          chip(cx - chipW / 2, cy - 16, chipW, 36, col, objectLabel) +
         '</g>' +
       '</svg>'
     );
@@ -847,18 +851,46 @@
         '틀렸던 문장을 다시 보는 <b>복습 모드</b>로 감각을 단단히 할 수 있어요.</p>';
     }
 
-    app.innerHTML =
-      '<div class="card intro">' +
-        '<p class="kicker">8개 감각, 128문장</p>' +
-        '<h1>have · get · take · make · keep · up · out · 구동사 —<br>8개 감각을 <b>매일 새 문장으로</b> 익힙니다</h1>' +
+    // #2 — 랜딩에 G14 정신(행동 먼저, 설명은 요청 시) 적용.
+    //   첫 화면 안에 행동(모드 선택 + 주 버튼)이 보이게: kicker → 짧은 h1 → 한 줄 위치(status)
+    //   → 모드 선택(주 버튼) → 통계 링크. 긴 설명 산문(이번에 바뀐 점·get 그림 설명·유형 미리보기)은
+    //   주 버튼 아래 <details>로 접는다.
+    var actionBlock =
+      '<div class="mode-select">' +
+        '<div class="mode-block primary">' +
+          '<div class="mode-title">오늘의 새 문장 <span class="mode-tag">기본</span></div>' +
+          '<p class="mode-desc">8개 감각을 골고루 섞어 미출제 우선으로 15문항. 매일 오면 새 문장이에요.</p>' +
+          (unseen > 0
+            ? '<button class="btn" id="go-train">오늘 새 문장 익히기</button>'
+            : '<button class="btn" id="go-review">복습 모드 (틀린 문장 우선)</button>') +
+        '</div>' +
+        '<div class="mode-block">' +
+          '<div class="mode-title">감각 골라 집중</div>' +
+          '<p class="mode-desc">약한 감각 하나를 골라 그 항목만 15문항 연습해요. (미출제 우선, 다 보면 복습) ' +
+            '<span class="mode-hint">동사 고르기 문항은 보기에 형제 동사(get·have 등)가 섞일 수 있어요 — 감각으로 갈라 보세요.</span></p>' +
+          '<div class="focus-chips" id="focus-chips">' + focusChipsHtml() + '</div>' +
+        '</div>' +
+      '</div>';
+
+    var statsLink =
+      (days.length > 0
+        ? '<div class="btn-row">' +
+            '<button class="btn secondary" id="go-progress">내 코스·감각 통계 보기</button>' +
+          '</div>'
+        : '<p class="muted small stats-hint">오늘 세션을 <b>새 문장 테스트까지</b> 마치면 ' +
+            '‘어떤 감각이 늘고 있는지’ 통계가 여기 쌓여요.</p>');
+
+    // 접힌 설명 산문 — 그림에서 감 잡은 사람은 안 펼치고 바로 시작 (G14).
+    var aboutDetails =
+      '<details class="intro-about">' +
+        '<summary>이 도구가 뭐예요? · 이번에 바뀐 점</summary>' +
+        '<p class="promise">단어를 뜻으로 외우는 대신, 그 단어가 <b>그리는 그림</b>으로 감각을 잡아요. ' +
+          'get은 ‘밖에서 안으로 도달’ — get a text(도착), get tired(상태로 옮겨 감), ' +
+          'get married(<b>결과 상태로 진입</b>)까지 한 도달 그림으로 이어져요.</p>' +
         '<div class="whatsnew">이번에 바뀐 점: <b>학습 경로를 고를 수 있어요.</b> ' +
           '8감각을 매일 섞어 주는 <b>오늘의 새 문장</b>이 기본이고, 약한 감각만 파고들고 싶으면 ' +
           '<b>감각 골라 집중</b>으로 한 항목을 15문항 연습할 수 있어요. ' +
           '그리고 get에 <b>get started·dressed·married</b> 같은 ‘get+과거분사’ 감각이 새로 들어왔어요.</div>' +
-        '<p class="promise">단어를 뜻으로 외우는 대신, 그 단어가 <b>그리는 그림</b>으로 감각을 잡아요. ' +
-          'get은 ‘밖에서 안으로 도달’ — get a text(도착), get tired(상태로 옮겨 감), ' +
-          'get married(<b>결과 상태로 진입</b>)까지 한 도달 그림으로 이어져요.</p>' +
-        status +
         '<div class="type-preview">' +
           '<div class="type-chip"><span class="type-ico">' + miniIconSenseChoice() + '</span>' +
             '<span class="type-name">그림 고르기</span><span class="type-desc">단어가 그리는 그림</span></div>' +
@@ -867,24 +899,16 @@
           '<div class="type-chip"><span class="type-ico">' + miniIconCloze() + '</span>' +
             '<span class="type-name">불변화사 고르기</span><span class="type-desc">합성 그림으로</span></div>' +
         '</div>' +
-        // 주제 선택 (#1)
-        '<div class="mode-select">' +
-          '<div class="mode-block primary">' +
-            '<div class="mode-title">오늘의 새 문장 <span class="mode-tag">기본</span></div>' +
-            '<p class="mode-desc">8개 감각을 골고루 섞어 미출제 우선으로 15문항. 매일 오면 새 문장이에요.</p>' +
-            (unseen > 0
-              ? '<button class="btn" id="go-train">오늘 새 문장 익히기</button>'
-              : '<button class="btn" id="go-review">복습 모드 (틀린 문장 우선)</button>') +
-          '</div>' +
-          '<div class="mode-block">' +
-            '<div class="mode-title">감각 골라 집중</div>' +
-            '<p class="mode-desc">약한 감각 하나를 골라 그 항목만 15문항 연습해요. (미출제 우선, 다 보면 복습)</p>' +
-            '<div class="focus-chips" id="focus-chips">' + focusChipsHtml() + '</div>' +
-          '</div>' +
-        '</div>' +
-        '<div class="btn-row">' +
-          '<button class="btn secondary" id="go-progress">내 코스·감각 통계 보기</button>' +
-        '</div>' +
+      '</details>';
+
+    app.innerHTML =
+      '<div class="card intro">' +
+        '<p class="kicker">8개 감각, 128문장</p>' +
+        '<h1>8개 감각을 <b>매일 새 문장으로</b> 익힙니다</h1>' +
+        status +
+        actionBlock +
+        statsLink +
+        aboutDetails +
       '</div>';
 
     var t = document.getElementById("go-train");
@@ -892,7 +916,8 @@
     var r = document.getElementById("go-review");
     if (r) r.onclick = function () { startTraining(true, null); };
     wireFocusChips();
-    document.getElementById("go-progress").onclick = renderProgress;
+    var gp = document.getElementById("go-progress");
+    if (gp) gp.onclick = renderProgress;
     window.scrollTo(0, 0);
   }
 
@@ -1311,10 +1336,11 @@
         (unseen > 0
           ? '<p class="supply-note">' + (focusItem ? "이 항목" : "전체") + '에 아직 안 본 <b>새 문장이 ' + unseen + '개</b> 남아 있어요.</p>'
           : '<p class="supply-note"><b>' + (focusItem ? "이 항목 새 문장을" : "새 문장을") + ' 전부 봤어요.</b> 이제 복습 모드(틀린 문장 우선)로 돌아가요.</p>') +
-        '<p class="muted">감각이 잡혔는지 익히기에 없던 <b>새 문장</b>으로 확인해 보세요.</p>' +
+        '<p class="muted">아직 <b>오늘 세션이 끝나지 않았어요.</b> 익히기에 없던 <b>새 문장 테스트</b>까지 마쳐야 ' +
+          '오늘 기록이 통계에 쌓여요 — 감각이 진짜 잡혔는지 확인하는 마지막 단계예요.</p>' +
         '<div class="btn-row">' +
-          '<button class="btn" id="go-transfer">새 문장 테스트</button>' +
-          '<button class="btn secondary" id="go-home">처음으로</button>' +
+          '<button class="btn" id="go-transfer">새 문장 테스트로 마무리 →</button>' +
+          '<button class="btn secondary" id="go-home">나중에 (처음으로)</button>' +
         '</div>' +
       '</div>';
     document.getElementById("go-transfer").onclick = function () { startTransfer(focusItem); };
@@ -1373,8 +1399,19 @@
 
     var body;
     if (days.length === 0) {
-      body = '<p class="empty-note">아직 기록이 없어요. 오늘 한 번 익히고 새 문장 테스트까지 마치면 ' +
-        '여기에 ‘어떤 감각이 늘고 있는지’가 쌓입니다.</p>';
+      // #1 — 세션 미완료 빈 상태를 정직하게. 기록은 *새 문장 테스트까지* 마쳐야 저장된다.
+      var hasUnseen = unseen > 0;
+      body = '<div class="empty-state">' +
+        '<p class="empty-note">오늘 세션을 <b>새 문장 테스트까지 마치면</b> 여기에 기록이 쌓여요.</p>' +
+        '<p class="muted small">익히기 15문항만으로는 아직 저장되지 않아요 — ' +
+          '감각이 진짜 잡혔는지 <b>새 문장 테스트</b>로 확인하는 단계까지 끝내야 ' +
+          '‘어떤 감각이 늘고 있는지’를 볼 수 있어요.</p>' +
+        '<div class="btn-row">' +
+          (hasUnseen
+            ? '<button class="btn" id="empty-train">오늘 새 문장 익히기 시작</button>'
+            : '<button class="btn" id="empty-review">복습 모드로 시작</button>') +
+        '</div>' +
+      '</div>';
     } else {
       var supply =
         '<div class="supply-card">' +
@@ -1407,9 +1444,12 @@
         body +
         '<p class="honesty">이 기록은 ‘알아보는 힘’이 자라는 모습이에요 — 말하기·쓰기 실력을 그대로 증명하지는 않아요.</p>' +
         '<div class="btn-row">' +
-          (unseen > 0
-            ? '<button class="btn" id="pg-train">오늘 새 문장 익히기</button>'
-            : '<button class="btn" id="pg-review">복습 모드</button>') +
+          // 빈 상태에선 위 empty-state가 이미 시작 CTA를 들고 있어 하단 시작 버튼은 생략(중복 방지).
+          (days.length === 0
+            ? ''
+            : (unseen > 0
+              ? '<button class="btn" id="pg-train">오늘 새 문장 익히기</button>'
+              : '<button class="btn" id="pg-review">복습 모드</button>')) +
           '<button class="btn secondary" id="pg-home">처음으로</button>' +
         '</div>' +
       '</div>';
@@ -1417,6 +1457,10 @@
     if (pt) pt.onclick = function () { startTraining(false, null); };
     var pr = document.getElementById("pg-review");
     if (pr) pr.onclick = function () { startTraining(true, null); };
+    var et = document.getElementById("empty-train");
+    if (et) et.onclick = function () { startTraining(false, null); };
+    var er = document.getElementById("empty-review");
+    if (er) er.onclick = function () { startTraining(true, null); };
     document.getElementById("pg-home").onclick = renderIntro;
     // 약점 한 줄에 붙은 "집중 모드로 연습" 버튼 연결 (#1로 연결).
     wireWeaknessFocus();
@@ -1517,12 +1561,8 @@
     var ids = Object.keys(acc);
     ids.sort(function (a, b) { return (ITEM_ORDER.indexOf(itemOfSense(a)) - ITEM_ORDER.indexOf(itemOfSense(b))); });
 
-    // 약한 감각 강조용 — 누적 정답률 하위 임계.
-    var rows = "";
-    for (var k = 0; k < ids.length; k++) {
-      var id = ids[k];
-      var d = acc[id];
-      if (d.t === 0) continue;
+    // 한 줄 렌더 헬퍼 — 기본 노출 줄과 접힌 줄이 같은 모양을 쓰게.
+    function trendRowHtml(id, d) {
       var p = pct(d.c, d.t);
       var col = senseColor(id);
       // 방향: 최근 세션 정답률 vs 그 이전 누적 정답률.
@@ -1537,7 +1577,7 @@
         arrow = "새로"; arrowCls = "flat";
       }
       var weakCls = (d.t >= 3 && p < 60) ? " weak" : "";
-      rows += '<div class="trend-row' + weakCls + '">' +
+      return '<div class="trend-row' + weakCls + '">' +
         '<span class="sense-dot" style="background:' + col + '"></span>' +
         '<span class="sense-name">' + esc(senseLabel(id)) + '</span>' +
         '<span class="sense-bar"><span class="sense-bar-fill" style="width:' + p + '%;background:' + col + '"></span></span>' +
@@ -1545,11 +1585,37 @@
         '<span class="trend-arrow ' + arrowCls + '">' + arrow + '</span>' +
       '</div>';
     }
+
+    // 한 세션이 8감각을 한 문항씩 스쳐 t=1 줄이 무더기로 쌓인다 — 약점(빨간) 줄이 그 잡음에 묻힌다.
+    // 기본 노출은 *충분히 풀어 본* 감각(t>=2, 강·약 판단과 같은 임계)만. 한 번만 스친 감각(t==1)은
+    // "전체 감각 보기" 접기 뒤로 — 약점 줄은 t>=3이라 항상 기본에 남는다.
+    var mainRows = "", thinRows = "", thinCount = 0;
+    for (var k = 0; k < ids.length; k++) {
+      var id = ids[k];
+      var d = acc[id];
+      if (d.t === 0) continue;
+      if (d.t >= 2) {
+        mainRows += trendRowHtml(id, d);
+      } else {
+        thinRows += trendRowHtml(id, d);
+        thinCount++;
+      }
+    }
+    // 표본이 모두 얇으면(전부 t==1) 접기 뒤에만 두면 빈 화면이 된다 — 그땐 전부 기본 노출.
+    if (mainRows === "" && thinRows !== "") { mainRows = thinRows; thinRows = ""; thinCount = 0; }
+
+    var thinBlock = thinCount > 0
+      ? '<details class="trend-more"><summary>한 번만 본 감각 ' + thinCount + '개 더 보기 (전체 감각 보기)</summary>' +
+          '<div class="trend-list">' + thinRows + '</div></details>'
+      : "";
+
     return '<div class="chart-block">' +
       '<h3>감각별 추이 (코스 누적 · 최근 세션과 비교)</h3>' +
       '<p class="muted small">항목×감각 단위 정답률이에요. <b>▲</b>는 최근 세션에서 늘었다는 뜻 ' +
-        '— <span class="weak-legend">붉게 강조된 줄</span>이 지금 가장 약한 감각이에요.</p>' +
-      '<div class="trend-list">' + rows + '</div>' +
+        '— <span class="weak-legend">붉게 강조된 줄</span>이 지금 가장 약한 감각이에요. ' +
+        '한 번만 풀어 본 감각은 접어 뒀어요.</p>' +
+      '<div class="trend-list">' + mainRows + '</div>' +
+      thinBlock +
       '</div>';
   }
 

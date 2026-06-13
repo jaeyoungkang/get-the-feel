@@ -95,9 +95,20 @@ p { margin: 0 0 14px; }
 .position-note {
   background: var(--bg); border-left: 3px solid var(--up);
   border-radius: 0 8px 8px 0; padding: 11px 15px;
-  color: var(--ink-soft); font-size: 0.95rem; margin: 18px 0 4px;
+  color: var(--ink-soft); font-size: 0.95rem; margin: 14px 0 6px;
 }
 .position-note b { color: var(--ink); }
+
+/* #2 — 랜딩 설명 산문은 행동 아래 접기로 (G14: 행동 먼저, 설명은 요청 시) */
+.intro-about { margin-top: 20px; border-top: 1px solid var(--line); padding-top: 8px; }
+.intro-about summary {
+  cursor: pointer; font-size: 0.92rem; font-weight: 600; color: var(--ink-soft);
+  padding: 6px 0; list-style: none;
+}
+.intro-about summary::-webkit-details-marker { display: none; }
+.intro-about summary::before { content: "▸ "; color: var(--ink-faint); }
+.intro-about[open] summary::before { content: "▾ "; }
+.intro-about .promise { margin-top: 10px; }
 
 /* 유형 3종 미리보기 */
 .type-preview { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 22px 0 6px; }
@@ -112,7 +123,7 @@ p { margin: 0 0 14px; }
 .type-desc { font-size: 0.78rem; color: var(--ink-faint); }
 
 /* ---------- 주제 선택 (#1, V4 학습 경로 선택권) ---------- */
-.mode-select { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0 6px; }
+.mode-select { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0 6px; }
 @media (max-width: 620px) { .mode-select { grid-template-columns: 1fr; } }
 .mode-block {
   background: var(--bg); border: 1px solid var(--line); border-radius: 14px;
@@ -125,6 +136,7 @@ p { margin: 0 0 14px; }
   color: #fff; background: var(--accent); border-radius: 999px; padding: 2px 8px;
 }
 .mode-desc { font-size: 0.88rem; color: var(--ink-soft); margin-bottom: 14px; flex: 1; }
+.mode-hint { display: block; margin-top: 6px; font-size: 0.8rem; color: var(--ink-faint); }
 .mode-block .btn { align-self: flex-start; }
 
 .focus-chips { display: flex; flex-direction: column; gap: 8px; }
@@ -418,6 +430,14 @@ p { margin: 0 0 14px; }
 .trend-arrow.flat { color: var(--ink-faint); font-weight: 600; }
 .weak-legend { color: var(--wrong); font-weight: 700; }
 
+/* 추이 — 한 번만 본 감각은 접기 뒤로 (과밀 완화, 약점 줄이 묻히지 않게) */
+.trend-more { margin-top: 8px; }
+.trend-more summary { cursor: pointer; font-size: 0.84rem; color: var(--ink-faint); padding: 4px 0; list-style: none; }
+.trend-more summary::-webkit-details-marker { display: none; }
+.trend-more summary::before { content: "▸ "; color: var(--ink-faint); }
+.trend-more[open] summary::before { content: "▾ "; }
+.trend-more .trend-list { margin-top: 6px; }
+
 /* ---------- 일자별 코스 추이 ---------- */
 .supply-card {
   background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px;
@@ -446,6 +466,18 @@ p { margin: 0 0 14px; }
 .empty-note { color: var(--ink-faint); padding: 26px 0; text-align: center; }
 .empty-note.small { padding: 14px 0; }
 .section-gap { height: 30px; }
+
+/* #1 — 세션 미완료 빈 통계: 김 새지 않게 정직한 안내 + 다시 시작 CTA */
+.empty-state {
+  background: var(--accent-soft); border: 1px solid var(--accent);
+  border-radius: 12px; padding: 20px 18px; margin: 8px 0 4px; text-align: center;
+}
+.empty-state .empty-note { color: var(--ink); font-weight: 600; padding: 4px 0 6px; }
+.empty-state .empty-note b { color: var(--accent); }
+.empty-state .muted { margin: 0 0 14px; }
+.empty-state .btn-row { justify-content: center; }
+.stats-hint { margin: 14px 0 0; }
+.stats-hint b { color: var(--accent); }
 
 /* ---------- ⓘ 정보 패널 (G5) ---------- */
 .info-btn {
