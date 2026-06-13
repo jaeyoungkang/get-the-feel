@@ -174,14 +174,14 @@
       "subject_label": "she",
       "object_label": "a package (arriving)",
       "type": "verb-choice",
-      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은?",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
       "choices": [
         "has",
         "got",
-        "makes"
+        "took"
       ],
       "answer_index": 1,
-      "why_ko": "has는 소포가 이미 그녀 영역 안에 있는 정적 상태를 그리지만, a minute ago는 '막 들어온 도달 사건'을 가리키므로 들어오는 순간을 그리는 got이 맞다. have(이미 안)와 get(들어오는 순간)의 대비다."
+      "why_ko": "has는 소포가 이미 그녀 영역 안에 있는 정적 상태를 그리고, took a package from her mom은 그녀가 엄마한테서 소포를 능동적으로 집어/받아 든 행위에 초점이 간다. a minute ago는 소포가 바깥에서 그녀 영역 안으로 '막 들어와 닿은 도달 사건'을 가리키므로 들어오는 순간을 그리는 got이 맞다 — get(밖→안 도달)·have(이미 안에 있음)·take(능동적으로 집어 듦)의 감각 대비. 셋 다 'V a package from her mom' 꼴로 문장은 되지만 그리는 그림이 갈린다."
     },
     {
       "id": "get-t7",
@@ -208,14 +208,14 @@
       "subject_label": "you",
       "object_label": "into a sick state",
       "type": "verb-choice",
-      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은?",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
       "choices": [
         "are",
-        "have",
+        "feel",
         "get"
       ],
       "answer_index": 2,
-      "why_ko": "are sick은 아픈 상태에 머물러 있음이고, have sickness는 병이 영역 안에 자리한 정적 그림이다. 여기선 주어(you)가 '아프다는 상태 자리로 옮겨 가 닿는' 변화를 묻으므로 도달 동사 get이 맞다 — be(머묾)와 get(주어가 상태로 옮겨 가 닿음)의 대비."
+      "why_ko": "are sick은 아픈 상태에 그대로 머물러 있음이고, feel sick은 그 상태를 지금 그렇게 느낀다는 감각 표현이라 둘 다 변화의 이동이 없다. 여기선 주어(you)가 '아프다는 상태 자리로 옮겨 가 닿는' 변화를 묻으므로 도달 동사 get이 맞다 — get(주어가 상태로 옮겨 가 닿음)·be(상태에 머묾)·feel(그 상태를 느낌)의 감각 대비. 셋 다 'V sick' 꼴로 문장은 되지만 그리는 그림이 갈린다."
     },
     {
       "id": "get-t9",
@@ -327,14 +327,14 @@
       "subject_label": "he",
       "object_label": "into a lost state",
       "type": "verb-choice",
-      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (둘 다 문법은 되지만 그림이 다르다)",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
       "choices": [
         "was",
         "got",
-        "kept"
+        "stayed"
       ],
       "answer_index": 1,
-      "why_ko": "was lost면 '길 잃은 상태에 있었다'는 정적 상태이고, kept lost는 비문에 가깝다. on the way는 '걸어가던 중에 길 잃은 상태로 막 들어선' 변화를 가리키므로 진입을 그리는 got이 맞다 — got lost(길 잃은 상태로 진입함)와 was lost(길 잃은 상태에 머묾)는 그림이 갈린다. get(상태로의 진입)·be(상태에 머묾)의 대비."
+      "why_ko": "was lost면 '길 잃은 상태에 있었다'는 정적 상태이고, stayed lost면 '길 잃은 상태에 계속 머물러 있음'이라 둘 다 변화의 이동이 없다. on the way to the old station은 '걸어가던 중에 길 잃은 상태로 막 들어선' 변화를 가리키므로 진입을 그리는 got이 맞다 — get(상태로의 진입)·be(상태에 머묾)·stay(그 상태에 계속 머묾)의 감각 대비. 셋 다 'V lost' 꼴로 문장은 되지만 그리는 그림이 갈린다."
     }
   ],
   "transfer_items": [

@@ -169,19 +169,19 @@
     {
       "id": "be-t8",
       "sense_id": "be-exist-locate",
-      "sentence": "There ___ a long crack in the old ceiling.",
+      "sentence": "There is a long crack in the old ceiling.",
       "sentence_ko": "오래된 천장에 긴 금이 하나 가 있어.",
       "subject_label": "a long crack",
       "object_label": "in the ceiling",
-      "type": "verb-choice",
-      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (둘 다 문법은 되지만 그림이 다르다)",
+      "type": "sense-choice",
+      "prompt": "이 There is가 그리는 그림은?",
       "choices": [
-        "has",
-        "is",
-        "makes"
+        "긴 금 하나가 오래된 천장에 그냥 존재한다고 무대에 올린다",
+        "천장이 그 금을 자기 영역 안에 소유물처럼 거느리고 있다",
+        "누군가 천장에 금을 새로 내어 만들어 낸다"
       ],
-      "answer_index": 1,
-      "why_ko": "There is는 금이 천장에 '존재한다'고 무대에 올리는 그림이다. The ceiling has a crack(천장이 금을 영역 안에 가짐)도 문법은 되지만, There ___ 틀은 존재 도입이라 has가 들어갈 자리가 아니다 — 존재 자체를 세우는 is가 맞다. makes는 금을 새로 만들어 낸다는 제작이라 그림이 다르다. be(존재 도입)·have(영역 내 소유)·make(제작)의 감각 대비."
+      "answer_index": 0,
+      "why_ko": "There is는 금이 누구의 것(have)도, 새로 내는 동작(make)도 아니라, 금이 천장 그 자리에 존재한다는 것 자체를 무대에 올리는 그림이다. 존재·위치 도입이 be의 바탕 감각이다."
     },
     {
       "id": "be-t9",
@@ -191,14 +191,14 @@
       "subject_label": "everyone",
       "object_label": "asleep",
       "type": "verb-choice",
-      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (둘 다 문법은 되지만 그림이 다르다)",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
       "choices": [
         "was",
-        "got",
-        "had"
+        "fell",
+        "stayed"
       ],
       "answer_index": 0,
-      "why_ko": "got asleep은 결합 자체가 부자연스럽다 — 영어는 '잠드는' 진입을 fall asleep이나 get to sleep으로 말하지 get asleep으로 쓰지 않는다. had asleep도 비문이다. 그 위에 감각으로 봐도, By midnight everyone was asleep은 자정 무렵 모두가 '잠든 상태에 머물러 있던' 정지 화면이라 머묾을 그리는 be가 맞다 — by midnight은 그 시각의 상태를 묻는 머묾 표현이다. be(상태에 머묾)·get(상태로 진입)의 대비이되, 여기선 get 쪽 결합 자체가 서지 않는다."
+      "why_ko": "fell fast asleep은 깨어 있다 잠든 상태로 '막 옮겨 가 닿는' 진입 사건이고, stayed fast asleep은 이미 잠든 상태에 '계속 머물러 있음'이라 둘 다 그 시점의 상태를 그리지 않는다. By midnight everyone was asleep은 자정 무렵 모두가 '잠든 상태에 그대로 놓여 있던' 정지 화면이라 머묾을 그리는 be가 맞다 — by midnight은 그 시각의 상태를 묻는 머묾 표현이다. be(상태에 머묾)·fall(상태로 진입)·stay(그 상태에 계속 머묾)의 감각 대비. 셋 다 'V fast asleep' 꼴로 문장은 되지만 그리는 그림이 갈린다."
     },
     {
       "id": "be-t10",
@@ -208,14 +208,14 @@
       "subject_label": "he",
       "object_label": "angry",
       "type": "verb-choice",
-      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (둘 다 문법은 되지만 그림이 다르다)",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
       "choices": [
         "got",
         "was",
-        "kept"
+        "stayed"
       ],
       "answer_index": 1,
-      "why_ko": "the whole evening(저녁 내내)은 화난 상태가 '쭉 이어진 머묾'을 가리키므로 그 상태에 머물러 있음을 그리는 was가 맞다. got angry는 화난 상태로 '막 옮겨 가 닿는' 한 순간의 진입이라 '내내'와 안 어울리고, kept angry는 비문에 가깝다(머물려면 stayed angry). be(상태에 머묾)·get(상태로의 진입)의 대비 — 지속을 가리키는 부사가 머묾 쪽을 못박는다."
+      "why_ko": "got angry는 화난 상태로 '막 옮겨 가 닿는' 한 순간의 진입이라 '저녁 내내'와 안 어울리고, stayed angry는 '화난 상태에 계속 머물러 있음'이라 화가 이미 나 있던 걸 전제해 결이 살짝 어긋난다. the whole evening after the argument(말다툼 뒤 저녁 내내)은 화난 상태에 그대로 놓여 있던 머묾을 가리키므로 was가 맞다 — be(상태에 머묾)·get(상태로의 진입)·stay(그 상태에 계속 머묾)의 감각 대비. 셋 다 'V angry' 꼴로 문장은 되지만 그리는 그림이 갈린다."
     }
   ],
   "transfer_items": [
@@ -290,19 +290,19 @@
     {
       "id": "be-x5",
       "sense_id": "be-exist-locate",
-      "sentence": "There ___ a strange noise coming from the engine.",
+      "sentence": "There is a strange noise coming from the engine.",
       "sentence_ko": "엔진에서 이상한 소리가 나고 있어.",
       "subject_label": "a strange noise",
       "object_label": "from the engine",
-      "type": "verb-choice",
-      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (존재를 무대에 올린다)",
+      "type": "sense-choice",
+      "prompt": "이 There is가 그리는 그림으로 가장 가까운 것은?",
       "choices": [
-        "has",
-        "is",
-        "takes"
+        "이상한 소리 하나가 엔진 쪽에 존재한다고 무대에 올린다",
+        "엔진이 그 소리를 자기 영역 안에 소유물처럼 가지고 있다",
+        "그 소리가 엔진에서 무언가를 능동적으로 끌어가 버린다"
       ],
-      "answer_index": 1,
-      "why_ko": "There is는 이상한 소리가 엔진에서 '존재한다'고 무대에 올리는 그림이다. The engine has a noise(엔진이 소리를 영역 안에 가짐)도 문법은 되지만 There ___ 틀은 존재 도입이라 has 자리가 아니고, takes는 소리가 무언가를 능동적으로 가져간다는 그림이라 맞지 않는다 — be(존재 도입)·have(영역 내 소유)·take(능동적 가져감)의 감각 대비."
+      "answer_index": 0,
+      "why_ko": "There is는 소리가 누구의 것(have)도, 무언가를 끌어가는 동작(take)도 아니라, 이상한 소리가 엔진 쪽 그 자리에 존재한다는 것 자체를 무대에 올리는 그림이다. 추상적인 소리의 존재도 be의 같은 도입 도식이다."
     }
   ]
 }

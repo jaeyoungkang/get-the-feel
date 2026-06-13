@@ -203,7 +203,7 @@
         "stayed"
       ],
       "answer_index": 1,
-      "why_ko": "was wild면 열광한 상태에 머물러 있음이고, stayed wild면 그 상태에 계속 머물러 있음이라 둘 다 변화가 없다. 여기선 관중이 차분하던 자리를 떠나 '열광한(wild)' 극적 상태로 갑자기 옮겨 간 변화라 went가 맞다 — go가 '정상에서 벗어나 격한 다른 상태로 떠나감'을 그린다. be/stay(머묾)와 go(상태로 떠나감)의 대비."
+      "why_ko": "was wild면 열광한 상태에 그대로 머물러 있음이고, stayed wild면 이미 열광하던 상태에 계속 머물러 있음이라 둘 다 변화의 이동이 없다. when the home team scored(득점한 그 순간)는 관중이 차분하던 자리를 떠나 '열광한(wild)' 극적 상태로 갑자기 옮겨 간 변화를 가리키므로 went가 맞다 — go(정상에서 벗어나 격한 다른 상태로 떠나감)·be(상태에 머묾)·stay(그 상태에 계속 머묾)의 감각 대비. 셋 다 'V wild' 꼴로 문장은 되지만 그리는 그림이 갈린다."
     },
     {
       "id": "go-t10",
@@ -278,19 +278,19 @@
     {
       "id": "go-x4",
       "sense_id": "go-become",
-      "sentence": "After the lead engineer quit, the whole project quickly ___ downhill.",
+      "sentence": "After the lead engineer quit, the whole project quickly went downhill.",
       "sentence_ko": "수석 엔지니어가 그만둔 뒤로 프로젝트 전체가 빠르게 내리막을 탔어.",
       "subject_label": "the whole project",
       "object_label": "into a declining state",
-      "type": "verb-choice",
-      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
+      "type": "sense-choice",
+      "prompt": "이 went downhill이 그리는 그림으로 가장 가까운 것은? (주어가 사람이 아니라 일이다)",
       "choices": [
-        "stayed",
-        "went",
-        "got"
+        "프로젝트가 멀쩡하던 자리를 떠나 '나빠지는' 내리막 상태로 옮겨 가 버렸다",
+        "프로젝트가 그만둔 일과 상관없이 줄곧 잘 굴러가는 상태 그대로였다",
+        "누군가 프로젝트를 일부러 산비탈 아래로 밀어 굴려 떨어뜨렸다"
       ],
-      "answer_index": 1,
-      "why_ko": "stayed downhill은 비문에 가깝고, got downhill도 결합이 어색해 표준이 아니다. go downhill은 '정상 자리를 떠나 내리막(나빠지는) 상태로 옮겨 가 버림'을 그리는 굳은 표현이라 여기선 went가 표준이다 — go(정상에서 벗어나 나쁜 상태로 떠나감)의 일탈·악화 색이 또렷이 살아 get로 바꾸기 어려운 자리다."
+      "answer_index": 0,
+      "why_ko": "go downhill은 프로젝트가 멀쩡한(정상) 자리를 떠나 '나빠지는(내리막)' 상태로 옮겨 가 버린 변화다 — 주어가 추상적인 '일'이어도 '정상에서 벗어나 나쁜 상태로 떠나감'이라는 go의 그림은 같다. 누가 물리적으로 밀어 굴리는 그림이 아니라, 정상에서 일탈해 악화되는 go-become의 자리다."
     },
     {
       "id": "go-x5",

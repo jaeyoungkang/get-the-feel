@@ -191,19 +191,19 @@
     {
       "id": "come-t9",
       "sense_id": "come-emerge",
-      "sentence": "Nobody is quite sure how the whole misunderstanding ___ about.",
+      "sentence": "Nobody is quite sure how the whole misunderstanding came about.",
       "sentence_ko": "그 오해가 어쩌다 그렇게 생겨났는지 아무도 확실히 몰라.",
       "subject_label": "the whole misunderstanding",
       "object_label": "about (coming into being)",
-      "type": "verb-choice",
-      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
+      "type": "sense-choice",
+      "prompt": "이 came about이 그리는 그림으로 가장 가까운 것은?",
       "choices": [
-        "set",
-        "came",
-        "brought"
+        "없던 오해가 어쩌다 저절로 생겨나 모습을 드러냈다",
+        "누군가 그 오해를 일부러 일으켜 만들어 냈다",
+        "이미 있던 오해를 누군가 끝까지 붙들어 키워 갔다"
       ],
-      "answer_index": 1,
-      "why_ko": "set about이면 '~을 시작하다'라 주어가 스스로 일에 착수하는 결이고, brought about은 '(누가) ~을 일으키다'라 일으킨 주체가 따로 있는 타동의 결이라 결이 어긋난다. 여기선 없던 오해가 어쩌다 저절로 생겨나 드러난 출현이라 came about이 맞다 — come about은 일·사태가 스스로 생겨나 나타나는 그림이다. 셋 다 'V about' 꼴로 문장은 되지만 그리는 그림이 갈린다."
+      "answer_index": 0,
+      "why_ko": "come about은 일·사태가 어디서 다가오거나 누가 일으킨 게 아니라, 없던 오해가 어쩌다 저절로 생겨나 드러난 출현이다 — come의 '드러나는 쪽으로 나오는 이동'이 추상적인 사태의 발생으로 확장된 자리다. 누가 일부러 일으키거나 붙들어 키우는 그림이 아니다."
     },
     {
       "id": "come-t10",
@@ -252,11 +252,11 @@
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
       "choices": [
         "came",
-        "stayed",
+        "got",
         "ran"
       ],
       "answer_index": 0,
-      "why_ko": "stayed to me는 비문에 가깝고, ran to me면 무언가가 나에게 달려오는 물리 이동이라 결이 다르다. 여기선 없던 해법이 머릿속에 문득 떠올라 드러나는 출현이라 came to me가 맞다 — come to me는 생각·해법이 어디 멀리서 다가오는 게 아니라 보이지 않던 것이 의식 위로 솟아 나타나는 그림이다(come-emerge). 셋 다 문장 꼴은 되지만 그리는 그림이 갈린다."
+      "why_ko": "got to me면 그 해법이 나에게 닿아 영향을 미쳤다는 도달·영향의 결이고, ran to me면 무언가가 나에게 달려오는 물리 이동이라 결이 다르다. 여기선 없던 해법이 머릿속에 문득 떠올라 드러나는 출현이라 came to me가 맞다 — come to me는 생각·해법이 어디 멀리서 다가오는 게 아니라 보이지 않던 것이 의식 위로 솟아 나타나는 그림이다(come-emerge). 셋 다 'V to me' 꼴로 문장은 되지만 그리는 그림이 갈린다."
     },
     {
       "id": "come-x3",

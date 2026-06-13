@@ -477,14 +477,14 @@ window.CONTENT_ALL = {
         "subject_label": "she",
         "object_label": "a package (arriving)",
         "type": "verb-choice",
-        "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은?",
+        "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
         "choices": [
           "has",
           "got",
-          "makes"
+          "took"
         ],
         "answer_index": 1,
-        "why_ko": "has는 소포가 이미 그녀 영역 안에 있는 정적 상태를 그리지만, a minute ago는 '막 들어온 도달 사건'을 가리키므로 들어오는 순간을 그리는 got이 맞다. have(이미 안)와 get(들어오는 순간)의 대비다."
+        "why_ko": "has는 소포가 이미 그녀 영역 안에 있는 정적 상태를 그리고, took a package from her mom은 그녀가 엄마한테서 소포를 능동적으로 집어/받아 든 행위에 초점이 간다. a minute ago는 소포가 바깥에서 그녀 영역 안으로 '막 들어와 닿은 도달 사건'을 가리키므로 들어오는 순간을 그리는 got이 맞다 — get(밖→안 도달)·have(이미 안에 있음)·take(능동적으로 집어 듦)의 감각 대비. 셋 다 'V a package from her mom' 꼴로 문장은 되지만 그리는 그림이 갈린다."
       },
       {
         "id": "get-t7",
@@ -511,14 +511,14 @@ window.CONTENT_ALL = {
         "subject_label": "you",
         "object_label": "into a sick state",
         "type": "verb-choice",
-        "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은?",
+        "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
         "choices": [
           "are",
-          "have",
+          "feel",
           "get"
         ],
         "answer_index": 2,
-        "why_ko": "are sick은 아픈 상태에 머물러 있음이고, have sickness는 병이 영역 안에 자리한 정적 그림이다. 여기선 주어(you)가 '아프다는 상태 자리로 옮겨 가 닿는' 변화를 묻으므로 도달 동사 get이 맞다 — be(머묾)와 get(주어가 상태로 옮겨 가 닿음)의 대비."
+        "why_ko": "are sick은 아픈 상태에 그대로 머물러 있음이고, feel sick은 그 상태를 지금 그렇게 느낀다는 감각 표현이라 둘 다 변화의 이동이 없다. 여기선 주어(you)가 '아프다는 상태 자리로 옮겨 가 닿는' 변화를 묻으므로 도달 동사 get이 맞다 — get(주어가 상태로 옮겨 가 닿음)·be(상태에 머묾)·feel(그 상태를 느낌)의 감각 대비. 셋 다 'V sick' 꼴로 문장은 되지만 그리는 그림이 갈린다."
       },
       {
         "id": "get-t9",
@@ -630,14 +630,14 @@ window.CONTENT_ALL = {
         "subject_label": "he",
         "object_label": "into a lost state",
         "type": "verb-choice",
-        "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (둘 다 문법은 되지만 그림이 다르다)",
+        "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
         "choices": [
           "was",
           "got",
-          "kept"
+          "stayed"
         ],
         "answer_index": 1,
-        "why_ko": "was lost면 '길 잃은 상태에 있었다'는 정적 상태이고, kept lost는 비문에 가깝다. on the way는 '걸어가던 중에 길 잃은 상태로 막 들어선' 변화를 가리키므로 진입을 그리는 got이 맞다 — got lost(길 잃은 상태로 진입함)와 was lost(길 잃은 상태에 머묾)는 그림이 갈린다. get(상태로의 진입)·be(상태에 머묾)의 대비."
+        "why_ko": "was lost면 '길 잃은 상태에 있었다'는 정적 상태이고, stayed lost면 '길 잃은 상태에 계속 머물러 있음'이라 둘 다 변화의 이동이 없다. on the way to the old station은 '걸어가던 중에 길 잃은 상태로 막 들어선' 변화를 가리키므로 진입을 그리는 got이 맞다 — get(상태로의 진입)·be(상태에 머묾)·stay(그 상태에 계속 머묾)의 감각 대비. 셋 다 'V lost' 꼴로 문장은 되지만 그리는 그림이 갈린다."
       }
     ],
     "transfer_items": [
@@ -1241,12 +1241,12 @@ window.CONTENT_ALL = {
         "type": "verb-choice",
         "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
         "choices": [
-          "does",
+          "buys",
           "makes",
           "gets"
         ],
         "answer_index": 1,
-        "why_ko": "does her cake면 케이크에 관한 활동을 처리한다는 막연한 행위이고, gets her cake면 케이크를 사거나 받아 오는 도달이다. from scratch는 재료에서 없던 케이크를 빚어내는 제작을 못박으므로 makes가 맞다 — do(행위)·get(도달)과 달리 make는 결과물이 새로 생겨남을 그린다."
+        "why_ko": "buys her cake면 이미 다 된 케이크를 가게에서 사 오는 것이고, gets her cake면 케이크를 받거나 구해 오는 도달이다 — 둘 다 '바깥에 있던 완성품을 손에 넣음'이라 빚어내는 그림이 없다. from scratch(맨 처음부터)는 재료에서 없던 케이크를 직접 빚어내는 제작을 못박으므로 makes가 맞다 — buy·get(완성품을 손에 넣음)과 달리 make는 결과물이 새로 생겨남을 그린다. 셋 다 'V her cake' 꼴로 문장은 되지만 그리는 그림이 갈린다."
       },
       {
         "id": "make-t7",
@@ -1879,19 +1879,19 @@ window.CONTENT_ALL = {
       {
         "id": "be-t8",
         "sense_id": "be-exist-locate",
-        "sentence": "There ___ a long crack in the old ceiling.",
+        "sentence": "There is a long crack in the old ceiling.",
         "sentence_ko": "오래된 천장에 긴 금이 하나 가 있어.",
         "subject_label": "a long crack",
         "object_label": "in the ceiling",
-        "type": "verb-choice",
-        "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (둘 다 문법은 되지만 그림이 다르다)",
+        "type": "sense-choice",
+        "prompt": "이 There is가 그리는 그림은?",
         "choices": [
-          "has",
-          "is",
-          "makes"
+          "긴 금 하나가 오래된 천장에 그냥 존재한다고 무대에 올린다",
+          "천장이 그 금을 자기 영역 안에 소유물처럼 거느리고 있다",
+          "누군가 천장에 금을 새로 내어 만들어 낸다"
         ],
-        "answer_index": 1,
-        "why_ko": "There is는 금이 천장에 '존재한다'고 무대에 올리는 그림이다. The ceiling has a crack(천장이 금을 영역 안에 가짐)도 문법은 되지만, There ___ 틀은 존재 도입이라 has가 들어갈 자리가 아니다 — 존재 자체를 세우는 is가 맞다. makes는 금을 새로 만들어 낸다는 제작이라 그림이 다르다. be(존재 도입)·have(영역 내 소유)·make(제작)의 감각 대비."
+        "answer_index": 0,
+        "why_ko": "There is는 금이 누구의 것(have)도, 새로 내는 동작(make)도 아니라, 금이 천장 그 자리에 존재한다는 것 자체를 무대에 올리는 그림이다. 존재·위치 도입이 be의 바탕 감각이다."
       },
       {
         "id": "be-t9",
@@ -1901,14 +1901,14 @@ window.CONTENT_ALL = {
         "subject_label": "everyone",
         "object_label": "asleep",
         "type": "verb-choice",
-        "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (둘 다 문법은 되지만 그림이 다르다)",
+        "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
         "choices": [
           "was",
-          "got",
-          "had"
+          "fell",
+          "stayed"
         ],
         "answer_index": 0,
-        "why_ko": "got asleep은 결합 자체가 부자연스럽다 — 영어는 '잠드는' 진입을 fall asleep이나 get to sleep으로 말하지 get asleep으로 쓰지 않는다. had asleep도 비문이다. 그 위에 감각으로 봐도, By midnight everyone was asleep은 자정 무렵 모두가 '잠든 상태에 머물러 있던' 정지 화면이라 머묾을 그리는 be가 맞다 — by midnight은 그 시각의 상태를 묻는 머묾 표현이다. be(상태에 머묾)·get(상태로 진입)의 대비이되, 여기선 get 쪽 결합 자체가 서지 않는다."
+        "why_ko": "fell fast asleep은 깨어 있다 잠든 상태로 '막 옮겨 가 닿는' 진입 사건이고, stayed fast asleep은 이미 잠든 상태에 '계속 머물러 있음'이라 둘 다 그 시점의 상태를 그리지 않는다. By midnight everyone was asleep은 자정 무렵 모두가 '잠든 상태에 그대로 놓여 있던' 정지 화면이라 머묾을 그리는 be가 맞다 — by midnight은 그 시각의 상태를 묻는 머묾 표현이다. be(상태에 머묾)·fall(상태로 진입)·stay(그 상태에 계속 머묾)의 감각 대비. 셋 다 'V fast asleep' 꼴로 문장은 되지만 그리는 그림이 갈린다."
       },
       {
         "id": "be-t10",
@@ -1918,14 +1918,14 @@ window.CONTENT_ALL = {
         "subject_label": "he",
         "object_label": "angry",
         "type": "verb-choice",
-        "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (둘 다 문법은 되지만 그림이 다르다)",
+        "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
         "choices": [
           "got",
           "was",
-          "kept"
+          "stayed"
         ],
         "answer_index": 1,
-        "why_ko": "the whole evening(저녁 내내)은 화난 상태가 '쭉 이어진 머묾'을 가리키므로 그 상태에 머물러 있음을 그리는 was가 맞다. got angry는 화난 상태로 '막 옮겨 가 닿는' 한 순간의 진입이라 '내내'와 안 어울리고, kept angry는 비문에 가깝다(머물려면 stayed angry). be(상태에 머묾)·get(상태로의 진입)의 대비 — 지속을 가리키는 부사가 머묾 쪽을 못박는다."
+        "why_ko": "got angry는 화난 상태로 '막 옮겨 가 닿는' 한 순간의 진입이라 '저녁 내내'와 안 어울리고, stayed angry는 '화난 상태에 계속 머물러 있음'이라 화가 이미 나 있던 걸 전제해 결이 살짝 어긋난다. the whole evening after the argument(말다툼 뒤 저녁 내내)은 화난 상태에 그대로 놓여 있던 머묾을 가리키므로 was가 맞다 — be(상태에 머묾)·get(상태로의 진입)·stay(그 상태에 계속 머묾)의 감각 대비. 셋 다 'V angry' 꼴로 문장은 되지만 그리는 그림이 갈린다."
       }
     ],
     "transfer_items": [
@@ -2000,19 +2000,19 @@ window.CONTENT_ALL = {
       {
         "id": "be-x5",
         "sense_id": "be-exist-locate",
-        "sentence": "There ___ a strange noise coming from the engine.",
+        "sentence": "There is a strange noise coming from the engine.",
         "sentence_ko": "엔진에서 이상한 소리가 나고 있어.",
         "subject_label": "a strange noise",
         "object_label": "from the engine",
-        "type": "verb-choice",
-        "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (존재를 무대에 올린다)",
+        "type": "sense-choice",
+        "prompt": "이 There is가 그리는 그림으로 가장 가까운 것은?",
         "choices": [
-          "has",
-          "is",
-          "takes"
+          "이상한 소리 하나가 엔진 쪽에 존재한다고 무대에 올린다",
+          "엔진이 그 소리를 자기 영역 안에 소유물처럼 가지고 있다",
+          "그 소리가 엔진에서 무언가를 능동적으로 끌어가 버린다"
         ],
-        "answer_index": 1,
-        "why_ko": "There is는 이상한 소리가 엔진에서 '존재한다'고 무대에 올리는 그림이다. The engine has a noise(엔진이 소리를 영역 안에 가짐)도 문법은 되지만 There ___ 틀은 존재 도입이라 has 자리가 아니고, takes는 소리가 무언가를 능동적으로 가져간다는 그림이라 맞지 않는다 — be(존재 도입)·have(영역 내 소유)·take(능동적 가져감)의 감각 대비."
+        "answer_index": 0,
+        "why_ko": "There is는 소리가 누구의 것(have)도, 무언가를 끌어가는 동작(take)도 아니라, 이상한 소리가 엔진 쪽 그 자리에 존재한다는 것 자체를 무대에 올리는 그림이다. 추상적인 소리의 존재도 be의 같은 도입 도식이다."
       }
     ]
   },
@@ -2221,7 +2221,7 @@ window.CONTENT_ALL = {
           "stayed"
         ],
         "answer_index": 1,
-        "why_ko": "was wild면 열광한 상태에 머물러 있음이고, stayed wild면 그 상태에 계속 머물러 있음이라 둘 다 변화가 없다. 여기선 관중이 차분하던 자리를 떠나 '열광한(wild)' 극적 상태로 갑자기 옮겨 간 변화라 went가 맞다 — go가 '정상에서 벗어나 격한 다른 상태로 떠나감'을 그린다. be/stay(머묾)와 go(상태로 떠나감)의 대비."
+        "why_ko": "was wild면 열광한 상태에 그대로 머물러 있음이고, stayed wild면 이미 열광하던 상태에 계속 머물러 있음이라 둘 다 변화의 이동이 없다. when the home team scored(득점한 그 순간)는 관중이 차분하던 자리를 떠나 '열광한(wild)' 극적 상태로 갑자기 옮겨 간 변화를 가리키므로 went가 맞다 — go(정상에서 벗어나 격한 다른 상태로 떠나감)·be(상태에 머묾)·stay(그 상태에 계속 머묾)의 감각 대비. 셋 다 'V wild' 꼴로 문장은 되지만 그리는 그림이 갈린다."
       },
       {
         "id": "go-t10",
@@ -2296,19 +2296,19 @@ window.CONTENT_ALL = {
       {
         "id": "go-x4",
         "sense_id": "go-become",
-        "sentence": "After the lead engineer quit, the whole project quickly ___ downhill.",
+        "sentence": "After the lead engineer quit, the whole project quickly went downhill.",
         "sentence_ko": "수석 엔지니어가 그만둔 뒤로 프로젝트 전체가 빠르게 내리막을 탔어.",
         "subject_label": "the whole project",
         "object_label": "into a declining state",
-        "type": "verb-choice",
-        "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
+        "type": "sense-choice",
+        "prompt": "이 went downhill이 그리는 그림으로 가장 가까운 것은? (주어가 사람이 아니라 일이다)",
         "choices": [
-          "stayed",
-          "went",
-          "got"
+          "프로젝트가 멀쩡하던 자리를 떠나 '나빠지는' 내리막 상태로 옮겨 가 버렸다",
+          "프로젝트가 그만둔 일과 상관없이 줄곧 잘 굴러가는 상태 그대로였다",
+          "누군가 프로젝트를 일부러 산비탈 아래로 밀어 굴려 떨어뜨렸다"
         ],
-        "answer_index": 1,
-        "why_ko": "stayed downhill은 비문에 가깝고, got downhill도 결합이 어색해 표준이 아니다. go downhill은 '정상 자리를 떠나 내리막(나빠지는) 상태로 옮겨 가 버림'을 그리는 굳은 표현이라 여기선 went가 표준이다 — go(정상에서 벗어나 나쁜 상태로 떠나감)의 일탈·악화 색이 또렷이 살아 get로 바꾸기 어려운 자리다."
+        "answer_index": 0,
+        "why_ko": "go downhill은 프로젝트가 멀쩡한(정상) 자리를 떠나 '나빠지는(내리막)' 상태로 옮겨 가 버린 변화다 — 주어가 추상적인 '일'이어도 '정상에서 벗어나 나쁜 상태로 떠나감'이라는 go의 그림은 같다. 누가 물리적으로 밀어 굴리는 그림이 아니라, 정상에서 일탈해 악화되는 go-become의 자리다."
       },
       {
         "id": "go-x5",
@@ -2522,19 +2522,19 @@ window.CONTENT_ALL = {
       {
         "id": "come-t9",
         "sense_id": "come-emerge",
-        "sentence": "Nobody is quite sure how the whole misunderstanding ___ about.",
+        "sentence": "Nobody is quite sure how the whole misunderstanding came about.",
         "sentence_ko": "그 오해가 어쩌다 그렇게 생겨났는지 아무도 확실히 몰라.",
         "subject_label": "the whole misunderstanding",
         "object_label": "about (coming into being)",
-        "type": "verb-choice",
-        "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
+        "type": "sense-choice",
+        "prompt": "이 came about이 그리는 그림으로 가장 가까운 것은?",
         "choices": [
-          "set",
-          "came",
-          "brought"
+          "없던 오해가 어쩌다 저절로 생겨나 모습을 드러냈다",
+          "누군가 그 오해를 일부러 일으켜 만들어 냈다",
+          "이미 있던 오해를 누군가 끝까지 붙들어 키워 갔다"
         ],
-        "answer_index": 1,
-        "why_ko": "set about이면 '~을 시작하다'라 주어가 스스로 일에 착수하는 결이고, brought about은 '(누가) ~을 일으키다'라 일으킨 주체가 따로 있는 타동의 결이라 결이 어긋난다. 여기선 없던 오해가 어쩌다 저절로 생겨나 드러난 출현이라 came about이 맞다 — come about은 일·사태가 스스로 생겨나 나타나는 그림이다. 셋 다 'V about' 꼴로 문장은 되지만 그리는 그림이 갈린다."
+        "answer_index": 0,
+        "why_ko": "come about은 일·사태가 어디서 다가오거나 누가 일으킨 게 아니라, 없던 오해가 어쩌다 저절로 생겨나 드러난 출현이다 — come의 '드러나는 쪽으로 나오는 이동'이 추상적인 사태의 발생으로 확장된 자리다. 누가 일부러 일으키거나 붙들어 키우는 그림이 아니다."
       },
       {
         "id": "come-t10",
@@ -2583,11 +2583,11 @@ window.CONTENT_ALL = {
         "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
         "choices": [
           "came",
-          "stayed",
+          "got",
           "ran"
         ],
         "answer_index": 0,
-        "why_ko": "stayed to me는 비문에 가깝고, ran to me면 무언가가 나에게 달려오는 물리 이동이라 결이 다르다. 여기선 없던 해법이 머릿속에 문득 떠올라 드러나는 출현이라 came to me가 맞다 — come to me는 생각·해법이 어디 멀리서 다가오는 게 아니라 보이지 않던 것이 의식 위로 솟아 나타나는 그림이다(come-emerge). 셋 다 문장 꼴은 되지만 그리는 그림이 갈린다."
+        "why_ko": "got to me면 그 해법이 나에게 닿아 영향을 미쳤다는 도달·영향의 결이고, ran to me면 무언가가 나에게 달려오는 물리 이동이라 결이 다르다. 여기선 없던 해법이 머릿속에 문득 떠올라 드러나는 출현이라 came to me가 맞다 — come to me는 생각·해법이 어디 멀리서 다가오는 게 아니라 보이지 않던 것이 의식 위로 솟아 나타나는 그림이다(come-emerge). 셋 다 'V to me' 꼴로 문장은 되지만 그리는 그림이 갈린다."
       },
       {
         "id": "come-x3",

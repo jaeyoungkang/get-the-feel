@@ -19,7 +19,7 @@ mechanical_enforcement: tools/verdict/check.mjs `adversarial-review` 검사 — 
 # 검수 5관점 (운영 12건에서 도출 — 각 관점에 실제 적발 사례)
 
 1. **출처-주장 정합 (R5)**: claim이 출처의 실제 주장 범위 안인가. **원전에 없는 라벨 조어 귀속 검사** (적발: "KNOWING/VISIBLE IS OUT", "HIGH STATUS-COMPLETION"). 정적 출처에 동적 그림 얹기 검사 (적발: 영역-위치 도식에 "통과", STATES ARE LOCATIONS 방향 역전).
-2. **정답 유일성**: 오답이 문법·화용적으로 정답이 되는 곳 — **영어 관용 동등 표현 검사** (적발: Can I have a glass, have a seat, was dark, have the idea). verb-choice는 전 보기가 문법 성립 + 감각만 갈려야 한다.
+2. **정답 유일성 + 오답 슬롯 적합 (R15)**: 오답이 문법·화용적으로 정답이 되는 곳 — **영어 관용 동등 표현 검사** (적발: Can I have a glass, have a seat, was dark, have the idea). **그리고 그 역도**: verb-choice 오답이 빈칸에 *문법적으로 들어가지도 못하는 비문*이면 안 된다 (적발: There has a crack, make a cake의 does, have sick — 실사용자 "선택지가 문제와 무관" 신고). 전 보기가 슬롯 문법 성립 + 감각만 갈려야. why_ko에 "비문" 자백 = 위반 신호.
 3. **오개념 위험**: 이 설명을 체화한 학습자가 틀린 영어를 만드는 경로 (적발: 진행형 경계 소실, 합성 과신 — give up은 반례로도 부적합). assets/misconceptions.md 대조.
 4. **전이 패턴 거리 (R4)**: 전이가 훈련의 어휘 치환·구동사 재탕이 아닌가 (적발: quick chat→long talk, climb up 재탕).
 5. **기계 재검증**: 생성자 자기보고 불신 — 중복·분포·라벨·카운트를 독립 스크립트로 재계산.

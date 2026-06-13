@@ -147,12 +147,12 @@
       "type": "verb-choice",
       "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (보기 모두 문법적으로는 가능하다)",
       "choices": [
-        "does",
+        "buys",
         "makes",
         "gets"
       ],
       "answer_index": 1,
-      "why_ko": "does her cake면 케이크에 관한 활동을 처리한다는 막연한 행위이고, gets her cake면 케이크를 사거나 받아 오는 도달이다. from scratch는 재료에서 없던 케이크를 빚어내는 제작을 못박으므로 makes가 맞다 — do(행위)·get(도달)과 달리 make는 결과물이 새로 생겨남을 그린다."
+      "why_ko": "buys her cake면 이미 다 된 케이크를 가게에서 사 오는 것이고, gets her cake면 케이크를 받거나 구해 오는 도달이다 — 둘 다 '바깥에 있던 완성품을 손에 넣음'이라 빚어내는 그림이 없다. from scratch(맨 처음부터)는 재료에서 없던 케이크를 직접 빚어내는 제작을 못박으므로 makes가 맞다 — buy·get(완성품을 손에 넣음)과 달리 make는 결과물이 새로 생겨남을 그린다. 셋 다 'V her cake' 꼴로 문장은 되지만 그리는 그림이 갈린다."
     },
     {
       "id": "make-t7",
