@@ -14,7 +14,11 @@
   - ~~**c2-3**~~ ✅ 완료 (2026-06-11) — keep(동사 5/5), 대비축 수렴, sentence_ko 120, 해석 피드백. **기준 1·2·3·6 충족 — C2 졸업은 기준 4·5(사용자) 대기**. c2-3가 새 대표 후보 (Day 이어받기)
   - ✅ **C2 졸업 (2026-06-13)** — 기준 1·2·3·5·6 충족, 기준4 시뮬레이션 대체. 대표 후보 c2-3.
 
-- [ ] **C3 Readiness** — 대표 후보 승격 판정(c2-3, 승격 6기준) + 수요 검증 패키지 확정 + 운영 계약 + local_ready 판정 → handoff. 상한 N=3.
+- [x] **C3 Readiness** ✅ (2026-06-13) — c2-3 대표 후보 승격(6기준), 수요 검증 패키지·운영 계약 확정, **local_ready: pass → local Spiral terminal**. 마감조건(keep 폴드) 회수.
+
+## handoff (루프 밖 — 출시 후 수요 검증)
+
+- [ ] **demand-1** target user 3~5명 모집 → blind task(handoff/blind-task-guide.md) → demand_validated/rejected/pivot_required 판정. 결과는 cycle-record append. **실제 사람·달력 시간 필요 (에이전트 밖)**.
   - **c2-4** 성장 증거 + 타인 검증 패키지 (기준 4·6) — 본인 7세션은 달력 시간 필요, 이 사이클과 병행 시작
   - **retro-1**은 c2-1과 c2-2 사이 (제품 루프 횟수에 미산입)
 - [ ] ~~**c1-1**~~ ~~**c1-2**~~ (완료 — Done 참조) 첫 후보 완제품 — Discovery, 축은 후보 시작 시 에이전트 선택(핵심 동사 유력). preflight: 신뢰 출처 목록 제안(approve-4) + 콘텐츠 데이터 계약 스키마 + orchestrator receipt. 시작 시 세부 단위로 분해. **적대적 리뷰 회수 사항 포함**:

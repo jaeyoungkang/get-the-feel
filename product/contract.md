@@ -25,6 +25,7 @@ Skill Load Receipt
 - **사이클 축 선택**: Discovery 단계에서는 에이전트가 후보별로 선택한다.
 - **표면**: 브라우저에서 열리는 웹 앱.
 - **운영 형태**: 지속 운영·진화. Spiral Loop 대상 메타 의도.
+- **대표 후보 (2026-06-13 승격)**: `candidates/c2-3` — 8감각 120문장, 배포 https://jaeyoung2026.github.io/get-the-feel/ . local_ready: pass → local Spiral terminal, 수요 검증으로 handoff.
 
 ## 거부 신호 (Refuse First)
 

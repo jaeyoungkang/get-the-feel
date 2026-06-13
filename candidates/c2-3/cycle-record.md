@@ -113,3 +113,32 @@ playwright로 배포 URL을 Date 시프트로 7일분 구동 → 7세션 기록 
 ### C2 졸업선 갱신
 - 기준 1·2·3·5 ✓ / 기준 6 ✓(페르소나 차별 실재, 약한 verdict) / 기준 4 = 시뮬레이션 대체(사용자 결정, 약한 verdict — 실사용은 출시 후)
 - `next_action`: C2 Convergence 졸업 판정은 **단계 전환이라 사용자 확인**(C1→C2의 approve-6과 동형). 확인 시 C3 Readiness.
+
+## 대표 후보 승격 + local_ready 판정 (C3 Readiness, 2026-06-13)
+
+### 승격 심사 (Intent Guardian, 배포 앱 실구동)
+**promote-with-conditions** → 마감 조건 1 즉시 회수 후 **promoted**:
+- 6기준 전부 충족(화면 증거): ①약속 가시성 ②체화 증거 표면화(전이 분리+진단표) ③1축 깊이(동사 5/5 출처 묶임) ④출처 없는 감각 0(17 sense strong) ⑤재사용 동력(미본 우선 공급+진단표, 사용기록은 약한 verdict) ⑥차별 실재(페르소나 3/3 "퀴즈 앱 아니다")
+- 약속 정직성: "알아보는 힘일 뿐, 말하기는 따로" 자백이 점수 표시 직전에 배치 — 과대약속 차단 확인
+- 마감 조건 1 (keep 피드백 폴드 8px 초과): contrast-row 모바일 가로 유지 + 높이 축소로 회수 → 버튼 852→812px(폴드 내). 재배포·재검증 완료
+- 조건 2 (실사용=약한 verdict 라벨): 규율로 유지. 조건 3 (R11 보기 길이): 회수됨, 재발 감시
+
+### Stop Permission (local Spiral 종착 판정)
+- `local_candidate_status`: pass (9검사 ALL PASS, 완제품)
+- `representative_status`: **promoted** (c2-3 = 대표 후보)
+- `primary_user_task`: 감각 훈련 세션(8감각 120문장, 해석 피드백, 전이 테스트) — 산출물 배포 라이브
+- `core_contribution_this_cycle`: 2 — keep(5번째 동사) 코퍼스 + G14 피드백 위계 재설계(primary_user_task의 정답후 경험 변경 = core). 산출물 diff 실재(commit f230763 등)
+- `local_ready`: **pass** — (a) 수요 검증 패키지 완성(6항목 구체값 + 표본·임계 + 운영 계약, product/demand-validation-package.md) (b) 직전 유효 사이클 core 기여 ≥1 ✓
+- `demand_status`: demand_unknown (출시 후 채움 — 루프 밖)
+- `n_of_N`: C3 1 of 3 (조기 종착 — 추가 사이클 불요)
+- `next_action`: **handoff to 수요 검증** (배포 완료 → blind task 안내문으로 target user 모집 → demand_validated/rejected/pivot_required 판정). 이는 local Spiral 밖.
+- `allowed_to_stop`: **yes** — local_ready pass = local Spiral terminal
+
+### 자기 종료 회피 점검 (자율 모드)
+종료 선언의 진짜 한계 증거 (회피 아님):
+1. 외부 사람 손 필수 — 수요 검증은 *실제 target user* 응답이 필요(페르소나·시뮬은 약한 verdict). LLM이 못 가짐.
+2. 시간 척도 — 실사용 7일·재방문은 달력 시간. 한 세션으로 압축 불가.
+local_ready의 두 조건(패키지 완성·core 기여)은 충족 — 더 돌 in-loop 자리 없음. 종료는 회피가 아니라 terminal 도달.
+
+### Disposition
+**c2-3 = 승격된 대표 후보. local Spiral terminal.** 다음은 출시 후 수요 검증(루프 밖).

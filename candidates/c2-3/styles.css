@@ -253,7 +253,7 @@ p { margin: 0 0 14px; }
   text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 10px; text-align: center;
 }
 .contrast-row { display: flex; align-items: stretch; gap: 12px; }
-@media (max-width: 520px) { .contrast-row { flex-direction: column; } }
+/* 모바일도 가로 2칸 유지 — 세로 쌓기는 keep 피드백을 폴드 밖으로 밀었다 (승격 마감조건 회수). 두 도식이 작아도 나란히가 force 대비에 더 맞다 */
 .contrast-cell { flex: 1 1 0; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 8px 8px 6px; display: flex; flex-direction: column; }
 .contrast-cell.keep { border-color: var(--keep); }
 .contrast-cell.have { border-color: var(--have); }
@@ -402,7 +402,7 @@ p { margin: 0 0 14px; }
 
 @media (max-width: 480px) {
   .viz-wrap svg { max-height: 180px; }
-  .contrast-mini svg { max-height: 120px; }
+  .contrast-mini svg { max-height: 96px; }
   .compose-mini svg { max-height: 88px; }
   .compose-mini.big svg { max-height: 120px; }
 }
