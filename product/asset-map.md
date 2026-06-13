@@ -10,7 +10,7 @@
 - `why_it_must_grow`: 약속과 전달 가치가 사이클마다 검증·반증으로 갱신되지 않으면 후보가 정체성에서 이탈한다 (약속 휘발 함정).
 - `how_to_update`: 사이클 의도 잠금 시 "제품 계약 발전" 한 줄(추가/구체화/검증/반증) 명시 → 후보 종료 시 반영.
 - `mechanical_or_review_gate`: Intent Guardian 모니터 + 사이클 시작 차단 규칙(계약 발전 명시 없으면 차단).
-- `last_cycle_contribution`: c4-1 — V4(학습 경로 선택권) 계약 등재, 실사용자 기능 피드백 4건 회수.
+- `last_cycle_contribution`: c4-2 — V3(산출 훈련) 계약 구현·검증 등재.
 
 ## 2. 감각 콘텐츠 코퍼스 + 데이터 계약 (핵심 자산)
 
@@ -26,7 +26,7 @@
 - `why_it_must_grow`: 퀴즈 형식·난이도 설계·전이 세트 분리 규칙이 자산화되지 않으면 매 후보가 훈련 설계를 처음부터 다시 발명한다.
 - `how_to_update`: 후보의 퀴즈 정답률·전이 결과에서 배운 설계 교훈을 규칙으로 회수.
 - `mechanical_or_review_gate`: 훈련/전이 중복 금지 기계 검사 + Asset Steward 모니터.
-- `last_cycle_contribution`: c4-1 — R12(get+pp 출제) 신설.
+- `last_cycle_contribution`: c4-2 — R13(산출 파생)·R14(자가채점 약한 verdict) 신설.
 
 ## 4. UX 문법 (감각 전달 디자인)
 
@@ -34,7 +34,7 @@
 - `why_it_must_grow`: "감각"은 텍스트 정의가 아니라 화면 경험으로 전달된다. 공간 메타포·이미지·인터랙션의 판단이 누적되지 않으면 후보마다 전달력이 리셋된다.
 - `how_to_update`: 후보 종료 시 작동한/실패한 화면 표현을 규칙으로 회수.
 - `mechanical_or_review_gate`: Intent Guardian + 페르소나 blind task 리뷰 (베이스 어휘 모르는 일반 학습자 가정).
-- `last_cycle_contribution`: c4-1 — G15(주제선택·통계 패턴)·G16(get+pp 메타포) 신설, 페르소나 적발 4건(통계 함정·랜딩 무게·과밀·라벨) 회수.
+- `last_cycle_contribution`: c4-2 — G17(산출 모드 UX) 신설, reorder 단일 모범문 함정 회수.
 
 ## 5. 검증 도구 (Mechanical Verdict)
 

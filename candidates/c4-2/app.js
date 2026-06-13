@@ -227,7 +227,7 @@
       var content = ALL[key];
       if (!content || !content.training_items) continue;
       for (var i = 0; i < content.training_items.length; i++) {
-        out.push({ item: content.training_items[i], srcKey: key });
+        out.push({ item: content.training_items[i], srcKey: key, axis: content.axis });
       }
     }
     return out;
@@ -239,7 +239,7 @@
       var content = ALL[key];
       if (!content || !content.transfer_items) continue;
       for (var i = 0; i < content.transfer_items.length; i++) {
-        out.push({ item: content.transfer_items[i], srcKey: key });
+        out.push({ item: content.transfer_items[i], srcKey: key, axis: content.axis });
       }
     }
     return out;
@@ -1689,12 +1689,26 @@
     return out;
   }
   // 어순 재배열 — 토큰 5~9개의 sentence(빈칸 없는)면 잘 작동. 너무 길면 제외.
+  // 어순이 고정된 문장만 재배열에 쓴다. 분리형 입자(구동사·불변화사)와 전치 가능 부사로
+  // 시작하는 문장은 *복수의 정답 어순*이 있어 단일 모범문 채점이 거짓 오답을 낸다 —
+  // 특히 제품이 가르치는 그 축(구동사·입자)에서 거짓 제약을 학습시키므로 제외 (모니터 Data/Sellability 회수).
+  function isRigidOrder(e) {
+    var axis = (e.fileAxis || e.axis || "");
+    if (axis === "particles" || axis === "phrasal-verbs") return false;  // 입자 위치 이동 가능
+    var s = " " + String(e.item.sentence || "").toLowerCase() + " ";
+    // 분리형 입자 토큰 (전치사가 아니라 이동 가능한 particle)
+    if (/ (up|out|down|off|back|away|over|around) /.test(s)) return false;
+    // 전치 가능 부사·시간구로 시작 → 복수 어순
+    if (/^\s*(usually|sometimes|often|always|finally|suddenly|yesterday|today|tonight|now|then|soon|later|this morning|last night|every day|after lunch)\b/i.test(e.item.sentence || "")) return false;
+    return true;
+  }
   function reorderCandidates() {
     var out = [];
     var pools = allTrainingItems().concat(allTransferItems());
     for (var i = 0; i < pools.length; i++) {
       var e = pools[i];
       if (/___/.test(e.item.sentence || "")) continue;       // 빈칸 문항 제외
+      if (!isRigidOrder(e)) continue;                        // 복수 정답 어순 문장 제외
       var toks = tokenizeSentence(e.item.sentence);
       if (toks.length >= 4 && toks.length <= 9) out.push(e);
     }
