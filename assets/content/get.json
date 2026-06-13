@@ -49,6 +49,35 @@
         "date": "2026-06-13",
         "basis": "웹 검증(실재·서지·귀속, 2026-06-11) + 사용자 approve-4 승인(2026-06-13)"
       }
+    },
+    {
+      "id": "get-into-state",
+      "ko": "주어가 '어떤 동작이 가해진 결과 상태'로 들어가 그 자리에 닿는다 — get + 과거분사. get tired(형용사)가 '피곤한 자리'로 가 닿음이라면, get dressed/married/started는 '옷 입혀진·결혼된·시작된'이라는 *동작의 결과 상태* 자리로 주어가 스스로 들어가 닿는다(get dressed = 옷 입은 상태로, get married = 결혼한 상태로, get started = 시작된 상태로, get lost = 길 잃은 상태로). 결과 상태로의 진입이라 재귀·중간태(스스로 그 상태가 됨) 뉘앙스가 있다.",
+      "image": "과거분사가 가리키는 '~된 결과 상태'를 하나의 자리로 보고, 주어가 그 자리로 옮겨 가 막 도착하는 그림 — 'dressed(옷 입혀진)'·'married(결혼된)'·'started(시작된)'라는 결과 칸으로 주어가 스스로 걸어 들어가 닿는다. 누가 밖에서 해 주는 수동의 그림이 아니라, 주어가 그 결과 상태로 진입하는 변화의 도달이다.",
+      "boundary_ko": "be married는 결혼한 '상태에 머물러 있음'(They are married = 부부인 상태), get married는 그 상태로 '막 진입함'(They got married last year = 결혼이라는 결과 상태로 들어선 사건). 그래서 be로 바꾸면 진입 사건이 사라지고 상태만 남는다. 또 get + 과거분사는 진행도 된다(He is getting dressed = 옷 입은 상태로 들어가는 중) — be dressed(상태)에는 없는 '진입 중' 그림이다.",
+      "source_refs": [
+        {
+          "source_id": "langacker-1987",
+          "locator": "Vol. II, Ch. on inchoative / change-of-state predications (get + past participle)",
+          "claim": "get + 과거분사 구문은 주어가 어떤 결과 상태(과거분사가 가리키는 '~된' 상태)로 이행(inchoative)함을 윤곽 짓는다 — be + 과거분사의 정적 상태와 달리 그 상태로의 변화·진입을 그린다."
+        },
+        {
+          "source_id": "lakoff-1993",
+          "locator": "The Contemporary Theory of Metaphor — Event Structure Metaphor (STATES ARE LOCATIONS, CHANGE IS MOTION)",
+          "claim": "상태는 위치, 변화는 그 위치로의 이동이라는 사건 구조 은유 — 과거분사가 가리키는 결과 상태도 하나의 '자리'로 보고 주어가 그 자리로 옮겨 가 닿는 방향으로 읽힌다."
+        },
+        {
+          "source_id": "oald",
+          "locator": "get (verb) — 'get + past participle' 용법 메모 (get dressed/married/started/lost 등 자기 자신에게 일어나는 변화)",
+          "claim": "학습 사전은 get + 과거분사를 '주어 자신에게 일어나는 변화·진입'(흔히 재귀적으로 스스로 그 상태가 됨)으로 기술하며 be + 과거분사(정적 상태)와 구별한다 — 예문 자연성·용법 확인용(T2). 미확인 주장: get-passive의 중간태(mediopassive)·역사적 재귀 기원 분석은 일반 언어학 문헌의 주장으로 본 T1 출처(langacker-1987)가 그 라벨까지 직접 보증하는지는 미확인 — image의 '재귀·중간태 뉘앙스'는 교육용 단순화로만 사용, 원전 라벨 귀속 아님."
+        }
+      ],
+      "validation": {
+        "method": "subagent-consensus",
+        "strength": "weak",
+        "date": "2026-06-13",
+        "basis": "c4-1 content-consensus 3자 합의(생성·적대적 검수·수정). inchoative 핵심 주장은 get-state-change와 동일 T1(langacker-1987·lakoff-1993) 계열 — 과거분사로의 확장. mediopassive/재귀 기원 라벨은 미확인 표기(원전 직접 귀속 아님). strong 승격은 사람 리뷰(approve 절차) 대기."
+      }
     }
   ],
   "training_items": [
@@ -221,6 +250,91 @@
       ],
       "answer_index": 0,
       "why_ko": "hurry up의 up은 서두르는 일이 끝점까지 차올라 완료에 도달하라는 감각이다(완료 up). out은 '안→밖으로 나옴', off는 '붙어 있다 분리됨'의 그림인데, 이 문장엔 그런 밖으로 나오거나 떨어져 나가는 그림이 없다 — 끝까지 차올라 완료에 닿는 up만 맞는다. (정답 up의 감각만 환원 — out·off는 별개 그림)"
+    },
+    {
+      "id": "get-t11",
+      "sense_id": "get-into-state",
+      "sentence": "We finally got started on the project after lunch.",
+      "sentence_ko": "우리는 점심 먹고 나서야 드디어 그 프로젝트를 시작했어.",
+      "subject_label": "we",
+      "object_label": "into a started state",
+      "type": "sense-choice",
+      "prompt": "이 got started가 그리는 그림은? (started는 과거분사)",
+      "choices": [
+        "프로젝트가 아침부터 점심때까지 줄곧 시작된 상태로 진행되어 오고 있었다",
+        "우리가 '시작된'이라는 결과 상태로 막 들어가 그 자리에 닿았다",
+        "우리가 프로젝트라는 일거리를 점심때 물건처럼 손에 받아 쥐었다"
+      ],
+      "answer_index": 1,
+      "why_ko": "get started는 '시작된 상태(be started)'에 줄곧 있던 게 아니라, 우리가 '시작됨'이라는 결과 상태 자리로 막 들어가 닿은 진입 사건이다 — finally가 그 진입이 일어난 시점을 가리킨다. started는 과거분사라 '동작의 결과 상태'로의 진입을 그린다(스스로 그 상태가 됨)."
+    },
+    {
+      "id": "get-t12",
+      "sense_id": "get-into-state",
+      "sentence": "The children got dressed quickly for school.",
+      "sentence_ko": "아이들은 학교 가려고 후딱 옷을 입었어.",
+      "subject_label": "the children",
+      "object_label": "into a dressed state",
+      "type": "sense-choice",
+      "prompt": "got dressed의 감각으로 가장 가까운 것은? (dressed는 과거분사)",
+      "choices": [
+        "아이들이 누군가 옷을 입혀 주기를 가만히 서서 기다리고만 있었다",
+        "아이들이 학교 갈 때까지 아침 내내 옷을 입은 상태로 그대로 있었다",
+        "아이들이 '옷 입은' 결과 상태 자리로 스스로 들어가 그 자리에 닿았다"
+      ],
+      "answer_index": 2,
+      "why_ko": "get dressed는 옷 입은 상태에 머무는 be dressed가 아니라, 아이들이 '옷 입은' 결과 상태로 스스로 옮겨 가 닿은 진입이다(재귀·중간태 뉘앙스 — 스스로 그 상태가 됨). 누가 입혀 주기를 기다리는 수동의 그림이 아니라 주어가 그 결과 상태로 들어가는 변화다."
+    },
+    {
+      "id": "get-t13",
+      "sense_id": "get-into-state",
+      "sentence": "They got married in a small country church.",
+      "sentence_ko": "그들은 시골의 작은 교회에서 결혼했어.",
+      "subject_label": "they",
+      "object_label": "into a married state",
+      "type": "sense-choice",
+      "prompt": "이 got married가 그리는 그림은? (married는 과거분사)",
+      "choices": [
+        "그들이 '결혼한' 결과 상태 자리로 막 들어선 진입 사건이다",
+        "그들이 오래도록 부부인 상태로 그 교회 곁에서 함께 살아오고 있었다",
+        "그들이 남의 결혼식을 구경하러 그 작은 교회에 들어가 앉아 있었다"
+      ],
+      "answer_index": 0,
+      "why_ko": "get married는 부부인 상태에 머무는 be married가 아니라, 그들이 '결혼한' 결과 상태로 막 들어선 진입 사건이다 — 그래서 시점(작은 교회에서)이 따라붙는다. be married였다면 진입은 사라지고 '이미 부부인 상태'만 남는다."
+    },
+    {
+      "id": "get-t14",
+      "sense_id": "get-into-state",
+      "sentence": "She ___ married the summer after she graduated.",
+      "sentence_ko": "그녀는 졸업한 다음 여름에 결혼했어.",
+      "subject_label": "she",
+      "object_label": "into a married state",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (둘 다 문법은 되지만 그림이 다르다)",
+      "choices": [
+        "got",
+        "was",
+        "had"
+      ],
+      "answer_index": 0,
+      "why_ko": "was married면 '부부인 상태에 있었다'는 정적 상태를 그리지만, the summer after she graduated는 '그 여름에 결혼한 상태로 막 들어선' 진입 시점을 못박으므로 진입을 그리는 got이 맞다 — got married(결혼 상태로 진입한 사건)와 was married(부부인 상태에 머묾)는 둘 다 문법이 되나 그림이 갈린다. had married는 had + 과거분사 완료형 흔적이라 '그 여름에'라는 단일 시점과 안 맞는다 — get(상태로의 진입)·be(상태에 머묾)·have(완료)의 감각 대비."
+    },
+    {
+      "id": "get-t15",
+      "sense_id": "get-into-state",
+      "sentence": "He ___ lost on the way to the old station.",
+      "sentence_ko": "그는 오래된 역으로 가는 길에 길을 잃었어.",
+      "subject_label": "he",
+      "object_label": "into a lost state",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (둘 다 문법은 되지만 그림이 다르다)",
+      "choices": [
+        "was",
+        "got",
+        "kept"
+      ],
+      "answer_index": 1,
+      "why_ko": "was lost면 '길 잃은 상태에 있었다'는 정적 상태이고, kept lost는 비문에 가깝다. on the way는 '걸어가던 중에 길 잃은 상태로 막 들어선' 변화를 가리키므로 진입을 그리는 got이 맞다 — got lost(길 잃은 상태로 진입함)와 was lost(길 잃은 상태에 머묾)는 그림이 갈린다. get(상태로의 진입)·be(상태에 머묾)의 대비."
     }
   ],
   "transfer_items": [
@@ -308,6 +422,57 @@
       ],
       "answer_index": 0,
       "why_ko": "clean up의 up은 치우는 일이 끝점까지 차올라 완전히 마무리되는 완료 감각이다. out은 '안의 것을 밖으로 비워 냄'(clean out), in은 '안으로 들임'의 그림인데, 이 문장엔 어디로 비우거나 들이는 방향 그림이 없다 — 끝까지 차올라 마무리되는 up만 맞는다. (정답 up의 완료 감각만 환원)"
+    },
+    {
+      "id": "get-x6",
+      "sense_id": "get-into-state",
+      "sentence": "The meeting got delayed because of the heavy rain.",
+      "sentence_ko": "폭우 때문에 회의가 미뤄졌어.",
+      "subject_label": "the meeting",
+      "object_label": "into a delayed state",
+      "type": "sense-choice",
+      "prompt": "got delayed가 그리는 그림으로 가장 가까운 것은? (주어가 사람이 아니라 일이다)",
+      "choices": [
+        "회의가 원래부터 비 오는 날 늦은 시간으로 잡혀 있던 정적 상태였다",
+        "누군가 회의라는 일정을 물건처럼 손에 받아 다른 날로 옮겨 잡았다",
+        "회의가 '미뤄진' 결과 상태 자리로 옮겨 가 그 자리에 닿았다"
+      ],
+      "answer_index": 2,
+      "why_ko": "get delayed는 '미뤄진 상태'(be delayed)에 줄곧 있던 게 아니라, 회의라는 일이 '미뤄진' 결과 상태로 옮겨 가 닿은 진입이다 — 비가 그 진입의 계기다. 주어가 사람이 아니라 추상적인 '일'이어도 '결과 상태로의 진입' 도식은 그대로다."
+    },
+    {
+      "id": "get-x7",
+      "sense_id": "get-into-state",
+      "sentence": "I got confused by the complicated instructions.",
+      "sentence_ko": "복잡한 설명 때문에 나는 헷갈려 버렸어.",
+      "subject_label": "I",
+      "object_label": "into a confused state",
+      "type": "sense-choice",
+      "prompt": "이 got confused의 감각은? (confused는 과거분사)",
+      "choices": [
+        "내가 '헷갈리는' 결과 상태 자리로 옮겨 가 그 자리에 닿았다",
+        "내가 설명을 읽기 한참 전부터 줄곧 헷갈리는 상태로 머물러 있었다",
+        "내가 그 복잡한 설명서를 물건처럼 받아 손에 들고만 있었다"
+      ],
+      "answer_index": 0,
+      "why_ko": "get confused는 헷갈리는 상태에 머무는 be confused가 아니라, 내가 '헷갈리는' 결과 상태로 옮겨 가 닿은 진입이다 — 복잡한 설명이 그 진입의 계기다. 마음 상태(confused)도 과거분사가 가리키는 '~된 결과 상태'로 보고 주어가 그 자리로 들어가는 변화로 읽힌다."
+    },
+    {
+      "id": "get-x8",
+      "sense_id": "get-into-state",
+      "sentence": "The old window ___ broken during last night’s storm.",
+      "sentence_ko": "어젯밤 폭풍에 그 낡은 창문이 깨졌어.",
+      "subject_label": "the old window",
+      "object_label": "into a broken state",
+      "type": "verb-choice",
+      "prompt": "빈칸에 들어갈 동사로 감각이 맞는 것은? (둘 다 문법은 되지만 그림이 다르다)",
+      "choices": [
+        "was",
+        "had",
+        "got"
+      ],
+      "answer_index": 2,
+      "why_ko": "was broken이면 '깨진 상태였다'는 정적 결과 상태를 그리지만, during last night’s storm은 '폭풍이 부는 동안 깨진 상태로 막 들어선' 진입 사건을 못박으므로 진입을 그리는 got이 맞다 — got broken(깨진 상태로 진입한 사건)과 was broken(깨진 상태에 있었음)은 둘 다 문법이 되나 그림이 갈린다. had broken은 능동 완료(주어가 무엇을 깬)라 창문이 스스로 깨진 이 문장과 안 맞는다 — get(상태로의 진입)·be(상태에 머묾)·have(능동 완료)의 대비."
     }
   ]
 }
