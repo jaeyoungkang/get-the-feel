@@ -83,29 +83,29 @@ export function Trainer() {
     <section className="native-trainer" aria-label="Native sense trainer">
       <aside className="trainer-control-panel">
         <div>
-          <p className="eyebrow">Mode</p>
+          <p className="eyebrow">학습 경로</p>
           <div className="segmented-control" aria-label="Training mode">
             <button
               type="button"
               className={mode === "recognition" ? "is-active" : ""}
               onClick={() => setMode("recognition")}
             >
-              Recognition
+              알아보기
             </button>
             <button
               type="button"
               className={mode === "production" ? "is-active" : ""}
               onClick={() => setMode("production")}
             >
-              Production
+              써보기
             </button>
           </div>
         </div>
 
         <label className="focus-picker">
-          <span>Focus sense</span>
+          <span>감각 골라 집중</span>
           <select value={focusSenseId} onChange={(event) => changeFocus(event.target.value)}>
-            <option value="all">All senses</option>
+            <option value="all">오늘의 새 문장</option>
             {TRAINER_SENSES.map((sense) => (
               <option key={`${sense.itemKey}:${sense.id}`} value={sense.id}>
                 {sense.item} · {sense.id}
@@ -116,19 +116,19 @@ export function Trainer() {
 
         <div className="stat-grid" aria-label="Training statistics">
           <div>
-            <span>Recognition</span>
+            <span>알아보는 힘</span>
             <strong>{accuracy}</strong>
           </div>
           <div>
-            <span>Answered</span>
+            <span>푼 문장</span>
             <strong>{recognition.total}</strong>
           </div>
           <div>
-            <span>Production</span>
+            <span>꺼내 쓴 문장</span>
             <strong>{production.total}</strong>
           </div>
           <div>
-            <span>Pool</span>
+            <span>남은 풀</span>
             <strong>{pool.length}</strong>
           </div>
         </div>
@@ -137,7 +137,7 @@ export function Trainer() {
       <div className="trainer-main-panel">
         <div className="question-meta">
           <span>{axisLabel(question.axis)}</span>
-          <span>{mode === "recognition" && !isAnswered ? "item hidden" : question.item}</span>
+          <span>{mode === "recognition" && !isAnswered ? "항목 숨김" : question.item}</span>
           <span>{normalizeType(question.type)}</span>
           <span>{question.source}</span>
         </div>
@@ -174,7 +174,7 @@ export function Trainer() {
           </article>
         ) : (
           <article className="question-card">
-            <p className="prompt">Use this sense in your own English sentence.</p>
+            <p className="prompt">이 감각을 써서 영어 문장을 직접 적어 보세요.</p>
             <h2>{focusSense?.id ?? question.sense.id}</h2>
             <textarea
               className="production-box"
@@ -186,12 +186,12 @@ export function Trainer() {
               rows={5}
             />
             <button className="primary-action" type="button" onClick={checkProduction}>
-              Check against model
+              모범문과 비교
             </button>
             {checkedDraft ? (
               <div className="feedback">
-                <strong>Self-check only</strong>
-                <p>Model: {question.sentence}</p>
+                <strong>자가채점 — 약한 기록</strong>
+                <p>모범문: {question.sentence}</p>
                 <p>{question.sense.ko}</p>
               </div>
             ) : null}
@@ -223,7 +223,7 @@ export function Trainer() {
 
         <div className="trainer-actions">
           <button type="button" onClick={nextQuestion}>
-            Next
+            다음 문장
           </button>
         </div>
       </div>
