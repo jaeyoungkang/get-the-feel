@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 
 import { TRAINER_QUESTIONS, TRAINER_SENSES, type TrainerQuestion } from "@/src/content/training-index";
+import { SenseVisual } from "./sense-visual";
 
 type Mode = "recognition" | "production";
 type RecognitionRecord = { total: number; correct: number };
@@ -210,6 +211,7 @@ export function Trainer() {
             </div>
             <div className="explanation-block">
               <h3>그림</h3>
+              <SenseVisual senseId={question.sense.id} item={question.item} />
               <p>{question.sense.image}</p>
             </div>
             {question.sense.boundary_ko ? (

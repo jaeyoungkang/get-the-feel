@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 
 import { explainSentence, type ExplanationMatch } from "@/src/content/explanation-index";
+import { SenseVisual } from "../sense-visual";
 
 // @promise promise:sentence-explanation-to-practice
 // @check acceptance-check:sentence-explanation-practice-link
@@ -142,6 +143,7 @@ export function SentenceExplainer({ seedMatches }: SentenceExplainerProps) {
                 </div>
                 <div className="explanation-block">
                   <h3>그림</h3>
+                  <SenseVisual senseId={activeSense.id} item={activeMatch.item} />
                   <p>{activeSense.image}</p>
                 </div>
                 {activeSense.boundary_ko ? (

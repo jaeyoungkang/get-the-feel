@@ -461,6 +461,114 @@ a {
   background: #ffffff;
 }
 
+.sense-visual {
+  margin: 10px 0 12px;
+  text-align: center;
+}
+
+.sense-visual svg {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  max-height: 220px;
+  margin: 0 auto;
+}
+
+.sense-visual figcaption {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.sense-visual text {
+  fill: #5a5249;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.visual-domain,
+.visual-zone,
+.visual-container,
+.visual-tube,
+.visual-cover {
+  fill: #fff8e9;
+  stroke: #c9b98f;
+  stroke-width: 2;
+}
+
+.visual-zone.target {
+  fill: #edf5fb;
+  stroke: var(--accent);
+}
+
+.visual-chip,
+.visual-dot,
+.visual-mini {
+  fill: var(--accent);
+  stroke: #1f4e83;
+  stroke-width: 2;
+}
+
+.visual-chip.muted {
+  fill: #d8e6f4;
+  stroke: #8fb6d8;
+}
+
+.visual-dot {
+  opacity: 0.45;
+}
+
+.visual-dot.mid {
+  opacity: 0.72;
+}
+
+.visual-arrow,
+.visual-hand {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.visual-arrow.small {
+  stroke-width: 4;
+}
+
+.sense-visual marker path {
+  fill: var(--accent);
+}
+
+.visual-hand {
+  stroke: #9b6b2a;
+}
+
+.visual-tendency {
+  fill: none;
+  stroke: var(--no);
+  stroke-width: 3;
+  stroke-dasharray: 7 7;
+  stroke-linecap: round;
+}
+
+.visual-cover {
+  fill: #eee6da;
+  stroke: #b8ac9a;
+}
+
+.visual-lock {
+  fill: #5d5650;
+  stroke: #312d29;
+  stroke-width: 2;
+}
+
+.visual-lock-loop {
+  fill: none;
+  stroke: #5d5650;
+  stroke-width: 8;
+  stroke-linecap: round;
+}
+
 .explanation-block h3,
 .practice-card h3,
 .practice-heading h2 {
