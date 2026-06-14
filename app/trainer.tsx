@@ -211,7 +211,7 @@ export function Trainer() {
             </div>
             <div className="explanation-block">
               <h3>그림</h3>
-              <SenseVisual senseId={question.sense.id} item={question.item} />
+              <SenseVisual item={question} />
               <p>{question.sense.image}</p>
             </div>
             {question.sense.boundary_ko ? (

@@ -143,7 +143,9 @@ export function SentenceExplainer({ seedMatches }: SentenceExplainerProps) {
                 </div>
                 <div className="explanation-block">
                   <h3>그림</h3>
-                  <SenseVisual senseId={activeSense.id} item={activeMatch.item} />
+                  {activeSense.practiceItems[0] ? (
+                    <SenseVisual item={activeSense.practiceItems[0]} />
+                  ) : null}
                   <p>{activeSense.image}</p>
                 </div>
                 {activeSense.boundary_ko ? (

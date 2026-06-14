@@ -6,7 +6,17 @@ import type { ContentAxis, TrainingItem, ValidationStrength } from "./content-ty
 // @check acceptance-check:sentence-explanation-supported-scope
 export type ExplanationPracticeItem = Pick<
   TrainingItem,
-  "id" | "sentence" | "sentence_ko" | "prompt" | "choices" | "answer_index" | "why_ko"
+  | "id"
+  | "sense_id"
+  | "sentence"
+  | "sentence_ko"
+  | "subject_label"
+  | "object_label"
+  | "prompt"
+  | "choices"
+  | "answer_index"
+  | "why_ko"
+  | "type"
 > & {
   source: "training" | "transfer";
 };
@@ -73,14 +83,31 @@ function practiceForSense(itemKey: keyof typeof CURRENT_CONTENT, senseId: string
     .map((item) => ({ ...item, source: "transfer" as const }));
 
   return [...training, ...transfer].map(
-    ({ id, sentence, sentence_ko, prompt, choices, answer_index, why_ko, source }) => ({
+    ({
       id,
+      sense_id,
       sentence,
       sentence_ko,
+      subject_label,
+      object_label,
       prompt,
       choices,
       answer_index,
       why_ko,
+      type,
+      source,
+    }) => ({
+      id,
+      sense_id,
+      sentence,
+      sentence_ko,
+      subject_label,
+      object_label,
+      prompt,
+      choices,
+      answer_index,
+      why_ko,
+      type,
       source,
     }),
   );
