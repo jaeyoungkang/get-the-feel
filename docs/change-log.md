@@ -5,3 +5,4 @@
 - Imported the agentic-base Story Chain, contract-map, project-knowledge, and mission-control verification structure.
 - Installed the lighthouse repo-local skill suite into `shared-skills/` with generated `.agents/skills` and `.claude/skills` copies.
 - Backfilled get-the-feel's c4-3 representative build into initial Story Chain promises and evidence ledger.
+- Added `/explain` sentence-to-practice MVP: supported target-word detection, corpus-grounded sense explanation, and linked practice items.

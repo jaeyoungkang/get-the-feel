@@ -48,3 +48,14 @@
 - aspect:content-provenance
 - aspect:recognition-production-separation
 - evidence-ledger: `current-build.ledger.md`
+
+### scenario:sentence-to-practice: 문장 해설 후 감각 연습
+
+상황: target user가 영어 문장을 입력해 get/have/up 같은 지원 대상의 감각을 확인한다.
+
+기대 행동: 제품은 현재 코퍼스가 보증하는 대상어를 탐지하고, 해당 감각의 설명·그림·경계를 보여준 뒤 같은 감각의 기존 훈련 문항으로 연습하게 한다.
+
+연결:
+- promise:sentence-explanation-to-practice
+- aspect:content-provenance
+- evidence-ledger: `current-build.ledger.md`

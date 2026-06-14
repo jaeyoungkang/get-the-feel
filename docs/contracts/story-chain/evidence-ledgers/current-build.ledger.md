@@ -14,6 +14,7 @@ gateNotes: Initial Story Chain backfill from product/contract.md and c4-3 repres
 ## Source Promises
 
 - promise:sense-training-surface
+- promise:sentence-explanation-to-practice
 - promise:constrained-production
 - promise:weakness-guided-focus
 
@@ -27,6 +28,9 @@ gateNotes: Initial Story Chain backfill from product/contract.md and c4-3 repres
 - intent-check:sense-training-surface
   - source promise: promise:sense-training-surface
   - evidence: rendered-dom: `app/page.tsx`, runtime-output: `npm run verdict`
+- intent-check:sentence-explanation-to-practice
+  - source promise: promise:sentence-explanation-to-practice
+  - evidence: rendered-dom: `app/explain/page.tsx`, code-trace: `src/content/explanation-index.ts`
 - intent-check:constrained-production
   - source promise: promise:constrained-production
   - evidence: rendered-dom: `public/legacy/c4-3/app.js`
@@ -40,13 +44,14 @@ gateNotes: Initial Story Chain backfill from product/contract.md and c4-3 repres
 > | promise | check | evidence | scope | run | scenarios |
 > | --- | --- | --- | --- | --- | --- |
 > | promise:sense-training-surface | acceptance-check:sense-training-surface-current-build | runtime-output: `npm run verdict`; rendered-dom: `app/page.tsx` | Product shell + representative trainer | `npm run quality:check` | scenario:first-training-session |
+> | promise:sentence-explanation-to-practice | acceptance-check:sentence-explanation-route | rendered-dom: `app/explain/page.tsx`; code-trace: `src/content/explanation-index.ts`, `app/explain/sentence-explainer.tsx` | Product shell + explanation workspace | `npm run quality:check` | scenario:sentence-to-practice |
 > | promise:constrained-production | acceptance-check:production-mode-present | rendered-dom: `public/legacy/c4-3/app.js`; record: `archive/prototypes/c4-3/cycle-record.md` | Representative trainer | `npm run quality:check` | scenario:first-training-session |
 > | promise:weakness-guided-focus | acceptance-check:focus-and-stats-present | rendered-dom: `public/legacy/c4-3/app.js`; record: `archive/prototypes/c4-3/cycle-record.md` | Representative trainer | `npm run quality:check` | scenario:first-training-session |
 
 ## Executable Evidence
 
 ```run:shell
-$ npm run quality:check -- --trace docs/contracts/story-chain/evidence-ledgers/current-build.ledger.md src/content/corpus-summary.ts app/page.tsx
+$ npm run quality:check -- --trace docs/contracts/story-chain/evidence-ledgers/current-build.ledger.md src/content/corpus-summary.ts src/content/explanation-index.ts app/page.tsx app/explain/page.tsx
 ```
 
 ## Sufficiency Review
@@ -58,6 +63,15 @@ $ npm run quality:check -- --trace docs/contracts/story-chain/evidence-ledgers/c
 - Gaps observed:
   - Adopt-resolved - c4-3 remains the legacy trainer while typed React migration starts.
   - Reject - demand validation is not claimed by this local evidence.
+- Verdict: met
+
+### 2026-06-14 - intent-check:sentence-explanation-to-practice
+
+- Input: `/explain` product route with seed sentence and supported target-word detection.
+- Evidence: rendered-dom: `app/explain/page.tsx`; code-trace: `src/content/explanation-index.ts`, `app/explain/sentence-explainer.tsx`.
+- Gaps observed:
+  - Adopt-resolved - explanation is bounded to current corpus senses and reuses existing training/transfer quiz items.
+  - Reject - open-ended grammar correction and unsupported vocabulary explanation are outside this MVP.
 - Verdict: met
 
 ### 2026-06-14 - intent-check:constrained-production

@@ -28,6 +28,7 @@
 - **formalize-1**(06-14): 정식 프로젝트 승급 P0 문서 정렬 — AGENTS/README/demand package/blind task를 c4-3 기준선(11파일·24 sense·173문항)으로 정합화.
 - **project-structure-1**(06-14): 본격 제품 개발 구조 준비 — Next.js `app/`, typed `src/content/`, `public/legacy/c4-3/` 동기화 스크립트, package quality scripts, `docs/project-structure.md`.
 - **story-chain-governance-1**(06-14): lighthouse/agentic-base 참조 기반 전판 프로세스 설치 — Story Chain contracts, Mission Control scripts, contract maps, project knowledge ledger, engineering/operations docs, shared skill suite, `.agents/.claude` skill sync, `quality:contracts` gate.
+- **sentence-explain-1**(06-14): `/explain` 문장 해설→연습 MVP — 현재 코퍼스 기반 대상어 감지, 감각 해설·그림·경계 표시, 같은 감각의 training/transfer 퀴즈 연결, Story Chain promise/evidence 추가.
 
 ---
 

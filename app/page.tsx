@@ -15,6 +15,7 @@ export default function HomePage() {
           </p>
         </div>
         <nav className="header-actions" aria-label="Project routes">
+          <Link href="/explain">Explain</Link>
           <Link href="/status">Status</Link>
           <a href="/legacy/c4-3/index.html">Open standalone</a>
         </nav>

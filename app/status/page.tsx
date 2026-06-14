@@ -8,6 +8,9 @@ export default function StatusPage() {
       <Link className="back-link" href="/">
         Back to trainer
       </Link>
+      <Link className="back-link" href="/explain">
+        Sentence explainer
+      </Link>
       <h1>Project Status</h1>
       <p>
         Formal product development now starts from the c4-3 representative build,
