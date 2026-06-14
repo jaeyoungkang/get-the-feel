@@ -5,6 +5,8 @@ REPO_DIR="${REPO_DIR:-/root/.openclaw/workspace/repos/get-the-feel}"
 BRANCH="${BRANCH:-main}"
 SERVICE="${SERVICE:-get-the-feel}"
 HEALTH_PATH="${HEALTH_PATH:-/}"
+CLOUDFLARED_SERVICE="${CLOUDFLARED_SERVICE:-cloudflared-agent-arena}"
+MANAGE_CLOUDFLARED_SERVICE="${MANAGE_CLOUDFLARED_SERVICE:-0}"
 
 if [ -f /etc/get-the-feel.env ]; then
   set -a
@@ -13,7 +15,7 @@ if [ -f /etc/get-the-feel.env ]; then
   set +a
 fi
 
-PORT="${PORT:-8785}"
+PORT="${PORT:-8772}"
 BASE_PATH="${BASE_PATH:-}"
 
 if [ -z "${DEPLOY_SCRIPT_REEXEC:-}" ]; then
@@ -56,13 +58,19 @@ fi
 
 if command -v systemctl >/dev/null 2>&1 && [ -d /etc/systemd/system ]; then
   install -m 0644 "$REPO_DIR/deploy/$SERVICE.service" "/etc/systemd/system/$SERVICE.service"
-  install -m 0644 "$REPO_DIR/deploy/cloudflared-$SERVICE.service" "/etc/systemd/system/cloudflared-$SERVICE.service"
 
   systemctl daemon-reload || true
   systemctl enable "$SERVICE.service"
-  systemctl enable "cloudflared-$SERVICE.service" || true
+  if [ "$MANAGE_CLOUDFLARED_SERVICE" = "1" ]; then
+    install -m 0644 "$REPO_DIR/deploy/cloudflared-$SERVICE.service" "/etc/systemd/system/cloudflared-$SERVICE.service"
+    systemctl enable "cloudflared-$SERVICE.service" || true
+  fi
   systemctl restart "$SERVICE.service"
-  systemctl restart "cloudflared-$SERVICE.service" || true
+  if [ "$MANAGE_CLOUDFLARED_SERVICE" = "1" ]; then
+    systemctl restart "cloudflared-$SERVICE.service" || true
+  elif systemctl list-unit-files "$CLOUDFLARED_SERVICE.service" >/dev/null 2>&1; then
+    systemctl restart "$CLOUDFLARED_SERVICE.service" || true
+  fi
 
   python3 - "$PORT" "$HEALTH_PATH" <<'PY'
 import sys, time, urllib.request
