@@ -41,7 +41,7 @@
 - `asset_path`: `tools/verdict/check.mjs`
 - `why_it_must_grow`: 자기보고가 아닌 산출물 사실로 판정하려면 검사 스크립트가 후보와 함께 자라야 한다. unknown은 승격 차단.
 - `how_to_update`: 새 검증 공백이 발견될 때마다 검사 추가 — 단 같은 공백의 반복이 확인될 때만 (1회 특수 케이스는 승격 금지).
-- `mechanical_or_review_gate`: 후보별 verdict 실행 결과를 `candidates/<id>/cycle-record.md`에 기록. 빈 출력·unknown은 fail.
+- `mechanical_or_review_gate`: 보관된 프로토타입별 verdict 실행 결과를 `archive/prototypes/<id>/cycle-record.md`에 기록. 빈 출력·unknown은 fail.
 - `last_cycle_contribution`: c2-3 — sentence-ko·question-cue(G11) 검사 신설, CLOSED_CANDIDATES 운영(c1-1~c2-2). 기록: 실행 스모크는 tools/smoke (jsdom, 수동) — verdict 내장은 의존성 거부로 보류.
 - **알려진 한계**: label-fields 검사는 알려진 파싱 패턴의 부재만 증명한다(휴리스틱) — 본 보증은 명시 필드 사용의 양성 확인. 같은 공백이 한 번 더 확인되면 검사 보강 (1회는 기록만 — 위 how_to_update 규칙).
 

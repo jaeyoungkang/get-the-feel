@@ -11,12 +11,13 @@ export default function StatusPage() {
       <h1>Project Status</h1>
       <p>
         Formal product development now starts from the c4-3 representative build,
-        while earlier candidates remain archived under <code>candidates/</code>.
+        while earlier prototypes remain archived under{" "}
+        <code>archive/prototypes/</code>.
       </p>
       <dl className="status-grid">
         <div>
           <dt>Representative</dt>
-          <dd>candidates/c4-3</dd>
+          <dd>archive/prototypes/c4-3</dd>
         </div>
         <div>
           <dt>Content</dt>

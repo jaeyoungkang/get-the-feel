@@ -2,7 +2,7 @@
 
 > orchestrator 요구: 각 항목은 한 줄 라벨이 아니라 **구체값**이어야 pass. 빈 값·라벨-only는 fail.
 > 이 패키지는 *출시 후 수요 검증*의 설계도다. local_ready는 패키지의 **완성**을 보고, demand_status는 출시 후 채워진다(루프 밖).
-> 현재 기준선: 대표 후보 `candidates/c4-3/`, 배포 URL https://jaeyoung2026.github.io/get-the-feel/ , 11파일 24 sense 173문항.
+> 현재 기준선: 대표 프로토타입 증거 `archive/prototypes/c4-3/`, 배포 URL https://jaeyoung2026.github.io/get-the-feel/ , 11파일 24 sense 173문항.
 
 | 항목 | 구체값 |
 |---|---|
@@ -11,7 +11,7 @@
 | `최소_artifact` | 배포된 c4-3 (11파일 24 sense 173문항, 핵심 동사 8·불변화사 2·구동사 1, 인식+산출 모드, 감각별 통계, 해석 피드백, 로컬 기록) + blind task 안내문 4질문 |
 | `반증_질문` | ① "단어 암기/퀴즈 앱"으로만 서술 → 차별점(감각 전달) 기각 ② 지목한 "새로 느낀 것" 0 → 훈련 가치 기각 ③ 이유 있는 "내일 안 연다" 다수 → 재방문 구조(R6) 기각 ④ 보기 안 읽고 풀린다는 반응 → R11(보기 길이 누설) 미회수 신호 |
 | `금지_claim` | "학습 효과 검증됨" 금지(N<10, 효과 연구 아님) / 페르소나·본인·시뮬 기록을 수요 근거로 승격 금지(약한 verdict) / "출처 기반"은 감각 설명의 *귀속*이지 교육 효과 보증 아님 / "영어가 입에서 나온다" 금지 — 앱이 "알아보는 힘일 뿐"이라 자백한 선 유지 |
-| `검증_위치` | 타인 blind 결과 → `candidates/c4-3/cycle-record.md` append(덮어쓰기 금지) / 본인 기록 → localStorage export 또는 수동 기록 / 집계 → 이 파일 하단 결과 섹션 |
+| `검증_위치` | 타인 blind 결과 → `archive/prototypes/c4-3/cycle-record.md` append(덮어쓰기 금지) / 본인 기록 → localStorage export 또는 수동 기록 / 집계 → 이 파일 하단 결과 섹션 |
 
 ## 표본·판정 임계 (확정)
 

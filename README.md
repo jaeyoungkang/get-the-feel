@@ -24,7 +24,7 @@ product-weaver 도메인 인스턴스에서 출발했으며, 현재는 lighthous
 
 2026-06-14: C1→C2→C3(local_ready)→C4 진화. 대표 후보 **c4-3** 배포 라이브 https://jaeyoung2026.github.io/get-the-feel/ — 11파일 24 sense 173문항(핵심동사 8·불변화사 2·구동사), 인식+산출 모드. 사용자 피드백 4건 반영. 정식 프로젝트 승급 계획은 `product/project-elevation-plan.md`.
 
-제품 개발 기준선은 Next.js App Router shell + typed `src/content/` + `public/legacy/c4-3/` 호환 표면이다. 프로토타입 후보는 `candidates/`에 보존하고, 새 제품 개발은 Story Chain 계약을 따라 `app/`·`src/`에서 진행한다.
+제품 개발 기준선은 Next.js App Router shell + typed `src/content/` + `public/legacy/c4-3/` 호환 표면이다. 구 프로토타입은 `archive/prototypes/`에 증거로 보존하고, 새 제품 개발은 Story Chain 계약을 따라 `app/`·`src/`에서 진행한다.
 
 ## 검증
 

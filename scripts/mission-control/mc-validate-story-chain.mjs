@@ -433,7 +433,7 @@ function extractExecutionTargets(command) {
 }
 
 function resolveTarget(target) {
-  const candidates = [
+  const possiblePaths = [
     target,
     `${target}.ts`,
     `${target}.tsx`,
@@ -441,7 +441,7 @@ function resolveTarget(target) {
     `${target}.jsx`,
     target.endsWith(".ts") ? `${target.slice(0, -3)}.tsx` : "",
   ].filter(Boolean);
-  return candidates.find((candidate) => existsSync(repoPath(candidate))) ?? target;
+  return possiblePaths.find((possiblePath) => existsSync(repoPath(possiblePath))) ?? target;
 }
 
 function tryResolveImport(fromRelPath, specifier) {
@@ -452,7 +452,7 @@ function tryResolveImport(fromRelPath, specifier) {
       ? resolve(dirname(fromAbsPath), specifier)
       : null;
   if (!basePath) return null;
-  const candidates = [
+  const possiblePaths = [
     basePath,
     `${basePath}.ts`,
     `${basePath}.tsx`,
@@ -464,7 +464,7 @@ function tryResolveImport(fromRelPath, specifier) {
     join(basePath, "index.tsx"),
     join(basePath, "index.js"),
   ];
-  const resolved = candidates.find((candidate) => existsSync(candidate));
+  const resolved = possiblePaths.find((possiblePath) => existsSync(possiblePath));
   return resolved ? toRepoRelative(resolved) : null;
 }
 

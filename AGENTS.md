@@ -9,10 +9,10 @@ product-weaver의 fork-style 도메인 인스턴스에서 출발했으며, 2026-
 ## 현재 상태 (2026-06-14 — 새 세션은 여기부터)
 
 - **단계**: C1 Discovery → C2 Convergence 졸업 → C3 Readiness(local_ready: pass) → **C4 출시 후 진화** 진행 중.
-- **대표 후보**: `candidates/c4-3/` — 배포 라이브 **https://jaeyoung2026.github.io/get-the-feel/**
+- **대표 프로토타입 증거**: `archive/prototypes/c4-3/` — 배포 라이브 **https://jaeyoung2026.github.io/get-the-feel/**
 - **코퍼스**: `assets/content/` 11파일 24 sense 173문항 — 핵심 동사 8(have·get·take·make·keep·be·go·come), 불변화사 2(up·out), 구동사(V+up). 출처 strong 17 sense + weak 7 sense(get-into-state·be·go·come 계열 — 사람 출처 리뷰 대기).
 - **모드**: 인식(오늘의 새 문장 / 감각 골라 집중) + 산출(써보기 — 빈칸 타이핑·어순 재배열·전문 쓰기) + 통계(감각별 추이·강약점). 인식≠산출 통계 분리.
-- **제품 개발 구조**: Next.js App Router shell + typed `src/content/` + `public/legacy/c4-3/` 호환 표면. 후보 아카이브는 유지하되 새 제품 개발은 `app/`·`src/`에서 진행.
+- **제품 개발 구조**: Next.js App Router shell + typed `src/content/` + `public/legacy/c4-3/` 호환 표면. 프로토타입 증거는 `archive/prototypes/`에 보관하고 새 제품 개발은 `app/`·`src/`에서 진행.
 - **Story Chain/검증 체계**: `docs/contracts/story-chain/`에 experience·moment·promise·aspect·ledger 기준선 설치. `scripts/mission-control/`, `scripts/contract-maps/`, `scripts/project-knowledge.mjs`, `shared-skills/` suite, `.agents/skills/`, `.claude/skills/` 동기화 완료.
 - **사용자 피드백 4건 반영 완료**: 주제 선택·get started(get+pp)·숙련도 통계·작문(제약형 산출 V3).
 - **실사용 검증의 위력**: 실사용자가 페르소나·기계·검수 3중 게이트가 놓친 결함을 **5건** 적발(정답 누설→해석→레이아웃→비문 오답→오답 동사 복붙). **실제 사용이 최강 검증 채널.**
@@ -53,20 +53,16 @@ product-weaver의 fork-style 도메인 인스턴스에서 출발했으며, 2026-
 6. **프로젝트 지식 기록** — 운영상 의미 있는 결정·이벤트는 `docs/change-log.md`, `docs/intent-judgments.md`, `docs/project-events/`에 남긴다.
 7. **커밋** — 한 turn = 한 항목 = 한 commit.
 
-## 프로토타입 후보 레시피 (새 후보 만들 때)
+## 프로토타입 증거 보관
 
-후보 폴더 `candidates/<id>/` — **독립 실행 완제품**(index.html·styles.css·app.js·data.js). 이전 후보 패치 금지(fresh start). 직전 대표는 `tools/verdict/check.mjs`의 `CLOSED_CANDIDATES`에 등재(동결).
+구 프로토타입 폴더는 `archive/prototypes/<id>/`에 보관한다. 이 경로는 제품 개발 source가 아니라 검증·수요조사·회고 증거다. 새 제품 기능은 `app/`·`src/`에서 구현하고, 프로토타입을 새 개발 단위로 되살리지 않는다.
 
-1. **사이클 의도 잠금** — `shared-skills/product-spiral-orchestrator/SKILL.md` + `shared-skills/intent-lock/SKILL.md` receipt를 `candidates/<id>/cycle-record.md`에. 축/제품계약 발전 한 줄/전달 가치 탐색/자산 기여 WHO·WHY.
+1. **증거 보존** — 기존 `cycle-record.md`는 append-only 증거로 유지한다. 수요검증 결과처럼 과거 프로토타입에 귀속되는 기록만 append한다.
 2. **콘텐츠(신규·변경 시)** — `skills/content-consensus/SKILL.md` 경유: 생성 ≠ 독립 적대 검수 ≠ 수정 (권한 분리). 검수 5관점 + receipt를 cycle-record에.
-3. **빌드** — 후보 앱. data.js는 `assets/content/*.json` verbatim 임베드. G1~G17·R1~R15 전부 계승. 헬퍼(itemColor 등) 정의 확인(미정의 헬퍼=죽은 후보 사고).
-4. **기계 검증** — `node tools/verdict/check.mjs <id>` ALL PASS + 직전 후보 회귀 0. 빌드 후 **jsdom 실행 스모크**(돌아간다≠작동한다 — 죽은 후보 차단).
-5. **평가** — 페르소나 blind task(배포 URL을 playwright로 실구동, 회의론자 포함) + 모니터 3종(Intent Guardian·Asset Steward·Data/Sellability). repair-before-next면 다음 후보 전 수리.
-6. **자산 회수** — 배움을 `product/`·`assets/`·`tools/`로. 평가 질문: **"다음 후보의 약속 전달력을 올리는가"** (속도 아닌 효과). cycle record·transcript에만 남으면 미회수.
-7. **stop permission** — cycle-record에 local_candidate_status·representative_status·core_contribution·local_ready·next_action·allowed_to_stop.
-8. **배포** — `tools/deploy/deploy-pages.sh <id>` (verdict PASS 아니면 차단). 대표 갱신 시 contract.md "대표 후보" 줄·README 갱신.
+3. **기계 검증** — 대표 증거 검증은 `node tools/verdict/check.mjs <id>`로 유지한다. 현재 기본값은 `c4-3`.
+4. **제품 전환** — 새 제품 표면이 legacy trainer를 대체하면 `prototype:sync`와 `verdict`도 Story Chain/product gate로 대체한다.
 
-콘텐츠만 확장하는 후보는 4·5를 콘텐츠 검수 중심으로 축소 가능(앱 기능 불변 시).
+콘텐츠만 확장하더라도 새 후보 폴더를 만들지 않는다. 정식 제품 변경은 Story Chain promise/aspect/feature spec을 먼저 갱신한다.
 
 ---
 
@@ -102,7 +98,7 @@ tools/deploy/deploy-pages.sh <candidate-id>       # GitHub Pages 배포 (verdict
 | 항목 | 선택 |
 |---|---|
 | Intent Lock | `product/contract.md` — 인터뷰 기반, 미승인은 별도 섹션 + `fix_plan.md` 사후 승인 큐 |
-| Gap Ledger | `candidates/<id>/cycle-record.md` (append-only — 판정 덮어쓰기 금지) + git commit log |
+| Gap Ledger | `archive/prototypes/<id>/cycle-record.md` (append-only — 판정 덮어쓰기 금지) + git commit log |
 | Mechanical Verdict | `tools/verdict/check.mjs` — content-contract·adversarial-review·data-sync·separation·no-gamification·choice-shuffle·label-fields·sentence-ko·question-cue·smoke. unknown/not-met은 승격 차단 |
 | Story Chain Verdict | `npm run mc:validate-story-chain` — structure·intent·AC trace·code trace·aspect·engineering verdict. critical은 release 차단 |
 | Contract Maps | `npm run contract-maps:check` — docs/contracts와 구현 표면의 추적성 점검 |

@@ -48,7 +48,7 @@ function group(name) {
 // ---------- 공통 로더 ----------
 const CONTENT_DIR = path.join(ROOT, "assets", "content");
 const SOURCES_MD = path.join(ROOT, "product", "sources.md");
-const CAND_DIR = path.join(ROOT, "candidates", candidateId);
+const CAND_DIR = path.join(ROOT, "archive", "prototypes", candidateId);
 
 // 후보 ↔ 콘텐츠 파일 매핑. 후보마다 어떤 감각 항목을 싣는지 선언.
 // 단일 파일(문자열) 또는 다파일 결합 후보(객체: window.CONTENT_ALL 키 → json).
@@ -347,7 +347,7 @@ function checkContentContract() {
 function checkCandidateFiles() {
   const g = group("candidate-files");
   if (!fs.existsSync(CAND_DIR)) {
-    g.fail("candidates/" + candidateId + "/ 없음");
+    g.fail("archive/prototypes/" + candidateId + "/ 없음");
     return;
   }
   for (const f of ["index.html", "app.js", "data.js", "styles.css"]) {

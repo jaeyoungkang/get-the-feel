@@ -40,8 +40,8 @@ gateNotes: Initial Story Chain backfill from product/contract.md and c4-3 repres
 > | promise | check | evidence | scope | run | scenarios |
 > | --- | --- | --- | --- | --- | --- |
 > | promise:sense-training-surface | acceptance-check:sense-training-surface-current-build | runtime-output: `npm run verdict`; rendered-dom: `app/page.tsx` | Product shell + representative trainer | `npm run quality:check` | scenario:first-training-session |
-> | promise:constrained-production | acceptance-check:production-mode-present | rendered-dom: `public/legacy/c4-3/app.js`; record: `candidates/c4-3/cycle-record.md` | Representative trainer | `npm run quality:check` | scenario:first-training-session |
-> | promise:weakness-guided-focus | acceptance-check:focus-and-stats-present | rendered-dom: `public/legacy/c4-3/app.js`; record: `candidates/c4-3/cycle-record.md` | Representative trainer | `npm run quality:check` | scenario:first-training-session |
+> | promise:constrained-production | acceptance-check:production-mode-present | rendered-dom: `public/legacy/c4-3/app.js`; record: `archive/prototypes/c4-3/cycle-record.md` | Representative trainer | `npm run quality:check` | scenario:first-training-session |
+> | promise:weakness-guided-focus | acceptance-check:focus-and-stats-present | rendered-dom: `public/legacy/c4-3/app.js`; record: `archive/prototypes/c4-3/cycle-record.md` | Representative trainer | `npm run quality:check` | scenario:first-training-session |
 
 ## Executable Evidence
 

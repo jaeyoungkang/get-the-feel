@@ -5,7 +5,7 @@
 set -euo pipefail
 CAND="${1:?candidate-id 필요 (예: c2-3)}"
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
-SRC="$ROOT/candidates/$CAND"
+SRC="$ROOT/archive/prototypes/$CAND"
 [ -f "$SRC/index.html" ] || { echo "후보 없음: $SRC"; exit 1; }
 node "$ROOT/tools/verdict/check.mjs" "$CAND" >/dev/null || { echo "verdict FAIL — 배포 차단"; exit 1; }
 WORK="$(mktemp -d)"

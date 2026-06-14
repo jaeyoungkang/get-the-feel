@@ -16,7 +16,7 @@
 ## 진행 중 (In Progress)
 없음.
 
-## 완료 (Done) — 압축 (상세는 candidates/<id>/cycle-record.md + git log)
+## 완료 (Done) — 압축 (상세는 archive/prototypes/<id>/cycle-record.md + git log)
 
 - **bootstrap-1**(2026-06-10) 도메인 부트스트랩 — 계약·Asset Map·Harness Case.
 - **C1 Discovery**(06-11): c1-1 have / c1-2 up. R1~R8·G1~G6 자산. 졸업.

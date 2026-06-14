@@ -26,7 +26,7 @@ Skill Load Receipt
 
 ## 승급 결정
 
-get-the-feel은 "버릴 수 있는 화면 프로토타입" 단계를 넘겼다. 현재 대표 후보 `candidates/c4-3/`는 배포되어 있고, 기계 verdict는 `ALL PASS`이며, 코퍼스·UX 규칙·훈련 규칙·검증 도구가 작동 자산으로 분리되어 있다.
+get-the-feel은 "버릴 수 있는 화면 프로토타입" 단계를 넘겼다. 현재 대표 프로토타입 증거 `archive/prototypes/c4-3/`는 배포되어 있고, 기계 verdict는 `ALL PASS`이며, 코퍼스·UX 규칙·훈련 규칙·검증 도구가 작동 자산으로 분리되어 있다.
 
 정식 프로젝트 승급의 의미는 다음이다.
 
@@ -39,7 +39,7 @@ get-the-feel은 "버릴 수 있는 화면 프로토타입" 단계를 넘겼다. 
 
 | 항목 | 현재값 |
 |---|---|
-| 대표 후보 | `candidates/c4-3/` |
+| 대표 프로토타입 증거 | `archive/prototypes/c4-3/` |
 | 배포 | https://jaeyoung2026.github.io/get-the-feel/ |
 | 코퍼스 | `assets/content/` 11파일, 24 sense, 173문항 |
 | 축 | 핵심 동사 8, 불변화사 2, 구동사 1 |
@@ -179,7 +179,7 @@ get-the-feel은 "버릴 수 있는 화면 프로토타입" 단계를 넘겼다. 
 - word-order axis 콘텐츠 계약 세부화.
 - 어순 문항 유형 설계: 재배열, chunk 선택, contrastive order feedback.
 - content-consensus 경유로 최소 vertical slice 생성.
-- 후보는 `candidates/c5-axis4/` 같은 새 폴더에서 fresh start로 만든다.
+- 정식 제품 변경은 `app/`·`src/`에서 진행하고, Story Chain promise/aspect/feature spec을 먼저 갱신한다. 새 프로토타입 후보 폴더는 만들지 않는다.
 
 ### P3 — Retention Supply
 
