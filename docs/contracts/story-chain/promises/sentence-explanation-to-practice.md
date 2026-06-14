@@ -9,6 +9,7 @@ lane: product
 status: active
 aspects:
   - aspect:content-provenance
+  - aspect:design-baseline-preservation
 intentChecks:
   - intent-check:sentence-explanation-to-practice
 acceptanceChecks:

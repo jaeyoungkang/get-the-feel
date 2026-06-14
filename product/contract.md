@@ -76,6 +76,18 @@ LLM이 문장·퀴즈 초안을 만들 수는 있다. 그러나 sense 설명은 
 - 보기 오답은 비문이 아니라 가까운 오개념이어야 한다.
 - 콘텐츠 변경은 `skills/content-consensus/SKILL.md`를 거친다.
 
+## Design Contract
+
+디자인은 별도 장식이 아니라 제품 약속의 일부다. 감각 그림, 카드형 진행,
+피드백 위계, 색 분리, 모바일 우선 흐름은 현재 트레이너 디자인 기준선으로
+보존한다. 정본과 변경 절차는 `docs/design-assets.md`다.
+
+필수 원칙:
+
+- 기존 배포판 트레이너 화면은 React parity 전까지 현재 디자인 기준선이다.
+- SVG 감각 그림과 보강 그림은 기능과 같은 수준의 자산으로 관리한다.
+- 새 화면은 기존 화면보다 낫다는 parity evidence 없이 기준선을 대체하지 않는다.
+
 ## Evidence And Claims
 
 현재 release 판단은 `docs/contracts/story-chain/evidence-ledgers/current-build.ledger.md`

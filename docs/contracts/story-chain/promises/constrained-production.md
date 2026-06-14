@@ -10,6 +10,7 @@ lane: product
 status: active
 aspects:
   - aspect:recognition-production-separation
+  - aspect:design-baseline-preservation
 intentChecks:
   - intent-check:constrained-production
 acceptanceChecks:
@@ -20,7 +21,7 @@ coveringLedgers:
 verdict: met
 evidence:
   kind: rendered-dom
-  ref: app/trainer.tsx
+  ref: public/legacy/c4-3/app.js
 gateNotes: Production remains constrained writing, not speaking.
 ---
 
@@ -42,7 +43,7 @@ gateNotes: Production remains constrained writing, not speaking.
 ### intent-check:constrained-production
 
 - question: 제품이 보기 고르기 이후의 산출 연습을 제공하면서도, 인식 evidence와 산출 evidence를 섞거나 말하기 향상으로 과장하지 않는가?
-- evidence: rendered-dom: `app/trainer.tsx`; runtime-output: `npm run build`.
+- evidence: rendered-dom: `public/legacy/c4-3/app.js`; runtime-output: `npm run build`.
 - why live judge: 자유 쓰기의 품질은 정적 코드만으로 충분히 판단할 수 없다. 제품 문구와 통계 표면이 self-graded output을 약한 evidence로 유지하는지 확인해야 한다.
 - linked acceptance checks:
   - acceptance-check:production-mode-present
@@ -53,14 +54,14 @@ gateNotes: Production remains constrained writing, not speaking.
 
 ### acceptance-check:production-mode-present
 
-- description: The native trainer includes constrained production self-check using current corpus sentences and model examples.
-- evidence: rendered-dom: `app/trainer.tsx`; runtime-output: `npm run build`.
+- description: The current trainer design baseline includes constrained production self-check using current corpus sentences and model examples.
+- evidence: rendered-dom: `public/legacy/c4-3/app.js`; runtime-output: `npm run build`.
 - run: `npm run build`
 
 ### acceptance-check:production-evidence-separated
 
 - description: Recognition and production records use separate labels/storage and production self-grading remains weak evidence.
-- evidence: rendered-dom: `app/trainer.tsx`; aspect: `aspect:recognition-production-separation`.
+- evidence: rendered-dom: `public/legacy/c4-3/app.js`; aspect: `aspect:recognition-production-separation`.
 - run: `npm run build`
 
 ## Evidence
@@ -68,5 +69,5 @@ gateNotes: Production remains constrained writing, not speaking.
 ```yaml
 evidence:
   kind: rendered-dom
-  ref: app/trainer.tsx
+  ref: public/legacy/c4-3/app.js
 ```

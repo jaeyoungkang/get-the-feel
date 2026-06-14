@@ -10,7 +10,7 @@
 
 - **제품 단계**: 정식 제품 개발 기준선. 새 기능은 `app/`·`src/`와 Story Chain 계약으로 진행한다.
 - **라이브 배포**: https://jaeyoung2026.github.io/get-the-feel/
-- **현재 제품 표면**: `/`는 Next/React 기반 native trainer이고, `/explain`은 사용자가 준 영어 문장을 현재 코퍼스 감각 해설과 연습 문항으로 연결한다.
+- **현재 제품 표면**: `/`는 기존 배포판 트레이너 디자인 자산을 그대로 사용하고, `/explain`은 사용자가 준 영어 문장을 현재 코퍼스 감각 해설과 연습 문항으로 연결한다.
 - **코퍼스**: `assets/content/` 11파일 24 sense 173문항. 핵심 동사 8, 불변화사 2, 구동사 V+up. weak sense는 사람 출처 리뷰 전까지 strong으로 올리지 않는다.
 - **Story Chain 상태**: `npm run mc:status` 기준 release ready. 1 experience, 2 moments, 4 active promises, 2 aspects, `current-build.ledger.md` evidence.
 
@@ -33,7 +33,8 @@
 6. `docs/contracts/story-chain/evidence-ledgers/current-build.ledger.md` + `docs/contracts/story-chain/evidence-ledgers/reviews/current-build.reviews.md` — 현재 evidence와 Sufficiency Review.
 7. `docs/contracts/feature-specs.md` + `docs/contracts/story-chain/scenario-catalog.md` — AC와 scenario 인덱스.
 8. `product/README.md` + `product/contract.md` — 제품 계약 요약과 product 디렉터리 경계.
-9. `assets/` — 콘텐츠 정본: `content/CONTRACT.md`, `content/sources.md`, `training-design.md`, `ux-grammar.md`, `misconceptions.md`.
+9. `docs/design-assets.md` + `assets/ux-grammar.md` — 디자인 자산 기준선과 화면 문법.
+10. `assets/` — 콘텐츠 정본: `content/CONTRACT.md`, `content/sources.md`, `training-design.md`, `misconceptions.md`.
 10. `docs/project-structure.md`, `docs/engineering/`, `docs/operations/`, `docs/verification-gates.md` — 엔지니어링/운영 경계.
 11. `fix_plan.md` — 작업 큐.
 

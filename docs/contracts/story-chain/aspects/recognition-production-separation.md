@@ -8,7 +8,7 @@ covering-ledger: docs/contracts/story-chain/evidence-ledgers/current-build.ledge
 verdict: met
 evidence:
   kind: rendered-dom
-  ref: app/trainer.tsx
+  ref: public/legacy/c4-3/app.js
 gateNotes: Self-graded writing remains weak evidence; speaking improvement is not claimed.
 ---
 
@@ -42,7 +42,7 @@ gateNotes: Self-graded writing remains weak evidence; speaking improvement is no
 
 ## 4. Verification
 
-- coverage: `app/trainer.tsx` keeps recognition and production statistics in separate state and labels self-check production as weak evidence.
+- coverage: `public/legacy/c4-3/app.js` keeps recognition and production statistics in separate state and labels self-check production as weak evidence.
 - coverage: `product/demand-validation.md` and `product/contract.md` keep local stats below demand/effect claims.
 - wovenness: This aspect is cited by output and progress promises and by `current-build.ledger.md`.
 - verdict: `met` for the current build.

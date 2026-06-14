@@ -18,9 +18,11 @@ Skill Load Receipt
 
 | Path | Role |
 |---|---|
-| `app/` | Next.js App Router product surface. Root route serves the native trainer and sentence explanation flow. |
+| `app/` | Next.js App Router product surface. Root route wraps the current trainer design baseline; `/explain` is the React sentence explanation flow. |
 | `src/content/` | Typed content access layer for `assets/content/*.json`. New app code should read content through this boundary. |
-| `assets/` | Content and training design source of truth. Do not treat this as app implementation code. |
+| `public/legacy/c4-3/` | Current trainer design baseline from the deployed product. Protected until React parity exists. |
+| `docs/design-assets.md` | Design asset governance and parity rules. |
+| `assets/` | Content, training design, and UX grammar source of truth. Do not treat this as app implementation code. |
 | `scripts/content/` | Executable content contract checks for the active corpus. |
 | `scripts/mission-control/` | Story Chain release verdict, surface audit, critical finding checks, propagation helpers. |
 | `scripts/contract-maps/` | Contract map validation scripts. |
@@ -33,15 +35,18 @@ Skill Load Receipt
 
 ## Active Product Rule
 
-The active product must be implemented in `app/` and `src/`. Content remains in
-`assets/content/` and must pass the content contract before it is used by the app.
+The active product shell is in `app/`, but the current trainer design baseline
+is the existing deployed trainer asset under `public/legacy/c4-3/`. Content
+remains in `assets/content/` and must pass the content contract before it is used
+by the app.
 
 Working order:
 
 1. Update Story Chain contract docs before changing durable product behavior.
-2. Build product code in `app/` and `src/`.
-3. Validate content with `npm run content:check`.
-4. Validate implementation and contracts with `npm run quality:check`.
+2. Preserve the design baseline unless a documented parity replacement exists.
+3. Build product code in `app/` and `src/`.
+4. Validate content with `npm run content:check`.
+5. Validate implementation and contracts with `npm run quality:check`.
 
 ## Quality Rung
 
@@ -62,5 +67,6 @@ Deferred until demand or repeated engineering defects:
 ## Refuse First
 
 - Do not land product behavior that cannot be traced to Story Chain promises/aspects or explicit product contract changes.
+- Do not replace the current trainer design baseline without `docs/design-assets.md` parity evidence.
 - Do not introduce backend state before demand validation.
 - Do not promote weak source senses to strong as part of engineering migration.

@@ -37,13 +37,13 @@ fixtureRef: docs/contracts/story-chain/evidence-ledgers/current-build.ledger.md
 runCommitSha: worktree-run-2026-06-14-story-chain-hardening
 observedOutput: `npm run quality:check` completed the content contract check, TypeScript check, ESLint, Next build including `/` and `/explain`, skill drift check, project knowledge validation, contract map check, Story Chain validation, surface audit, and new-critical check with release verdict ready.
 gaps:
-  - adopt: The current product shell now renders the native trainer from `app/` and `src/`.
+  - adopt: The current product shell preserves the existing trainer design baseline while React surfaces reuse its visual grammar.
   - adopt: Sentence explanation is intentionally rule-based and corpus-bound; this prevents unsupported grammar correction claims while still connecting supported senses to practice.
   - reject: Demand validation, long-term learning effect, free writing quality, and speaking improvement are outside this local build verdict.
 verdict: met
 ```
 
-Input: the current Next product surface, native trainer evidence, and
+Input: the current Next product surface, existing trainer design baseline evidence, and
 `/explain` sentence-to-practice route.
 
 Evidence:
@@ -64,3 +64,7 @@ Gaps observed:
   collected through `demand-1`.
 
 Verdict: met.
+
+Aspect verdict: `aspect:design-baseline-preservation` is met because the current
+root trainer uses the existing deployed trainer design baseline and the React
+sentence explanation surface reuses the same SVG metaphor grammar.

@@ -1,4 +1,5 @@
 // @promise promise:sense-training-surface
+// @aspect aspect:design-baseline-preservation
 // @check acceptance-check:sense-training-surface-current-build
 export default function HomePage() {
   return (

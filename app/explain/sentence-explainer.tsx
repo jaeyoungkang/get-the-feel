@@ -6,6 +6,8 @@ import { explainSentence, type ExplanationMatch } from "@/src/content/explanatio
 import { SenseVisual } from "../sense-visual";
 
 // @promise promise:sentence-explanation-to-practice
+// @aspect aspect:content-provenance
+// @aspect aspect:design-baseline-preservation
 // @check acceptance-check:sentence-explanation-practice-link
 type SentenceExplainerProps = {
   seedMatches: ExplanationMatch[];

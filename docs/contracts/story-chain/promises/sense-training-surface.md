@@ -10,6 +10,7 @@ lane: product
 status: active
 aspects:
   - aspect:content-provenance
+  - aspect:design-baseline-preservation
 intentChecks:
   - intent-check:sense-training-surface
 acceptanceChecks:
@@ -21,8 +22,8 @@ coveringLedgers:
 verdict: met
 evidence:
   kind: rendered-dom
-  ref: app/page.tsx + app/trainer.tsx
-gateNotes: The current surface renders the native trainer from the Next app.
+  ref: app/page.tsx + public/legacy/c4-3/index.html
+gateNotes: The current surface preserves the existing trainer design baseline.
 ---
 
 # Sense Training Surface
@@ -43,7 +44,7 @@ gateNotes: The current surface renders the native trainer from the Next app.
 ### intent-check:sense-training-surface
 
 - question: 첫 제품 표면이 마케팅 페이지나 일반 빈칸 퀴즈가 아니라, 영어 토박이 감각을 문장 단위로 훈련하는 실제 세션으로 읽히는가?
-- evidence: rendered-dom: `app/page.tsx`, `app/trainer.tsx`; runtime-output: `npm run build`.
+- evidence: rendered-dom: `app/page.tsx`, `public/legacy/c4-3/index.html`; runtime-output: `npm run build`.
 - why live judge: 파일과 문항이 있어도 사용자가 단어뜻 암기 앱으로 느끼면 의도는 실패한다. 수요 검증은 demand-1에서 따로 닫는다.
 - linked acceptance checks:
   - acceptance-check:sense-training-surface-current-build
@@ -55,14 +56,14 @@ gateNotes: The current surface renders the native trainer from the Next app.
 
 ### acceptance-check:sense-training-surface-current-build
 
-- description: `/` route renders the current product shell and native trainer.
+- description: `/` route renders the current product shell and current trainer design baseline.
 - evidence: rendered-dom: `app/page.tsx`; runtime-output: `npm run build`.
 - run: `npm run build`
 
 ### acceptance-check:sense-training-cue-discipline
 
 - description: The representative trainer hides sentence Korean, item label, sense label, and feedback cues before the user answers, then reveals them after answer.
-- evidence: code-trace: `app/trainer.tsx` answer state gates feedback, Korean text, and sense explanation.
+- evidence: code-trace: `public/legacy/c4-3/app.js` answer state gates feedback, Korean text, and sense explanation.
 - run: `npm run build`
 
 ### acceptance-check:sense-training-corpus-contract
@@ -76,5 +77,5 @@ gateNotes: The current surface renders the native trainer from the Next app.
 ```yaml
 evidence:
   kind: rendered-dom
-  ref: app/page.tsx + app/trainer.tsx
+  ref: app/page.tsx + public/legacy/c4-3/index.html
 ```

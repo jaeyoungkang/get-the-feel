@@ -19,7 +19,7 @@ export default function StatusPage() {
       <dl className="status-grid">
         <div>
           <dt>Representative</dt>
-          <dd>Native trainer and sentence explanation flow</dd>
+          <dd>Existing trainer design baseline and sentence explanation flow</dd>
         </div>
         <div>
           <dt>Content</dt>

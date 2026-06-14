@@ -1,5 +1,7 @@
 import type { TrainingItem } from "@/src/content/content-types";
 
+// @aspect aspect:design-baseline-preservation
+
 type VisualItem = Pick<TrainingItem, "sense_id" | "subject_label" | "object_label" | "type"> & {
   verb_label?: string;
 };
