@@ -1,4 +1,4 @@
-# get-the-feel — 타인 검증 패키지 (c4-3 대표 후보 기준)
+# get-the-feel — 타인 검증 패키지 (c4-3 대표 프로토타입 증거 기준)
 
 > 외부 학습자 1명에게 보내는 blind task 안내. 제품 설명·pitch 없이 task만 — 평가 오염 방지.
 > 현재 배포 기준: c4-3, 11파일 24 sense 173문항. 참가자에게는 이 기준선을 설명하지 않는다.
@@ -27,7 +27,7 @@
 | 감각 경험 | 특정 문항을 지목한 새 느낌 1개 이상 | "다 아는 거였다" / 지목 없음 |
 | 재방문 | 이유 있는 yes | 이유 있는 no (이유가 다음 사이클 입력) |
 
-- 개별 결과는 약한 verdict (N=1)이며 단독 수요 근거로 승격 금지. 수요 판정은 `product/demand-validation-package.md`의 3~5명 임계로 한다.
+- 개별 결과는 약한 verdict (N=1)이며 단독 수요 근거로 확정 금지. 수요 판정은 `product/demand-validation.md`의 3~5명 임계로 한다.
 - 부정 결과도 그대로 `archive/prototypes/c4-3/cycle-record.md` 또는 demand 결과 ledger에 append — 덮어쓰기 금지.
 
 ## 금지된 claim

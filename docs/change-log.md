@@ -6,3 +6,11 @@
 - Installed the lighthouse repo-local skill suite into `shared-skills/` with generated `.agents/skills` and `.claude/skills` copies.
 - Backfilled get-the-feel's c4-3 representative build into initial Story Chain promises and evidence ledger.
 - Added `/explain` sentence-to-practice MVP: supported target-word detection, corpus-grounded sense explanation, and linked practice items.
+
+## 2026-06-14 - Story Chain contracts hardened
+
+- Expanded the active Story Chain into richer Experience, Moment, Promise, Aspect, Evidence Ledger, and Sufficiency Review documents following the lighthouse contract style.
+- Split sentence inquiry into its own Moment and connected `/explain` to dedicated acceptance checks and code traces.
+- Archived product-weaver/Spiral-era operating documents under `archive/product-weaver/` and removed obsolete Spiral-loop skills from the active skill suite.
+- Reframed c4-3 as representative prototype evidence, not the current development workflow.
+- Slimmed `product/` to product contract and demand validation only; moved content source authority to `assets/content/sources.md`.

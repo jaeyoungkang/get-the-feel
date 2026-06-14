@@ -15,7 +15,7 @@ policy, and verification documentation.
 
 - `docs/verification-gates.md`
 - `docs/contract-maps/quality-gates.md`
-- `docs/principles.md` §0 and §0.1
+- `docs/mission-control.md`
 - `package.json` scripts
 - relevant files under `scripts/mission-control/`, `scripts/quality/`,
   `.github/workflows/`, or mutation config files

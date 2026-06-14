@@ -1,5 +1,6 @@
 ---
 id: promise:constrained-production
+slug: constrained-production
 legacyIds:
   - V3
 title: Constrained Production
@@ -13,6 +14,7 @@ intentChecks:
   - intent-check:constrained-production
 acceptanceChecks:
   - acceptance-check:production-mode-present
+  - acceptance-check:production-evidence-separated
 coveringLedgers:
   - docs/contracts/story-chain/evidence-ledgers/current-build.ledger.md
 verdict: met
@@ -24,33 +26,44 @@ gateNotes: Production remains constrained writing, not speaking.
 
 # Constrained Production
 
-## 1. Promise
+## Promise
 
-As a learner who has recognized a sense,
+제품은 사용자가 감각을 고른 뒤 같은 감각을 제한된 형태로 직접 꺼내 쓰게
+한다. 현재 산출은 빈칸 타이핑, 어순 재배열, 전문 쓰기와 자가채점이다.
+이 흐름은 "보기 없이 한 번 써 본다"는 가치를 제공하지만, 말하기 유창성
+또는 자유 작문 실력 검증을 약속하지 않는다.
 
-I want to type, reorder, or rewrite a constrained sentence with the same target sense,
+산출 기록은 인식 정답률과 분리된다. 인식 문제를 잘 푸는 것과 직접 쓰는
+것은 다른 학습 신호다. 특히 전문 쓰기는 자가채점이므로 약한 evidence로
+표시되어야 한다.
 
-So that I can practice pulling the sense out without claiming that speaking fluency has been proven.
-
-## 2. Intent Check
+## Intent Checks
 
 ### intent-check:constrained-production
 
-- question: Does the product provide an output practice path while keeping recognition and production evidence separate?
-- evidence: rendered-dom: c4-3 includes write mode and separate output statistics inherited from c4-2.
-- why live judge: Free writing quality cannot be fully checked by static code; the product must label self-graded output as weak evidence.
+- question: 제품이 보기 고르기 이후의 산출 연습을 제공하면서도, 인식 evidence와 산출 evidence를 섞거나 말하기 향상으로 과장하지 않는가?
+- evidence: rendered-dom: `public/legacy/c4-3/app.js`; runtime-output: `npm run verdict`.
+- why live judge: 자유 쓰기의 품질은 정적 코드만으로 충분히 판단할 수 없다. 제품 문구와 통계 표면이 self-graded output을 약한 evidence로 유지하는지 확인해야 한다.
 - linked acceptance checks:
   - acceptance-check:production-mode-present
-- answer criteria: A single multiple-choice flow, or merged recognition/output statistics, fails.
+  - acceptance-check:production-evidence-separated
+- answer criteria: 선택형 문제만 있으면 실패한다. 산출 통계가 인식 통계에 섞이거나, 말하기·자유 작문 실력 검증을 암시하면 실패한다.
 
-## 3. Acceptance Check
+## Acceptance Checks
 
 ### acceptance-check:production-mode-present
 
-- description: The representative c4-3 app includes constrained output modes and does not merge self-graded output with recognition statistics.
-- evidence: `npm run verdict` plus c4-3 cycle record for V3 output verification.
+- description: The representative c4-3 app includes constrained production modes inherited from c4-2: blank typing, order rearrangement, and whole-sentence writing.
+- evidence: rendered-dom: `public/legacy/c4-3/app.js`; record: `archive/prototypes/c4-3/cycle-record.md`.
+- run: `npm run verdict`
 
-## 4. Evidence
+### acceptance-check:production-evidence-separated
+
+- description: Recognition and production records use separate labels/storage and production self-grading remains weak evidence.
+- evidence: rendered-dom: `public/legacy/c4-3/app.js`; aspect: `aspect:recognition-production-separation`.
+- run: `npm run verdict`
+
+## Evidence
 
 ```yaml
 evidence:

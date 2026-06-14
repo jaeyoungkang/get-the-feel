@@ -3,6 +3,8 @@ import Link from "next/link";
 import { SentenceExplainer } from "./sentence-explainer";
 import { explanationSeedMatches } from "@/src/content/explanation-index";
 
+// @promise promise:sentence-explanation-to-practice
+// @check acceptance-check:sentence-explanation-route
 export default function ExplainPage() {
   return (
     <main className="explain-page">

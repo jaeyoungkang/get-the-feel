@@ -1,5 +1,6 @@
 ---
 id: promise:sense-training-surface
+slug: sense-training-surface
 legacyIds:
   - V1
 title: Sense Training Surface
@@ -13,47 +14,67 @@ intentChecks:
   - intent-check:sense-training-surface
 acceptanceChecks:
   - acceptance-check:sense-training-surface-current-build
+  - acceptance-check:sense-training-cue-discipline
+  - acceptance-check:sense-training-corpus-contract
 coveringLedgers:
   - docs/contracts/story-chain/evidence-ledgers/current-build.ledger.md
 verdict: met
 evidence:
   kind: rendered-dom
   ref: app/page.tsx + public/legacy/c4-3/index.html
-gateNotes: c4-3 representative build is served through the Next app shell while migration proceeds.
+gateNotes: The current surface still embeds the c4-3 trainer while typed React migration proceeds.
 ---
 
 # Sense Training Surface
 
-## 1. Promise
+## Promise
 
-As a Korean English learner,
+제품은 사용자가 첫 세션에서 곧바로 영어 문장 감각 훈련을 시작하게 한다.
+사용자는 단어의 한국어 뜻을 고르지 않는다. 문장 속 기본 동사나
+불변화사가 어떤 위치·방향·상태 그림을 그리는지 판단한다.
 
-I want to solve sentence-level questions that ask what a basic English word is doing in context,
+이 약속은 훈련 표면의 존재만 말하지 않는다. 문항은 현재 코퍼스의
+감각 설명과 연결되어야 하고, 정답 전 단서가 새지 않아야 하며, 훈련
+문장과 전이 문장은 분리되어야 한다. 정답 후에는 한국어 해석과 감각
+해설이 나타나 사용자가 오답 이유를 이해할 수 있어야 한다.
 
-So that I can recognize the native-layer sense instead of translating the word one Korean gloss at a time.
-
-## 2. Intent Check
+## Intent Checks
 
 ### intent-check:sense-training-surface
 
-- question: Does the first product surface expose an actual sentence training session for native-layer senses rather than a marketing page or generic vocabulary quiz?
-- evidence: rendered-dom: `app/page.tsx` embeds `/legacy/c4-3/index.html`, and the representative candidate verdict checks question cue integrity.
-- why live judge: A user can still experience the surface as a generic quiz even if files exist; demand-1 remains the external check.
+- question: 첫 제품 표면이 마케팅 페이지나 일반 빈칸 퀴즈가 아니라, 영어 토박이 감각을 문장 단위로 훈련하는 실제 세션으로 읽히는가?
+- evidence: rendered-dom: `app/page.tsx` embeds `/legacy/c4-3/index.html`; runtime-output: `npm run verdict`.
+- why live judge: 파일과 문항이 있어도 사용자가 단어뜻 암기 앱으로 느끼면 의도는 실패한다. 수요 검증은 demand-1에서 따로 닫는다.
 - linked acceptance checks:
   - acceptance-check:sense-training-surface-current-build
-- answer criteria: A shallow page that only describes the method, or a quiz where answer cues are visible before answering, fails.
+  - acceptance-check:sense-training-cue-discipline
+  - acceptance-check:sense-training-corpus-contract
+- answer criteria: 첫 화면에서 실제 훈련을 시작할 수 있어야 한다. 정답 전 해석·색·라벨이 단서로 새거나, 문항이 감각 그림이 아니라 한국어 뜻 암기로 풀리면 실패한다.
 
-## 3. Acceptance Check
+## Acceptance Checks
 
 ### acceptance-check:sense-training-surface-current-build
 
-- description: The current product route serves the c4-3 representative trainer and the c4-3 verdict passes content, cue, shuffle, label, sentence_ko, and smoke gates.
-- evidence: `npm run verdict`, `npm run build`
+- description: `/` route renders the current product shell and serves the representative c4-3 trainer through `/legacy/c4-3/index.html`.
+- evidence: rendered-dom: `app/page.tsx`; runtime-output: `npm run build`.
+- run: `npm run build`
 
-## 4. Evidence
+### acceptance-check:sense-training-cue-discipline
+
+- description: The representative trainer hides sentence Korean, item label, sense label, and feedback cues before the user answers, then reveals them after answer.
+- evidence: runtime-output: `node tools/verdict/check.mjs c4-3` question-cue and sentence-ko groups.
+- run: `npm run verdict`
+
+### acceptance-check:sense-training-corpus-contract
+
+- description: All loaded content files keep source-backed sense records, mandatory labels, separated training/transfer pools, shuffled choices, and no duplicate normalized sentences across the corpus.
+- evidence: runtime-output: `node tools/verdict/check.mjs c4-3` content-contract, data-sync, separation-surface, choice-shuffle, label-fields groups.
+- run: `npm run verdict`
+
+## Evidence
 
 ```yaml
 evidence:
   kind: rendered-dom
-  ref: app/page.tsx
+  ref: app/page.tsx + public/legacy/c4-3/index.html
 ```

@@ -6,5 +6,5 @@ Append-only judgment ledger for Story Chain decisions that cannot be reduced to 
 
 - scope: `promise:sense-training-surface`, `promise:constrained-production`, `promise:weakness-guided-focus`
 - judgment: Existing product contract values V1, V3, and V4 are mapped into Story Chain without changing the Primary Promise.
-- evidence: `product/contract.md`, `product/project-elevation-plan.md`, `archive/prototypes/c4-3/cycle-record.md`
+- evidence: `product/contract.md`, `archive/product-weaver/project-elevation-plan.md`, `archive/prototypes/c4-3/cycle-record.md`
 - limitation: demand validation remains `demand_unknown`.

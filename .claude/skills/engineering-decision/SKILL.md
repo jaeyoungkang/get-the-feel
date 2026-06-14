@@ -11,7 +11,7 @@ compatibility: Domain-neutral. 도메인 인스턴스가 자기 코드베이스,
 원칙:
 - 작은 탐색 단계에서는 의도·제품 계약·자산 회수가 먼저다.
 - 코드가 커지거나 반복 변경이 생기면 품질 제약을 점진적으로 켠다.
-- 의사결정이 애매하면 `agentic-base`를 참조하되, product-weaver 안으로 가져오지 않는다.
+- 의사결정이 애매하면 `agentic-base`를 참조하되, 이 저장소에 베이스 자체를 묶지 않는다.
 
 ## Reference Source
 
@@ -20,7 +20,7 @@ compatibility: Domain-neutral. 도메인 인스턴스가 자기 코드베이스,
 참조 방식:
 - git remote, clone, 웹 문서, 또는 이미 내려받은 사본 중 가능한 방식으로 확인한다.
 - 참조한 commit 또는 접근 실패를 receipt에 남긴다.
-- agentic-base의 도구·문서·스킬을 product-weaver 베이스에 복제하지 않는다. 도메인 인스턴스가 필요하다고 판단한 부분만 자기 자산으로 인스턴스화한다.
+- agentic-base의 도구·문서·스킬을 베이스 의존성으로 복제하지 않는다. 도메인 인스턴스가 필요하다고 판단한 부분만 자기 자산으로 인스턴스화한다.
 
 ## When To Use
 
@@ -55,7 +55,7 @@ compatibility: Domain-neutral. 도메인 인스턴스가 자기 코드베이스,
    - `release_risk`: 판매·배포·CI 전에 재현 가능한 검증이 필요함
 
 3. **품질 사다리 선택** — 한 번에 한 rung만 올린다.
-   - `L0`: syntax, smoke, asset-map check. 초기 prototype 기본값.
+   - `L0`: syntax, smoke, contract map check. 초기 prototype 기본값.
    - `L1`: lint, format, basic dependency check. 파일 수와 반복 수정이 늘 때.
    - `L2`: dead-code/knip, duplication check, module boundary check. 구조가 커질 때.
    - `L3`: pure-function boundary, unit tests for business/data logic, coverage target. 계산·데이터 계약이 중요해질 때.
@@ -89,10 +89,10 @@ compatibility: Domain-neutral. 도메인 인스턴스가 자기 코드베이스,
 - **Never**
   - 새 제품 첫 사이클에 lint/knip/CI 같은 제약을 관성으로 추가
   - trigger 없이 도구를 추가
-  - agentic-base를 submodule, symlink, import로 product-weaver에 묶기
+  - agentic-base를 submodule, symlink, import로 제품 저장소에 묶기
   - 도구 추가를 품질 개선으로 착각하고 제품 계약·데이터 계약 실패를 통과시키기
 - **Ask first**
-  - product-weaver 베이스에 새 엔지니어링 도구나 CLI를 직접 추가하려 할 때
+  - 베이스 저장소에 새 엔지니어링 도구나 CLI를 직접 추가하려 할 때
   - agentic-base의 일부를 베이스 파일로 복제하려 할 때
 - **Always**
   - 제약은 trigger 기반으로 단계적 적용

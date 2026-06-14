@@ -41,7 +41,7 @@
 
 ## 승격 규칙 (기계 검사 대상)
 
-1. **출처 필수**: 모든 `senses[*]`는 `source_refs` ≥ 1. `source_id`는 `product/sources.md`에 존재해야 한다. 빈 `claim`·`locator`는 fail.
+1. **출처 필수**: 모든 `senses[*]`는 `source_refs` ≥ 1. `source_id`는 `assets/content/sources.md`에 존재해야 한다. 빈 `claim`·`locator`는 fail.
 2. **출처 타당성 리뷰 — 게이트**: `validation` 필수. 자율 모드의 `subagent-consensus`는 `strength: weak` — 사람 리뷰 전까지 strong 승격 불가. **출처 필드 존재(기계)와 출처가 주장을 실제 뒷받침함(리뷰)은 별개 게이트다** — "출처 붙은 오개념"이 1순위 위험. **신규·변경 sense는 생성자와 독립된 적대적 검수 기록(blocking 판정 포함)이 해당 후보 cycle-record에 있어야 후보에 탑재할 수 있다** — c1-1 B1·c1-2 B2로 같은 오류가 2회 반복되어 게이트로 승격 (`tools/verdict` `adversarial-review` 검사가 기록 존재를 기계 확인).
 3. **훈련/전이 분리**: `training_items`와 `transfer_items`의 `sentence`는 전 코퍼스에서 중복 금지 (대소문자·공백 정규화 후 비교). 전이 문항은 훈련에 노출되지 않은 새 문장이어야 한다.
 4. **감각 기반 형식 + 유형 다양화**: 문항은 `type` 필드를 **가져야 한다 (c2-1부터 필수; 기존 코퍼스는 필드 없음 = `sense-choice`로 간주)** — `sense-choice`(기본값, 그림 고르기) / `verb-choice`(빈칸 동사 선택, 보기는 감각이 갈리는 동사들) / `sense-cloze`(빈칸 불변화사 선택). 빈칸 유형(`verb-choice`·`sense-cloze`)의 `sentence`는 `___` 마커를 포함하고 `choices`는 단어, `why_ko`는 정답·오답 단어의 감각 대비를 설명한다. **뜻 암기형("have의 뜻은?")과 감각 근거 없는 빈칸은 여전히 금지** — 거부 신호(계약 참조). 한 세션 출제는 유형 2개 이상 혼합 (training-design R9).

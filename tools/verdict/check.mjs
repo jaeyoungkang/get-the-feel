@@ -47,7 +47,7 @@ function group(name) {
 
 // ---------- 공통 로더 ----------
 const CONTENT_DIR = path.join(ROOT, "assets", "content");
-const SOURCES_MD = path.join(ROOT, "product", "sources.md");
+const SOURCES_MD = path.join(ROOT, "assets", "content", "sources.md");
 const CAND_DIR = path.join(ROOT, "archive", "prototypes", candidateId);
 
 // 후보 ↔ 콘텐츠 파일 매핑. 후보마다 어떤 감각 항목을 싣는지 선언.
@@ -265,7 +265,7 @@ function checkContentContract() {
     return;
   }
   const sourceIds = loadSourceIds();
-  if (sourceIds.size === 0) g.fail("product/sources.md에서 source_id를 읽지 못함");
+  if (sourceIds.size === 0) g.fail("assets/content/sources.md에서 source_id를 읽지 못함");
 
   // 전 코퍼스 문장 중복 검사용 누적
   const allSentences = []; // { norm, where }

@@ -4,6 +4,8 @@ import { useMemo, useState } from "react";
 
 import { explainSentence, type ExplanationMatch } from "@/src/content/explanation-index";
 
+// @promise promise:sentence-explanation-to-practice
+// @check acceptance-check:sentence-explanation-practice-link
 type SentenceExplainerProps = {
   seedMatches: ExplanationMatch[];
 };

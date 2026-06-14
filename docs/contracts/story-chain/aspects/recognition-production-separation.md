@@ -9,14 +9,20 @@ verdict: met
 evidence:
   kind: rendered-dom
   ref: public/legacy/c4-3/app.js
-gateNotes: Self-graded writing remains weak evidence.
+gateNotes: Self-graded writing remains weak evidence; speaking improvement is not claimed.
 ---
 
 # Recognition Production Separation
 
 ## 1. Why
 
-Recognition scores and output scores answer different learning questions. Merging them would make the product claim more learning evidence than it has.
+인식 문제를 맞히는 것과 직접 써보는 것은 다른 학습 신호다. 둘을 한
+통계로 합치면 제품은 사용자가 실제로 얻은 evidence보다 강한 학습 효과를
+말하게 된다.
+
+이 Aspect는 통계와 산출 표면에 걸린다. 사용자는 자신이 감각을 알아보는
+능력과 꺼내 쓰는 능력을 따로 봐야 한다. 특히 전문 쓰기처럼 사용자가
+스스로 채점하는 과제는 약한 evidence로 남아야 한다.
 
 ## 2. Pointcut
 
@@ -24,16 +30,19 @@ Recognition scores and output scores answer different learning questions. Mergin
   - promise:constrained-production
   - promise:weakness-guided-focus
 - excludes:
-  - static content source review
+  - source review and corpus provenance checks
+  - sentence explanation before the user starts a practice item
 
 ## 3. Advice
 
 - Recognition statistics and production statistics use separate labels and storage.
 - Self-graded writing stays marked as weak evidence.
-- The product does not claim speaking improvement from writing tasks.
+- Product copy does not claim speaking improvement from writing tasks.
+- Demand or learning-effect claims require demand/effect evidence outside this local statistic surface.
 
 ## 4. Verification
 
 - coverage: c4-3 inherits the c4-2 output separation and V3 weak-evidence labeling.
+- coverage: `product/demand-validation.md` and `product/contract.md` keep local stats below demand/effect claims.
 - wovenness: This aspect is cited by output and progress promises and by `current-build.ledger.md`.
-- verdict: `met` for the current representative build.
+- verdict: `met` for the current build.

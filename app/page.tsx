@@ -2,6 +2,8 @@ import Link from "next/link";
 
 import { currentCorpusSummary } from "@/src/content/corpus-summary";
 
+// @promise promise:sense-training-surface
+// @check acceptance-check:sense-training-surface-current-build
 export default function HomePage() {
   return (
     <main className="trainer-shell">

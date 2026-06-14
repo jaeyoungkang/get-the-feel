@@ -49,7 +49,6 @@ the TODO prose during review.
 with this list.)
 
 - `docs/contracts/**`
-- `docs/principles.md`
 - `docs/mission-control.md`
 - `docs/intent-traceability.md`
 - `docs/conventions.md`
@@ -96,8 +95,8 @@ gate) honor it. Do **not** use the trailer for:
 - New or changed user-visible behavior (always log).
 - Promise/Aspect _meaning_ changes (always log).
 - New or removed Acceptance Checks (always log).
-- Policy or process changes recorded in `docs/principles.md`,
-  `docs/mission-control.md`, `AGENTS.md`, etc. (always log).
+- Policy or process changes recorded in `docs/mission-control.md`,
+  `AGENTS.md`, etc. (always log).
 
 Use it only when honestly nothing on `/admin/decision-log` would help a
 beta tester or operator understand what changed in the product.

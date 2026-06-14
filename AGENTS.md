@@ -1,121 +1,91 @@
 # get-the-feel — Agent Guide
 
-**한국인 영어 학습자가 영어의 게르만 토박이 층위 감각(have/get/take/make/keep/be/go/come · up/out · 구동사 · 어순)을 문장·퀴즈·산출로 체화하는 트레이닝 웹 앱.**
+**한국인 영어 학습자가 영어의 게르만 토박이 층위 감각(have/get/take/make/keep/be/go/come · up/out · 구동사 · 어순)을 문장·해설·퀴즈·산출로 체화하는 트레이닝 웹 앱.**
 
-product-weaver의 fork-style 도메인 인스턴스에서 출발했으며, 2026-06-14부터 정식 제품 개발을 위한 Story Chain + Mission Control + engineering assurance 체계를 갖춘다. `docs/principles.md`는 베이스 정본으로 유지하고, `shared-skills/`는 lighthouse/agentic-base 계열 스킬 suite를 이 저장소 운영 기준에 맞춰 동기화한다.
+이 저장소의 현재 운영 정본은 **Story Chain + Mission Control + engineering assurance**다. product-weaver/Spiral Loop는 프로토타입을 만들 때 쓴 과거 방법론이며, 새 제품 개발의 운영 기준이 아니다. 과거 후보와 cycle record는 `archive/prototypes/`에 증거로만 보존한다.
 
 ---
 
-## 현재 상태 (2026-06-14 — 새 세션은 여기부터)
+## 현재 상태 (2026-06-14)
 
-- **단계**: C1 Discovery → C2 Convergence 졸업 → C3 Readiness(local_ready: pass) → **C4 출시 후 진화** 진행 중.
-- **대표 프로토타입 증거**: `archive/prototypes/c4-3/` — 배포 라이브 **https://jaeyoung2026.github.io/get-the-feel/**
-- **코퍼스**: `assets/content/` 11파일 24 sense 173문항 — 핵심 동사 8(have·get·take·make·keep·be·go·come), 불변화사 2(up·out), 구동사(V+up). 출처 strong 17 sense + weak 7 sense(get-into-state·be·go·come 계열 — 사람 출처 리뷰 대기).
-- **모드**: 인식(오늘의 새 문장 / 감각 골라 집중) + 산출(써보기 — 빈칸 타이핑·어순 재배열·전문 쓰기) + 통계(감각별 추이·강약점). 인식≠산출 통계 분리.
-- **제품 개발 구조**: Next.js App Router shell + typed `src/content/` + `public/legacy/c4-3/` 호환 표면. 프로토타입 증거는 `archive/prototypes/`에 보관하고 새 제품 개발은 `app/`·`src/`에서 진행.
-- **Story Chain/검증 체계**: `docs/contracts/story-chain/`에 experience·moment·promise·aspect·ledger 기준선 설치. `scripts/mission-control/`, `scripts/contract-maps/`, `scripts/project-knowledge.mjs`, `shared-skills/` suite, `.agents/skills/`, `.claude/skills/` 동기화 완료.
-- **사용자 피드백 4건 반영 완료**: 주제 선택·get started(get+pp)·숙련도 통계·작문(제약형 산출 V3).
-- **실사용 검증의 위력**: 실사용자가 페르소나·기계·검수 3중 게이트가 놓친 결함을 **5건** 적발(정답 누설→해석→레이아웃→비문 오답→오답 동사 복붙). **실제 사용이 최강 검증 채널.**
+- **제품 단계**: 정식 제품 개발 기준선. 프로토타입 대표 증거 c4-3는 보관 상태이며, 새 기능은 `app/`·`src/`와 Story Chain 계약으로 진행한다.
+- **라이브 배포**: https://jaeyoung2026.github.io/get-the-feel/
+- **현재 제품 표면**: `/`는 legacy c4-3 trainer를 임베드하고, `/explain`은 사용자가 준 영어 문장을 현재 코퍼스 감각 해설과 연습 문항으로 연결한다.
+- **코퍼스**: `assets/content/` 11파일 24 sense 173문항. 핵심 동사 8, 불변화사 2, 구동사 V+up. weak sense는 사람 출처 리뷰 전까지 strong으로 올리지 않는다.
+- **Story Chain 상태**: `npm run mc:status` 기준 release ready. 1 experience, 2 moments, 4 active promises, 2 aspects, `current-build.ledger.md` evidence.
+- **프로토타입 증거**: `archive/prototypes/c4-3/`는 현재 legacy trainer의 근거다. 직접 수정하지 않는다.
 
-### 열린 일 (다음 후보 방향)
-1. **demand-1 (최우선·사용자 손)** — 출시 후 실제 target user 3~5명 수요 검증. `handoff/blind-task-guide.md`로 URL 전달 → demand_validated/rejected/pivot_required 판정. **에이전트가 못 하는 유일한 것.** `product/demand-validation-package.md` 참조.
-2. **축④ 어순·구문 신설** — 제품이 약속한 4축 중 유일한 빈 칸(정체성 완성 > 폭 확장).
-3. **콘텐츠 폭** — 불변화사 down/off/in + 그 구동사 (R6 재방문 동력).
-4. **말하기(발화) 가치** — 산출이 "쓰기 8할"까지 갔으나 발화·시간압박은 미해결(차기 가설).
+### 열린 일
+
+1. **demand-1** — 실제 target user 3~5명 수요 검증. 에이전트가 대체할 수 없는 사용자/시간 작업.
+2. **축④ 어순·구문** — 제품이 약속한 4축 중 아직 정식 훈련으로 부족한 영역.
+3. **콘텐츠 폭** — down/off/in 및 그 구동사 확장.
+4. **말하기 가치** — 현재 산출은 쓰기 중심이다. 발화·시간압박은 별도 evidence가 필요하다.
 
 ---
 
 ## Read Order
 
-1. `product/contract.md` — 제품 계약 정본 (Primary Promise·4축·거부 신호·전달 가치 V1~V4·**승격 6기준**·미승인·빈틈)
-2. `product/asset-map.md` — 자산 지도 (5 trunk + 명시 거부 + 각 trunk last_cycle_contribution)
-3. `product/project-elevation-plan.md` — 프로토타입 실험 정리 + 정식 프로젝트 고도화 계획
-4. `docs/project-structure.md` — 본격 제품 개발용 app/src/public/scripts 경계와 legacy 후보 이관 규칙
-5. `docs/contracts/story-chain/` — 제품 경험·순간·약속·측면·증거 ledger. 정식 제품 변경의 1차 계약.
-6. `docs/contracts/feature-specs.md` + `docs/contracts/story-chain/scenario-catalog.md` — 수용기준과 시나리오 추적.
-7. `docs/contract-maps/` + `docs/verification-gates.md` + `docs/engineering/` + `docs/operations/` — 계약 지도, 검증 게이트, 엔지니어링/운영 절차.
-8. `fix_plan.md` — 작업 큐 + 사후 승인 큐 (approve-1~6 처리 상태)
-9. `assets/` — **자산 정본**: `content/CONTRACT.md`(데이터 계약 9규칙), `training-design.md`(R1~R15), `ux-grammar.md`(G1~G17), `misconceptions.md`(오개념 카탈로그), `content/sources.md`(출처 9건)
-10. `skills/content-consensus/SKILL.md` — 콘텐츠 3자 합의 도메인 스킬
-11. `docs/principles.md` + `shared-skills/` + `.agents/skills/` + `.claude/skills/` — 공통 원칙과 실행 스킬. 핵심 행동은 스킬 경유 + Skill Load Receipt 필수.
+1. `docs/contracts/story-chain/README.md` + `docs/contracts/story-chain/concepts.md` — Story Chain 개념·책임·검증 정본.
+2. `docs/contracts/story-chain/experiences/native-sense-training.md` — 오래 유지할 제품 경험.
+3. `docs/contracts/story-chain/moments/first-training-session.md` — 현재 약속들이 발동되는 workflow 순간.
+4. `docs/contracts/story-chain/promises/` — 제품이 사용자에게 지키는 active promises.
+5. `docs/contracts/story-chain/aspects/` — 출처·통계 분리 같은 횡단 제약.
+6. `docs/contracts/story-chain/evidence-ledgers/current-build.ledger.md` + `docs/contracts/story-chain/evidence-ledgers/reviews/current-build.reviews.md` — 현재 evidence와 Sufficiency Review.
+7. `docs/contracts/feature-specs.md` + `docs/contracts/story-chain/scenario-catalog.md` — AC와 scenario 인덱스.
+8. `product/README.md` + `product/contract.md` — 제품 계약 요약과 product 디렉터리 경계.
+9. `assets/` — 콘텐츠 정본: `content/CONTRACT.md`, `content/sources.md`, `training-design.md`, `ux-grammar.md`, `misconceptions.md`.
+10. `docs/project-structure.md`, `docs/engineering/`, `docs/operations/`, `docs/verification-gates.md` — 엔지니어링/운영 경계.
+11. `fix_plan.md` — 작업 큐.
 
 ---
 
 ## 정식 제품 작업 레시피
 
-정식 제품 변경은 Story Chain에서 시작한다. 새 기능·흐름·검증장치 변경은 최소 하나의 promise/aspect/acceptance criterion/code trace와 연결한다.
+정식 제품 변경은 Story Chain에서 시작한다. 새 기능·흐름·검증장치 변경은 최소 하나의 Promise, Acceptance Check, Evidence Ledger row, code trace와 연결한다.
 
-1. **의도 잠금** — `product/contract.md`와 관련 Story Chain promise를 확인한다. 새 약속이면 `docs/contracts/story-chain/promises/`에 추가하고 scenario/feature-spec까지 연결한다.
-2. **수용기준 작성** — `docs/contracts/feature-specs.md`에 관찰 가능한 acceptance check를 둔다. "좋아 보임"이 아니라 실행·검증 가능한 문장이어야 한다.
-3. **구현** — 제품 코드는 `app/`·`src/`에 둔다. `public/legacy/c4-3/`은 generated compatibility output이며 직접 수정하지 않는다.
-4. **계약 추적** — `docs/contracts/story-chain/evidence-ledgers/`와 contract map을 갱신한다. 코드 변경은 promise/aspect와 추적 가능해야 한다.
-5. **검증** — `npm run quality:check`를 통과시킨다. Story Chain만 변경해도 `npm run quality:contracts`는 필수다.
-6. **프로젝트 지식 기록** — 운영상 의미 있는 결정·이벤트는 `docs/change-log.md`, `docs/intent-judgments.md`, `docs/project-events/`에 남긴다.
-7. **커밋** — 한 turn = 한 항목 = 한 commit.
-
-## 프로토타입 증거 보관
-
-구 프로토타입 폴더는 `archive/prototypes/<id>/`에 보관한다. 이 경로는 제품 개발 source가 아니라 검증·수요조사·회고 증거다. 새 제품 기능은 `app/`·`src/`에서 구현하고, 프로토타입을 새 개발 단위로 되살리지 않는다.
-
-1. **증거 보존** — 기존 `cycle-record.md`는 append-only 증거로 유지한다. 수요검증 결과처럼 과거 프로토타입에 귀속되는 기록만 append한다.
-2. **콘텐츠(신규·변경 시)** — `skills/content-consensus/SKILL.md` 경유: 생성 ≠ 독립 적대 검수 ≠ 수정 (권한 분리). 검수 5관점 + receipt를 cycle-record에.
-3. **기계 검증** — 대표 증거 검증은 `node tools/verdict/check.mjs <id>`로 유지한다. 현재 기본값은 `c4-3`.
-4. **제품 전환** — 새 제품 표면이 legacy trainer를 대체하면 `prototype:sync`와 `verdict`도 Story Chain/product gate로 대체한다.
-
-콘텐츠만 확장하더라도 새 후보 폴더를 만들지 않는다. 정식 제품 변경은 Story Chain promise/aspect/feature spec을 먼저 갱신한다.
+1. **Mission Control 확인** — `npm run mc:status`를 먼저 실행한다. Story Chain 변경이면 `shared-skills/mission-control/SKILL.md`와 관련 companion skill을 로드한다.
+2. **계약 범위 결정** — 새 의미면 Human authority가 필요하다. 이미 승인된 의미의 보강·전파·evidence 정리는 Agent가 진행할 수 있다.
+3. **Promise/Aspect 갱신** — `docs/contracts/story-chain/promises/`와 `aspects/`를 먼저 정리한다. Acceptance Check는 관찰 가능한 deterministic contract로 쓴다.
+4. **Evidence Ledger 연결** — `check:evidence-coverage` row, run command, scenario, Sufficiency Review를 같은 변경에 맞춘다.
+5. **구현** — 제품 코드는 `app/`·`src/`에 둔다. `public/legacy/c4-3/`는 `npm run prototype:sync`의 산출물이다.
+6. **검증** — 코드 변경은 `npm run quality:check`, 문서/계약 변경만 있어도 `npm run quality:contracts`를 통과시킨다.
+7. **기록** — 운영상 의미 있는 결정은 `docs/change-log.md`, `docs/project-events/`, 필요 시 project knowledge에 남긴다.
+8. **커밋** — 한 turn = 한 항목 = 한 commit.
 
 ---
 
 ## 명령
 
 ```bash
-npm run dev                               # Next.js 제품 앱
-npm run quality:check                     # legacy sync + verdict + typecheck + lint + build + contracts
-npm run quality:contracts                 # skill sync + project knowledge + contract maps + mission-control gates
-npm run mc:validate-story-chain           # Story Chain release verdict
-npm run contract-maps:check               # contract map syntax/link sanity
-npm run guard:skills                      # shared-skills -> .agents/.claude 동기화 검증
-npm run pk:validate                       # project knowledge event/change-log 검증
-node tools/verdict/check.mjs <candidate-id>      # 기계 검증 (예: c4-3). ALL PASS여야 진행
-tools/deploy/deploy-pages.sh <candidate-id>       # GitHub Pages 배포 (verdict 통과 시만)
-# 페르소나/모니터: /tmp 에 playwright로 배포 URL을 chromium(390x844) 구동, 화면만 근거
+npm run dev
+npm run quality:check
+npm run quality:contracts
+npm run mc:status
+npm run mc:validate-story-chain
+npm run mc:audit-surface
+npm run mc:check-new-criticals
+npm run guard:skills
+npm run pk:validate
 ```
-배포 저장소: `github.com/jaeyoung2026/get-the-feel` (공개 — 배포 산출물 4파일만. 방법론·기록은 이 로컬 저장소에 비공개).
+
+Legacy/prototype compatibility commands:
+
+```bash
+npm run prototype:sync
+npm run verdict
+node tools/verdict/check.mjs c4-3
+tools/deploy/deploy-pages.sh c4-3
+```
 
 ---
 
-## 운영 원칙 (지속 — 사용자 지침에서)
+## Operating Boundaries
 
-- **자산은 속도가 아니라 약속 전달력으로 평가한다** ("더 효과적으로"). 루프 목적은 완성도 높은 자산의 고도화이지 히스토리 축적이 아니다.
-- **하위 작업(탐색·생성·검수·평가)은 서브에이전트 적극 활용** (탐색=Explore, 비판=적대적 프롬프트·베이스 밖 어휘 강제). 메인은 의도 보존에 집중.
-- **실사용자 검증이 최강 게이트** — 페르소나·시뮬·자가채점은 *약한 verdict*, 수요 근거로 승격 금지. 실제 사용자 신호가 다음 콘텐츠 방향을 정한다.
-- **닫힌 후보는 마감 시점 PASS가 정본** — 코퍼스 진화 drift는 결함 아님(CLOSED_CANDIDATES).
+- **Never**: 출처 없는 감각 콘텐츠 승격 / weak→strong 무단 승격 / 훈련·전이 문장 중복 / 인식 통계와 산출 통계 병합 / 게이미피케이션 중심 확장 / 범용 영어앱 확장 / `archive/prototypes/` 또는 `public/legacy/c4-3/`를 새 source로 사용.
+- **Ask first**: Primary Promise 변경 / 4축 경계 변경 / 과금·새 외부 노출 / 서버·계정·분석 SDK 도입 / weak sense의 strong 승격.
+- **Always**: Story Chain Promise·AC·Evidence·code trace 유지 / 콘텐츠 변경은 `skills/content-consensus/SKILL.md` 경유 / 실제 사용자 검증은 demand evidence로 별도 취급 / `unknown` verdict는 release blocking으로 본다.
 
----
+## Legacy Policy
 
-## Harness Case
-
-| 항목 | 선택 |
-|---|---|
-| Intent Lock | `product/contract.md` — 인터뷰 기반, 미승인은 별도 섹션 + `fix_plan.md` 사후 승인 큐 |
-| Gap Ledger | `archive/prototypes/<id>/cycle-record.md` (append-only — 판정 덮어쓰기 금지) + git commit log |
-| Mechanical Verdict | `tools/verdict/check.mjs` — content-contract·adversarial-review·data-sync·separation·no-gamification·choice-shuffle·label-fields·sentence-ko·question-cue·smoke. unknown/not-met은 승격 차단 |
-| Story Chain Verdict | `npm run mc:validate-story-chain` — structure·intent·AC trace·code trace·aspect·engineering verdict. critical은 release 차단 |
-| Contract Maps | `npm run contract-maps:check` — docs/contracts와 구현 표면의 추적성 점검 |
-| Skill Suite | `shared-skills/` source → `.agents/skills/`, `.claude/skills/` generated. `npm run guard:skills`로 drift 차단 |
-| Project Knowledge | `docs/change-log.md`, `docs/intent-judgments.md`, `docs/project-events/` + `npm run pk:validate` |
-| 모니터 | Intent Guardian / Asset Steward / Data·Sellability — 후보 종료마다, repair-before-next면 다음 후보 전 수리 |
-| 도메인 스킬 | `skills/content-consensus/` (콘텐츠 3자 합의 — 2회+ 반복으로 승격) |
-| 의도적 거부 | 게이미피케이션 중심 / 범용 영어 학습앱 확장 / 엔지니어링 front-load / 선제 스킬 신설 |
-
----
-
-## Boundaries (Refuse First)
-
-- **Never**: `docs/principles.md` 임의 수정 / 이전 후보 패치해 새 사이클 칭하기 / `public/legacy/c4-3/` 직접 수정 / 출처 없는 감각 콘텐츠 승격 / 훈련·전이 문장 중복 / verb-choice 오답에 비문 동사(R15) / 게이미피케이션·범용화 확장
-- **Ask first**: 4축 경계·Primary Promise 변경 / Spiral 도달 기준(승격 6기준·졸업선) 변경 / 과금·새 외부 노출 / weak→strong 출처 승격
-- **Always**: 핵심 행동은 스킬 경유 + Skill Load Receipt / Story Chain 약속·AC·코드 trace 유지 / 한 turn = 한 항목 = 한 commit / 후보마다 cycle-record stop permission / 사후 승인 큐는 trigger 시점 사용자 승인 / 콘텐츠 변경은 content-consensus 경유
-
-## Inheritance
-
-베이스(product-weaver) 정본을 단방향 참조. 인스턴스 → 베이스 방향만. 도메인 산출물을 베이스로 끌어올리지 않는다.
+`archive/product-weaver/principles.md`, `archive/product-weaver/asset-map.md`, `archive/prototypes/*/cycle-record.md`는 과거 프로토타입 운영의 배경 자료다. `product-spiral-orchestrator`, `refinement-loop`, `intent-lock` 스킬은 활성 skill suite에서 제거했다. 새 작업의 1차 기준으로 사용하지 않는다. 새 작업은 Mission Control과 Story Chain을 따른다.

@@ -1,6 +1,9 @@
 import { CURRENT_CONTENT } from "./current-corpus";
 import type { ContentAxis, TrainingItem, ValidationStrength } from "./content-types";
 
+// @promise promise:sentence-explanation-to-practice
+// @aspect aspect:content-provenance
+// @check acceptance-check:sentence-explanation-supported-scope
 export type ExplanationPracticeItem = Pick<
   TrainingItem,
   "id" | "sentence" | "sentence_ko" | "prompt" | "choices" | "answer_index" | "why_ko"

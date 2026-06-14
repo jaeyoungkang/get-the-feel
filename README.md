@@ -1,35 +1,36 @@
 # get-the-feel
 
-**한국인 영어 학습자가 영어의 게르만 토박이 층위 감각을 문장·퀴즈로 체화하는 트레이닝 웹 앱.**
+**한국인 영어 학습자가 영어의 게르만 토박이 층위 감각을 문장·해설·퀴즈·산출로 체화하는 트레이닝 웹 앱.**
 
-영어 어휘에는 두 층이 있다 — 게르만 토박이 층(have, get, take, up, out, off…)과 라틴/로망스 차용 층(receive, obtain, acquire…). 한국인 학습자에게 라틴계 어휘는 사전 정의로 붙지만, 일상 영어의 뼈대인 토박이 동사·불변화사는 "정의"가 아니라 "감각"으로 작동해서 생소하다. 이 제품은 그 감각을 훈련시킨다.
-
-이름의 유래: **get**(핵심 동사) + **feel**(게르만 토박이어) — 이름 자체가 제품이 가르치는 감각의 시연. "감을 잡다."
+영어 어휘에는 두 층이 있다. have, get, take, up, out 같은 토박이 층은 일상 영어의 뼈대이고, receive, obtain, acquire 같은 라틴/로망스 차용 층은 사전 정의로 붙기 쉽다. 한국인 학습자는 토박이 층을 한국어 뜻으로 바꾸다가 영어 문장이 그리는 위치·방향·상태·힘의 감각을 놓친다. get-the-feel은 그 감각을 문장 안에서 알아보고, 같은 감각을 새 문장과 제한된 산출로 다시 확인하게 한다.
 
 ## 진입
 
-- `AGENTS.md` — 에이전트 navigation + Harness Case
-- `product/contract.md` — 제품 계약 정본
-- `product/asset-map.md` — 자산 지도
-- `product/project-elevation-plan.md` — 프로토타입 정리 + 정식 프로젝트 고도화 계획
-- `docs/project-structure.md` — 본격 제품 개발용 코드/문서 구조
-- `docs/contracts/story-chain/` — 정식 제품 경험·약속·측면·증거 ledger
-- `docs/verification-gates.md` — 주요 검증장치 체계
-- `docs/agent-skills.md` — 설치된 agent skill suite 안내
+- `AGENTS.md` — 에이전트 운영 지침
+- `docs/contracts/story-chain/` — 제품 경험·순간·약속·측면·증거 원장
+- `docs/contracts/feature-specs.md` — Acceptance Check 인덱스
+- `docs/project-structure.md` — 코드/문서 구조
+- `product/` — Story Chain 기반 제품 계약 요약과 수요 검증 계획
+- `assets/` — 콘텐츠·훈련·UX 정본
 - `fix_plan.md` — 작업 큐
 
-product-weaver 도메인 인스턴스에서 출발했으며, 현재는 lighthouse/agentic-base 계열 Story Chain·Mission Control·engineering assurance 프로세스를 갖춘 제품 프로젝트다. 베이스 원칙은 `docs/principles.md`, 실행 스킬 source는 `shared-skills/`, 생성된 agent skill target은 `.agents/skills/`와 `.claude/skills/`.
+현재 저장소는 Story Chain + Mission Control 기반의 정식 제품 프로젝트다. product-weaver/Spiral Loop 문서는 과거 프로토타입 운영 기록으로만 남아 있으며, 새 제품 개발은 Story Chain 계약을 따른다.
 
 ## 상태
 
-2026-06-14: C1→C2→C3(local_ready)→C4 진화. 대표 후보 **c4-3** 배포 라이브 https://jaeyoung2026.github.io/get-the-feel/ — 11파일 24 sense 173문항(핵심동사 8·불변화사 2·구동사), 인식+산출 모드. 사용자 피드백 4건 반영. 정식 프로젝트 승급 계획은 `product/project-elevation-plan.md`.
+2026-06-14 기준:
 
-제품 개발 기준선은 Next.js App Router shell + typed `src/content/` + `public/legacy/c4-3/` 호환 표면이다. 구 프로토타입은 `archive/prototypes/`에 증거로 보존하고, 새 제품 개발은 Story Chain 계약을 따라 `app/`·`src/`에서 진행한다.
+- 배포: https://jaeyoung2026.github.io/get-the-feel/
+- 앱: Next.js App Router shell
+- 제품 표면: `/` legacy trainer, `/explain` 문장 해설→연습
+- 코퍼스: 11파일, 24 sense, 173문항
+- 프로토타입 증거: `archive/prototypes/c4-3/`
+- Story Chain: `npm run mc:status` release ready
 
 ## 검증
 
 ```bash
-npm run quality:check       # app/build + prototype verdict + Story Chain/contract gates
-npm run quality:contracts   # skill sync + project knowledge + contract maps + mission-control
-npm run skills:sync         # shared-skills -> .agents/.claude 동기화
+npm run quality:check
+npm run quality:contracts
+npm run mc:status
 ```
