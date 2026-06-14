@@ -1,0 +1,17 @@
+[Unit]
+Description=get-the-feel static web app
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/.openclaw/workspace/repos/get-the-feel
+Environment=PORT=8785
+EnvironmentFile=-/etc/get-the-feel.env
+ExecStart=/usr/bin/python3 -m http.server ${PORT} --bind 127.0.0.1 --directory /root/.openclaw/workspace/repos/get-the-feel/out
+Restart=always
+RestartSec=3
+User=root
+
+[Install]
+WantedBy=multi-user.target

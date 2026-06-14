@@ -1,0 +1,20 @@
+name: Deploy get-the-feel
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy over SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.GET_THE_FEEL_SSH_HOST }}
+          username: ${{ secrets.GET_THE_FEEL_SSH_USER }}
+          key: ${{ secrets.GET_THE_FEEL_SSH_KEY }}
+          port: ${{ secrets.GET_THE_FEEL_SSH_PORT || '22' }}
+          script: |
+            bash /root/.openclaw/workspace/repos/get-the-feel/deploy/deploy.sh

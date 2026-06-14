@@ -1,0 +1,14 @@
+[Unit]
+Description=Cloudflare Tunnel for get-the-feel
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/root/.local/bin/cloudflared tunnel run get-the-feel
+Restart=always
+RestartSec=3
+User=root
+
+[Install]
+WantedBy=multi-user.target
