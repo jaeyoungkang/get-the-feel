@@ -26,6 +26,7 @@
 - **C4 진화**(06-13): c4-1 주제선택+통계+get+pp(V4·G15·G16), c4-2 산출 V3(R13·R14·G17), c4-3 배치확장 be·go·come(R15). **사용자 피드백 4건 전부 반영.** 대표 후보 c4-3.
 - **project-elevation-plan**(06-14): 프로토타입 실험 정리 + 정식 프로젝트 운영 트랙/P0~P4 로드맵 수립. 산출물 `product/project-elevation-plan.md`.
 - **formalize-1**(06-14): 정식 프로젝트 승급 P0 문서 정렬 — AGENTS/README/demand package/blind task를 c4-3 기준선(11파일·24 sense·173문항)으로 정합화.
+- **project-structure-1**(06-14): 본격 제품 개발 구조 준비 — Next.js `app/`, typed `src/content/`, `public/legacy/c4-3/` 동기화 스크립트, package quality scripts, `docs/project-structure.md`.
 
 ---
 

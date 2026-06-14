@@ -12,6 +12,7 @@
 - `product/contract.md` — 제품 계약 정본
 - `product/asset-map.md` — 자산 지도
 - `product/project-elevation-plan.md` — 프로토타입 정리 + 정식 프로젝트 고도화 계획
+- `docs/project-structure.md` — 본격 제품 개발용 코드/문서 구조
 - `fix_plan.md` — 작업 큐
 
 product-weaver 도메인 인스턴스. 베이스 정본은 `docs/principles.md` + `shared-skills/`.

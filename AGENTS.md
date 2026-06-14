@@ -28,10 +28,11 @@ product-weaver의 fork-style 도메인 인스턴스. 베이스 파일(`docs/prin
 1. `product/contract.md` — 제품 계약 정본 (Primary Promise·4축·거부 신호·전달 가치 V1~V4·**승격 6기준**·미승인·빈틈)
 2. `product/asset-map.md` — 자산 지도 (5 trunk + 명시 거부 + 각 trunk last_cycle_contribution)
 3. `product/project-elevation-plan.md` — 프로토타입 실험 정리 + 정식 프로젝트 고도화 계획
-4. `fix_plan.md` — 작업 큐 + 사후 승인 큐 (approve-1~6 처리 상태)
-5. `assets/` — **자산 정본**: `content/CONTRACT.md`(데이터 계약 9규칙), `training-design.md`(R1~R15), `ux-grammar.md`(G1~G17), `misconceptions.md`(오개념 카탈로그), `content/sources.md`(출처 9건)
-6. `skills/content-consensus/SKILL.md` — 콘텐츠 3자 합의 도메인 스킬
-7. `docs/principles.md` + `shared-skills/` — 베이스 정본. 핵심 행동은 스킬 경유 + Skill Load Receipt 필수.
+4. `docs/project-structure.md` — 본격 제품 개발용 app/src/public/scripts 경계와 legacy 후보 이관 규칙
+5. `fix_plan.md` — 작업 큐 + 사후 승인 큐 (approve-1~6 처리 상태)
+6. `assets/` — **자산 정본**: `content/CONTRACT.md`(데이터 계약 9규칙), `training-design.md`(R1~R15), `ux-grammar.md`(G1~G17), `misconceptions.md`(오개념 카탈로그), `content/sources.md`(출처 9건)
+7. `skills/content-consensus/SKILL.md` — 콘텐츠 3자 합의 도메인 스킬
+8. `docs/principles.md` + `shared-skills/` — 베이스 정본. 핵심 행동은 스킬 경유 + Skill Load Receipt 필수.
 
 ---
 
@@ -55,6 +56,8 @@ product-weaver의 fork-style 도메인 인스턴스. 베이스 파일(`docs/prin
 ## 명령
 
 ```bash
+npm run dev                               # Next.js 제품 앱
+npm run quality:check                     # legacy sync + verdict + typecheck + lint + build
 node tools/verdict/check.mjs <candidate-id>      # 기계 검증 (예: c4-3). ALL PASS여야 진행
 tools/deploy/deploy-pages.sh <candidate-id>       # GitHub Pages 배포 (verdict 통과 시만)
 # 페르소나/모니터: /tmp 에 playwright로 배포 URL을 chromium(390x844) 구동, 화면만 근거
