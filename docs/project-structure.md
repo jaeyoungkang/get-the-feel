@@ -24,9 +24,15 @@ Skill Load Receipt
 | `assets/` | Content and training design source of truth. Do not treat this as app implementation code. |
 | `candidates/` | Closed prototype archive. Do not patch old candidates to ship new product behavior. |
 | `scripts/` | Product maintenance scripts. Keep deploy/verdict scripts in `tools/` until replaced. |
+| `scripts/mission-control/` | Story Chain release verdict, surface audit, critical finding checks, propagation helpers. |
+| `scripts/contract-maps/` | Contract map validation scripts. |
+| `scripts/project-knowledge.mjs` | Project event/change-log/intent judgment validation and logging entrypoint. |
 | `tools/` | Existing prototype-era verdict/deploy/smoke tools. |
 | `product/` | Product contract, asset map, demand package, formalization plan. |
 | `docs/` | Engineering and project operation documentation. |
+| `docs/contracts/story-chain/` | Experience, moment, promise, aspect, and evidence ledger contracts for product development. |
+| `shared-skills/` | Source skill suite used by Codex/Claude agents. |
+| `.agents/skills/`, `.claude/skills/` | Generated skill targets. Refresh with `npm run skills:sync`; check drift with `npm run guard:skills`. |
 
 ## Migration Rule
 
@@ -42,11 +48,12 @@ Migration order:
 
 ## Quality Rung
 
-Current rung is intentionally light:
+Current rung is Story Chain-backed but still local-first:
 
 - `npm run verdict` checks the representative candidate.
 - `npm run prototype:sync` keeps public legacy assets in sync.
 - `npm run typecheck`, `npm run lint`, and `npm run build` are the new product gates.
+- `npm run quality:contracts` checks skill drift, project knowledge, contract maps, Story Chain release verdict, surface audit, and new critical findings.
 - `npm run quality:check` runs all of the above.
 
 Deferred until demand or repeated engineering defects:
@@ -60,5 +67,6 @@ Deferred until demand or repeated engineering defects:
 
 - Do not delete `candidates/` during migration. They are the evidence archive.
 - Do not make `public/legacy/c4-3/` the new source of truth. It is generated compatibility output.
+- Do not land product behavior that cannot be traced to Story Chain promises/aspects or explicit product contract changes.
 - Do not introduce backend state before demand validation.
 - Do not promote weak source senses to strong as part of engineering migration.

@@ -11,12 +11,33 @@
     "lint": "eslint app src scripts --max-warnings=0",
     "prototype:sync": "node scripts/prototype/sync-current.mjs",
     "verdict": "node tools/verdict/check.mjs c4-3",
-    "quality:check": "npm run prototype:sync && npm run verdict && npm run typecheck && npm run lint && npm run build"
+    "skills:sync": "python3 scripts/sync-agent-skills.py",
+    "guard:skills": "python3 scripts/sync-agent-skills.py --check",
+    "contract-maps:check": "node scripts/contract-maps/check.mjs",
+    "mc:validate-story-chain": "node scripts/mission-control/mc-validate-story-chain.mjs",
+    "mc:audit-surface": "node scripts/mission-control/mc-audit-surface.mjs",
+    "mc:check-new-criticals": "node scripts/mission-control/mc-check-new-criticals.mjs",
+    "mc:status": "node scripts/mission-control/mc-status.mjs",
+    "mc:add-promise": "node scripts/mission-control/mc-add-promise.mjs",
+    "mc:propagate": "node scripts/mission-control/mc-propagate.mjs",
+    "pk:start": "node scripts/project-knowledge.mjs start",
+    "pk:remember": "node scripts/project-knowledge.mjs remember",
+    "pk:log": "node scripts/project-knowledge.mjs log",
+    "pk:validate": "node scripts/project-knowledge.mjs validate",
+    "project:event": "node scripts/project-knowledge.mjs event",
+    "quality:contracts": "npm run guard:skills && npm run pk:validate && npm run contract-maps:check && npm run mc:validate-story-chain && npm run mc:audit-surface && npm run mc:check-new-criticals",
+    "quality:check": "npm run prototype:sync && npm run verdict && npm run typecheck && npm run lint && npm run build && npm run quality:contracts"
   },
   "dependencies": {
+    "mdast-util-to-string": "^4.0.0",
     "next": "16.2.6",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "remark-frontmatter": "^5.0.0",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "unified": "^11.0.5",
+    "yaml": "^2.8.3"
   },
   "overrides": {
     "postcss": "8.5.15"

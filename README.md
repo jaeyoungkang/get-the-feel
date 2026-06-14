@@ -13,10 +13,23 @@
 - `product/asset-map.md` — 자산 지도
 - `product/project-elevation-plan.md` — 프로토타입 정리 + 정식 프로젝트 고도화 계획
 - `docs/project-structure.md` — 본격 제품 개발용 코드/문서 구조
+- `docs/contracts/story-chain/` — 정식 제품 경험·약속·측면·증거 ledger
+- `docs/verification-gates.md` — 주요 검증장치 체계
+- `docs/agent-skills.md` — 설치된 agent skill suite 안내
 - `fix_plan.md` — 작업 큐
 
-product-weaver 도메인 인스턴스. 베이스 정본은 `docs/principles.md` + `shared-skills/`.
+product-weaver 도메인 인스턴스에서 출발했으며, 현재는 lighthouse/agentic-base 계열 Story Chain·Mission Control·engineering assurance 프로세스를 갖춘 제품 프로젝트다. 베이스 원칙은 `docs/principles.md`, 실행 스킬 source는 `shared-skills/`, 생성된 agent skill target은 `.agents/skills/`와 `.claude/skills/`.
 
 ## 상태
 
-2026-06-13: C1→C2→C3(local_ready)→C4 진화. 대표 후보 **c4-3** 배포 라이브 https://jaeyoung2026.github.io/get-the-feel/ — 11파일 24 sense 173문항(핵심동사 8·불변화사 2·구동사), 인식+산출 모드. 사용자 피드백 4건 반영. 정식 프로젝트 승급 계획은 `product/project-elevation-plan.md`.
+2026-06-14: C1→C2→C3(local_ready)→C4 진화. 대표 후보 **c4-3** 배포 라이브 https://jaeyoung2026.github.io/get-the-feel/ — 11파일 24 sense 173문항(핵심동사 8·불변화사 2·구동사), 인식+산출 모드. 사용자 피드백 4건 반영. 정식 프로젝트 승급 계획은 `product/project-elevation-plan.md`.
+
+제품 개발 기준선은 Next.js App Router shell + typed `src/content/` + `public/legacy/c4-3/` 호환 표면이다. 프로토타입 후보는 `candidates/`에 보존하고, 새 제품 개발은 Story Chain 계약을 따라 `app/`·`src/`에서 진행한다.
+
+## 검증
+
+```bash
+npm run quality:check       # app/build + prototype verdict + Story Chain/contract gates
+npm run quality:contracts   # skill sync + project knowledge + contract maps + mission-control
+npm run skills:sync         # shared-skills -> .agents/.claude 동기화
+```

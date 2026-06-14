@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "relations": [
+    {
+      "name": "experience_moments",
+      "from": "experience",
+      "to": "moment",
+      "count": "1 -> 1..*",
+      "description": "Every Moment belongs to exactly one Experience; every Experience must have at least one Moment."
+    },
+    {
+      "name": "moment_promises",
+      "from": "moment",
+      "to": "promise",
+      "count": "1 -> 1..*",
+      "description": "Every Promise belongs to exactly one Moment; every Moment must carry at least one Promise."
+    },
+    {
+      "name": "promise_acceptance_checks",
+      "from": "promise",
+      "to": "acceptance-check",
+      "count": "1 -> 1..*",
+      "description": "Every Acceptance Check belongs to exactly one Promise; every Promise must declare at least one deterministic Acceptance Check."
+    },
+    {
+      "name": "promise_evidence_ledgers",
+      "from": "promise",
+      "to": "evidence-ledger",
+      "count": "1..* -> 1..*",
+      "description": "Every Evidence Ledger cites at least one source Promise; every Promise must be cited by at least one Evidence Ledger."
+    },
+    {
+      "name": "acceptance_check_evidence",
+      "from": "acceptance-check",
+      "to": "evidence-ledger-entry",
+      "count": "1 -> 1..*",
+      "description": "Every Evidence Ledger check:evidence-coverage row points to exactly one Promise Acceptance Check; every Promise Acceptance Check must have at least one evidence row."
+    }
+  ],
+  "experienceScopes": ["core-product", "support-layer", "governance"]
+}
