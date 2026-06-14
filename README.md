@@ -11,10 +11,11 @@
 - `AGENTS.md` — 에이전트 navigation + Harness Case
 - `product/contract.md` — 제품 계약 정본
 - `product/asset-map.md` — 자산 지도
+- `product/project-elevation-plan.md` — 프로토타입 정리 + 정식 프로젝트 고도화 계획
 - `fix_plan.md` — 작업 큐
 
 product-weaver 도메인 인스턴스. 베이스 정본은 `docs/principles.md` + `shared-skills/`.
 
 ## 상태
 
-2026-06-13: C1→C2→C3(local_ready)→C4 진화. 대표 후보 **c4-3** 배포 라이브 https://jaeyoung2026.github.io/get-the-feel/ — 11파일 173문항(핵심동사 8·불변화사 2·구동사), 인식+산출 모드. 사용자 피드백 4건 반영. 세션 진입은 AGENTS.md "현재 상태".
+2026-06-13: C1→C2→C3(local_ready)→C4 진화. 대표 후보 **c4-3** 배포 라이브 https://jaeyoung2026.github.io/get-the-feel/ — 11파일 24 sense 173문항(핵심동사 8·불변화사 2·구동사), 인식+산출 모드. 사용자 피드백 4건 반영. 정식 프로젝트 승급 계획은 `product/project-elevation-plan.md`.

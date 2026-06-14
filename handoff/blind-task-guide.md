@@ -1,10 +1,11 @@
-# get-the-feel — 타인 검증 패키지 (C2 졸업 기준 6)
+# get-the-feel — 타인 검증 패키지 (c4-3 대표 후보 기준)
 
 > 외부 학습자 1명에게 보내는 blind task 안내. 제품 설명·pitch 없이 task만 — 평가 오염 방지.
+> 현재 배포 기준: c4-3, 11파일 24 sense 173문항. 참가자에게는 이 기준선을 설명하지 않는다.
 
 ## 보내는 것
 
-**URL 한 줄: https://jaeyoung2026.github.io/get-the-feel/** (GitHub Pages 배포 — approve-5 재결정 2026-06-11, 배포 산출물만 공개). 대안: `candidates/c2-3/` 폴더 압축 전달.
+**URL 한 줄: https://jaeyoung2026.github.io/get-the-feel/** (GitHub Pages 배포 — approve-5 재결정 2026-06-11, 배포 산출물만 공개). 대안: `candidates/c4-3/` 폴더 압축 전달.
 
 ## 참가자 안내문 (이대로 복사해 전송)
 
@@ -26,10 +27,10 @@
 | 감각 경험 | 특정 문항을 지목한 새 느낌 1개 이상 | "다 아는 거였다" / 지목 없음 |
 | 재방문 | 이유 있는 yes | 이유 있는 no (이유가 다음 사이클 입력) |
 
-- 결과는 약한 verdict (N=1)이며 수요 근거로 승격 금지 (intent-lock 페르소나 규칙과 동일).
-- 부정 결과도 그대로 cycle record에 append — 덮어쓰기 금지.
+- 개별 결과는 약한 verdict (N=1)이며 단독 수요 근거로 승격 금지. 수요 판정은 `product/demand-validation-package.md`의 3~5명 임계로 한다.
+- 부정 결과도 그대로 `candidates/c4-3/cycle-record.md` 또는 demand 결과 ledger에 append — 덮어쓰기 금지.
 
 ## 금지된 claim
 
-- "학습 효과 검증됨" 주장 금지 (N=1 저자 외 1명, 효과 연구 아님)
-- 출처 검증 상태(weak) 숨기기 금지 — 물어보면 "전문가 검수 전 초기 버전"으로 답한다
+- "학습 효과 검증됨" 주장 금지 (3~5명 수요 확인도 효과 연구가 아님)
+- 출처 검증 상태 숨기기 금지 — 물어보면 "출처가 붙은 초기 코퍼스이며 일부 sense는 사람 출처 리뷰 대기"로 답한다

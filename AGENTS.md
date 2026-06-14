@@ -10,7 +10,7 @@ product-weaver의 fork-style 도메인 인스턴스. 베이스 파일(`docs/prin
 
 - **단계**: C1 Discovery → C2 Convergence 졸업 → C3 Readiness(local_ready: pass) → **C4 출시 후 진화** 진행 중.
 - **대표 후보**: `candidates/c4-3/` — 배포 라이브 **https://jaeyoung2026.github.io/get-the-feel/**
-- **코퍼스**: `assets/content/` 11파일 15 sense 173문항 — 핵심 동사 8(have·get·take·make·keep·be·go·come), 불변화사 2(up·out), 구동사(V+up). 출처 strong(have/get-arrival/get-state-change/take/make/keep/up/out 등 approve-4 승인) + weak(get-into-state·be·go·come — 사람 출처 리뷰 대기).
+- **코퍼스**: `assets/content/` 11파일 24 sense 173문항 — 핵심 동사 8(have·get·take·make·keep·be·go·come), 불변화사 2(up·out), 구동사(V+up). 출처 strong 17 sense + weak 7 sense(get-into-state·be·go·come 계열 — 사람 출처 리뷰 대기).
 - **모드**: 인식(오늘의 새 문장 / 감각 골라 집중) + 산출(써보기 — 빈칸 타이핑·어순 재배열·전문 쓰기) + 통계(감각별 추이·강약점). 인식≠산출 통계 분리.
 - **사용자 피드백 4건 반영 완료**: 주제 선택·get started(get+pp)·숙련도 통계·작문(제약형 산출 V3).
 - **실사용 검증의 위력**: 실사용자가 페르소나·기계·검수 3중 게이트가 놓친 결함을 **5건** 적발(정답 누설→해석→레이아웃→비문 오답→오답 동사 복붙). **실제 사용이 최강 검증 채널.**
@@ -27,10 +27,11 @@ product-weaver의 fork-style 도메인 인스턴스. 베이스 파일(`docs/prin
 
 1. `product/contract.md` — 제품 계약 정본 (Primary Promise·4축·거부 신호·전달 가치 V1~V4·**승격 6기준**·미승인·빈틈)
 2. `product/asset-map.md` — 자산 지도 (5 trunk + 명시 거부 + 각 trunk last_cycle_contribution)
-3. `fix_plan.md` — 작업 큐 + 사후 승인 큐 (approve-1~6 처리 상태)
-4. `assets/` — **자산 정본**: `content/CONTRACT.md`(데이터 계약 9규칙), `training-design.md`(R1~R15), `ux-grammar.md`(G1~G17), `misconceptions.md`(오개념 카탈로그), `content/sources.md`(출처 9건)
-5. `skills/content-consensus/SKILL.md` — 콘텐츠 3자 합의 도메인 스킬
-6. `docs/principles.md` + `shared-skills/` — 베이스 정본. 핵심 행동은 스킬 경유 + Skill Load Receipt 필수.
+3. `product/project-elevation-plan.md` — 프로토타입 실험 정리 + 정식 프로젝트 고도화 계획
+4. `fix_plan.md` — 작업 큐 + 사후 승인 큐 (approve-1~6 처리 상태)
+5. `assets/` — **자산 정본**: `content/CONTRACT.md`(데이터 계약 9규칙), `training-design.md`(R1~R15), `ux-grammar.md`(G1~G17), `misconceptions.md`(오개념 카탈로그), `content/sources.md`(출처 9건)
+6. `skills/content-consensus/SKILL.md` — 콘텐츠 3자 합의 도메인 스킬
+7. `docs/principles.md` + `shared-skills/` — 베이스 정본. 핵심 행동은 스킬 경유 + Skill Load Receipt 필수.
 
 ---
 
