@@ -14,12 +14,13 @@ export type ExplanationPracticeItem = Pick<
   | "object_label"
   | "prompt"
   | "choices"
-  | "answer_index"
-  | "why_ko"
-  | "type"
-> & {
-  source: "training" | "transfer";
-};
+	  | "answer_index"
+	  | "why_ko"
+	  | "type"
+	  | "verb_label"
+	> & {
+	  source: "training" | "transfer";
+	};
 
 export type ExplanationSense = {
   id: string;
@@ -50,7 +51,12 @@ type Matcher = {
 };
 
 const MATCHERS: Matcher[] = [
-  { itemKey: "phrasal-up", pattern: /\b[a-z]+(?:ed|ing|s)?\s+up\b/i, axis: "phrasal-verbs" },
+  {
+    itemKey: "phrasal-up",
+    pattern:
+      /\b(?:bring|brings|brought|make|makes|made|making|look|looks|looked|looking|give|gives|gave|given|giving|clean|cleans|cleaned|cleaning|drink|drinks|drank|drunk|drinking|eat|eats|ate|eaten|eating|finish|finishes|finished|finishing|use|uses|used|using|pack|packs|packed|packing|wrap|wraps|wrapped|wrapping|heat|heats|heated|heating|save|saves|saved|saving|get|gets|got|gotten|getting|stand|stands|stood|standing|sit|sits|sat|sitting|pick|picks|picked|picking|lift|lifts|lifted|lifting|wake|wakes|woke|woken|waking|jump|jumps|jumped|jumping|prop|props|propped|propping|come|comes|came|coming|wash|washes|washed|washing|hop|hops|hopped|hopping)(?:\s+[a-z]+)?\s+up\b/i,
+    axis: "phrasal-verbs",
+  },
   { itemKey: "have", pattern: /\b(?:have|has|had|having)\b/i, axis: "core-verbs" },
   { itemKey: "get", pattern: /\b(?:get|gets|got|gotten|getting)\b/i, axis: "core-verbs" },
   { itemKey: "take", pattern: /\b(?:take|takes|took|taken|taking)\b/i, axis: "core-verbs" },
@@ -71,14 +77,18 @@ function normalizeSentence(sentence: string) {
     .trim();
 }
 
-function practiceForSense(itemKey: keyof typeof CURRENT_CONTENT, senseId: string) {
+function practiceForSense(
+  itemKey: keyof typeof CURRENT_CONTENT,
+  senseId: string,
+  excludeItemId?: string,
+) {
   const content = CURRENT_CONTENT[itemKey];
   const training = content.training_items
-    .filter((item) => item.sense_id === senseId)
+    .filter((item) => item.sense_id === senseId && item.id !== excludeItemId)
     .slice(0, 3)
     .map((item) => ({ ...item, source: "training" as const }));
   const transfer = content.transfer_items
-    .filter((item) => item.sense_id === senseId)
+    .filter((item) => item.sense_id === senseId && item.id !== excludeItemId)
     .slice(0, 2)
     .map((item) => ({ ...item, source: "transfer" as const }));
 
@@ -95,6 +105,7 @@ function practiceForSense(itemKey: keyof typeof CURRENT_CONTENT, senseId: string
       answer_index,
       why_ko,
       type,
+      verb_label,
       source,
     }) => ({
       id,
@@ -108,12 +119,16 @@ function practiceForSense(itemKey: keyof typeof CURRENT_CONTENT, senseId: string
       answer_index,
       why_ko,
       type,
+      verb_label,
       source,
     }),
   );
 }
 
-function sensesForItem(itemKey: keyof typeof CURRENT_CONTENT): ExplanationSense[] {
+function sensesForItem(
+  itemKey: keyof typeof CURRENT_CONTENT,
+  excludeItemId?: string,
+): ExplanationSense[] {
   const content = CURRENT_CONTENT[itemKey];
   return content.senses.map((sense) => ({
     id: sense.id,
@@ -124,7 +139,7 @@ function sensesForItem(itemKey: keyof typeof CURRENT_CONTENT): ExplanationSense[
     image: sense.image,
     boundary_ko: sense.boundary_ko,
     validationStrength: sense.validation.strength,
-    practiceItems: practiceForSense(itemKey, sense.id),
+    practiceItems: practiceForSense(itemKey, sense.id, excludeItemId),
   }));
 }
 
@@ -135,12 +150,33 @@ function rankSensesForInput(
 ) {
   const normalized = normalizeSentence(input);
   const priority = new Map<string, number>();
+  const optionalObject = "(?:\\s+(?:it|them|this|that|word|words|name|number|desk|room|mess|clothes|dishes|bag|bags|box|boxes))?";
 
   if (itemKey === "phrasal-up") {
-    if (/\b(?:clean|drink|eat|finish|use|pack|wrap|heat|save)\w*\s+up\b/.test(normalized)) {
+    if (
+      new RegExp(
+        `\\b(?:bring|brings|brought|make|makes|made|making|give|gives|gave|given|giving)${optionalObject}\\s+up\\b`,
+      ).test(
+        normalized,
+      ) ||
+      /\blook(?:s|ed|ing)?\s+(?:it|them|this|that|word|words|name|number)?\s*up(?:\s+(?:in|on|the|a|this|that|for)\b|$)/.test(
+        normalized,
+      )
+    ) {
+      priority.set("opaque-idiom", 0);
+    }
+    if (
+      new RegExp(
+        `\\b(?:clean|cleans|cleaned|cleaning|drink|drinks|drank|drunk|drinking|eat|eats|ate|eaten|eating|finish|finishes|finished|finishing|use|uses|used|using|pack|packs|packed|packing|wrap|wraps|wrapped|wrapping|heat|heats|heated|heating|save|saves|saved|saving)${optionalObject}\\s+up\\b`,
+      ).test(normalized)
+    ) {
       priority.set("compose-completion", 0);
     }
-    if (/\b(?:get|stand|sit|look|pick|lift|wake)\w*\s+up\b/.test(normalized)) {
+    if (
+      new RegExp(
+        `\\b(?:get|gets|got|gotten|getting|stand|stands|stood|standing|sit|sits|sat|sitting|look|looks|looked|looking|pick|picks|picked|picking|lift|lifts|lifted|lifting|wake|wakes|woke|woken|waking|jump|jumps|jumped|jumping|prop|props|propped|propping|come|comes|came|coming|hop|hops|hopped|hopping)${optionalObject}\\s+up\\b`,
+      ).test(normalized)
+    ) {
       priority.set("compose-vertical", 0);
     }
   }
@@ -172,7 +208,7 @@ function exactCorpusMatches(input: string): ExplanationMatch[] {
     );
     if (!exactItem) continue;
 
-    const sense = sensesForItem(itemKey as keyof typeof CURRENT_CONTENT).find(
+    const sense = sensesForItem(itemKey as keyof typeof CURRENT_CONTENT, exactItem.id).find(
       (candidate) => candidate.id === exactItem.sense_id,
     );
     if (!sense) continue;

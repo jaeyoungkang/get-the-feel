@@ -2,10 +2,13 @@
 
 import { readFileSync, readdirSync } from "node:fs";
 import { join, resolve } from "node:path";
+import vm from "node:vm";
 
 const ROOT = resolve(import.meta.dirname, "../..");
 const CONTENT_DIR = join(ROOT, "assets", "content");
 const SOURCES_PATH = join(CONTENT_DIR, "sources.md");
+const LEGACY_DATA_PATH = join(ROOT, "public", "legacy", "c4-3", "data.js");
+const ALLOWED_TYPES = new Set(["sense-choice", "verb-choice", "sense-cloze", "compose-choice"]);
 
 const groups = [];
 
@@ -42,6 +45,24 @@ function normalizeSentence(sentence) {
     .trim();
 }
 
+function stable(value) {
+  if (Array.isArray(value)) return value.map(stable);
+  if (!value || typeof value !== "object") return value;
+  return Object.fromEntries(
+    Object.keys(value)
+      .sort()
+      .map((key) => [key, stable(value[key])]),
+  );
+}
+
+function loadLegacyData() {
+  const context = { window: {} };
+  vm.runInNewContext(readFileSync(LEGACY_DATA_PATH, "utf8"), context, {
+    filename: LEGACY_DATA_PATH,
+  });
+  return context.window.CONTENT_ALL;
+}
+
 const sourceSet = sourceIds();
 const files = readdirSync(CONTENT_DIR)
   .filter((file) => file.endsWith(".json"))
@@ -49,9 +70,12 @@ const files = readdirSync(CONTENT_DIR)
 
 const schema = group("content-schema");
 const allSentences = new Map();
+const assetsBundle = {};
 
 for (const file of files) {
   const content = readJson(join(CONTENT_DIR, file));
+  const itemKey = file.replace(/\.json$/, "");
+  assetsBundle[itemKey] = content;
   const senseIds = new Set(content.senses?.map((sense) => sense.id));
   if (!content.axis) schema.fail(`${file}: axis missing`);
   if (!content.item) schema.fail(`${file}: item missing`);
@@ -80,6 +104,13 @@ for (const file of files) {
     }
     if (!sense.validation?.method || !sense.validation?.strength || !sense.validation?.date) {
       schema.fail(`${file}:${sense.id} validation incomplete`);
+    } else if (!["strong", "weak"].includes(sense.validation.strength)) {
+      schema.fail(`${file}:${sense.id} validation strength invalid`);
+    } else if (
+      sense.validation.method === "subagent-consensus" &&
+      sense.validation.strength !== "weak"
+    ) {
+      schema.fail(`${file}:${sense.id} subagent-consensus cannot be strong`);
     }
   }
 
@@ -87,6 +118,12 @@ for (const file of files) {
     if (!Array.isArray(content[bucket]) || content[bucket].length === 0) {
       schema.fail(`${file}: ${bucket} missing`);
       continue;
+    }
+    if (bucket === "training_items" && content[bucket].length < 8) {
+      schema.fail(`${file}: training_items below minimum 8`);
+    }
+    if (bucket === "transfer_items" && content[bucket].length < 4) {
+      schema.fail(`${file}: transfer_items below minimum 4`);
     }
     schema.ok(`${file}: ${bucket}=${content[bucket].length}`);
 
@@ -111,6 +148,16 @@ for (const file of files) {
       if (!Number.isInteger(item.answer_index) || item.answer_index < 0 || item.answer_index >= item.choices.length) {
         schema.fail(`${file}:${item.id} answer_index invalid`);
       }
+      const type = item.type || "sense-choice";
+      if (!ALLOWED_TYPES.has(type)) {
+        schema.fail(`${file}:${item.id} type invalid`);
+      }
+      if ((type === "verb-choice" || type === "sense-cloze") && !String(item.sentence).includes("___")) {
+        schema.fail(`${file}:${item.id} ${type} missing ___ marker`);
+      }
+      if (itemKey === "phrasal-up" && !item.verb_label) {
+        schema.fail(`${file}:${item.id} verb_label missing`);
+      }
 
       const normalized = normalizeSentence(item.sentence);
       const previous = allSentences.get(normalized);
@@ -121,6 +168,20 @@ for (const file of files) {
       }
     }
   }
+}
+
+const legacyData = group("legacy-data-equivalence");
+try {
+  const legacyBundle = loadLegacyData();
+  const assetsStable = JSON.stringify(stable(assetsBundle));
+  const legacyStable = JSON.stringify(stable(legacyBundle));
+  if (assetsStable !== legacyStable) {
+    legacyData.fail("public/legacy/c4-3/data.js differs from assets/content/*.json");
+  } else {
+    legacyData.ok("public/legacy/c4-3/data.js matches assets/content/*.json");
+  }
+} catch (error) {
+  legacyData.fail(`could not parse public/legacy/c4-3/data.js (${error.message})`);
 }
 
 const separation = group("training-transfer-separation");

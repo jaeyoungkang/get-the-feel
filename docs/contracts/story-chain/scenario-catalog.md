@@ -54,4 +54,5 @@
 - moment:sentence-inquiry-practice
 - promise:sentence-explanation-to-practice
 - aspect:content-provenance
+- aspect:design-baseline-preservation
 - evidence-ledger: `current-build.ledger.md`

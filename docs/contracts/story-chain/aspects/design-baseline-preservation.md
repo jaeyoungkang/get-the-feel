@@ -9,8 +9,8 @@ applies-to:
 covering-ledger: docs/contracts/story-chain/evidence-ledgers/current-build.ledger.md
 verdict: met
 evidence:
-  kind: rendered-dom
-  ref: public/legacy/c4-3/index.html + app/sense-visual.tsx + docs/design-assets.md
+  kind: runtime-output
+  ref: npm run ui:check
 gateNotes: Design is a cross-cutting product asset. The current trainer design baseline remains authoritative until documented React parity exists.
 ---
 
@@ -52,5 +52,6 @@ get-the-feel의 차별점은 설명 텍스트만이 아니라 감각을 그림�
 - coverage: `app/page.tsx` wraps the current trainer design baseline for `/`.
 - coverage: `app/sense-visual.tsx` reuses the existing SVG metaphor grammar for `/explain`.
 - coverage: `docs/design-assets.md` defines the design asset baseline, preservation rules, and parity checklist.
+- coverage: `npm run ui:check` verifies baseline files, reduced-motion handling, and React visual grammar presence.
 - wovenness: This aspect is cited by all covered promises and `current-build.ledger.md`.
 - verdict: `met` for the current build.

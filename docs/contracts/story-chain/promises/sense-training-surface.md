@@ -21,9 +21,9 @@ coveringLedgers:
   - docs/contracts/story-chain/evidence-ledgers/current-build.ledger.md
 verdict: met
 evidence:
-  kind: rendered-dom
-  ref: app/page.tsx + public/legacy/c4-3/index.html
-gateNotes: The current surface preserves the existing trainer design baseline.
+  kind: runtime-output
+  ref: npm run pages:check
+gateNotes: The current surface preserves the existing trainer design baseline and verifies GitHub Pages asset paths.
 ---
 
 # Sense Training Surface
@@ -44,7 +44,7 @@ gateNotes: The current surface preserves the existing trainer design baseline.
 ### intent-check:sense-training-surface
 
 - question: 첫 제품 표면이 마케팅 페이지나 일반 빈칸 퀴즈가 아니라, 영어 토박이 감각을 문장 단위로 훈련하는 실제 세션으로 읽히는가?
-- evidence: rendered-dom: `app/page.tsx`, `public/legacy/c4-3/index.html`; runtime-output: `npm run build`.
+- evidence: code-trace: `app/page.tsx`, `app/home-trainer-frame.tsx`, `public/legacy/c4-3/index.html`; runtime-output: `npm run pages:check`.
 - why live judge: 파일과 문항이 있어도 사용자가 단어뜻 암기 앱으로 느끼면 의도는 실패한다. 수요 검증은 demand-1에서 따로 닫는다.
 - linked acceptance checks:
   - acceptance-check:sense-training-surface-current-build
@@ -57,18 +57,18 @@ gateNotes: The current surface preserves the existing trainer design baseline.
 ### acceptance-check:sense-training-surface-current-build
 
 - description: `/` route renders the current product shell and current trainer design baseline.
-- evidence: rendered-dom: `app/page.tsx`; runtime-output: `npm run build`.
-- run: `npm run build`
+- evidence: code-trace: `app/page.tsx`, `app/home-trainer-frame.tsx`; runtime-output: `npm run pages:check`.
+- run: `npm run pages:check`
 
 ### acceptance-check:sense-training-cue-discipline
 
 - description: The representative trainer hides sentence Korean, item label, sense label, and feedback cues before the user answers, then reveals them after answer.
-- evidence: code-trace: `public/legacy/c4-3/app.js` answer state gates feedback, Korean text, and sense explanation.
-- run: `npm run build`
+- evidence: code-trace: `public/legacy/c4-3/app.js` answer state gates feedback, Korean text, and sense explanation; runtime-output: `npm run legacy:check`.
+- run: `npm run legacy:check`
 
 ### acceptance-check:sense-training-corpus-contract
 
-- description: All loaded content files keep source-backed sense records, mandatory labels, separated training/transfer pools, shuffled choices, and no duplicate normalized sentences across the corpus.
+- description: All loaded content files keep source-backed sense records, mandatory labels, separated training/transfer pools, shuffled choices, no duplicate normalized sentences across the corpus, and legacy trainer data equivalence.
 - evidence: runtime-output: `npm run content:check`.
 - run: `npm run content:check`
 
@@ -76,6 +76,6 @@ gateNotes: The current surface preserves the existing trainer design baseline.
 
 ```yaml
 evidence:
-  kind: rendered-dom
-  ref: app/page.tsx + public/legacy/c4-3/index.html
+  kind: runtime-output
+  ref: npm run pages:check
 ```

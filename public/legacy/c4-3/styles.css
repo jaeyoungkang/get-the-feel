@@ -2,6 +2,9 @@
  * G5 생활 어휘, G13 fitText는 SVG 측, G14 피드백 위계(버튼이 그림 바로 아래),
  * 산출 모드(써보기) 전용 UI 추가. 인식/산출 시각 분리.
  */
+/* @promise promise:sense-training-surface */
+/* @aspect aspect:design-baseline-preservation */
+
 :root {
   --ink: #232020;
   --muted: #8d867d;
@@ -352,4 +355,18 @@ h3 { font-size: 1.02rem; margin: 18px 0 8px; }
 @media (max-width: 480px) {
   .contrast-row, .compose-row { flex-direction: column; }
   .split-row { flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viz-settle,
+  .viz-slide,
+  .viz-rise,
+  .viz-fill,
+  .viz-grow,
+  .viz-reveal,
+  .viz-clasp,
+  .viz-hand,
+  .viz-rim {
+    transition: none !important;
+  }
 }

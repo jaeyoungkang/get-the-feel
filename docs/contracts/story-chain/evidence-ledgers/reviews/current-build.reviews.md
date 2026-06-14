@@ -34,8 +34,8 @@ acReviewedRevision:
   - 1
   - 1
 fixtureRef: docs/contracts/story-chain/evidence-ledgers/current-build.ledger.md
-runCommitSha: worktree-run-2026-06-14-story-chain-hardening
-observedOutput: `npm run quality:check` completed the content contract check, TypeScript check, ESLint, Next build including `/` and `/explain`, skill drift check, project knowledge validation, contract map check, Story Chain validation, surface audit, and new-critical check with release verdict ready.
+runCommitSha: worktree-run-2026-06-14-gate-hardening
+observedOutput: `npm run quality:check` completed the content contract check with legacy data equivalence, protected trainer syntax check, `/explain` UI/design guard, TypeScript check, ESLint, Next build, GitHub Pages `/get-the-feel` export path check, skill drift check, project knowledge validation, contract map check, Story Chain validation, non-empty surface audit, and new-critical check with release verdict ready.
 gaps:
   - adopt: The current product shell preserves the existing trainer design baseline while React surfaces reuse its visual grammar.
   - adopt: Sentence explanation is intentionally rule-based and corpus-bound; this prevents unsupported grammar correction claims while still connecting supported senses to practice.
@@ -49,17 +49,19 @@ Input: the current Next product surface, existing trainer design baseline eviden
 Evidence:
 
 - `npm run quality:check` passed.
-- `npm run quality:contracts` passed.
-- Server-rendered `/explain` response showed the default sentence input,
-  corpus exact `get` match, sense explanation blocks, and `get-arrival`
-  practice cards.
+- `npm run pages:check` passed for `/get-the-feel` export paths.
+- `npm run ui:check` passed for `/explain` answer-leak/shuffle guard and design baseline presence.
+- `npm run legacy:check` passed for the protected trainer JavaScript.
 
 Gaps observed:
 
 - Adopt-resolved — Story Chain docs now split the first training session from
   sentence inquiry and route each Promise to the correct Moment.
 - Adopt-resolved — Content provenance applies to both training content and
-  sentence explanation.
+- sentence explanation, with `public/legacy/c4-3/data.js` generated from and
+  checked against `assets/content/*.json`.
+- Adopt-resolved — Surface audit now scans actual `app/` surfaces and the
+  current trainer baseline instead of passing with zero checked files.
 - Reject — user demand remains outside this local evidence and must be
   collected through `demand-1`.
 

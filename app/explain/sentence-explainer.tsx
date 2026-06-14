@@ -15,6 +15,12 @@ type SentenceExplainerProps = {
 
 type AnswerState = Record<string, number>;
 
+type ShuffledChoice = {
+  text: string;
+  originalIndex: number;
+  displayIndex: number;
+};
+
 const SAMPLE_SENTENCES = [
   "I got a text from my sister this morning.",
   "The kids got tired after the long hike.",
@@ -27,6 +33,25 @@ function axisLabel(axis: ExplanationMatch["axis"]) {
   if (axis === "particles") return "particle";
   if (axis === "phrasal-verbs") return "phrasal verb";
   return "word order";
+}
+
+function hashString(value: string) {
+  let hash = 0;
+  for (let index = 0; index < value.length; index += 1) {
+    hash = (hash * 31 + value.charCodeAt(index)) | 0;
+  }
+  return hash;
+}
+
+function shufflePracticeChoices(itemId: string, choices: string[]): ShuffledChoice[] {
+  return choices
+    .map((text, originalIndex) => ({ text, originalIndex }))
+    .sort(
+      (left, right) =>
+        hashString(`${itemId}:${left.originalIndex}:${left.text}`) -
+        hashString(`${itemId}:${right.originalIndex}:${right.text}`),
+    )
+    .map((choice, displayIndex) => ({ ...choice, displayIndex }));
 }
 
 export function SentenceExplainer({ seedMatches }: SentenceExplainerProps) {
@@ -94,11 +119,13 @@ export function SentenceExplainer({ seedMatches }: SentenceExplainerProps) {
           </div>
         ) : (
           <>
-            <div className="match-tabs" aria-label="Detected targets">
+            <div className="match-tabs" role="tablist" aria-label="Detected targets">
               {matches.map((match) => (
                 <button
                   key={match.id}
                   type="button"
+                  role="tab"
+                  aria-selected={match.id === activeMatch?.id}
                   className={match.id === activeMatch?.id ? "is-active" : ""}
                   onClick={() => selectMatch(match)}
                 >
@@ -127,6 +154,7 @@ export function SentenceExplainer({ seedMatches }: SentenceExplainerProps) {
                       <button
                         key={sense.id}
                         type="button"
+                        aria-pressed={sense.id === activeSense.id}
                         className={sense.id === activeSense.id ? "is-active" : ""}
                         onClick={() => {
                           setSelectedSenseId(sense.id);
@@ -173,36 +201,43 @@ export function SentenceExplainer({ seedMatches }: SentenceExplainerProps) {
               const selected = answers[item.id];
               const isAnswered = selected !== undefined;
               const isCorrect = selected === item.answer_index;
+              const choices = shufflePracticeChoices(item.id, item.choices);
 
               return (
                 <article key={item.id} className="practice-card">
                   <p className="practice-source">{item.source}</p>
                   <h3>{item.sentence}</h3>
-                  <p className="translation">{item.sentence_ko}</p>
                   <p className="prompt">{item.prompt}</p>
                   <div className="choice-list">
-                    {item.choices.map((choice, index) => (
+                    {choices.map((choice) => (
                       <button
-                        key={choice}
+                        key={`${choice.originalIndex}:${choice.text}`}
                         type="button"
                         className={
-                          isAnswered && index === item.answer_index
+                          isAnswered && choice.originalIndex === item.answer_index
                             ? "is-correct"
-                            : isAnswered && index === selected
+                            : isAnswered && choice.originalIndex === selected
                               ? "is-wrong"
                               : ""
                         }
                         onClick={() =>
-                          setAnswers((current) => ({ ...current, [item.id]: index }))
+                          setAnswers((current) => ({
+                            ...current,
+                            [item.id]: choice.originalIndex,
+                          }))
                         }
                       >
-                        {choice}
+                        {choice.text}
                       </button>
                     ))}
                   </div>
                   {isAnswered ? (
                     <div className={isCorrect ? "feedback is-correct" : "feedback is-wrong"}>
                       <strong>{isCorrect ? "맞음" : "다시 보기"}</strong>
+                      <p className="translation">
+                        <span>해석</span>
+                        {item.sentence_ko}
+                      </p>
                       <p>{item.why_ko}</p>
                     </div>
                   ) : null}

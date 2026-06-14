@@ -45,6 +45,7 @@ a {
   display: block;
   width: 100%;
   min-height: 100vh;
+  min-height: 100dvh;
   border: 0;
   background: var(--bg);
 }
@@ -496,6 +497,20 @@ a {
 }
 .viz-rim { transition: stroke 0.4s; }
 .viz-rim.hit { stroke-width: 3; }
+
+@media (prefers-reduced-motion: reduce) {
+  .viz-settle,
+  .viz-slide,
+  .viz-rise,
+  .viz-fill,
+  .viz-grow,
+  .viz-reveal,
+  .viz-clasp,
+  .viz-hand,
+  .viz-rim {
+    transition: none;
+  }
+}
 
 .explanation-block h3,
 .practice-card h3,

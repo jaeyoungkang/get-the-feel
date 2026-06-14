@@ -106,21 +106,21 @@ claim/control/evidence-kind에 한해서만 blocking 승격을 검토한다.
 | **`quality:guards`** | 수동/모든 단계 선행 | 하드코딩 탈출구 스캔 (한글/escape/test-ratio) | 가장 가볍고 빠른 방어선 |
 | **`quality:commit`** | Husky `pre-commit` | `quality:guards` + `lint-staged` (변경 파일만 eslint+prettier) | 커밋 속도 유지 |
 | **`quality:prepush`** | Husky `pre-push` | `quality:check` (전체) | 로컬에서 CI 통과 예측 |
-| **`quality:check`** | 수동 전체 검증 | `guards` + format:check + lint + typecheck + dep:check + dup:check + knip + test:coverage + **mc:validate-story-chain** + **mc:audit-surface** + **mc:check-new-criticals** + build | 로컬 전체 검증 |
-| **`quality:ci`** | GitHub Actions | `quality:check` + lint:report (JSON 출력) | CI 공식 판정 |
+| **`quality:check`** | 수동 전체 검증 | content contract + legacy baseline syntax + UI/design guard + typecheck + lint + Next build + GitHub Pages export check + Story Chain contract gates | 로컬 전체 검증 |
+| **`quality:ci`** | GitHub Actions | 아직 미구성. 구성 시 `quality:check`와 동일한 의미를 가져야 한다. | CI 공식 판정 |
 
 ```
 guards ⊂ commit   (얕고 빠름)
        ⊂ prepush
        ⊂ check   (깊고 느림)
-       ⊂ ci
+       ⊂ ci (deferred)
 ```
 
 ### 원칙
 
 - `pre-commit`은 **변경 파일만** — 속도 중시
 - `pre-push`는 **전체 검증** — CI 실패 방지
-- CI는 `pre-push`와 **동일 내용 + 리포트 포맷**만 차이
+- CI는 아직 deferred이며, 추가할 때 `pre-push`와 **동일 의미 + 리포트 포맷**만 차이 나야 한다.
 
 ---
 

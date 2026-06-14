@@ -16,6 +16,11 @@
  *
  * 데이터: window.CONTENT_ALL = 11파일 verbatim. localStorage prefix gtf-c4-3-.
  */
+// @promise promise:sense-training-surface
+// @promise promise:constrained-production
+// @promise promise:weakness-guided-focus
+// @aspect aspect:design-baseline-preservation
+// @aspect aspect:recognition-production-separation
 (function () {
   "use strict";
 
@@ -28,6 +33,62 @@
   var PRODUCE_COUNT = 10;          // 산출 한 세션 10문항
 
   var app = document.getElementById("app");
+  var inFrame = window.parent && window.parent !== window;
+
+  function postFrameHeight() {
+    if (!inFrame) return;
+    window.requestAnimationFrame(function () {
+      var doc = document.documentElement;
+      var body = document.body;
+      var height = Math.max(
+        doc ? doc.scrollHeight : 0,
+        body ? body.scrollHeight : 0,
+        doc ? doc.offsetHeight : 0,
+        body ? body.offsetHeight : 0
+      );
+      window.parent.postMessage({ type: "gtf:height", height: height }, window.location.origin);
+    });
+  }
+  function bridgeScrollTo(top, behavior) {
+    if (inFrame) {
+      window.parent.postMessage(
+        { type: "gtf:scroll-to", top: top, behavior: behavior || "auto" },
+        window.location.origin
+      );
+      return;
+    }
+    window.scrollTo({ top: top, behavior: behavior || "auto" });
+  }
+  function bridgeScrollElement(el, behavior) {
+    if (!el) return;
+    if (inFrame) {
+      window.parent.postMessage(
+        {
+          type: "gtf:scroll-to",
+          top: el.getBoundingClientRect().top + window.scrollY,
+          behavior: behavior || "auto"
+        },
+        window.location.origin
+      );
+      return;
+    }
+    if (el.scrollIntoView) el.scrollIntoView({ behavior: behavior || "auto", block: "start" });
+  }
+  window.addEventListener("message", function (event) {
+    if (event.source === window.parent && event.data && event.data.type === "gtf:height-request") {
+      postFrameHeight();
+    }
+  });
+  if (window.ResizeObserver) {
+    new window.ResizeObserver(postFrameHeight).observe(document.body);
+  }
+  if (window.MutationObserver) {
+    new window.MutationObserver(postFrameHeight).observe(document.body, {
+      attributes: true,
+      childList: true,
+      subtree: true
+    });
+  }
 
   var ITEM_ORDER = ["have", "get", "take", "make", "keep", "be", "go", "come", "up", "out", "phrasal-up"];
 
@@ -1064,7 +1125,7 @@
     wireDiffChips();
     var gp = document.getElementById("go-progress");
     if (gp) gp.onclick = renderProgress;
-    window.scrollTo(0, 0);
+    bridgeScrollTo(0, "auto");
   }
 
   function focusChipsHtml() {
@@ -1244,7 +1305,7 @@
 
     try {
       var head = fb.querySelector(".feedback-head");
-      if (head && head.scrollIntoView) head.scrollIntoView({ behavior: "smooth", block: "start" });
+      bridgeScrollElement(head, "smooth");
     } catch (e) { /* 무시 */ }
 
     if (fatigued && correct) { /* 이미 settle */ }
@@ -1339,7 +1400,7 @@
     state.idx++;
     if (state.idx < state.entries.length) {
       renderQuestion();
-      window.scrollTo(0, 0);
+      bridgeScrollTo(0, "auto");
     } else {
       finishSession();
     }
@@ -1467,7 +1528,7 @@
       '</div>';
     document.getElementById("go-transfer").onclick = function () { startTransfer(focusItem); };
     document.getElementById("go-home").onclick = renderIntro;
-    window.scrollTo(0, 0);
+    bridgeScrollTo(0, "auto");
   }
 
   function renderTransferResult(sc, results, train, focusItem) {
@@ -1506,7 +1567,7 @@
     document.getElementById("go-produce-after").onclick = function () { startProduce("blank"); };
     document.getElementById("go-progress2").onclick = renderProgress;
     document.getElementById("go-home2").onclick = renderIntro;
-    window.scrollTo(0, 0);
+    bridgeScrollTo(0, "auto");
   }
 
   // ===================================================================
@@ -1594,7 +1655,7 @@
     if (ep) ep.onclick = function () { startProduce("blank"); };
     document.getElementById("pg-home").onclick = renderIntro;
     wireWeaknessFocus();
-    window.scrollTo(0, 0);
+    bridgeScrollTo(0, "auto");
   }
 
   function cumulativeByItem(days) {
@@ -1966,7 +2027,7 @@
     if (state.diff === "blank") renderBlankQuestion();
     else if (state.diff === "reorder") renderReorderQuestion();
     else renderWriteQuestion();
-    window.scrollTo(0, 0);
+    bridgeScrollTo(0, "auto");
   }
 
   // ---- ① 빈칸 타이핑 (쉬움) ----
@@ -2247,7 +2308,7 @@
     if (ag) ag.onclick = function () { startProduce("write"); };
     document.getElementById("pr-progress").onclick = renderProgress;
     document.getElementById("pr-home").onclick = renderIntro;
-    window.scrollTo(0, 0);
+    bridgeScrollTo(0, "auto");
   }
 
 })();

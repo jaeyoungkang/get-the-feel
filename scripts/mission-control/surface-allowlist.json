@@ -1,5 +1,8 @@
 {
   "infrastructure": [
+    "app/globals.css",
+    "app/layout.tsx",
+    "app/status/page.tsx",
     "src/app/api/health/route.ts",
     "src/app/globals.css",
     "src/lib/http/route-handler.ts"

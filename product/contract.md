@@ -96,8 +96,9 @@ LLM이 문장·퀴즈 초안을 만들 수는 있다. 그러나 sense 설명은 
 | Claim | 현재 상태 |
 | --- | --- |
 | 현재 제품 표면이 동작한다 | `npm run quality:check`로 검증 |
-| 코퍼스가 데이터 계약을 지킨다 | `npm run content:check`로 검증 |
-| 문장 해설이 코퍼스 기반으로 연습에 연결된다 | `/explain` route와 `src/content/explanation-index.ts`로 검증 |
+| GitHub Pages 배포 경로가 맞다 | `npm run pages:check`로 검증 |
+| 코퍼스가 데이터 계약을 지킨다 | `npm run content:check`로 검증 (`public/legacy/c4-3/data.js` 동등성 포함) |
+| 문장 해설이 코퍼스 기반으로 연습에 연결된다 | `/explain` route, `src/content/explanation-index.ts`, `npm run ui:check`로 검증 |
 | 수요가 있다 | 아직 `demand_unknown` |
 | 학습 효과가 있다 | 아직 미검증. 현재 지표는 근사 evidence |
 | 말하기에 도움된다 | 미검증. claim 금지 |

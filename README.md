@@ -30,6 +30,8 @@
 
 ```bash
 npm run quality:check
+npm run pages:check
+npm run ui:check
 npm run content:check
 npm run quality:contracts
 npm run mc:status

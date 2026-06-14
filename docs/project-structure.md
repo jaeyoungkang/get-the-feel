@@ -20,7 +20,7 @@ Skill Load Receipt
 |---|---|
 | `app/` | Next.js App Router product surface. Root route wraps the current trainer design baseline; `/explain` is the React sentence explanation flow. |
 | `src/content/` | Typed content access layer for `assets/content/*.json`. New app code should read content through this boundary. |
-| `public/legacy/c4-3/` | Current trainer design baseline from the deployed product. Protected until React parity exists. |
+| `public/legacy/c4-3/` | Current trainer design baseline from the deployed product. `data.js` is generated from `assets/content`; screen/style/behavior are protected until React parity exists. |
 | `docs/design-assets.md` | Design asset governance and parity rules. |
 | `assets/` | Content, training design, and UX grammar source of truth. Do not treat this as app implementation code. |
 | `scripts/content/` | Executable content contract checks for the active corpus. |
@@ -52,9 +52,12 @@ Working order:
 
 Current rung is Story Chain-backed but still local-first:
 
-- `npm run content:check` checks the active corpus contract.
-- `npm run typecheck`, `npm run lint`, and `npm run build` are the new product gates.
-- `npm run quality:contracts` checks skill drift, project knowledge, contract maps, Story Chain release verdict, surface audit, and new critical findings.
+- `npm run content:check` checks the active corpus contract and verifies that
+  `public/legacy/c4-3/data.js` matches `assets/content/*.json`.
+- `npm run legacy:check` syntax-checks and anchor-checks the protected trainer baseline JavaScript.
+- `npm run ui:check` checks `/explain` practice contract wiring and design baseline presence.
+- `npm run pages:check` builds the GitHub Pages export with `/get-the-feel` base path and rejects root-relative asset paths.
+- `npm run quality:contracts` checks skill drift, project knowledge, contract maps, Story Chain release verdict, non-empty surface audit, and new critical findings.
 - `npm run quality:check` runs all of the above.
 
 Deferred until demand or repeated engineering defects:

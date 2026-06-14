@@ -7,8 +7,8 @@ applies-to:
 covering-ledger: docs/contracts/story-chain/evidence-ledgers/current-build.ledger.md
 verdict: met
 evidence:
-  kind: rendered-dom
-  ref: public/legacy/c4-3/app.js
+  kind: runtime-output
+  ref: npm run legacy:check
 gateNotes: Self-graded writing remains weak evidence; speaking improvement is not claimed.
 ---
 

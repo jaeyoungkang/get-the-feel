@@ -32,6 +32,7 @@ export type TrainingItem = {
   answer_index: number;
   why_ko: string;
   type?: "sense-choice" | "verb-choice" | "sense-cloze" | "compose-choice";
+  verb_label?: string;
 };
 
 export type ContentFile = {

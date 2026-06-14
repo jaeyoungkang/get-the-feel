@@ -13,6 +13,9 @@ const TAG_PATTERNS = [
   /^\s*\/\/\s*@promise\s+(promise:[a-z0-9-]+)/,
   /^\s*\/\/\s*@aspect\s+(aspect:[a-z0-9-]+)/,
   /^\s*\/\/\s*@check\s+((?:intent-check|acceptance-check):[a-z0-9-]+)/,
+  /^\s*(?:<!--|\/\*)\s*@promise\s+(promise:[a-z0-9-]+)/,
+  /^\s*(?:<!--|\/\*)\s*@aspect\s+(aspect:[a-z0-9-]+)/,
+  /^\s*(?:<!--|\/\*)\s*@check\s+((?:intent-check|acceptance-check):[a-z0-9-]+)/,
 ];
 
 function toRepoRelative(absPath) {
@@ -47,22 +50,35 @@ function walkDir(absDir, out) {
 
 function listSurfaceFiles() {
   const files = [];
+  walkDir(join(REPO_ROOT, "app"), files);
   walkDir(join(REPO_ROOT, "src/features"), files);
   walkDir(join(REPO_ROOT, "src/app/(workspace)"), files);
   walkDir(join(REPO_ROOT, "src/app/api"), files);
-  for (const exact of ["src/app/page.tsx", "src/app/layout.tsx"]) {
+  for (const exact of [
+    "src/app/page.tsx",
+    "src/app/layout.tsx",
+    "public/legacy/c4-3/index.html",
+    "public/legacy/c4-3/styles.css",
+    "public/legacy/c4-3/app.js",
+    "public/legacy/c4-3/data.js",
+  ]) {
     if (existsSync(join(REPO_ROOT, exact))) files.push(exact);
   }
 
   return [...new Set(files)]
-    .filter((path) => /\.(ts|tsx|css)$/.test(path))
+    .filter((path) => /\.(ts|tsx|css|js|html)$/.test(path))
     .filter((path) => !/\/__tests__\/|\.test\./.test(path))
     .filter(
       (path) =>
         path.endsWith(".css") ||
+        path.endsWith(".js") ||
+        path.endsWith(".html") ||
         path.endsWith("route.ts") ||
         path.endsWith("page.tsx") ||
         path.endsWith("layout.tsx") ||
+        path.endsWith(".tsx") ||
+        path.startsWith("app/") ||
+        path.startsWith("public/legacy/c4-3/") ||
         path.startsWith("src/features/") ||
         path.startsWith("src/app/(workspace)/"),
     )
@@ -70,7 +86,7 @@ function listSurfaceFiles() {
 }
 
 function readTags(relPath) {
-  if (!/\.(ts|tsx)$/.test(relPath)) return [];
+  if (!/\.(ts|tsx|js|css|html)$/.test(relPath)) return [];
   const source = readFileSync(join(REPO_ROOT, relPath), "utf8");
   const lines = source.split(/\r?\n/).slice(0, TAG_SCAN_LINES);
   const tags = [];
@@ -186,6 +202,7 @@ function main() {
     process.stdout.write(formatReport(report));
   }
 
+  if (hasPromises && report.total === 0) process.exitCode = 1;
   if (report.orphans.length > 0) process.exitCode = 1;
 }
 

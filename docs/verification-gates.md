@@ -1,8 +1,47 @@
 # Verification Gates
 
-agentic-base keeps only the mechanical gates it actually owns. Heavier gates
-are added after bootstrap when a selected stack and real implementation surface
-exist.
+get-the-feel is now a bootstrapped product repo. The gate stack is intentionally
+local-first, but it must verify the real product surfaces: `app/`,
+`public/legacy/c4-3/`, `assets/content/`, and Story Chain contracts.
+
+## Product Gate
+
+```bash
+npm run quality:check
+```
+
+`quality:check` runs:
+
+- `npm run content:check` — active corpus contract plus legacy `data.js`
+  equivalence with `assets/content/*.json`
+- `npm run legacy:check` — syntax check for the protected trainer baseline
+- `npm run ui:check` — `/explain` practice contract and design baseline guard
+- `npm run typecheck`
+- `npm run lint`
+- `npm run build`
+- `npm run pages:check` — GitHub Pages `/get-the-feel` export path check
+- `npm run quality:contracts`
+
+## Contract Gate
+
+```bash
+npm run quality:contracts
+```
+
+`quality:contracts` runs:
+
+- `npm run guard:skills` — generated skills match `shared-skills/`
+- `npm run pk:validate` — project memory, event log, and change log shape
+- `npm run contract-maps:check` — Contract Map local links and README index
+- `npm run mc:validate-story-chain` — Story Chain graph and Evidence Ledger shape
+- `npm run mc:audit-surface` — Story Chain tags on actual `app/` surfaces and
+  the current trainer baseline
+- `npm run mc:check-new-criticals` — no new critical alignment debt
+
+## Legacy Template Notes
+
+The following sections are inherited from the base template and remain useful
+only as background for future gate growth. They do not override package scripts.
 
 ## Base Gate
 
@@ -78,14 +117,15 @@ release readiness while this gate is blocked. The base template itself may use
 `npm run quality:check`; `quality:release` is expected to fail until a real
 Story Chain exists.
 
-## Template Check
+## Template Check Background
 
 ```bash
 npm run quality:check
 ```
 
-`quality:check` validates the skeleton without requiring product-specific Story
-Chain content. Use it for agentic-base template maintenance.
+In agentic-base, `quality:check` validates the skeleton without requiring
+product-specific Story Chain content. In this product repo, `quality:check` is
+the product gate described above.
 
 Mission Control also reports optional Engineering Assurance parse-only status
 for `docs/contracts/engineering/`. At the current phase, malformed Engineering
