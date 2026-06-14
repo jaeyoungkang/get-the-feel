@@ -15,7 +15,5 @@
 
 - 콘텐츠 스키마와 출처 정본은 `assets/content/CONTRACT.md`와
   `assets/content/sources.md`에 둔다.
-- 과거 asset map, elevation plan, principles, domain activation guide는
-  archive에 보존한다.
 - 새 Promise, Acceptance Check, Aspect, Evidence Ledger는 이 디렉터리에 직접
   만들지 않는다. Story Chain에 만들고 여기에는 필요한 요약만 반영한다.

@@ -25,7 +25,7 @@
       "id": "be-state",
       "ko": "주어가 어떤 상태나 정체로 옮겨 가는 게 아니라, 지금 그 상태·정체로 가만히 머물러 있다는 정적 감각 — 계사 be가 주어와 상태를 등호로 잇는다.",
       "image": "주어가 '피곤함'이나 '선생님'이라는 자리에 머물러 가만히 있는 그림 — 어디서 그리로 옮겨 온 움직임 없이, 지금 그 상태·정체 위에 그대로 놓여 있다.",
-      "boundary_ko": "be tired는 피곤한 상태에 '머물러 있음'(I am tired = 지금 피곤한 자리에 있음), get tired는 그 상태로 '옮겨 가 닿음'(I get tired = 피곤한 자리로 이동하는 진입 사건). be married는 부부인 상태에 머묾, get married는 그 상태로 막 진입함(c4-1 get-into-state와 연결). 시점 부사가 붙어 '~한 순간/그때'를 가리키면 머묾이 아니라 진입이라 get 쪽이다.",
+      "boundary_ko": "be tired는 피곤한 상태에 '머물러 있음'(I am tired = 지금 피곤한 자리에 있음), get tired는 그 상태로 '옮겨 가 닿음'(I get tired = 피곤한 자리로 이동하는 진입 사건). be married는 부부인 상태에 머묾, get married는 그 상태로 막 진입함(get-into-state와 연결). 시점 부사가 붙어 '~한 순간/그때'를 가리키면 머묾이 아니라 진입이라 get 쪽이다.",
       "source_refs": [
         {
           "source_id": "langacker-1987",

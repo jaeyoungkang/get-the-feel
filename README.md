@@ -22,15 +22,15 @@
 
 - 배포: https://jaeyoung2026.github.io/get-the-feel/
 - 앱: Next.js App Router shell
-- 제품 표면: `/` legacy trainer, `/explain` 문장 해설→연습
+- 제품 표면: `/` native trainer, `/explain` 문장 해설→연습
 - 코퍼스: 11파일, 24 sense, 173문항
-- 현재 trainer snapshot: c4-3
 - Story Chain: `npm run mc:status` release ready
 
 ## 검증
 
 ```bash
 npm run quality:check
+npm run content:check
 npm run quality:contracts
 npm run mc:status
 ```

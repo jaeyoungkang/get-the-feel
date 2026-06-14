@@ -1,8 +1,7 @@
 # get-the-feel — Product Contract
 
 > 현재 정본: Story Chain. 이 문서는 `docs/contracts/story-chain/`을 읽기 쉽게
-> 요약한 제품 계약이다. 과거 운영 기준은 역사적 기록이며 새 제품 개발
-> 기준이 아니다.
+> 요약한 제품 계약이다.
 
 ## Primary Promise
 
@@ -47,7 +46,7 @@
 제품 정체성은 네 축으로 유지한다.
 
 1. 핵심 동사 감각: have, get, take, make, keep, be, go, come.
-2. 불변화사·전치사 감각: 현재 up, out. 다음 후보는 down/off/in.
+2. 불변화사·전치사 감각: 현재 up, out. 다음 확장 대상은 down/off/in.
 3. 구동사 감각: 현재 V+up. 동사 감각과 불변화사 감각의 합성으로 설명한다.
 4. 어순·구문 감각: 아직 제품 정체성의 빈 칸이다. 새 기능으로 다룰 때는
    별도 Story Chain promise와 콘텐츠 계약이 필요하다.
@@ -85,7 +84,7 @@ LLM이 문장·퀴즈 초안을 만들 수는 있다. 그러나 sense 설명은 
 | Claim | 현재 상태 |
 | --- | --- |
 | 현재 제품 표면이 동작한다 | `npm run quality:check`로 검증 |
-| 코퍼스가 데이터 계약을 지킨다 | `npm run verdict`로 검증 |
+| 코퍼스가 데이터 계약을 지킨다 | `npm run content:check`로 검증 |
 | 문장 해설이 코퍼스 기반으로 연습에 연결된다 | `/explain` route와 `src/content/explanation-index.ts`로 검증 |
 | 수요가 있다 | 아직 `demand_unknown` |
 | 학습 효과가 있다 | 아직 미검증. 현재 지표는 근사 evidence |

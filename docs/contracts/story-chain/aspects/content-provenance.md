@@ -8,7 +8,7 @@ covering-ledger: docs/contracts/story-chain/evidence-ledgers/current-build.ledge
 verdict: met
 evidence:
   kind: runtime-output
-  ref: npm run verdict
+  ref: npm run content:check
 gateNotes: Weak senses remain marked weak; this aspect blocks source-free content and unsupported explanation overclaim, not weak-to-strong promotion.
 ---
 
@@ -44,7 +44,7 @@ source_refs와 validation이 있는 sense를 사용해야 한다. 문장 해설�
 
 ## 4. Verification
 
-- coverage: `node tools/verdict/check.mjs c4-3` checks content schema, source-bearing sense records, data sync, training/transfer separation, labels, and cue discipline.
+- coverage: `scripts/content/check.mjs` checks content schema, source-bearing sense records, training/transfer separation, labels, choices, and duplicate normalized sentences.
 - coverage: `src/content/explanation-index.ts` builds explanation matches only from `CURRENT_CONTENT` and practice items tied to the same `sense_id`.
 - wovenness: This aspect is cited by both covered promises and `current-build.ledger.md`.
 - verdict: `met` for the current build.

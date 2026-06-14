@@ -20,7 +20,7 @@ coveringLedgers:
 verdict: met
 evidence:
   kind: rendered-dom
-  ref: public/legacy/c4-3/app.js
+  ref: app/trainer.tsx
 gateNotes: Local statistics are personal learning records, not learning-effect or demand proof.
 ---
 
@@ -42,7 +42,7 @@ gateNotes: Local statistics are personal learning records, not learning-effect o
 ### intent-check:weakness-guided-focus
 
 - question: 사용자가 세션 결과에서 sense-level 약점을 보고 같은 감각의 집중 연습으로 이동할 수 있는가?
-- evidence: rendered-dom: `public/legacy/c4-3/app.js`; runtime-output: `npm run verdict`.
+- evidence: rendered-dom: `app/trainer.tsx`; runtime-output: `npm run build`.
 - why live judge: 통계 표면이 있어도 사용자가 다음 행동을 찾지 못하면 약점 기반 학습 경로로 작동하지 않는다. 실제 재방문 동기는 demand-1에서 별도로 본다.
 - linked acceptance checks:
   - acceptance-check:focus-and-stats-present
@@ -53,9 +53,9 @@ gateNotes: Local statistics are personal learning records, not learning-effect o
 
 ### acceptance-check:focus-and-stats-present
 
-- description: The representative c4-3 app includes sense-level stats and focused practice entry points.
-- evidence: rendered-dom: `public/legacy/c4-3/app.js`; runtime-output: `npm run verdict`.
-- run: `npm run verdict`
+- description: The native trainer includes sense-level stats and focused practice entry points.
+- evidence: rendered-dom: `app/trainer.tsx`; runtime-output: `npm run build`.
+- run: `npm run build`
 
 ### acceptance-check:stats-do-not-claim-demand
 
@@ -68,5 +68,5 @@ gateNotes: Local statistics are personal learning records, not learning-effect o
 ```yaml
 evidence:
   kind: rendered-dom
-  ref: public/legacy/c4-3/app.js
+  ref: app/trainer.tsx
 ```

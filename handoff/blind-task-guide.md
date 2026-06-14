@@ -1,11 +1,11 @@
-# get-the-feel — 타인 검증 패키지 (c4-3 trainer snapshot 기준)
+# get-the-feel — 타인 검증 패키지
 
 > 외부 학습자 1명에게 보내는 blind task 안내. 제품 설명·pitch 없이 task만 — 평가 오염 방지.
-> 현재 배포 기준: c4-3, 11파일 24 sense 173문항. 참가자에게는 이 기준선을 설명하지 않는다.
+> 현재 배포 기준: 11파일 24 sense 173문항. 참가자에게는 이 기준선을 설명하지 않는다.
 
 ## 보내는 것
 
-**URL 한 줄: https://jaeyoung2026.github.io/get-the-feel/** (GitHub Pages 배포 — approve-5 재결정 2026-06-11, 배포 산출물만 공개).
+**URL 한 줄: https://jaeyoung2026.github.io/get-the-feel/**.
 
 ## 참가자 안내문 (이대로 복사해 전송)
 

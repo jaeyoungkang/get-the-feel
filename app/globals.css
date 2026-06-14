@@ -71,11 +71,144 @@ a {
   text-decoration: none;
 }
 
-.legacy-frame {
+.native-trainer {
+  display: grid;
+  grid-template-columns: minmax(260px, 320px) minmax(0, 1fr);
+  gap: 16px;
+  max-width: 1240px;
   width: 100%;
-  min-height: 0;
-  border: 0;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.trainer-control-panel,
+.trainer-main-panel,
+.question-card {
+  border: 1px solid #d8d1c4;
+  background: #fffefa;
+}
+
+.trainer-control-panel {
+  align-self: start;
+  display: grid;
+  gap: 18px;
+  padding: 16px;
+}
+
+.trainer-main-panel {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+}
+
+.segmented-control {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.segmented-control button,
+.focus-picker select,
+.trainer-actions button,
+.primary-action {
+  border: 1px solid #c9c1b4;
+  padding: 9px 10px;
   background: #ffffff;
+  color: #2b312d;
+  font: inherit;
+}
+
+.segmented-control button {
+  cursor: pointer;
+}
+
+.segmented-control button.is-active,
+.primary-action,
+.trainer-actions button {
+  background: #23473a;
+  color: #ffffff;
+  border-color: #23473a;
+}
+
+.focus-picker {
+  display: grid;
+  gap: 8px;
+  color: #4f5852;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.focus-picker select {
+  width: 100%;
+  color: #1d211f;
+  font-weight: 400;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid #d8d1c4;
+  border-left: 1px solid #d8d1c4;
+}
+
+.stat-grid div {
+  display: grid;
+  gap: 4px;
+  min-height: 72px;
+  padding: 10px;
+  border-right: 1px solid #d8d1c4;
+  border-bottom: 1px solid #d8d1c4;
+  background: #fbfaf7;
+}
+
+.stat-grid span,
+.question-meta span {
+  color: #5e655f;
+  font-size: 12px;
+}
+
+.stat-grid strong {
+  font-size: 22px;
+}
+
+.question-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.question-meta span {
+  border: 1px solid #c9c1b4;
+  padding: 4px 7px;
+  background: #f6f3ee;
+}
+
+.question-card {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+}
+
+.question-card h2 {
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.production-box {
+  width: 100%;
+  border: 1px solid #c9c1b4;
+  padding: 12px;
+  background: #ffffff;
+  color: #1d211f;
+  font: inherit;
+  line-height: 1.5;
+}
+
+.trainer-actions {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .status-page {
@@ -417,6 +550,7 @@ a {
     flex-direction: column;
   }
 
+  .native-trainer,
   .explain-workspace,
   .practice-list {
     grid-template-columns: 1fr;
@@ -424,10 +558,6 @@ a {
 
   .practice-panel {
     grid-column: auto;
-  }
-
-  .legacy-frame {
-    min-height: 720px;
   }
 
   .status-grid {

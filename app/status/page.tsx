@@ -13,13 +13,13 @@ export default function StatusPage() {
       </Link>
       <h1>Project Status</h1>
       <p>
-        Formal product development now starts from Story Chain contracts, with
-        c4-3 kept as the current trainer snapshot for compatibility.
+        Formal product development starts from Story Chain contracts and the
+        active Next/React trainer surface.
       </p>
       <dl className="status-grid">
         <div>
           <dt>Representative</dt>
-          <dd>c4-3 trainer snapshot</dd>
+          <dd>Native trainer and sentence explanation flow</dd>
         </div>
         <div>
           <dt>Content</dt>
@@ -37,7 +37,7 @@ export default function StatusPage() {
         </div>
         <div>
           <dt>Next product work</dt>
-          <dd>demand-1 remains separate; engineering now uses app/src/public/scripts.</dd>
+          <dd>demand-1 remains separate; engineering now uses app, src, assets, and scripts.</dd>
         </div>
       </dl>
     </main>

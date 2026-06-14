@@ -9,8 +9,7 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "lint": "eslint app src scripts --max-warnings=0",
-    "snapshot:sync": "node scripts/training-snapshots/sync-current.mjs",
-    "verdict": "node tools/verdict/check.mjs c4-3",
+    "content:check": "node scripts/content/check.mjs",
     "skills:sync": "python3 scripts/sync-agent-skills.py",
     "guard:skills": "python3 scripts/sync-agent-skills.py --check",
     "contract-maps:check": "node scripts/contract-maps/check.mjs",
@@ -26,7 +25,7 @@
     "pk:validate": "node scripts/project-knowledge.mjs validate",
     "project:event": "node scripts/project-knowledge.mjs event",
     "quality:contracts": "npm run guard:skills && npm run pk:validate && npm run contract-maps:check && npm run mc:validate-story-chain && npm run mc:audit-surface && npm run mc:check-new-criticals",
-    "quality:check": "npm run snapshot:sync && npm run verdict && npm run typecheck && npm run lint && npm run build && npm run quality:contracts"
+    "quality:check": "npm run content:check && npm run typecheck && npm run lint && npm run build && npm run quality:contracts"
   },
   "dependencies": {
     "mdast-util-to-string": "^4.0.0",

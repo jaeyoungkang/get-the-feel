@@ -76,7 +76,7 @@
         "method": "subagent-consensus",
         "strength": "weak",
         "date": "2026-06-13",
-        "basis": "c4-1 content-consensus 3자 합의(생성·적대적 검수·수정). inchoative 핵심 주장은 get-state-change와 동일 T1(langacker-1987·lakoff-1993) 계열 — 과거분사로의 확장. mediopassive/재귀 기원 라벨은 미확인 표기(원전 직접 귀속 아님). strong 승격은 사람 리뷰(approve 절차) 대기."
+        "basis": "content-consensus 3자 합의(생성·적대적 검수·수정). inchoative 핵심 주장은 get-state-change와 동일 T1(langacker-1987·lakoff-1993) 계열 — 과거분사로의 확장. mediopassive/재귀 기원 라벨은 미확인 표기(원전 직접 귀속 아님). strong 승격은 사람 리뷰 대기."
       }
     }
   ],

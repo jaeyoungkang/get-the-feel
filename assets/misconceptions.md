@@ -15,9 +15,9 @@ R2(근접 오개념 오답)·R3(경계 문항)의 **설계 재료 정본**. 매 
 
 ## 문법 행동 오개념
 
-- **정적 have의 진행형** (*I am having a sister) ↔ 사건성 have는 가능 (are having lunch) — boundary_ko 표지, c1-1 검수 B2
+- **정적 have의 진행형** (*I am having a sister) ↔ 사건성 have는 가능 (are having lunch) — boundary_ko 표지
 - **be vs get 상태** (was dark = 상태 / got dark = 변화 진입) — get-x4 (검수 M2로 문장 교정)
-- **be married vs get married** (be+과거분사 = 정적 상태/수동 / get+과거분사 = 결과 상태로의 진입 사건, 진행 가능) — get-into-state, 한국인이 get+pp를 수동태(be married by~)로 오독 (c4-1)
+- **be married vs get married** (be+과거분사 = 정적 상태/수동 / get+과거분사 = 결과 상태로의 진입 사건, 진행 가능) — get-into-state, 한국인이 get+pp를 수동태(be married by~)로 오독
 - ***make homework*** — do(행위) vs make(새로 생겨남) 한국인 최대 혼동 — make-t7
 - **keep vs stay** — stay는 스스로 머묾, keep은 붙드는 힘 — keep-t8
 

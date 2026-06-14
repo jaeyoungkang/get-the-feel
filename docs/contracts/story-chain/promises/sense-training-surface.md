@@ -21,8 +21,8 @@ coveringLedgers:
 verdict: met
 evidence:
   kind: rendered-dom
-  ref: app/page.tsx + public/legacy/c4-3/index.html
-gateNotes: The current surface still embeds the c4-3 trainer while typed React migration proceeds.
+  ref: app/page.tsx + app/trainer.tsx
+gateNotes: The current surface renders the native trainer from the Next app.
 ---
 
 # Sense Training Surface
@@ -43,7 +43,7 @@ gateNotes: The current surface still embeds the c4-3 trainer while typed React m
 ### intent-check:sense-training-surface
 
 - question: 첫 제품 표면이 마케팅 페이지나 일반 빈칸 퀴즈가 아니라, 영어 토박이 감각을 문장 단위로 훈련하는 실제 세션으로 읽히는가?
-- evidence: rendered-dom: `app/page.tsx` embeds `/legacy/c4-3/index.html`; runtime-output: `npm run verdict`.
+- evidence: rendered-dom: `app/page.tsx`, `app/trainer.tsx`; runtime-output: `npm run build`.
 - why live judge: 파일과 문항이 있어도 사용자가 단어뜻 암기 앱으로 느끼면 의도는 실패한다. 수요 검증은 demand-1에서 따로 닫는다.
 - linked acceptance checks:
   - acceptance-check:sense-training-surface-current-build
@@ -55,26 +55,26 @@ gateNotes: The current surface still embeds the c4-3 trainer while typed React m
 
 ### acceptance-check:sense-training-surface-current-build
 
-- description: `/` route renders the current product shell and serves the representative c4-3 trainer through `/legacy/c4-3/index.html`.
+- description: `/` route renders the current product shell and native trainer.
 - evidence: rendered-dom: `app/page.tsx`; runtime-output: `npm run build`.
 - run: `npm run build`
 
 ### acceptance-check:sense-training-cue-discipline
 
 - description: The representative trainer hides sentence Korean, item label, sense label, and feedback cues before the user answers, then reveals them after answer.
-- evidence: runtime-output: `node tools/verdict/check.mjs c4-3` question-cue and sentence-ko groups.
-- run: `npm run verdict`
+- evidence: code-trace: `app/trainer.tsx` answer state gates feedback, Korean text, and sense explanation.
+- run: `npm run build`
 
 ### acceptance-check:sense-training-corpus-contract
 
 - description: All loaded content files keep source-backed sense records, mandatory labels, separated training/transfer pools, shuffled choices, and no duplicate normalized sentences across the corpus.
-- evidence: runtime-output: `node tools/verdict/check.mjs c4-3` content-contract, data-sync, separation-surface, choice-shuffle, label-fields groups.
-- run: `npm run verdict`
+- evidence: runtime-output: `npm run content:check`.
+- run: `npm run content:check`
 
 ## Evidence
 
 ```yaml
 evidence:
   kind: rendered-dom
-  ref: app/page.tsx + public/legacy/c4-3/index.html
+  ref: app/page.tsx + app/trainer.tsx
 ```
