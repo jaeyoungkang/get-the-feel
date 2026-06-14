@@ -1,7 +1,7 @@
 # Engineering Profile — 가칭 `{{PROJECT_NAME}}`
 
 > 이 문서는 **구현 전 engineering decision의 SSOT**.
-> `docs/PRODUCT.md` 와 Story Chain(`docs/contracts/story-chain/`)이 정의한 제품 계약을, 실제 구현 가능한 공학적 제약으로 바꾸는 중간 계층이다.
+> `product/contract.md` 와 Story Chain(`docs/contracts/story-chain/`)이 정의한 제품 계약을, 실제 구현 가능한 공학적 제약으로 바꾸는 중간 계층이다.
 
 이 문서는 모든 engineering choice를 지금 다 확정하려고 쓰는 문서가 아니다.
 

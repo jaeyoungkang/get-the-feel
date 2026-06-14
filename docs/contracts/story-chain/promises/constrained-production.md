@@ -54,7 +54,7 @@ gateNotes: Production remains constrained writing, not speaking.
 ### acceptance-check:production-mode-present
 
 - description: The representative c4-3 app includes constrained production modes inherited from c4-2: blank typing, order rearrangement, and whole-sentence writing.
-- evidence: rendered-dom: `public/legacy/c4-3/app.js`; record: `archive/prototypes/c4-3/cycle-record.md`.
+- evidence: rendered-dom: `public/legacy/c4-3/app.js`; runtime-output: `npm run verdict`.
 - run: `npm run verdict`
 
 ### acceptance-check:production-evidence-separated

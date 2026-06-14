@@ -1,8 +1,8 @@
-# 수요 검증 계획 (대표 프로토타입 증거 기준)
+# 수요 검증 계획 (c4-3 trainer snapshot 기준)
 
 > 각 항목은 한 줄 라벨이 아니라 **구체값**이어야 한다. 빈 값·라벨-only는 수요 판정 근거가 될 수 없다.
 > 이 문서는 *출시 후 수요 검증*의 설계도다. demand_status는 실제 사용자 검증 후 채워진다.
-> 현재 기준선: 대표 프로토타입 증거 `archive/prototypes/c4-3/`, 배포 URL https://jaeyoung2026.github.io/get-the-feel/ , 11파일 24 sense 173문항.
+> 현재 기준선: c4-3 trainer snapshot, 배포 URL https://jaeyoung2026.github.io/get-the-feel/ , 11파일 24 sense 173문항.
 
 | 항목 | 구체값 |
 |---|---|
@@ -11,7 +11,7 @@
 | `최소_artifact` | 배포된 c4-3 (11파일 24 sense 173문항, 핵심 동사 8·불변화사 2·구동사 1, 인식+산출 모드, 감각별 통계, 해석 피드백, 로컬 기록) + blind task 안내문 4질문 |
 | `반증_질문` | ① "단어 암기/퀴즈 앱"으로만 서술 → 차별점(감각 전달) 기각 ② 지목한 "새로 느낀 것" 0 → 훈련 가치 기각 ③ 이유 있는 "내일 안 연다" 다수 → 재방문 구조(R6) 기각 ④ 보기 안 읽고 풀린다는 반응 → R11(보기 길이 누설) 미회수 신호 |
 | `금지_claim` | "학습 효과 검증됨" 금지(N<10, 효과 연구 아님) / 페르소나·본인·시뮬 기록을 수요 근거로 승격 금지(약한 verdict) / "출처 기반"은 감각 설명의 *귀속*이지 교육 효과 보증 아님 / "영어가 입에서 나온다" 금지 — 앱이 "알아보는 힘일 뿐"이라 자백한 선 유지 |
-| `검증_위치` | 타인 blind 결과 → demand evidence ledger 또는 `archive/prototypes/c4-3/cycle-record.md` append(덮어쓰기 금지) / 본인 기록 → localStorage export 또는 수동 기록 / 집계 → 이 파일 하단 결과 섹션 |
+| `검증_위치` | 타인 blind 결과 → demand evidence ledger append(덮어쓰기 금지) / 본인 기록 → localStorage export 또는 수동 기록 / 집계 → 이 파일 하단 결과 섹션 |
 
 ## 표본·판정 임계 (확정)
 
@@ -25,11 +25,11 @@
 ## 운영 계약 (thin path — "매일 새 문장 공급" 약속)
 
 이 제품의 유일한 운영 약속은 *콘텐츠 공급*이다 (실시간 데이터·예측 없음 — 정적 앱). 최소 계약:
-- `as_of`: 콘텐츠는 대표 프로토타입 증거 c4-3(11파일 24 sense 173문항, 2026-06-13 배포) 기준 고정. 갱신 시 버전 표기.
+- `as_of`: 콘텐츠는 c4-3 trainer snapshot(11파일 24 sense 173문항, 2026-06-13 배포) 기준 고정. 갱신 시 버전 표기.
 - `provenance`: 전 sense `source_refs` + `validation` 필드 존재. 현재 strong 17 sense + weak 7 sense(`get-into-state`, `be`, `go`, `come` 계열 사람 리뷰 대기). weak→strong 승격은 별도 사람 승인 전까지 금지.
 - `상태 구분`: "새 문장 N개 남음"은 *이 브라우저 localStorage 출제 이력* 기준 (서버 없음 — 기기·브라우저별 독립). ⓘ에 명시됨.
 - `소진 처리`: 173문항 출제 완료 시 "한 바퀴 완주 → 복습 모드"로 정직 전환 (빈 화면 금지). 진짜 "매일 새 문장"의 지속은 코퍼스 확장(다음 동사·불변화사·어순 축)에 의존 — 이건 출시 후 운영 약속이며, 현재는 7일치 이상을 보장.
-- `correction`: 콘텐츠 오류 발견 시 코퍼스 수정 → content-consensus 재검수 → 재배포. 보관된 프로토타입 증거는 마감 시점 고정으로 둔다.
+- `correction`: 콘텐츠 오류 발견 시 코퍼스 수정 → content-consensus 재검수 → 재배포. 보관된 snapshot은 마감 시점 고정으로 둔다.
 
 ## 결과 기록 (append-only)
 

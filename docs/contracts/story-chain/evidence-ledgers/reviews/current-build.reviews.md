@@ -35,7 +35,7 @@ acReviewedRevision:
   - 1
 fixtureRef: docs/contracts/story-chain/evidence-ledgers/current-build.ledger.md
 runCommitSha: worktree-run-2026-06-14-story-chain-hardening
-observedOutput: `npm run quality:check` completed the prototype sync, c4-3 verdict, TypeScript check, ESLint, Next build including `/explain`, skill drift check, project knowledge validation, contract map check, Story Chain validation, surface audit, and new-critical check with release verdict ready.
+observedOutput: `npm run quality:check` completed the trainer snapshot sync, c4-3 verdict, TypeScript check, ESLint, Next build including `/explain`, skill drift check, project knowledge validation, contract map check, Story Chain validation, surface audit, and new-critical check with release verdict ready.
 gaps:
   - adopt: The current product shell still embeds the legacy c4-3 trainer; this is accepted as a compatibility bridge while new product work moves into `app/` and `src/`.
   - adopt: Sentence explanation is intentionally rule-based and corpus-bound; this prevents unsupported grammar correction claims while still connecting supported senses to practice.
@@ -43,7 +43,7 @@ gaps:
 verdict: met
 ```
 
-Input: the current Next product surface, c4-3 representative trainer evidence,
+Input: the current Next product surface, c4-3 trainer snapshot evidence,
 and `/explain` sentence-to-practice route.
 
 Evidence:

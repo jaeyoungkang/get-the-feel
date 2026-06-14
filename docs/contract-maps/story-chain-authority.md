@@ -8,7 +8,7 @@ It does not define Story Chain concepts. It points to the files that do.
 
 | Authority | Owns | Agent may advance? | Main sources |
 | --- | --- | --- | --- |
-| Human | Product meaning, Promise existence, Aspect meaning, bootstrap approval | No | Story Chain concepts, pilot lifecycle |
+| Human | Product meaning, Promise existence, Aspect meaning | No | Story Chain concepts, product contract |
 | Agent | Drafting, propagation, Evidence Ledger wiring, Engineering Assurance wiring, operations routing, code/test targets | Yes | Promise/Aspect/Evidence Ledger files, Engineering Assurance contracts, operations runbooks |
 | Evaluator | Deterministic checks and live judges after a project has them | Yes | Evidence Ledger, project tests |
 | System | CI, release gates, Story Chain validators | No | package scripts, Mission Control |
@@ -16,13 +16,13 @@ It does not define Story Chain concepts. It points to the files that do.
 Sources:
 
 - [`docs/contracts/story-chain/concepts.md`](../contracts/story-chain/concepts.md)
-- [`docs/pilot-lifecycle.md`](../pilot-lifecycle.md)
+- [`product/contract.md`](../../product/contract.md)
 
 ## Product Meaning
 
-Product meaning starts in Product docs, samples, Experience, Moment, Promise,
-and Aspect documents. Agents can draft text, but approval of a new Promise or
-Aspect meaning is Human authority.
+Product meaning starts in the product contract, Experience, Moment, Promise, and
+Aspect documents. Agents can draft text, but approval of a new Promise or Aspect
+meaning is Human authority.
 
 When the question is "should the product promise this?", stop at Human
 authority. When the question is "how do we propagate an approved promise?",
@@ -59,6 +59,6 @@ For a new product-facing commitment:
 2. Story Chain concepts.
 3. Affected Experience, Moment, Promise, and Aspect.
 4. Covering Evidence Ledger.
-5. Code/test targets after bootstrap.
+5. Code/test targets.
 
 Do not use this map as the approval artifact.

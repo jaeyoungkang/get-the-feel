@@ -14,7 +14,7 @@
 - `assets/` — 콘텐츠·훈련·UX 정본
 - `fix_plan.md` — 작업 큐
 
-현재 저장소는 Story Chain + Mission Control 기반의 정식 제품 프로젝트다. product-weaver/Spiral Loop 문서는 과거 프로토타입 운영 기록으로만 남아 있으며, 새 제품 개발은 Story Chain 계약을 따른다.
+현재 저장소는 Story Chain + Mission Control 기반의 정식 제품 프로젝트다. 새 제품 개발은 Story Chain 계약을 따른다.
 
 ## 상태
 
@@ -24,7 +24,7 @@
 - 앱: Next.js App Router shell
 - 제품 표면: `/` legacy trainer, `/explain` 문장 해설→연습
 - 코퍼스: 11파일, 24 sense, 173문항
-- 프로토타입 증거: `archive/prototypes/c4-3/`
+- 현재 trainer snapshot: c4-3
 - Story Chain: `npm run mc:status` release ready
 
 ## 검증

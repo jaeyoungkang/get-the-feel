@@ -1,8 +1,8 @@
 # get-the-feel — Product Contract
 
 > 현재 정본: Story Chain. 이 문서는 `docs/contracts/story-chain/`을 읽기 쉽게
-> 요약한 제품 계약이다. 과거 product-weaver/Spiral 기준은 프로토타입 시절의
-> 역사적 기록이며 새 제품 개발 기준이 아니다.
+> 요약한 제품 계약이다. 과거 운영 기준은 역사적 기록이며 새 제품 개발
+> 기준이 아니다.
 
 ## Primary Promise
 

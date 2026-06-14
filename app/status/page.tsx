@@ -13,14 +13,13 @@ export default function StatusPage() {
       </Link>
       <h1>Project Status</h1>
       <p>
-        Formal product development now starts from the c4-3 representative build,
-        while earlier prototypes remain archived under{" "}
-        <code>archive/prototypes/</code>.
+        Formal product development now starts from Story Chain contracts, with
+        c4-3 kept as the current trainer snapshot for compatibility.
       </p>
       <dl className="status-grid">
         <div>
           <dt>Representative</dt>
-          <dd>archive/prototypes/c4-3</dd>
+          <dd>c4-3 trainer snapshot</dd>
         </div>
         <div>
           <dt>Content</dt>

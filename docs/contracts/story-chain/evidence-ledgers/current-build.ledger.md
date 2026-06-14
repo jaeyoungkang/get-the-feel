@@ -37,10 +37,10 @@ legacy trainer compatibility layer.
   - evidence: rendered-dom: `app/explain/page.tsx`; code-trace: `src/content/explanation-index.ts`
 - intent-check:constrained-production
   - source promise: promise:constrained-production
-  - evidence: rendered-dom: `public/legacy/c4-3/app.js`; record: `archive/prototypes/c4-3/cycle-record.md`
+  - evidence: rendered-dom: `public/legacy/c4-3/app.js`; runtime-output: `npm run verdict`
 - intent-check:weakness-guided-focus
   - source promise: promise:weakness-guided-focus
-  - evidence: rendered-dom: `public/legacy/c4-3/app.js`; record: `archive/prototypes/c4-3/cycle-record.md`
+  - evidence: rendered-dom: `public/legacy/c4-3/app.js`; runtime-output: `npm run verdict`
 
 ## Acceptance Checks
 
@@ -53,14 +53,14 @@ legacy trainer compatibility layer.
 > | promise:sentence-explanation-to-practice | acceptance-check:sentence-explanation-route | rendered-dom: `app/explain/page.tsx`; server-rendered response: `curl -fsS http://127.0.0.1:3000/explain` | Product shell + explanation workspace | `npm run build` | scenario:sentence-to-practice |
 > | promise:sentence-explanation-to-practice | acceptance-check:sentence-explanation-supported-scope | code-trace: `src/content/explanation-index.ts`; rendered-dom empty state: `app/explain/sentence-explainer.tsx` | Explanation matcher | `npm run typecheck` | scenario:sentence-to-practice |
 > | promise:sentence-explanation-to-practice | acceptance-check:sentence-explanation-practice-link | code-trace: `practiceForSense` in `src/content/explanation-index.ts`; rendered-dom: `app/explain/sentence-explainer.tsx` | Explanation-to-practice bridge | `npm run build` | scenario:sentence-to-practice |
-> | promise:constrained-production | acceptance-check:production-mode-present | rendered-dom: `public/legacy/c4-3/app.js`; record: `archive/prototypes/c4-3/cycle-record.md` | Representative trainer output mode | `npm run verdict` | scenario:first-training-session |
+> | promise:constrained-production | acceptance-check:production-mode-present | rendered-dom: `public/legacy/c4-3/app.js`; runtime-output: `npm run verdict` | Representative trainer output mode | `npm run verdict` | scenario:first-training-session |
 > | promise:constrained-production | acceptance-check:production-evidence-separated | rendered-dom: `public/legacy/c4-3/app.js`; aspect: `aspect:recognition-production-separation` | Output statistics and labels | `npm run verdict` | scenario:first-training-session |
-> | promise:weakness-guided-focus | acceptance-check:focus-and-stats-present | rendered-dom: `public/legacy/c4-3/app.js`; record: `archive/prototypes/c4-3/cycle-record.md` | Representative trainer progress surface | `npm run verdict` | scenario:first-training-session |
+> | promise:weakness-guided-focus | acceptance-check:focus-and-stats-present | rendered-dom: `public/legacy/c4-3/app.js`; runtime-output: `npm run verdict` | Representative trainer progress surface | `npm run verdict` | scenario:first-training-session |
 > | promise:weakness-guided-focus | acceptance-check:stats-do-not-claim-demand | docs: `product/demand-validation.md`, `product/contract.md`; aspect: `aspect:recognition-production-separation` | Product claims and validation docs | `npm run quality:contracts` | scenario:first-training-session |
 
 ## Implementation Contracts
 
-- The product shell route `/` remains a compatibility bridge while the trainer is migrated into typed React modules. The source of truth for new product work is `app/` and `src/`, not `archive/prototypes/` or `public/legacy/`.
+- The product shell route `/` remains a compatibility bridge while the trainer is migrated into typed React modules. The source of truth for new product work is `app/` and `src/`, not archived snapshots or `public/legacy/`.
 - The sentence explanation route is intentionally corpus-bound. It may detect target words and rank likely senses, but it cannot invent unsupported grammar correction or vocabulary explanation.
 - Recognition and production evidence remain separate until a stronger measurement design exists.
 - Content provenance applies to both generated training content and user-entered sentence explanation.
@@ -68,12 +68,12 @@ legacy trainer compatibility layer.
 ## Executable Checks
 
 ```run:shell
-# Full product, prototype compatibility, Story Chain, and contract gates.
+# Full product, snapshot compatibility, Story Chain, and contract gates.
 npm run quality:check
 ```
 
 ```run:shell
-# Prototype compatibility verdict for the representative c4-3 trainer.
+# Snapshot compatibility verdict for the representative c4-3 trainer.
 npm run verdict
 ```
 

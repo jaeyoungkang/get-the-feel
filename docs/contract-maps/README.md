@@ -15,9 +15,7 @@ crosses many files, which current sources should a human or agent read together?
 
 | Layer | Owns | Contract Map relationship |
 | --- | --- | --- |
-| `docs/PRODUCT.md` | Product identity for the cloned project | Read as source after the owner fills it |
-| `docs/pilot-lifecycle.md` | Clone -> sample -> Story Chain -> bootstrap sequence | Read as source |
-| `docs/governance-activation-guide.md` | Activation guide for governance layers and external research | Read as source before enabling optional layers |
+| `product/contract.md` | Human-readable product contract summary | Read as a summary after Story Chain |
 | `docs/contracts/story-chain/` | Experience, Moment, Promise, Aspect, Evidence Ledger | Read as source |
 | `docs/contracts/engineering/` | Optional internal invariant, lifecycle, control, evidence-kind contracts | Read as source when enabled |
 | `docs/operations/` | Runnable operational procedures and rollback boundaries | Read as source after bootstrap operations exist |
@@ -31,8 +29,6 @@ owning source through Mission Control or the relevant steward.
 
 ## Current Maps
 
-- [`pilot-lifecycle.md`](pilot-lifecycle.md) — how initial intent, samples,
-  Story Chain, bootstrap, propagation, and wiring verification fit together.
 - [`story-chain-authority.md`](story-chain-authority.md) — how product meaning,
   propagation, evidence, evaluator, and system gate authority are split.
 - [`quality-gates.md`](quality-gates.md) — how template maintenance and release

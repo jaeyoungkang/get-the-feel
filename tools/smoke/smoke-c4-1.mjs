@@ -12,7 +12,7 @@ import url from "node:url";
 import { JSDOM } from "jsdom";
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
-const CAND = path.resolve(__dirname, "..", "..", "archive", "prototypes", "c4-1");
+const CAND = path.resolve(__dirname, "..", "..", "archive", "training-snapshots", "closed", "c4-1");
 
 const html = fs.readFileSync(path.join(CAND, "index.html"), "utf8");
 const dataJs = fs.readFileSync(path.join(CAND, "data.js"), "utf8");

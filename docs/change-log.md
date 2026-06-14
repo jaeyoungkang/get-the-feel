@@ -11,6 +11,6 @@
 
 - Expanded the active Story Chain into richer Experience, Moment, Promise, Aspect, Evidence Ledger, and Sufficiency Review documents following the lighthouse contract style.
 - Split sentence inquiry into its own Moment and connected `/explain` to dedicated acceptance checks and code traces.
-- Archived product-weaver/Spiral-era operating documents under `archive/product-weaver/` and removed obsolete Spiral-loop skills from the active skill suite.
-- Reframed c4-3 as representative prototype evidence, not the current development workflow.
+- Archived historical operating documents and removed obsolete loop skills from the active skill suite.
+- Reframed c4-3 as the current trainer snapshot for compatibility, not the current development workflow.
 - Slimmed `product/` to product contract and demand validation only; moved content source authority to `assets/content/sources.md`.

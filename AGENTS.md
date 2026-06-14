@@ -2,18 +2,18 @@
 
 **한국인 영어 학습자가 영어의 게르만 토박이 층위 감각(have/get/take/make/keep/be/go/come · up/out · 구동사 · 어순)을 문장·해설·퀴즈·산출로 체화하는 트레이닝 웹 앱.**
 
-이 저장소의 현재 운영 정본은 **Story Chain + Mission Control + engineering assurance**다. product-weaver/Spiral Loop는 프로토타입을 만들 때 쓴 과거 방법론이며, 새 제품 개발의 운영 기준이 아니다. 과거 후보와 cycle record는 `archive/prototypes/`에 증거로만 보존한다.
+이 저장소의 현재 운영 정본은 **Story Chain + Mission Control + engineering assurance**다. 새 제품 개발은 Story Chain 계약을 따른다. 과거 실행 기록은 archive에 보존하되 현재 작업의 기준으로 쓰지 않는다.
 
 ---
 
 ## 현재 상태 (2026-06-14)
 
-- **제품 단계**: 정식 제품 개발 기준선. 프로토타입 대표 증거 c4-3는 보관 상태이며, 새 기능은 `app/`·`src/`와 Story Chain 계약으로 진행한다.
+- **제품 단계**: 정식 제품 개발 기준선. c4-3는 current trainer snapshot이며, 새 기능은 `app/`·`src/`와 Story Chain 계약으로 진행한다.
 - **라이브 배포**: https://jaeyoung2026.github.io/get-the-feel/
 - **현재 제품 표면**: `/`는 legacy c4-3 trainer를 임베드하고, `/explain`은 사용자가 준 영어 문장을 현재 코퍼스 감각 해설과 연습 문항으로 연결한다.
 - **코퍼스**: `assets/content/` 11파일 24 sense 173문항. 핵심 동사 8, 불변화사 2, 구동사 V+up. weak sense는 사람 출처 리뷰 전까지 strong으로 올리지 않는다.
 - **Story Chain 상태**: `npm run mc:status` 기준 release ready. 1 experience, 2 moments, 4 active promises, 2 aspects, `current-build.ledger.md` evidence.
-- **프로토타입 증거**: `archive/prototypes/c4-3/`는 현재 legacy trainer의 근거다. 직접 수정하지 않는다.
+- **Trainer snapshot**: c4-3는 현재 legacy trainer의 근거다. archive의 snapshot 파일은 직접 수정하지 않는다.
 
 ### 열린 일
 
@@ -48,7 +48,7 @@
 2. **계약 범위 결정** — 새 의미면 Human authority가 필요하다. 이미 승인된 의미의 보강·전파·evidence 정리는 Agent가 진행할 수 있다.
 3. **Promise/Aspect 갱신** — `docs/contracts/story-chain/promises/`와 `aspects/`를 먼저 정리한다. Acceptance Check는 관찰 가능한 deterministic contract로 쓴다.
 4. **Evidence Ledger 연결** — `check:evidence-coverage` row, run command, scenario, Sufficiency Review를 같은 변경에 맞춘다.
-5. **구현** — 제품 코드는 `app/`·`src/`에 둔다. `public/legacy/c4-3/`는 `npm run prototype:sync`의 산출물이다.
+5. **구현** — 제품 코드는 `app/`·`src/`에 둔다. `public/legacy/c4-3/`는 `npm run snapshot:sync`의 산출물이다.
 6. **검증** — 코드 변경은 `npm run quality:check`, 문서/계약 변경만 있어도 `npm run quality:contracts`를 통과시킨다.
 7. **기록** — 운영상 의미 있는 결정은 `docs/change-log.md`, `docs/project-events/`, 필요 시 project knowledge에 남긴다.
 8. **커밋** — 한 turn = 한 항목 = 한 commit.
@@ -69,10 +69,10 @@ npm run guard:skills
 npm run pk:validate
 ```
 
-Legacy/prototype compatibility commands:
+Legacy/snapshot compatibility commands:
 
 ```bash
-npm run prototype:sync
+npm run snapshot:sync
 npm run verdict
 node tools/verdict/check.mjs c4-3
 tools/deploy/deploy-pages.sh c4-3
@@ -82,10 +82,10 @@ tools/deploy/deploy-pages.sh c4-3
 
 ## Operating Boundaries
 
-- **Never**: 출처 없는 감각 콘텐츠 승격 / weak→strong 무단 승격 / 훈련·전이 문장 중복 / 인식 통계와 산출 통계 병합 / 게이미피케이션 중심 확장 / 범용 영어앱 확장 / `archive/prototypes/` 또는 `public/legacy/c4-3/`를 새 source로 사용.
+- **Never**: 출처 없는 감각 콘텐츠 승격 / weak→strong 무단 승격 / 훈련·전이 문장 중복 / 인식 통계와 산출 통계 병합 / 게이미피케이션 중심 확장 / 범용 영어앱 확장 / `archive/training-snapshots/` 또는 `public/legacy/c4-3/`를 새 source로 사용.
 - **Ask first**: Primary Promise 변경 / 4축 경계 변경 / 과금·새 외부 노출 / 서버·계정·분석 SDK 도입 / weak sense의 strong 승격.
 - **Always**: Story Chain Promise·AC·Evidence·code trace 유지 / 콘텐츠 변경은 `skills/content-consensus/SKILL.md` 경유 / 실제 사용자 검증은 demand evidence로 별도 취급 / `unknown` verdict는 release blocking으로 본다.
 
 ## Legacy Policy
 
-`archive/product-weaver/principles.md`, `archive/product-weaver/asset-map.md`, `archive/prototypes/*/cycle-record.md`는 과거 프로토타입 운영의 배경 자료다. `product-spiral-orchestrator`, `refinement-loop`, `intent-lock` 스킬은 활성 skill suite에서 제거했다. 새 작업의 1차 기준으로 사용하지 않는다. 새 작업은 Mission Control과 Story Chain을 따른다.
+archive의 과거 운영 기록은 새 작업의 1차 기준으로 사용하지 않는다. `product-spiral-orchestrator`, `refinement-loop`, `intent-lock` 스킬은 활성 skill suite에서 제거했다. 새 작업은 Mission Control과 Story Chain을 따른다.

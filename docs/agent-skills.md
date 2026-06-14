@@ -1,8 +1,7 @@
 # Agent Skills
 
-agentic-base keeps repo-local skills for the full pilot lifecycle, so a cloned
-copy can plan, bootstrap, propagate, and verify a new AI product without relying
-on external workspace-local skills.
+get-the-feel keeps repo-local skills for product contract work, propagation, and
+verification without relying on external workspace-local skills.
 
 The structure is intentionally simple:
 
@@ -50,11 +49,8 @@ contract-authoring
 → verify-wiring
 ```
 
-`project-bootstrap` is the first point that may call `scripts/start-pilot.mjs`
-and `init-project.sh`. Before that, work stays in initial intent capture, MVP
-sample iteration, Story Chain completion, and bootstrap-time technology
-selection. From `project-bootstrap` onward, `project-knowledge` records local
-memory, bootstrap events, and material changes.
+`project-knowledge` records local memory, project events, and material changes.
+Story Chain and Mission Control remain the active route for product-facing work.
 
 ## Steward Routing
 

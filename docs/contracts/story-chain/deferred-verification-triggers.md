@@ -19,7 +19,7 @@ agentic-base는 Evidence Ledger runner와 Story Chain validator를 단순한
 
 ## 등록 시점
 
-- 어떤 검증 아이디어가 매력적이지만 현재 single-pilot 상태에서는 과잉인 경우
+- 어떤 검증 아이디어가 매력적이지만 현재 제품 규모에서는 과잉인 경우
 - 도입했을 때 코드/문서 무게가 sample-first → bootstrap → propagation 흐름을 느리게 만들 가능성이 있는 경우
 - 동일 패턴이 N회 반복되면 도입 가치가 자명해지는 경우
 
